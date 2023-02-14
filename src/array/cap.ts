@@ -20,7 +20,7 @@ function cap(...arrs: any[][]) {
     let [sArr, l2] = [Array.from(s), arr.length];
 
     for (let j = 0; j < l2; j++) {
-      if (!includes(arr, sArr[j])) s.delete(sArr[j]);
+      if (!arr.includes(sArr[j])) s.delete(sArr[j]);
     }
   }
   return [...s];

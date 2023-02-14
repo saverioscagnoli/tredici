@@ -11,7 +11,13 @@
     "type": "git",
     "url": "git+https://github.com/saverioscagnoli/tredici.git"
   },
-  "keywords": [],
+  "keywords": [
+    "utils",
+    "lodash",
+    "math",
+    "array",
+    "string"
+  ],
   "author": "saverioscagnoli",
   "license": "MIT",
   "bugs": {

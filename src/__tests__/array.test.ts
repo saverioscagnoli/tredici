@@ -10,7 +10,7 @@ import {
   includes,
   map,
   reduce,
-  slice,
+  sliceArr,
   union,
   unzip,
   zip
@@ -390,35 +390,35 @@ describe("any", () => {
 describe("slice function", () => {
   it("should return a portion of the input array", () => {
     const input = [1, 2, 3, 4, 5];
-    const output = slice(input, 1, 4);
+    const output = sliceArr(input, 1, 4);
 
     expect(output).toEqual([2, 3, 4]);
   });
 
   it("should return the entire input array when no from and to indices are passed", () => {
     const input = [1, 2, 3, 4, 5];
-    const output = slice(input);
+    const output = sliceArr(input);
 
     expect(output).toEqual(input);
   });
 
   it("should return an empty array when the input array is empty", () => {
     const input: number[] = [];
-    const output = slice(input);
+    const output = sliceArr(input);
 
     expect(output).toEqual([]);
   });
 
   it("should return an array with only one element when from and to indices are the same", () => {
     const input = [1, 2, 3, 4, 5];
-    const output = slice(input, 2, 2);
+    const output = sliceArr(input, 2, 2);
 
     expect(output).toEqual([3]);
   });
 
   it("should return an empty array when the to index is less than the from index", () => {
     const input = [1, 2, 3, 4, 5];
-    const output = slice(input, 2, 1);
+    const output = sliceArr(input, 2, 1);
 
     expect(output).toEqual([]);
   });

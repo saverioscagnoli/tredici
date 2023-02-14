@@ -16,11 +16,11 @@
  * // returns [2]
  */
 
-function slice<T>(arr: T[], f: number = 0, t = arr.length) {
+function sliceArr<T>(arr: T[], f: number = 0, t = arr.length) {
   if (f === t) return [arr[f]];
   let out: T[] = [];
   for (let i = f; i < t; i++) out.push(arr[i]);
   return out;
 }
 
-export { slice };
+export { sliceArr };
