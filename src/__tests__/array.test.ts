@@ -9,6 +9,7 @@ import {
   filter,
   includes,
   map,
+  pick,
   reduce,
   sliceArr,
   union,
@@ -617,5 +618,26 @@ describe("unzip", () => {
   it("should return an empty array if the given 2D array is empty", () => {
     const arr: any[][] = [];
     expect(unzip(arr)).toEqual([]);
+  });
+});
+
+/**
+ * ####################
+ *
+ * Pick
+ *
+ * ####################
+ */
+
+describe("pick", () => {
+  it("should return a random element from the array", () => {
+    const numbers = [1, 2, 3, 4, 5];
+    const result = pick(numbers);
+    expect(numbers).toContain(result);
+  });
+
+  it("should return undefined if the array is empty", () => {
+    const result = pick([]);
+    expect(result).toBeUndefined();
   });
 });

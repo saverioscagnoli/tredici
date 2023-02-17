@@ -6,3 +6,4 @@ export * from "./cos";
 export * from "./tan";
 export * from "./qrSqrt";
 export * from "./tan";
+export * from "./rng";

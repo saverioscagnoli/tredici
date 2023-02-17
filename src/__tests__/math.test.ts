@@ -1,5 +1,5 @@
 import { expect, describe, it, test } from "@jest/globals";
-import { abs, cos, fact, qrSqrt, sin, sqrt, tan } from "../math";
+import { abs, cos, fact, qrSqrt, rng, sin, sqrt, tan } from "../math";
 
 /**
  * ####################
@@ -175,5 +175,27 @@ describe("tan function", () => {
     expect(() => tan(Math.PI / 2)).toThrow(
       "The cosine is 0, therefore the tangent is not defined."
     );
+  });
+});
+
+/**
+ * ####################
+ *
+ * Rng
+ *
+ * ####################
+ */
+
+describe("rng", () => {
+  it("should return a random integer within the specified range", () => {
+    const result = rng(5, 10);
+    expect(result).toBeGreaterThanOrEqual(5);
+    expect(result).toBeLessThanOrEqual(10);
+  });
+
+  it("should return a random integer within the default range if no parameters are specified", () => {
+    const result = rng();
+    expect(result).toBeGreaterThanOrEqual(Number.MIN_SAFE_INTEGER);
+    expect(result).toBeLessThanOrEqual(Number.MAX_SAFE_INTEGER);
   });
 });

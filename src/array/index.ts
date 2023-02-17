@@ -15,3 +15,4 @@ export * from "./union";
 export * from "./unzip";
 export * from "./zip";
 export * from "./join";
+export * from "./pick";
