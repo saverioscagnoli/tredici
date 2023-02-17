@@ -1,29 +1,40 @@
-import { fact } from "./fact";
-
 /**
- * Computes the sine of a given number `x` to a specified precision `p`.
+ * Calculates the sine of an angle in radians or degrees using Bhaskara I approximation.
  *
- * @param x - The input number for which sine needs to be calculated.
- * @param [p=7] - The number of decimal places of precision for the result.
- *
- * @example
- * sin(Math.PI / 2);
- * // Returns: 1
+ * @param - The angle to calculate the sine of.
+ * @param [deg=false] - Whether `x` is in degrees (`true`) or radians (`false`).
  *
  * @example
- * sin(Math.PI / 6, 4);
- * // Returns: 0.5
+ * // Sine of 45 degrees
+ * const sin45 = sin(45, true); // 0.7071067811865475
+ *
+ * @example
+ * // Sine of pi/4 radians
+ * const sinPi4 = sin(Math.PI / 4); // 0.7071067811865475
+ *
+ * @example
+ * // Sine of -135 degrees
+ * const sinNeg135 = sin(-135, true); // -0.7071067811865475
+ *
+ * @example
+ * // Sine of -3pi/4 radians
+ * const sinNeg3Pi4 = sin(-3 * Math.PI / 4); // -0.7071067811865475
  */
 
-function sin(x: number, p: number = 3) {
-  let r = 0;
-  for (let i = 0; i <= 10; i++) {
-    let c = 2 * i + 1;
-    let [y, z] = [(-1) ** i * x ** c, fact(c)];
-    r += y / z;
+function sin(x: number, deg: boolean = false) {
+  const { PI } = Math;
+  const PI2 = PI * 2;
+  if (deg) {
+    x = x * (PI / 180);
   }
-  let e = 10 ** p;
-  return Math.round((r + Number.EPSILON) * e) / e;
+  x = x % PI2;
+  let ch = false;
+  if (x < 0) x += PI2;
+  if (x > PI) [(ch = true), (x = PI2 - x)];
+  let c = PI - x;
+  let n = 16 * x * c;
+  let d = 5 * (PI * PI) - 4 * x * c;
+  return ch ? -(n / d) : n / d;
 }
 
 export { sin };

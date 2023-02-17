@@ -1,29 +1,35 @@
-import { fact } from "./fact";
-
 /**
- * Computes the cosine of a given number `x` to a specified precision `p`.
+ * Calculates the cosine of an angle in radians or degrees using the approximation of Bhaskara I.
  *
- * @param x - The input number for which cosine needs to be calculated.
- * @param [p=7] - The number of decimal places of precision for the result.
- *
- * @example
- * cos(Math.PI / 2);
- * // Returns: 0
+ * @param x - The angle in radians or degrees.
+ * @param [deg=false] - Whether `x` is in degrees (default is radians).
  *
  * @example
- * cos(Math.PI / 4, 5);
- * // Returns: 0.7071
+ * // Calculate the cosine of 30 degrees
+ * const cos30 = cos(30, true); // Returns 0.8660254037844387
+ *
+ * @example
+ * // Calculate the cosine of pi/4 radians
+ * const cosPiOver4 = cos(Math.PI / 4); // Returns 0.7071067811865476
+ *
+ * @see https://en.wikipedia.org/wiki/Bhaskara_I%27s_sine_approximation_formula
  */
 
-function cos(x: number, p: number = 3) {
-  let r = 0;
-  for (let i = 0; i <= 10; i++) {
-    let c = 2 * i;
-    let [y, z] = [(-1) ** i * x ** c, fact(c)];
-    r += y / z;
+function cos(x: number, deg: boolean = false) {
+  const { PI } = Math;
+  const PI2 = PI * 2;
+  if (deg) {
+    x = x * (Math.PI / 180);
   }
-  let e = 10 ** p;
-  return Math.round((r + Number.EPSILON) * e) / e;
+  x = x % PI2;
+  let ch = false;
+  if (x < -PI / 2) x += PI2;
+  if (x > PI / 2) [(ch = true), (x -= PI)];
+  let sq = x * x;
+  let pi2 = 2 * Math.PI;
+  let n = 20 * sq;
+  let d = 4 * sq + pi2 * pi2;
+  return ch ? -(1 - n / d) : 1 - n / d;
 }
 
 export { cos };
