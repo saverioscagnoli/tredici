@@ -1,4 +1,5 @@
 import { includes } from "./includes";
+import { loop } from "./loop";
 
 /**
  * Returns the intersection of all elements from multiple arrays.
@@ -14,15 +15,12 @@ import { includes } from "./includes";
  */
 
 function cap(...arrs: any[][]) {
-  let [s, l1] = [new Set(arrs[0]), arrs.length];
-  for (let i = 1; i < l1; i++) {
-    let arr = arrs[i];
-    let [sArr, l2] = [Array.from(s), arr.length];
-
-    for (let j = 0; j < l2; j++) {
-      if (!arr.includes(sArr[j])) s.delete(sArr[j]);
-    }
-  }
+  let s = new Set(arrs[0]);
+  loop(arrs, a => {
+    loop(a, el => {
+      if (!a.includes(el)) s.delete(el);
+    });
+  });
   return [...s];
 }
 

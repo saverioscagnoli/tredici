@@ -1,3 +1,5 @@
+import { loop } from "./loop";
+
 /**
  * Filters an array based on a given condition, returning a new array
  * containing only the elements that pass the test implemented by the `fn` function.
@@ -18,11 +20,9 @@
 
 function filter<T>(arr: T[], fn: (x: T) => boolean) {
   let o = [];
-  let l = arr.length;
-  for (let i = 0; i < l; i++) {
-    let el = arr[i];
+  loop(arr, el => {
     if (fn(el)) o.push(el);
-  }
+  });
   return o;
 }
 

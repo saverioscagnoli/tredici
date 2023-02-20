@@ -1,3 +1,5 @@
+import { loop } from "./loop";
+
 /**
  * Joins an array into a single string, using a separator.
  *
@@ -7,12 +9,12 @@
 
 function join(sep: string, ...str: any[]): string {
   let r = "";
-  for (let i = 0; i < str.length; i++) {
-    r += str[i];
+  loop(str, (c, i) => {
+    r += c;
     if (i !== str.length - 1) {
       r += sep;
     }
-  }
+  });
   return r;
 }
 

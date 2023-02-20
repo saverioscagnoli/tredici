@@ -1,9 +1,10 @@
+import { loop } from "./loop";
+
 /**
- * Determines if any elements in an array pass a given test.
+ * Determines if at least one element in an array passes a given condition.
  *
- * @template T
- * @param arr - The array to search.
- * @param [fn=x => Boolean(x)] - The test function to apply to each element.
+ * @param arr - The array to iterate.
+ * @param [fn=x => Boolean(x)] - The function that has to return a boolean.
  * @returns `true` if any element in `arr` passes `fn`, `false` otherwise.
  *
  * @example
@@ -15,7 +16,9 @@
  */
 
 function any<T>(arr: T[], fn: (x: T) => boolean = x => Boolean(x)) {
-  for (let i = 0; i < arr.length; i++) if (fn(arr[i])) return true;
+  loop(arr, x => {
+    if (fn(x)) return true;
+  });
   return false;
 }
 

@@ -1,3 +1,5 @@
+import { loop } from "./loop";
+
 /**
  * Transforms elements of an array into a new array.
  *
@@ -15,8 +17,9 @@
 
 function map<T>(arr: T[], fn: (x: T) => any): any[] {
   let o: any[] = [];
-  let l = arr.length;
-  for (let i = 0; i < l; i++) o.push(fn(arr[i]));
+  loop(arr, x => {
+    o.push(fn(x));
+  });
   return o;
 }
 

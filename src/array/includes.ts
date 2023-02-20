@@ -1,7 +1,7 @@
-import { binary } from "./binary";
+import { any } from "./any";
 
 /**
- * Determines if an array includes a given element using binary search.
+ * Determines if an array includes a given element.
  *
  * @param arr - The array to search.
  * @param t - The element to search for.
@@ -15,7 +15,7 @@ import { binary } from "./binary";
  */
 
 function includes<T>(arr: T[], t: T) {
-  return binary(arr, t) !== -1;
+  return any(arr, x => x === t);
 }
 
 export { includes };
