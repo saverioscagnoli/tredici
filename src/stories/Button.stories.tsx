@@ -131,3 +131,46 @@ export const Success: Story = {
   },
   render: args => <Button {...args} />
 };
+
+export const Example: Story = {
+  render: () => (
+    <div
+      style={{
+        width: "100%",
+        display: "flex",
+        justifyContent: "center"
+      }}
+    >
+      <div
+        style={{
+          width: "300px",
+          padding: "5px",
+          border: "1px solid #ccc",
+          borderRadius: "6px",
+          fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+          boxShadow: "0 0 10px rgba(0,0,0,0.2)",
+          textAlign: "center"
+        }}
+      >
+        <p>This is a raccoon 🦝</p>
+        <img
+          style={{ maxWidth: "80%", maxHeight: "80%", borderRadius: "4px" }}
+          src="https://i.imgur.com/seY1co9.jpg"
+        />
+        <div
+          style={{
+            width: "100%",
+            padding: "5px",
+            justifyContent: "flex-end",
+            display: "flex",
+            gap: "10px",
+            marginLeft: "-10px"
+          }}
+        >
+          <Button>Cool!</Button>
+          <Button variant="danger">They&apos;re evil!</Button>
+        </div>
+      </div>
+    </div>
+  )
+};

@@ -48,7 +48,7 @@ const SIZE: StyleMap<SizeTuple> = {
 
 export const StyledButton = styled.button<ButtonProps>`
   all: unset;
-  padding: 8px 16px;
+  user-select: none;
   border: 1px solid;
   border-color: #ccc;
   border-radius: 6px;
