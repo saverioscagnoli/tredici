@@ -18,6 +18,8 @@
     "react/prop-types": 0,
     "react/react-in-jsx-scope": 0,
     "@typescript-eslint/no-non-null-assertion": "off",
-    "prefer-const": "off"
+    "prefer-const": "off",
+    "react/display-name": "off",
+    "react-hooks/rules-of-hooks": "off"
   }
 }
