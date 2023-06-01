@@ -35,3 +35,7 @@ export const Number: Story = {
 export const Checkbox: Story = {
   render: () => <Input type="checkbox" />
 };
+
+export const Radio: Story = {
+  render: () => <Input type="radio" />
+};

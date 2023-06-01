@@ -18,7 +18,7 @@ export const StyledSelectWrapper = styled.div`
 `;
 
 export const StyledSelectHandler = styled.div`
-  width: 150px;
+  width: 170px;
   padding: 8px;
   display: flex;
   justify-content: space-between;
@@ -28,12 +28,16 @@ export const StyledSelectHandler = styled.div`
   border-radius: 4px;
   cursor: pointer;
   ${changingStyle}
+
+  &:hover {
+    box-shadow: 0 0 0 1.5px #7b529b;
+  }
 `;
 
 export const StyledSelectOptionWrapper = styled.ul`
-  width: 166px;
+  width: 170px;
   margin-top: 10px;
-  padding: 0;
+  padding: 8px;
   position: absolute;
   list-style: none;
   background-color: #fff;
@@ -76,6 +80,7 @@ export const StyledSelectOptionWrapper = styled.ul`
 export const StyledSelectOption = styled.li`
   padding: 8px;
   text-align: center;
+  border-radius: 4px;
   cursor: pointer;
   ${changingStyle}
 `;

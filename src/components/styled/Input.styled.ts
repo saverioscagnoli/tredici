@@ -32,6 +32,33 @@ export const StyledInput = styled.input`
         `;
       }
 
+      case "radio": {
+        return css`
+          appearance: none;
+          background-color: #fff;
+          margin: 0;
+          color: #7b529b;
+          width: 1.15rem;
+          height: 1.15rem;
+          border: 1.5px solid #aaa;
+          border-radius: 50%;
+          display: grid;
+          place-content: center;
+          &::before {
+            content: "";
+            width: 12px;
+            height: 12px;
+            transform: scale(0);
+            transition: transform 15ms ease-in-out;
+            box-shadow: inset 1rem 1rem #7b529b;
+            border-radius: 50%;
+          }
+          &:checked::before {
+            transform: scale(1);
+          }
+        `;
+      }
+
       default: {
         return css`
           border: 1.5px solid;
