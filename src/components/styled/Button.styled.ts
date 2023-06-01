@@ -60,8 +60,8 @@ export const StyledButton = styled.button<ButtonProps>`
   ${props => {
     let { variant, size } = props;
     return css`
-      ${styleVariant(...VARIANT[variant!])}
-      ${styleSize(...SIZE[size!])}
+      ${styleVariant(...VARIANT[variant ?? "secondary"])}
+      ${styleSize(...SIZE[size ?? "md"])}
     `;
   }}
 `;
