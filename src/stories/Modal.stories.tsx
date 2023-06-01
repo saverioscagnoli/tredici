@@ -23,13 +23,20 @@ type Story = StoryObj<typeof Modal>;
 
 export const Example: Story = {
   args: {
-    alignment: "center"
+    horizontalAlign: "center",
+    verticalAlign: "center"
   },
   argTypes: {
-    alignment: {
+    horizontalAlign: {
       control: {
         type: "inline-radio",
         options: ["center", "left", "right"]
+      }
+    },
+    verticalAlign: {
+      control: {
+        type: "inline-radio",
+        options: ["center", "top", "bottom"]
       }
     }
   },
@@ -40,7 +47,9 @@ export const Example: Story = {
       <div>
         <Button onClick={toggle}>Open Modal</Button>
         <Modal {...args} open={open} onClose={toggle}>
-          <Modal.Header>Hello world!</Modal.Header>
+          <Modal.Header closeButton onClose={toggle}>
+            Hello world!
+          </Modal.Header>
           <Modal.Body>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim

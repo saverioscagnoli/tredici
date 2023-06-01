@@ -1,7 +1,7 @@
 import { ComponentPropsWithoutRef, forwardRef } from "react";
 import { StyledModalHeader as Header } from "../styled";
-import { Button } from "../Button";
-import { GrClose } from "react-icons/gr";
+import { IconButton } from "../IconButton";
+import { TfiClose } from "react-icons/tfi";
 
 export interface ModalHeaderProps extends ComponentPropsWithoutRef<"div"> {
   closeButton?: boolean;
@@ -14,9 +14,12 @@ export const ModalHeader = forwardRef<HTMLDivElement, ModalHeaderProps>(
       <Header {...props} ref={ref}>
         {children}
         {closeButton ? (
-          <Button onClick={onClose}>
-            <GrClose />
-          </Button>
+          <IconButton
+            variant="danger"
+            aria-label="close-button"
+            icon={<TfiClose color="white" />}
+            onClick={onClose}
+          />
         ) : null}
       </Header>
     );

@@ -13,9 +13,9 @@ export interface ButtonProps extends ComponentPropsWithoutRef<"button"> {
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ children, variant = "secondary", size = "md", ...props }, ref) => {
+  ({ children, ...props }, ref) => {
     return (
-      <StyledButton ref={ref} variant={variant} size={size} {...props}>
+      <StyledButton ref={ref} {...props}>
         {children}
       </StyledButton>
     );
