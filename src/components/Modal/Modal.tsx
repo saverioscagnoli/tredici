@@ -1,5 +1,4 @@
 import {
-  CSSProperties,
   ComponentPropsWithoutRef,
   ForwardRefExoticComponent,
   forwardRef
@@ -22,9 +21,13 @@ export interface ModalProps extends ComponentPropsWithoutRef<"div"> {
    */
   onClose: () => void;
   /**
-   * Controls the alignment of the modal
+   * Controls the horizontal alignment of the modal
    */
-  alignment?: "center" | "left" | "right";
+  horizontalAlign?: "left" | "center" | "right";
+  /**
+   * Controls the vertical alignment of the modal
+   */
+  verticalAlign?: "top" | "center" | "bottom";
 }
 interface CompoundedModal extends ForwardRefExoticComponent<ModalProps> {
   Header: React.FC<ModalHeaderProps>;

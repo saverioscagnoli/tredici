@@ -12,26 +12,22 @@ const styleVariant = (
   border: string,
   hover: string,
   active: string
-) => {
-  return css`
-    background-color: ${normal};
-    color: ${font};
-    border: ${border};
-    &:hover {
-      background-color: ${hover};
-    }
-    &:active {
-      background-color: ${active};
-    }
-  `;
-};
+) => css`
+  background-color: ${normal};
+  color: ${font};
+  border: ${border};
+  &:hover {
+    background-color: ${hover};
+  }
+  &:active {
+    background-color: ${active};
+  }
+`;
 
-const styleSize = (p: number, fontSize: number) => {
-  return css`
-    padding: ${p}px ${p * 2}px;
-    font-size: ${fontSize}px;
-  `;
-};
+const styleSize = (p: number, fontSize: number) => css`
+  padding: ${p}px ${p * 2}px;
+  font-size: ${fontSize}px;
+`;
 
 const VARIANT: StyleMap<VariantTuple> = {
   primary: ["#7b529b", "#fff", "none", "#955fb0", "#6d407f"],
@@ -49,19 +45,15 @@ const SIZE: StyleMap<SizeTuple> = {
 export const StyledButton = styled.button<ButtonProps>`
   all: unset;
   user-select: none;
-  border: 1px solid;
-  border-color: #ccc;
+  border: 1px solid #ccc;
   border-radius: 6px;
   cursor: pointer;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 600;
   transition: background-color 0.075s ease;
 
-  ${props => {
-    let { variant, size } = props;
-    return css`
-      ${styleVariant(...VARIANT[variant ?? "secondary"])}
-      ${styleSize(...SIZE[size ?? "md"])}
-    `;
-  }}
+  ${({ variant = "secondary", size = "md" }) => css`
+    ${styleVariant(...VARIANT[variant])}
+    ${styleSize(...SIZE[size])}
+  `}
 `;

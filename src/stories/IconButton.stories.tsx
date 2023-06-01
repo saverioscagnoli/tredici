@@ -21,5 +21,5 @@ type Story = StoryObj<typeof IconButton>;
  */
 
 export const Example: Story = {
-  render: () => <IconButton />
+  render: () => <IconButton aria-label="a" />
 };
