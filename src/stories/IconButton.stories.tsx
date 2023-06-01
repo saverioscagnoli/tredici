@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { IoMdBeer } from "react-icons/io";
 
 import { IconButton } from "../components";
 
@@ -21,5 +22,5 @@ type Story = StoryObj<typeof IconButton>;
  */
 
 export const Example: Story = {
-  render: () => <IconButton aria-label="a" />
+  render: () => <IconButton aria-label="icon-button" icon={<IoMdBeer />} />
 };
