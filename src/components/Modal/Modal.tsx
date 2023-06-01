@@ -1,20 +1,38 @@
-import { CSSProperties, ComponentPropsWithoutRef, forwardRef } from "react";
-import { ModalContent, ModalWrapper } from "../styled";
+import {
+  CSSProperties,
+  ComponentPropsWithoutRef,
+  ForwardRefExoticComponent,
+  forwardRef
+} from "react";
+import {
+  StyledModalWrapper as Wrapper,
+  StyledModalContainer as Container
+} from "../styled";
+import { ModalHeader } from "./ModalHeader";
+import { ModalFooter } from "./ModalFooter";
+import { ModalBody } from "./ModalBody";
 
-interface ModalProps extends ComponentPropsWithoutRef<"div"> {
+export interface ModalProps extends ComponentPropsWithoutRef<"div"> {
   open: boolean;
   onClose: () => void;
-  contentStyle?: CSSProperties;
+  alignment?: "center" | "left" | "right";
+}
+interface CompoundedModal extends ForwardRefExoticComponent<ModalProps> {
+  Header: React.FC<ComponentPropsWithoutRef<"div">>;
+  Body: React.FC<ComponentPropsWithoutRef<"div">>;
+  Footer: React.FC<ComponentPropsWithoutRef<"div">>;
 }
 
 export const Modal = forwardRef<HTMLDivElement, ModalProps>(
-  ({ children, open, contentStyle, ...props }, ref) => {
+  ({ children, ...props }, ref) => {
     return (
-      <ModalWrapper open={open} {...props} ref={ref}>
-        <ModalContent style={contentStyle} open={open}>
-          {children}
-        </ModalContent>
-      </ModalWrapper>
+      <Wrapper {...props} ref={ref}>
+        <Container>{children}</Container>
+      </Wrapper>
     );
   }
-);
+) as CompoundedModal;
+
+Modal.Header = ModalHeader;
+Modal.Body = ModalBody;
+Modal.Footer = ModalFooter;

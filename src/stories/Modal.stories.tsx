@@ -21,17 +21,41 @@ type Story = StoryObj<typeof Modal>;
  * to learn how to use render functions.
  */
 
-export const Text: Story = {
-  render: () => {
-    const [open, { toggle, setFalse }] = useBool(false);
+export const Example: Story = {
+  args: {
+    alignment: "center"
+  },
+  argTypes: {
+    alignment: {
+      control: {
+        type: "select",
+        options: ["center", "left", "right"]
+      }
+    }
+  },
+  render: args => {
+    const [open, { toggle }] = useBool(false);
 
     return (
       <div>
         <Button onClick={toggle}>Open Modal</Button>
-        <Modal open={open} onClose={setFalse}>
-          <h2>Modal Title</h2>
-          <p>Modal Content</p>
-          <Button onClick={setFalse}>Close Modal</Button>
+        <Modal {...args} open={open} onClose={toggle}>
+          <Modal.Header>Hello world!</Modal.Header>
+          <Modal.Body>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </Modal.Body>
+          <Modal.Footer>
+            <Button onClick={toggle} variant="danger">
+              Close
+            </Button>
+            <Button>Submit</Button>
+          </Modal.Footer>
         </Modal>
       </div>
     );
