@@ -8,19 +8,28 @@ import {
   StyledModalWrapper as Wrapper,
   StyledModalContainer as Container
 } from "../styled";
-import { ModalHeader } from "./ModalHeader";
-import { ModalFooter } from "./ModalFooter";
+import { ModalHeader, ModalHeaderProps } from "./ModalHeader";
+import { ModalFooter, ModalFooterProps } from "./ModalFooter";
 import { ModalBody } from "./ModalBody";
 
 export interface ModalProps extends ComponentPropsWithoutRef<"div"> {
+  /**
+   * Controls whether the modal is open or not
+   */
   open: boolean;
+  /**
+   * Callback fired when the component requests to be closed
+   */
   onClose: () => void;
+  /**
+   * Controls the alignment of the modal
+   */
   alignment?: "center" | "left" | "right";
 }
 interface CompoundedModal extends ForwardRefExoticComponent<ModalProps> {
-  Header: React.FC<ComponentPropsWithoutRef<"div">>;
+  Header: React.FC<ModalHeaderProps>;
   Body: React.FC<ComponentPropsWithoutRef<"div">>;
-  Footer: React.FC<ComponentPropsWithoutRef<"div">>;
+  Footer: React.FC<ModalFooterProps>;
 }
 
 export const Modal = forwardRef<HTMLDivElement, ModalProps>(

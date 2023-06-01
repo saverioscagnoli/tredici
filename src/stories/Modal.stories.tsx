@@ -28,7 +28,7 @@ export const Example: Story = {
   argTypes: {
     alignment: {
       control: {
-        type: "select",
+        type: "inline-radio",
         options: ["center", "left", "right"]
       }
     }
@@ -50,7 +50,7 @@ export const Example: Story = {
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
           </Modal.Body>
-          <Modal.Footer>
+          <Modal.Footer separator>
             <Button onClick={toggle} variant="danger">
               Close
             </Button>
