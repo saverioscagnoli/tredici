@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Button, Modal } from "../components";
-import { useState } from "react";
 import { useBool } from "../hooks";
 
 const meta: Meta<typeof Modal> = {
