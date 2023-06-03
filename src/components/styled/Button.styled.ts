@@ -50,7 +50,7 @@ export const StyledButton = styled.button<ButtonProps>`
   cursor: pointer;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 600;
-  transition: background-color 0.075s ease;
+  transition: background-color 75ms ease;
 
   ${({ variant = "secondary", size = "md" }) => css`
     ${styleVariant(...VARIANT[variant])}

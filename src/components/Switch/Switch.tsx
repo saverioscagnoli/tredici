@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, forwardRef } from "react";
+import React, { ComponentPropsWithoutRef, forwardRef } from "react";
 import {
   StyledSwitchLabel as Label,
   StyledSwitchInput as Input,

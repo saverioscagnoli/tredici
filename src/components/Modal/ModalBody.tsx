@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, forwardRef } from "react";
+import React, { ComponentPropsWithoutRef, forwardRef } from "react";
 import { StyledModalBody as Body } from "../styled";
 
 export const ModalBody = forwardRef<

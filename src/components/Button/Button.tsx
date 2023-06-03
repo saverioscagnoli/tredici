@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, forwardRef } from "react";
+import React, { ComponentPropsWithoutRef, forwardRef } from "react";
 import { StyledButton } from "../styled";
 
 export interface ButtonProps extends ComponentPropsWithoutRef<"button"> {

@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, forwardRef } from "react";
+import React, { ComponentPropsWithoutRef, forwardRef } from "react";
 import {
   StyledSelectHandler as Handler,
   StyledSelectOption as Option,

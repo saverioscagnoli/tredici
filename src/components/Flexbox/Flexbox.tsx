@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, forwardRef } from "react";
+import React, { ComponentPropsWithoutRef, forwardRef } from "react";
 import { StyledFlexbox } from "../styled";
 
 export interface FlexboxProps extends ComponentPropsWithoutRef<"div"> {

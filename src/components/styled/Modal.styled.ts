@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { ModalProps } from "../Modal";
 import { ModalFooterProps } from "../Modal/ModalFooter";
 import { ModalHeaderProps } from "../Modal/ModalHeader";
@@ -17,15 +17,14 @@ const V_ALIGNMENT = {
 
 export const StyledModalWrapper = styled.div<ModalProps>`
   all: unset;
-  display: ${({ open }) => (open ? "flex" : "none")};
+  display: ${props => (props.open ? "flex" : "none")};
   position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  justify-content: ${({ horizontalAlign }) =>
-    H_ALIGNMENT[horizontalAlign ?? "center"]};
-  align-items: ${({ verticalAlign }) => V_ALIGNMENT[verticalAlign ?? "center"]};
+  justify-content: ${props => H_ALIGNMENT[props.horizontalAlign ?? "center"]};
+  align-items: ${props => V_ALIGNMENT[props.verticalAlign ?? "center"]};
   background-color: rgba(0, 0, 0, 0.4);
 `;
 
@@ -54,9 +53,10 @@ export const StyledModalHeader = styled.div<ModalHeaderProps>`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 10px 0 20px;
+  padding: 20px 10px ${props => (props.separator ? 10 : 0)}px 20px;
   font-size: 30px;
   font-weight: bold;
+  border-bottom: ${props => (props.separator ? "1px solid #ccc" : "none")};
 `;
 
 export const StyledModalBody = styled.div`
@@ -66,11 +66,7 @@ export const StyledModalBody = styled.div`
 `;
 
 export const StyledModalFooter = styled.div<ModalFooterProps>`
-  ${({ separator }) =>
-    separator &&
-    css`
-      border-top: 1px solid #ccc;
-    `}
+  border-top: ${props => (props.separator ? "1px solid #ccc" : "none")};
   padding: 10px;
   display: flex;
   justify-content: flex-end;

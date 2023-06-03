@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, forwardRef } from "react";
+import React, { ComponentPropsWithoutRef, forwardRef } from "react";
 import { StyledModalFooter as Footer } from "../styled";
 
 export interface ModalFooterProps extends ComponentPropsWithoutRef<"div"> {
