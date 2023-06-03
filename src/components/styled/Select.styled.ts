@@ -59,7 +59,7 @@ export const StyledSelectOptionWrapper = styled.ul`
   }
 
   &::-webkit-scrollbar {
-    width: 8px;
+    width: 7px;
   }
 
   &::-webkit-scrollbar-track {

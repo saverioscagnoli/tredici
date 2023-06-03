@@ -4,8 +4,18 @@ import { IconButton } from "../IconButton";
 import { TfiClose } from "react-icons/tfi";
 
 export interface ModalHeaderProps extends ComponentPropsWithoutRef<"div"> {
+  /**
+   * If true, a close button will be rendered
+   */
   closeButton?: boolean;
+  /**
+   * Callback function to handle close button click
+   */
   onClose?: () => void;
+  /**
+   * If true, a separator will be rendered
+   */
+  separator?: boolean;
 }
 
 export const ModalHeader = forwardRef<HTMLDivElement, ModalHeaderProps>(
