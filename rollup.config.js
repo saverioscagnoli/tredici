@@ -3,20 +3,20 @@ import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import external from "rollup-plugin-peer-deps-external";
 import dts from "rollup-plugin-dts";
-import { terser } from "rollup-plugin-terser";
+import pkg from "./package.json" assert { type: "json" };
 
 export default [
   {
     input: "src/index.ts",
     output: [
       {
-        file: "dist/cjs/index.js",
+        file: pkg.main,
         format: "cjs",
         sourcemap: true,
         name: "tredici"
       },
       {
-        file: "dist/esm/index.js",
+        file: pkg.module,
         format: "esm",
         sourcemap: true
       }
@@ -25,8 +25,7 @@ export default [
       external(),
       resolve(),
       commonjs(),
-      typescript({ tsconfig: "./tsconfig.json" }),
-      terser()
+      typescript({ tsconfig: "./tsconfig.json" })
     ]
   },
   {
