@@ -54,7 +54,7 @@
 
 .button-13.outline {
   background-color: transparent;
-  border: 1px solid var(--background-gray);
+  border: 1px solid var(--background-gray-darker);
   color: var(--font-color-inverted);
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
     rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
@@ -69,16 +69,16 @@
 }
 
 .button-13.danger {
-  background-color: rgb(239 68 68);
+  background-color: rgb(var(--red-400));
   color: #fff;
 }
 
 .button-13.danger:hover {
-  background-color: rgb(220 38 38);
+  background-color: rgb(var(--red-500));
 }
 
 .button-13.danger:active {
-  background-color: rgb(185 28 28);
+  background-color: rgb(var(--red-600));
 }
 
 .button-13.sm {
