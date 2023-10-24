@@ -6,6 +6,8 @@ import { Input } from ".";
 import { Tredici } from "@components/theme-context-provider";
 import { useTheme } from "@hooks/use-theme";
 import { BsSun, BsMoonFill } from "react-icons/bs";
+import { RxEyeOpen, RxEyeClosed } from "react-icons/rx";
+import { useState } from "react";
 
 const meta: Meta<typeof Input> = {
   /* 👇 The title prop is optional.
@@ -38,6 +40,9 @@ const ThemeButton = () => {
 
 export const Normal: Story = {
   render: () => {
+    const [type, setType] = useState<"password" | "text">("password");
+    const toggle = () => setType(type === "password" ? "text" : "password");
+
     return (
       <Tredici>
         <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
@@ -45,10 +50,13 @@ export const Normal: Story = {
             <ThemeButton />
             <Input />
           </div>
-          <Input placeholder="Email" />
-          <Input placeholder="Password" type="password" />
-          <Input type="number" />
-          <Input type="file" />
+          <div style={{ display: "flex", gap: "1rem" }}>
+            <Input type={type} />
+            <IconButton
+              icon={type === "password" ? <RxEyeOpen /> : <RxEyeClosed />}
+              onClick={toggle}
+            />
+          </div>
         </div>
       </Tredici>
     );
