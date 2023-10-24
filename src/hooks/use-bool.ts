@@ -5,9 +5,9 @@ const useBool = (init?: boolean) => {
 
   const setTrue = useCallback(() => setBool(true), []);
   const setFalse = useCallback(() => setBool(false), []);
-  const toggle = useCallback(() => setBool((prev) => !prev), []);
+  const toggle = useCallback(() => setBool(prev => !prev), []);
 
-  return { bool, setTrue, setFalse, toggle };
+  return [bool, { setTrue, setFalse, toggle }] as const;
 };
 
 export { useBool };
