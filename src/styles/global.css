@@ -27,6 +27,16 @@
   --gray-800: 32, 28, 37;
   --gray-900: 14, 11, 18;
 
+  --red-100: 251, 221, 221;
+  --red-200: 249, 166, 166;
+  --red-300: 238, 119, 119;
+  --red-400: 241, 87, 87;
+  --red-500: 233, 46, 46;
+  --red-600: 200, 9, 9;
+  --red-700: 145, 6, 6;
+  --red-800: 105, 2, 2;
+  --red-900: 65, 2, 2;
+
   --body-background: #fafafa;
   --background: rgb(var(--violet-400));
   --background-darker: rgb(var(--violet-500));
