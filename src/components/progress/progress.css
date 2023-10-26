@@ -1,0 +1,41 @@
+@keyframes loading {
+  from {
+    left: -50%;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+.progress-13 {
+  width: 12rem;
+  height: 0.5rem;
+  background-color: var(--background-gray-darker);
+  border-radius: 0.375rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-13-fill {
+  position: relative;
+  height: 100%;
+  border-radius: 0.375rem;
+  background-color: var(--background);
+  overflow: hidden;
+  transition: width 300ms ease;
+}
+
+.progress-13.loading .progress-13-fill {
+  background-color: transparent;
+}
+
+.progress-13.loading .progress-13-fill::before {
+  content: "";
+  border-radius: 0.375rem;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  width: 50%;
+  background-color: var(--background);
+  animation: loading 2s infinite;
+}
