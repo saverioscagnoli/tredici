@@ -57,6 +57,20 @@
   --black-800: #262626;
   --black-900: #1a1a1a;
 
+  /* Avatar background colors */
+
+  --pastel-violet: 164 125 144;
+  --antique-pink: 211 110 112;
+  --pale-green: 137 172 118;
+  --dahlia-yellow: 243 165 005;
+  --yellow-green: 087 166 057;
+  --pearl-violet: 134 115 161;
+  --turquoise-green: 030 089 069;
+  --pigeon-blue: 096 111 140;
+  --salmon-pink: 217 080 048;
+  --signal-orange: 216 075 032;
+  --ochre-yellow: 174 160 075;
+
   --body-background: #fafafa;
   --background: rgb(var(--violet-400));
   --background-darker: rgb(var(--violet-500));
