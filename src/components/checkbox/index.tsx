@@ -1,31 +1,26 @@
-import {
-  useEffect,
-  forwardRef,
-  ElementRef,
-  ReactNode,
-  CSSProperties
-} from "react";
-import { CheckIcon } from "@radix-ui/react-icons";
-import "./checkbox.css";
 import { useBool } from "@hooks/use-bool";
+import { join } from "@lib/utils";
+import { CheckIcon } from "@radix-ui/react-icons";
+import { CSSProperties, forwardRef, ReactNode, useEffect } from "react";
+import "./checkbox.css";
 
-interface CheckboxProps {
+interface ButtonProps {
+  children?: ReactNode;
   className?: string;
   id?: string;
   variant?: "solid" | "secondary";
-  checkIcon?: ReactNode;
   defaultChecked?: boolean;
   disabled?: boolean;
   style?: CSSProperties;
   onValueChange?: (value: boolean) => void;
 }
 
-const Checkbox = forwardRef<ElementRef<"button">, CheckboxProps>(
+const Checkbox = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
+      children = <CheckIcon />,
       className,
       variant = "solid",
-      checkIcon = <CheckIcon />,
       defaultChecked = false,
       disabled = false,
       onValueChange,
@@ -41,19 +36,19 @@ const Checkbox = forwardRef<ElementRef<"button">, CheckboxProps>(
 
     return (
       <button
+        {...props}
+        ref={ref}
         disabled={disabled}
-        className={[
+        className={join(
           "checkbox-13",
           variant,
-          className,
-          checked && "checked",
-          disabled && "disabled"
-        ].join(" ")}
-        ref={ref}
-        {...props}
+          checked ? "checked" : "",
+          disabled ? "disabled" : "",
+          className
+        )}
         onClick={toggle}
       >
-        <span className="checkbox-13-indicator">{checked && checkIcon}</span>
+        {checked && children}
       </button>
     );
   }
