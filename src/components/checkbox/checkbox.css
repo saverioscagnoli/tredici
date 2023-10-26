@@ -18,13 +18,13 @@
   background-color: var(--background-gray-darker);
 }
 
-.checkbox-13.solid[data-state="checked"] {
+.checkbox-13.solid.checked {
   border: 1px solid var(--background);
   background-color: var(--background);
   color: var(--font-color);
 }
 
-.checkbox-13.solid[data-state="checked"]:hover {
+.checkbox-13.solid.checked:hover {
   border: 1px solid var(--background-darker);
   background-color: var(--background-darker);
 }
@@ -37,11 +37,11 @@
   background-color: var(--background-gray-darker);
 }
 
-.checkbox-13.secondary[data-state="checked"] {
+.checkbox-13.secondary.checked {
   color: var(--font-color-inverted);
 }
 
-.checkbox-13.secondary[data-state="checked"]:hover {
+.checkbox-13.secondary.checked:hover {
   background-color: var(--background-gray-darkest);
 }
 
@@ -50,4 +50,17 @@
   justify-content: center;
   align-items: center;
   color: currentColor;
+}
+
+.checkbox-13.disabled {
+  cursor: not-allowed;
+  opacity: 0.75;
+}
+
+.checkbox-13.solid.disabled {
+  background-color: var(--background) !important;
+}
+
+.checkbox-13.checkbox-13.secondary.disabled {
+  background-color: var(--background-gray);
 }
