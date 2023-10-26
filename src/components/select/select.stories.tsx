@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import "@styles/global.css";
 
 import { IconButton } from "../icon-button";
-import { Select, SelectOption } from ".";
+import { Select } from ".";
 import { Tredici } from "@components/theme-context-provider";
 import { useTheme } from "@hooks/use-theme";
 import { BsSun, BsMoonFill } from "react-icons/bs";
@@ -38,18 +38,63 @@ const ThemeButton = () => {
 
 export const Normal: Story = {
   render: () => {
+    const foods = [
+      "🍎 Apples",
+      "🍌 Bananas",
+      "🥦 Broccoli",
+      "🥕 Carrots",
+      "🍫 Chocolate"
+    ];
+
+    const animals = [
+      "🐶 Dogs",
+      "🐱 Cats",
+      "🐭 Mice",
+      "🐹 Hamsters",
+      "🐰 Rabbits",
+      "🐷 Pigs",
+      "🐸 Frogs",
+      "🐯 Tigers",
+      "🐨 Koalas",
+      "🐻 Bears",
+      "🦁 Lions",
+      "🐮 Cows",
+      "🦝 Raccoons"
+    ];
+
+    const moonPhases = [
+      "🌑 New Moon",
+      "🌒 Waxing Crescent Moon",
+      "🌓 First Quarter Moon",
+      "🌔 Waxing Gibbous Moon",
+      "🌕 Full Moon",
+      "🌖 Waning Gibbous Moon",
+      "🌗 Last Quarter Moon",
+      "🌘 Waning Crescent Moon"
+    ];
+
     return (
       <Tredici>
-        <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-          <div style={{ display: "flex", gap: "1rem" }}>
-            <ThemeButton />
-            <Select>
-              {Array.from({ length: 8 }).fill(1).map((i, n) => (
-                <SelectOption>Option {i as number + n}</SelectOption>
-              ))}
-            </Select>
+        <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+          <ThemeButton />
+          <div
+            style={{ display: "flex", flexDirection: "column", gap: "0.3rem" }}
+          >
+            <p>Base select</p>
+            <Select options={animals} defaultValue="🍫 Chocolate" />
           </div>
-          fdgdfssdfdfsgdfsgdfsgfsdg
+          <div
+            style={{ display: "flex", flexDirection: "column", gap: "0.3rem" }}
+          >
+            <p>This is a clearable select</p>
+            <Select options={foods} clearable />
+          </div>
+          <div
+            style={{ display: "flex", flexDirection: "column", gap: "0.3rem" }}
+          >
+            <p>This is a numbered select</p>
+            <Select options={moonPhases} numbered />
+          </div>
         </div>
       </Tredici>
     );

@@ -4,7 +4,7 @@ import "./icon-button.css";
 interface IconButtonProps
   extends Omit<ComponentPropsWithoutRef<"button">, "children"> {
   variant?: "solid" | "secondary" | "outline" | "ghost" | "danger";
-  size?: "sm" | "md" | "lg";
+  size?: "xs" | "sm" | "md" | "lg";
   icon?: ReactNode;
 }
 
