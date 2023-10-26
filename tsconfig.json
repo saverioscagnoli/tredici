@@ -25,7 +25,8 @@
       "@components/*": ["components/*"],
       "@hooks/*": ["hooks/*"],
       "@contexts/*": ["contexts/*"],
-      "@styles/*": ["styles/*"]
+      "@styles/*": ["styles/*"],
+      "@lib/*": ["lib/*"]
     }
   },
   "include": ["src"],
