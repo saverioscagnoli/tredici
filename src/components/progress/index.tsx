@@ -1,4 +1,4 @@
-import React, { forwardRef, ElementRef, CSSProperties } from "react";
+import { forwardRef, ElementRef, CSSProperties } from "react";
 import "./progress.css";
 
 interface ProgressProps {
