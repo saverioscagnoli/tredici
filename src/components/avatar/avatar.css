@@ -1,0 +1,40 @@
+.avatar-13 {
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.avatar-13.xs {
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 0.5rem;
+}
+
+.avatar-13.sm {
+  width: 2.25rem;
+  height: 2.25rem;
+  font-size: 1rem;
+}
+
+.avatar-13.md {
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.25rem;
+}
+
+.avatar-13.lg {
+  width: 4.5rem;
+  height: 4.5rem;
+  font-size: 1.75rem;
+}
+
+.avatar-13.xl {
+  width: 6rem;
+  height: 6rem;
+  font-size: 2.25rem;
+}
+
+.avatar-13-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
