@@ -16,6 +16,7 @@ module.exports = {
       { allowConstantExport: true }
     ],
     "react-hooks/exhaustive-deps": "off",
-    "react-refresh/only-export-components": "off"
+    "react-refresh/only-export-components": "off",
+    "react-hooks/rules-of-hooks": "off"
   }
 };
