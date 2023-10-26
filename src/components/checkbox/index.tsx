@@ -1,34 +1,60 @@
 import {
-  ComponentPropsWithoutRef,
+  useEffect,
   forwardRef,
   ElementRef,
-  ReactNode
+  ReactNode,
+  CSSProperties
 } from "react";
-import * as RxCheckbox from "@radix-ui/react-checkbox";
 import { CheckIcon } from "@radix-ui/react-icons";
 import "./checkbox.css";
+import { useBool } from "@hooks/use-bool";
 
-interface CheckboxProps
-  extends ComponentPropsWithoutRef<typeof RxCheckbox.Root> {
+interface CheckboxProps {
+  className?: string;
+  id?: string;
   variant?: "solid" | "secondary";
   checkIcon?: ReactNode;
+  defaultChecked?: boolean;
+  disabled?: boolean;
+  style?: CSSProperties;
+  onValueChange?: (value: boolean) => void;
 }
 
-const Checkbox = forwardRef<ElementRef<typeof RxCheckbox.Root>, CheckboxProps>(
+const Checkbox = forwardRef<ElementRef<"button">, CheckboxProps>(
   (
-    { className, variant = "solid", checkIcon = <CheckIcon />, ...props },
+    {
+      className,
+      variant = "solid",
+      checkIcon = <CheckIcon />,
+      defaultChecked = false,
+      disabled = false,
+      onValueChange,
+      ...props
+    },
     ref
   ) => {
+    const [checked, { toggle }] = useBool(!!defaultChecked);
+
+    useEffect(() => {
+      onValueChange?.(checked);
+    }, [checked]);
+
     return (
-      <RxCheckbox.Root
-        className={["checkbox-13", variant, className].join(" ")}
+      <button
+        disabled={disabled}
+        className={[
+          "checkbox-13",
+          variant,
+          className,
+          checked && "checked",
+          disabled && "disabled"
+        ].join(" ")}
         ref={ref}
         {...props}
+        onClick={toggle}
       >
-        <RxCheckbox.Indicator className="checkbox-13-indicator">
-          {checkIcon}
-        </RxCheckbox.Indicator>
-      </RxCheckbox.Root>
+        <span className="checkbox-13-indicator">{checked && checkIcon}</span>
+      </button>
     );
   }
 );
