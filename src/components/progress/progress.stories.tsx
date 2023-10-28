@@ -4,7 +4,7 @@ import { Progress } from ".";
 import { Tredici } from "@components/theme-context-provider";
 import { useTheme } from "@hooks/use-theme";
 import { BsSun, BsMoonFill } from "react-icons/bs";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@components/button";
 
 const meta: Meta<typeof Progress> = {
@@ -38,36 +38,48 @@ const ThemeButton = () => {
 
 export const Normal: Story = {
   render: () => {
-    const [prog, setProg] = useState<number>(0);
+    const [value, setValue] = useState<number>(0);
+    const [value2, setValue2] = useState<number>(0);
 
-    const increment = () => {
-      setProg(p => p + 20);
-    };
+    useEffect(() => {
+      setInterval(() => {
+        setValue(v => v + 10);
+      }, 1000);
+    }, []);
 
-    const reset = () => {
-      setProg(0);
-    };
+    useEffect(() => {
+      if (value >= 110) setValue(0);
+    }, [value]);
 
     return (
       <Tredici>
-        <div style={{ display: "flex", flexDirection: "column", gap: "3rem" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
           <ThemeButton />
+          <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
+            <Progress value={value}>
+              <Progress.Fill />
+            </Progress>
+          </div>
+
           <div
-            style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
+            style={{ display: "flex", flexDirection: "column", gap: "0.3rem" }}
           >
-            <Progress value={prog} />
-            <div style={{ display: "flex", gap: "1rem" }}>
-              <Button onClick={increment}>Increment 20%</Button>
-              <Button variant="danger" onClick={reset}>
-                Reset
-              </Button>
-            </div>
+            <label htmlFor="progress">indefinite</label>
+            <Progress id="sa" indeterminate>
+              <Progress.Fill />
+            </Progress>
           </div>
           <div
             style={{ display: "flex", flexDirection: "column", gap: "0.3rem" }}
           >
-            <strong>Indefinite loading</strong>
-            <Progress indeterminate />
+            <Progress value={value2}>
+              <Progress.Fill />
+            </Progress>
+            <div style={{ display: "flex", gap: "1rem" }}>
+              <Button onClick={() => setValue2(v => v + 10)}>Increment</Button>
+              <Button onClick={() => setValue2(v => v - 10)}>Decrement</Button>
+              <Button onClick={() => setValue2(0)}>Reset</Button>
+            </div>
           </div>
         </div>
       </Tredici>
