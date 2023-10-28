@@ -5,6 +5,7 @@ import { Tredici } from "@components/theme-context-provider";
 import { useTheme } from "@hooks/use-theme";
 import { BsSun, BsMoonFill } from "react-icons/bs";
 import { useState } from "react";
+import { HandIcon } from "@radix-ui/react-icons";
 
 const meta: Meta<typeof Checkbox> = {
   /* 👇 The title prop is optional.
@@ -37,7 +38,6 @@ const ThemeButton = () => {
 
 export const Normal: Story = {
   render: () => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     const [deco, setDeco] = useState<string>("line-through");
 
     const onClick = (v: boolean) => {
@@ -70,6 +70,9 @@ export const Normal: Story = {
                 This is a label
               </h1>
             </label>
+            <Checkbox>
+              <HandIcon />
+            </Checkbox>
           </div>
         </div>
       </Tredici>
