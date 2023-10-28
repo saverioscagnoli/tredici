@@ -6,6 +6,7 @@ interface SpinnerProps extends ComponentPropsWithoutRef<"span"> {
   size?: "xs" | "sm" | "md" | "lg" | "xl";
   spinnerColor?: string;
   areaColor?: string;
+  animationDuration?: string;
 }
 
 const Spinner = forwardRef<HTMLSpanElement, SpinnerProps>(
@@ -15,6 +16,7 @@ const Spinner = forwardRef<HTMLSpanElement, SpinnerProps>(
       size = "md",
       spinnerColor = "var(--background)",
       areaColor = "var(--background-gray-darker)",
+      animationDuration = "500ms",
       style,
       ...props
     },
@@ -22,7 +24,8 @@ const Spinner = forwardRef<HTMLSpanElement, SpinnerProps>(
   ) => {
     const _defaultStyle: CSSProperties = {
       borderColor: areaColor,
-      borderTopColor: spinnerColor
+      borderTopColor: spinnerColor,
+      animationDuration
     };
 
     return (
