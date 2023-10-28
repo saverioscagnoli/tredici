@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { IconButton } from "../icon-button";
 import { Checkbox } from ".";
 import { Tredici } from "@components/theme-context-provider";
 import { useTheme } from "@hooks/use-theme";
 import { BsSun, BsMoonFill } from "react-icons/bs";
+import { Button } from "@components/button";
 
 const meta: Meta<typeof Checkbox> = {
   /* 👇 The title prop is optional.
@@ -27,10 +27,9 @@ const ThemeButton = () => {
   const { theme, toggle } = useTheme();
 
   return (
-    <IconButton
-      onClick={toggle}
-      icon={theme === "dark" ? <BsSun /> : <BsMoonFill />}
-    />
+    <Button onClick={toggle}>
+      {theme === "dark" ? <BsSun /> : <BsMoonFill />}
+    </Button>
   );
 };
 
@@ -40,7 +39,6 @@ export const Normal: Story = {
       <Tredici>
         <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
           <ThemeButton />
-
           <Checkbox />
           <Checkbox variant="secondary" />
         </div>

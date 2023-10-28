@@ -6,6 +6,10 @@ export default {
       colors: {
         "violet-light": "rgb(152, 84, 224)",
         "violet-dark": "rgb(173, 123, 226)",
+        "violet-darker-light": "rgb(133, 46, 226)",
+        "violet-darker-dark": "rgb(152, 84, 224)",
+        "violet-darkest-light": "rgb(93, 6, 185)",
+        "violet-darkest-dark": "rgb(133, 46, 226)",
         "gray-tr-light": "rgba(174, 172, 176, 0.3)",
         "gray-tr-dark": "rgba(157, 157, 157, 0.3)",
         "gray-tr-2-light": "rgba(174, 172, 176, 0.5)",

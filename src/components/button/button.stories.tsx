@@ -1,11 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import "@styles/global.css";
-
 import { Button } from ".";
 import { Tredici } from "@components/theme-context-provider";
 import { useTheme } from "@hooks/use-theme";
-import { IconButton } from "@components/icon-button";
-import { BsMoonFill, BsSun } from "react-icons/bs";
+import {
+  BsMoonFill,
+  BsSun,
+  BsGithub,
+  BsTwitter,
+  BsFacebook,
+  BsTwitch,
+  BsLinkedin
+} from "react-icons/bs";
 
 const meta: Meta<typeof Button> = {
   /* 👇 The title prop is optional.
@@ -29,10 +34,9 @@ const ThemeButton = () => {
   const { theme, toggle } = useTheme();
 
   return (
-    <IconButton
-      onClick={toggle}
-      icon={theme === "dark" ? <BsSun /> : <BsMoonFill />}
-    />
+    <Button size="icon-md" onClick={toggle}>
+      {theme === "dark" ? <BsSun /> : <BsMoonFill />}
+    </Button>
   );
 };
 
@@ -42,11 +46,38 @@ export const Normal: Story = {
       <Tredici>
         <div style={{ display: "flex", gap: "1rem" }}>
           <ThemeButton />
-          <Button variant="solid">Solid</Button>
+          <Button>Solid</Button>
           <Button variant="secondary">Secondary</Button>
           <Button variant="ghost">Ghost</Button>
           <Button variant="outline">Outline</Button>
-          <Button variant="danger">Danger</Button>
+          <Button variant="unstyled">Unstyled</Button>
+        </div>
+      </Tredici>
+    );
+  }
+};
+
+export const Icon: Story = {
+  render: () => {
+    return (
+      <Tredici>
+        <div style={{ display: "flex", gap: "1rem" }}>
+          <ThemeButton />
+          <Button size="icon-md">
+            <BsGithub />
+          </Button>
+          <Button variant="secondary" size="icon-md">
+            <BsTwitter />
+          </Button>
+          <Button variant="ghost" size="icon-md">
+            <BsFacebook />
+          </Button>
+          <Button variant="outline" size="icon-md">
+            <BsTwitch />
+          </Button>
+          <Button variant="unstyled" size="icon-md">
+            <BsLinkedin />
+          </Button>
         </div>
       </Tredici>
     );
