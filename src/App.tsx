@@ -15,7 +15,7 @@ const ThemeToggler = () => {
 
   return (
     <div style={{ display: "flex", gap: "1rem" }}>
-      <Button onClick={toggle}>Solid</Button>
+      <Button onClick={toggle} className="bg-red">Solid</Button>
       <p>{theme}</p>
     </div>
   );

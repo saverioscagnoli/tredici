@@ -4,8 +4,6 @@ import { Checkbox } from ".";
 import { Tredici } from "@components/theme-context-provider";
 import { useTheme } from "@hooks/use-theme";
 import { BsSun, BsMoonFill } from "react-icons/bs";
-import { useState } from "react";
-import { HandIcon } from "@radix-ui/react-icons";
 
 const meta: Meta<typeof Checkbox> = {
   /* 👇 The title prop is optional.
@@ -38,42 +36,13 @@ const ThemeButton = () => {
 
 export const Normal: Story = {
   render: () => {
-    const [deco, setDeco] = useState<string>("line-through");
-
-    const onClick = (v: boolean) => {
-      if (v) setDeco("line-through");
-      else setDeco("none");
-    };
-
     return (
       <Tredici>
         <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
           <ThemeButton />
-          <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
-            <Checkbox defaultChecked />
-            <Checkbox variant="secondary" disabled defaultChecked />
-          </div>
-          <div style={{ display: "flex", gap: "1rem" }}>
-            <Checkbox
-              id="asas"
-              defaultChecked
-              onValueChange={v => onClick(v)}
-            />
-            <label htmlFor="asas">
-              <h1
-                style={{
-                  userSelect: "none",
-                  cursor: "pointer",
-                  textDecoration: deco
-                }}
-              >
-                This is a label
-              </h1>
-            </label>
-            <Checkbox>
-              <HandIcon />
-            </Checkbox>
-          </div>
+
+          <Checkbox />
+          <Checkbox variant="secondary" />
         </div>
       </Tredici>
     );

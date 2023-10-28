@@ -1,55 +1,38 @@
-import { useBool } from "@hooks/use-bool";
-import { join } from "@lib/utils";
+import { forwardRef, ReactNode } from "react";
+import * as RxCheckbox from "@radix-ui/react-checkbox";
 import { CheckIcon } from "@radix-ui/react-icons";
-import { CSSProperties, forwardRef, ReactNode, useEffect } from "react";
-import "./checkbox.css";
+import { cva, VariantProps } from "class-variance-authority";
+import { cn } from "@lib/utils";
 
-interface ButtonProps {
-  children?: ReactNode;
-  className?: string;
-  id?: string;
-  variant?: "solid" | "secondary";
-  defaultChecked?: boolean;
-  disabled?: boolean;
-  style?: CSSProperties;
-  onValueChange?: (value: boolean) => void;
+const checkboxVariants = cva("w-4 h-4 rounded", {
+  variants: {
+    variant: {
+      solid: "dark:bg-violet-dark bg-violet-light dark:text-black text-white",
+      secondary: "dark:bg-gray-tr-dark bg-gray-tr-light"
+    }
+  },
+  defaultVariants: {
+    variant: "solid"
+  }
+});
+
+interface CheckboxProps
+  extends RxCheckbox.CheckboxProps,
+    VariantProps<typeof checkboxVariants> {
+  icon?: ReactNode;
 }
 
-const Checkbox = forwardRef<HTMLButtonElement, ButtonProps>(
-  (
-    {
-      children = <CheckIcon />,
-      className,
-      variant = "solid",
-      defaultChecked = false,
-      disabled = false,
-      onValueChange,
-      ...props
-    },
-    ref
-  ) => {
-    const [checked, { toggle }] = useBool(!!defaultChecked);
-
-    useEffect(() => {
-      onValueChange?.(checked);
-    }, [checked]);
-
+const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
+  ({ className, variant, children = <CheckIcon />, ...props }, ref) => {
+    console.log(variant);
     return (
-      <button
-        {...props}
+      <RxCheckbox.Root
         ref={ref}
-        disabled={disabled}
-        className={join(
-          "checkbox-13",
-          variant,
-          checked ? "checked" : "",
-          disabled ? "disabled" : "",
-          className
-        )}
-        onClick={toggle}
+        {...props}
+        className={cn(checkboxVariants({ className, variant }))}
       >
-        {checked && children}
-      </button>
+        <RxCheckbox.Indicator>{children}</RxCheckbox.Indicator>
+      </RxCheckbox.Root>
     );
   }
 );

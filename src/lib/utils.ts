@@ -1,11 +1,6 @@
-import { ReactNode, isValidElement, Children } from "react";
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
 
-export function join(...classes: (string | undefined)[]) {
-  return classes.join(" ");
-}
-
-export function findChild(children: ReactNode, child: unknown) {
-  return Children.toArray(children).find(
-    c => isValidElement(c) && c.type === child
-  );
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
 }
