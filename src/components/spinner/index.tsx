@@ -1,6 +1,5 @@
 import { ComponentPropsWithoutRef, forwardRef, CSSProperties } from "react";
 import "./spinner.css";
-import { join } from "@lib/utils";
 
 interface SpinnerProps extends ComponentPropsWithoutRef<"span"> {
   size?: "xs" | "sm" | "md" | "lg" | "xl";

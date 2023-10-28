@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import "@styles/global.css";
 
-import { IconButton } from "../icon-button";
+import { Button } from "@components/button";
 import { Select } from ".";
 import { Tredici } from "@components/theme-context-provider";
 import { useTheme } from "@hooks/use-theme";
@@ -29,10 +29,9 @@ const ThemeButton = () => {
   const { theme, toggle } = useTheme();
 
   return (
-    <IconButton
-      onClick={toggle}
-      icon={theme === "dark" ? <BsSun /> : <BsMoonFill />}
-    />
+    <Button onClick={toggle}>
+      {theme === "dark" ? <BsSun /> : <BsMoonFill />}
+    </Button>
   );
 };
 

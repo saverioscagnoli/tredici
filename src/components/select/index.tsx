@@ -1,7 +1,6 @@
 import React, { useState, ReactNode, useEffect } from "react";
 import { CheckIcon, Cross2Icon, ArrowDownIcon } from "@radix-ui/react-icons";
 import { useBool } from "@hooks/use-bool";
-import { IconButton } from "@components/icon-button";
 import "./select.css";
 
 type Value = string | number | null;
@@ -48,7 +47,7 @@ const Select: React.FC<SelectProps> = ({
       <div id={id} tabIndex={0} className="select-13-trigger" onClick={open}>
         <span>{value}</span>
         {clearable && value ? (
-          <IconButton
+          <Button
             size="xs"
             variant="ghost"
             icon={<Cross2Icon />}
@@ -58,7 +57,9 @@ const Select: React.FC<SelectProps> = ({
             }}
           />
         ) : (
-          <span className="select-13-arrow">{rightIcon || <ArrowDownIcon />}</span>
+          <span className="select-13-arrow">
+            {rightIcon || <ArrowDownIcon />}
+          </span>
         )}
       </div>
       {isOpen && (
@@ -68,7 +69,9 @@ const Select: React.FC<SelectProps> = ({
               <p style={{ marginLeft: "0.25rem", fontWeight: 500 }}>
                 {numbered && `${i + 1}. `} {o}
               </p>
-              <span className="select-13-check" >{o === value && <CheckIcon />}</span>
+              <span className="select-13-check">
+                {o === value && <CheckIcon />}
+              </span>
             </div>
           ))}
         </div>

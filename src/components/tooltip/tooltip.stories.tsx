@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { IconButton } from "../icon-button";
 import { Tooltip } from ".";
 import { Tredici } from "@components/theme-context-provider";
 import { useTheme } from "@hooks/use-theme";
@@ -29,10 +28,9 @@ const ThemeButton = () => {
   const { theme, toggle } = useTheme();
 
   return (
-    <IconButton
-      onClick={toggle}
-      icon={theme === "dark" ? <BsSun /> : <BsMoonFill />}
-    />
+    <Button onClick={toggle}>
+      {theme === "dark" ? <BsSun /> : <BsMoonFill />}
+    </Button>
   );
 };
 
@@ -50,28 +48,7 @@ export const Normal: Story = {
             gap: "10rem"
           }}
         >
-          <Tooltip placement="bottom" delayOnEnter={1000} delayOnLeave={3000}>
-            <Tooltip.Trigger>
-              <Button variant="secondary">Bottom</Button>
-            </Tooltip.Trigger>
-            <Tooltip.Content>Bottom Tooltip Text</Tooltip.Content>
-          </Tooltip>
-          <Tooltip placement="left">
-            <Tooltip.Trigger>Left</Tooltip.Trigger>
-            <Tooltip.Content>Tooltasdfsddfksdhjfdaasip</Tooltip.Content>
-          </Tooltip>
-          <Tooltip placement="right">
-            <Tooltip.Trigger>
-              <Button>Right</Button>
-            </Tooltip.Trigger>
-            <Tooltip.Content>Tooltasdfsddfksdhjfdasip</Tooltip.Content>
-          </Tooltip>
-          <Tooltip placement="top">
-            <Tooltip.Trigger>
-              <IconButton variant="outline" icon={<ArrowUpIcon />} />
-            </Tooltip.Trigger>
-            <Tooltip.Content>Tooltasdfsddfksdhjfdasip</Tooltip.Content>
-          </Tooltip>
+
         </div>
       </Tredici>
     );

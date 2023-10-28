@@ -16,6 +16,15 @@ export default {
         "gray-tr-2-dark": "rgba(157, 157, 157, 0.5)",
         "gray-tr-3-light": "rgba(174, 172, 176, 0.7)",
         "gray-tr-3-dark": "rgba(157, 157, 157, 0.7)"
+      },
+      animation: {
+        "progress-indefinite": "progress-indefinite 2s infinite"
+      },
+      keyframes: {
+        "progress-indefinite": {
+          "0%": { left: "-50%" },
+          "100%": { left: "100%" }
+        }
       }
     }
   },

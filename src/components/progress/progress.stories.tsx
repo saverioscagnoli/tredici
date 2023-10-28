@@ -1,11 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { IconButton } from "../icon-button";
+import { Button } from "@components/button";
 import { Progress } from ".";
 import { Tredici } from "@components/theme-context-provider";
 import { useTheme } from "@hooks/use-theme";
 import { BsSun, BsMoonFill } from "react-icons/bs";
 import { useState, useEffect } from "react";
-import { Button } from "@components/button";
 
 const meta: Meta<typeof Progress> = {
   /* 👇 The title prop is optional.
@@ -29,56 +28,39 @@ const ThemeButton = () => {
   const { theme, toggle } = useTheme();
 
   return (
-    <IconButton
-      onClick={toggle}
-      icon={theme === "dark" ? <BsSun /> : <BsMoonFill />}
-    />
+    <Button onClick={toggle} className="self-start">
+      {theme === "dark" ? <BsSun /> : <BsMoonFill />}
+    </Button>
   );
 };
 
 export const Normal: Story = {
   render: () => {
     const [value, setValue] = useState<number>(0);
-    const [value2, setValue2] = useState<number>(0);
 
     useEffect(() => {
-      setInterval(() => {
-        setValue(v => v + 10);
+      const interval = setInterval(() => {
+        setValue(prev => (prev >= 100 ? 0 : prev + 10));
       }, 1000);
+
+      return () => clearInterval(interval);
     }, []);
 
-    useEffect(() => {
-      if (value >= 110) setValue(0);
-    }, [value]);
+    const [value2, setValue2] = useState<number>(0);
+    const increment = () => setValue2(value2 + 10);
+    const decrement = () => setValue2(value2 - 10);
 
     return (
       <Tredici>
         <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
           <ThemeButton />
-          <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
-            <Progress value={value}>
-              <Progress.Fill />
-            </Progress>
-          </div>
-
-          <div
-            style={{ display: "flex", flexDirection: "column", gap: "0.3rem" }}
-          >
-            <label htmlFor="progress">indefinite</label>
-            <Progress id="sa" indeterminate>
-              <Progress.Fill />
-            </Progress>
-          </div>
-          <div
-            style={{ display: "flex", flexDirection: "column", gap: "0.3rem" }}
-          >
-            <Progress value={value2}>
-              <Progress.Fill />
-            </Progress>
-            <div style={{ display: "flex", gap: "1rem" }}>
-              <Button onClick={() => setValue2(v => v + 10)}>Increment</Button>
-              <Button onClick={() => setValue2(v => v - 10)}>Decrement</Button>
-              <Button onClick={() => setValue2(0)}>Reset</Button>
+          <Progress value={value} />
+          <Progress indeterminate value={100} />
+          <div className="flex flex-col gap-2">
+            <Progress value={value2} />
+            <div className="flex gap-2">
+              <Button onClick={increment}>Increment</Button>
+              <Button onClick={decrement}>Decrement</Button>
             </div>
           </div>
         </div>

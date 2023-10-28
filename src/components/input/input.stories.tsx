@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import "@styles/global.css";
 
-import { IconButton } from "../icon-button";
+import { Button } from "@components/button";
 import { Input } from ".";
 import { Tredici } from "@components/theme-context-provider";
 import { useTheme } from "@hooks/use-theme";
@@ -31,10 +31,9 @@ const ThemeButton = () => {
   const { theme, toggle } = useTheme();
 
   return (
-    <IconButton
-      onClick={toggle}
-      icon={theme === "dark" ? <BsSun /> : <BsMoonFill />}
-    />
+    <Button onClick={toggle}>
+      {theme === "dark" ? <BsSun /> : <BsMoonFill />}
+    </Button>
   );
 };
 
@@ -46,17 +45,7 @@ export const Normal: Story = {
     return (
       <Tredici>
         <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-          <div style={{ display: "flex", gap: "1rem" }}>
-            <ThemeButton />
-            <Input />
-          </div>
-          <div style={{ display: "flex", gap: "1rem" }}>
-            <Input type={type} />
-            <IconButton
-              icon={type === "password" ? <RxEyeOpen /> : <RxEyeClosed />}
-              onClick={toggle}
-            />
-          </div>
+
         </div>
       </Tredici>
     );

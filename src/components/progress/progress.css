@@ -1,10 +1,9 @@
-.progress-13 {
-  width: 12rem;
-  height: 0.5rem;
-  background-color: var(--background-gray-darkest);
-  border-radius: 0.375rem;
-  overflow: hidden;
-  position: relative;
+.progress-13-indicator.loading {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  width: 50%;
+  animation: loading 2s infinite;
 }
 
 @keyframes loading {
@@ -14,19 +13,4 @@
   to {
     left: 100%;
   }
-}
-
-.progress-13-fill {
-  height: 100%;
-  transition: width 300ms ease;
-  background: var(--background);
-  border-radius: 0.375rem;
-}
-
-.progress-13-fill.loading {
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  width: 50%;
-  animation: loading 2s infinite;
 }

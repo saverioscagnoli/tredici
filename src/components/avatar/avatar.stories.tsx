@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Avatar } from ".";
 import { Tredici } from "@components/theme-context-provider";
 import { useTheme } from "@hooks/use-theme";
-import { IconButton } from "@components/icon-button";
+import { Button } from "@components/icon-button";
 import { BsMoonFill, BsSun } from "react-icons/bs";
 
 import cat from "./pics/cat.jpg";
@@ -30,7 +30,7 @@ const ThemeButton = () => {
   const { theme, toggle } = useTheme();
 
   return (
-    <IconButton
+    <Button
       onClick={toggle}
       icon={theme === "dark" ? <BsSun /> : <BsMoonFill />}
     />
