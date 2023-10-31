@@ -2,9 +2,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from "@components/button";
 import { Progress } from ".";
 import { Tredici } from "@components/theme-context-provider";
-import { useTheme } from "@hooks/use-theme";
-import { BsSun, BsMoonFill } from "react-icons/bs";
 import { useState, useEffect } from "react";
+import { ThemeButton } from "@components/theme-button";
 
 const meta: Meta<typeof Progress> = {
   /* 👇 The title prop is optional.
@@ -24,15 +23,7 @@ type Story = StoryObj<typeof Progress>;
  * to learn how to use render functions.
  */
 
-const ThemeButton = () => {
-  const { theme, toggle } = useTheme();
 
-  return (
-    <Button onClick={toggle} className="self-start">
-      {theme === "dark" ? <BsSun /> : <BsMoonFill />}
-    </Button>
-  );
-};
 
 export const Normal: Story = {
   render: () => {

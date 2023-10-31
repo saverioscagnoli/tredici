@@ -11,6 +11,7 @@ import {
   BsTwitch,
   BsLinkedin
 } from "react-icons/bs";
+import { ThemeButton } from "@components/theme-button";
 
 const meta: Meta<typeof Button> = {
   /* 👇 The title prop is optional.
@@ -29,16 +30,6 @@ type Story = StoryObj<typeof Button>;
  * See https://storybook.js.org/docs/react/api/csf
  * to learn how to use render functions.
  */
-
-const ThemeButton = () => {
-  const { theme, toggle } = useTheme();
-
-  return (
-    <Button size="icon-md" onClick={toggle}>
-      {theme === "dark" ? <BsSun /> : <BsMoonFill />}
-    </Button>
-  );
-};
 
 export const Normal: Story = {
   render: () => {
@@ -63,21 +54,21 @@ export const Icon: Story = {
       <Tredici>
         <div style={{ display: "flex", gap: "1rem" }}>
           <ThemeButton />
-          <Button size="icon-md">
+          <Button.Icon>
             <BsGithub />
-          </Button>
-          <Button variant="secondary" size="icon-md">
+          </Button.Icon>
+          <Button.Icon variant="secondary">
             <BsTwitter />
-          </Button>
-          <Button variant="ghost" size="icon-md">
+          </Button.Icon>
+          <Button.Icon variant="ghost">
             <BsFacebook />
-          </Button>
-          <Button variant="outline" size="icon-md">
+          </Button.Icon>
+          <Button.Icon variant="outline">
             <BsTwitch />
-          </Button>
-          <Button variant="unstyled" size="icon-md">
+          </Button.Icon>
+          <Button.Icon variant="unstyled">
             <BsLinkedin />
-          </Button>
+          </Button.Icon>
         </div>
       </Tredici>
     );

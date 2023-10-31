@@ -6,7 +6,6 @@ import { Input } from ".";
 import { Tredici } from "@components/theme-context-provider";
 import { useTheme } from "@hooks/use-theme";
 import { BsSun, BsMoonFill } from "react-icons/bs";
-import { RxEyeOpen, RxEyeClosed } from "react-icons/rx";
 import { useState } from "react";
 
 const meta: Meta<typeof Input> = {
@@ -27,16 +26,6 @@ type Story = StoryObj<typeof Input>;
  * to learn how to use render functions.
  */
 
-const ThemeButton = () => {
-  const { theme, toggle } = useTheme();
-
-  return (
-    <Button onClick={toggle}>
-      {theme === "dark" ? <BsSun /> : <BsMoonFill />}
-    </Button>
-  );
-};
-
 export const Normal: Story = {
   render: () => {
     const [type, setType] = useState<"password" | "text">("password");
@@ -44,9 +33,9 @@ export const Normal: Story = {
 
     return (
       <Tredici>
-        <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-
-        </div>
+        <div
+          style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
+        ></div>
       </Tredici>
     );
   }

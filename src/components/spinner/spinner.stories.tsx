@@ -1,9 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Spinner } from ".";
 import { Tredici } from "@components/theme-context-provider";
-import { useTheme } from "@hooks/use-theme";
-import { BsSun, BsMoonFill } from "react-icons/bs";
 import { Button } from "@components/button";
+import { ThemeButton } from "@components/theme-button";
 
 const meta: Meta<typeof Spinner> = {
   /* 👇 The title prop is optional.
@@ -23,16 +22,6 @@ type Story = StoryObj<typeof Spinner>;
  * to learn how to use render functions.
  */
 
-const ThemeButton = () => {
-  const { theme, toggle } = useTheme();
-
-  return (
-    <Button onClick={toggle}>
-      {theme === "dark" ? <BsSun /> : <BsMoonFill />}
-    </Button>
-  );
-};
-
 export const Normal: Story = {
   render: () => {
     return (
@@ -42,22 +31,15 @@ export const Normal: Story = {
           <Spinner size="xs" />
           <Spinner size="sm" />
           <Spinner size="md" />
-          <Spinner size="lg" />
+          <Spinner size="lg" spinnerColor="#000" />
           <Spinner size="xl" />
-          <Button style={{ alignSelf: "flex-start" }}>
-            <Spinner
-              size="xs"
-              spinnerColor="var(--font-color)"
-              areaColor="transparent"
-              style={{ marginRight: "0.5rem" }}
-            />
+          <Button variant="secondary" style={{ alignSelf: "flex-start" }}>
+            <Spinner size="button" variant="secondary" style={{ marginRight: "0.5rem" }} />
             With Spinner
           </Button>
-          <Button
-            icon={
-              <Spinner size="sm" spinnerColor="white" areaColor="transparent" />
-            }
-          />
+          <Button.Icon>
+            <Spinner variant="secondary-inverted" size="button" />
+          </Button.Icon>
         </div>
       </Tredici>
     );

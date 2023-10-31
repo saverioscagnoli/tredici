@@ -1,10 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Tooltip } from ".";
 import { Tredici } from "@components/theme-context-provider";
-import { useTheme } from "@hooks/use-theme";
-import { BsSun, BsMoonFill } from "react-icons/bs";
-import { Button } from "@components/button";
-import { ArrowUpIcon } from "@radix-ui/react-icons";
+import { ThemeButton } from "@components/theme-button";
 
 const meta: Meta<typeof Tooltip> = {
   /* 👇 The title prop is optional.
@@ -24,16 +21,6 @@ type Story = StoryObj<typeof Tooltip>;
  * to learn how to use render functions.
  */
 
-const ThemeButton = () => {
-  const { theme, toggle } = useTheme();
-
-  return (
-    <Button onClick={toggle}>
-      {theme === "dark" ? <BsSun /> : <BsMoonFill />}
-    </Button>
-  );
-};
-
 export const Normal: Story = {
   render: () => {
     return (
@@ -47,9 +34,7 @@ export const Normal: Story = {
             alignItems: "center",
             gap: "10rem"
           }}
-        >
-
-        </div>
+        ></div>
       </Tredici>
     );
   }

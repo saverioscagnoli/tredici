@@ -3,11 +3,13 @@ import * as RxCheckbox from "@radix-ui/react-checkbox";
 import { CheckIcon } from "@radix-ui/react-icons";
 import { cva, VariantProps } from "class-variance-authority";
 import { cn } from "@lib/utils";
+import { useBool } from "@hooks/use-bool";
 
 const checkboxVariants = cva("w-4 h-4 rounded", {
   variants: {
     variant: {
-      solid: "dark:bg-violet-dark bg-violet-light dark:text-black text-white",
+      solid:
+        "bg-transparent border border-gray-tr-3-light dark:text-black text-white",
       secondary: "dark:bg-gray-tr-dark bg-gray-tr-light"
     }
   },
@@ -23,15 +25,36 @@ interface CheckboxProps
 }
 
 const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
-  ({ className, variant, children = <CheckIcon />, ...props }, ref) => {
-    console.log(variant);
+  (
+    {
+      className,
+      checked,
+      variant = "solid",
+      icon = <CheckIcon />,
+      onClick,
+      ...props
+    },
+    ref
+  ) => {
+    const [value, { toggle }] = useBool(!!checked);
+
     return (
       <RxCheckbox.Root
         ref={ref}
         {...props}
-        className={cn(checkboxVariants({ className, variant }))}
+        checked={value}
+        className={cn(
+          checkboxVariants({ className, variant }),
+          value &&
+            variant === "solid" &&
+            "dark:bg-violet-dark bg-violet-light border-none"
+        )}
+        onClick={e => {
+          onClick?.(e);
+          toggle();
+        }}
       >
-        <RxCheckbox.Indicator>{children}</RxCheckbox.Indicator>
+        <RxCheckbox.Indicator>{icon}</RxCheckbox.Indicator>
       </RxCheckbox.Root>
     );
   }

@@ -1,9 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Button } from "../icon-button";
 import { Switch } from ".";
 import { Tredici } from "@components/theme-context-provider";
-import { useTheme } from "@hooks/use-theme";
-import { BsSun, BsMoonFill } from "react-icons/bs";
+import { ThemeButton } from "@components/theme-button";
 
 const meta: Meta<typeof Switch> = {
   /* 👇 The title prop is optional.
@@ -23,15 +21,7 @@ type Story = StoryObj<typeof Switch>;
  * to learn how to use render functions.
  */
 
-const ThemeButton = () => {
-  const { theme, toggle } = useTheme();
 
-  return (
-    <Button onClick={toggle}>
-      {theme === "dark" ? <BsSun /> : <BsMoonFill />}
-    </Button>
-  );
-};
 
 export const Normal: Story = {
   render: () => {

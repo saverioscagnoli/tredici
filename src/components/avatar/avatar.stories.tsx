@@ -2,11 +2,11 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Avatar } from ".";
 import { Tredici } from "@components/theme-context-provider";
 import { useTheme } from "@hooks/use-theme";
-import { Button } from "@components/icon-button";
 import { BsMoonFill, BsSun } from "react-icons/bs";
 
 import cat from "./pics/cat.jpg";
 import raccoon from "./pics/raccoon.jpg";
+import { ThemeButton } from "@components/theme-button";
 
 const meta: Meta<typeof Avatar> = {
   /* 👇 The title prop is optional.
@@ -25,17 +25,6 @@ type Story = StoryObj<typeof Avatar>;
  * See https://storybook.js.org/docs/react/api/csf
  * to learn how to use render functions.
  */
-
-const ThemeButton = () => {
-  const { theme, toggle } = useTheme();
-
-  return (
-    <Button
-      onClick={toggle}
-      icon={theme === "dark" ? <BsSun /> : <BsMoonFill />}
-    />
-  );
-};
 
 export const Normal: Story = {
   render: () => {
