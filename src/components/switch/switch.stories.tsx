@@ -21,8 +21,6 @@ type Story = StoryObj<typeof Switch>;
  * to learn how to use render functions.
  */
 
-
-
 export const Normal: Story = {
   render: () => {
     return (

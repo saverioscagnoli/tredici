@@ -1,4 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import "@styles/global.css";
+
 import { Button } from "@components/button";
 import { Select } from ".";
 import { Tredici } from "@components/theme-context-provider";
@@ -77,22 +79,11 @@ export const Normal: Story = {
           <Select>
             <Select.Trigger placeholder="dsfs" />
             <Select.Body>
-              <Select.Group>
-                <Select.Label>Group 1</Select.Label>
-                {["Hello", "World"].map(food => (
-                  <Select.Item key={food} value={food}>
-                    {food}
-                  </Select.Item>
-                ))}
-              </Select.Group>
-              <Select.Separator />
-              <Select.Group>
-                {foods.map(food => (
-                  <Select.Item key={food} value={food}>
-                    {food}
-                  </Select.Item>
-                ))}
-              </Select.Group>
+              {foods.map(food => (
+                <Select.Item key={food} value={food}>
+                  {food}
+                </Select.Item>
+              ))}
             </Select.Body>
           </Select>
           <Select>

@@ -1,50 +1,51 @@
-import { CSSProperties, forwardRef, useEffect, MouseEvent } from "react";
-import { useBool } from "@hooks/use-bool";
-import { join } from "@lib/utils";
-import "./switch.css";
+import { cn } from "@lib/utils";
+import * as RxSwitch from "@radix-ui/react-switch";
+import { VariantProps, cva } from "class-variance-authority";
+import { forwardRef } from "react";
 
-interface SwitchProps {
-  size?: "sm" | "md" | "lg";
-  className?: string;
-  id?: string;
-  defaultChecked?: boolean;
-  disabled?: boolean;
-  style?: CSSProperties;
-  onClick?: (e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => void;
-  onValueChange?: (value: boolean) => void;
-}
+const switchVariants = cva(
+  "rounded-full cursor-pointer inline-flex items-center transition-colors data-[state='checked']:dark:bg-violet-dark data-[state='checked']:bg-violet-light dark:bg-gray-tr-2-dark bg-gray-tr-2-light",
+  {
+    variants: {
+      size: {
+        sm: "w-7 h-4 p-0.5",
+        md: "w-10 h-6 p-1",
+        lg: "w-14 h-8 p-1.5"
+      }
+    },
+    defaultVariants: {
+      size: "md"
+    }
+  }
+);
+
+const thumbVariants = cva("block bg-white rounded-full transition-transform", {
+  variants: {
+    size: {
+      sm: "w-3 h-3 data-[state='checked']:translate-x-3",
+      md: "w-4 h-4 data-[state='checked']:translate-x-4",
+      lg: "w-6 h-6 data-[state='checked']:translate-x-5"
+    }
+  },
+  defaultVariants: {
+    size: "md"
+  }
+});
+
+interface SwitchProps
+  extends RxSwitch.SwitchProps,
+    VariantProps<typeof switchVariants> {}
 
 const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
-  (
-    {
-      className,
-      size = "md",
-      defaultChecked = false,
-      onValueChange,
-      onClick,
-      ...props
-    },
-    ref
-  ) => {
-    const [toggled, { toggle }] = useBool(defaultChecked);
-
-    useEffect(() => {
-      onValueChange?.(toggled);
-    }, [toggled]);
-
+  ({ children, className, size, ...props }, ref) => {
     return (
-      <button
+      <RxSwitch.Root
         {...props}
         ref={ref}
-        className={join("switch-13", size, toggled ? "on" : "off", className)}
-        onClick={e => {
-          onClick?.(e);
-          toggle();
-        }}
+        className={cn(switchVariants({ size }), className)}
       >
-        <span className="spacer-13"></span>
-        <span className="slider-13"></span>
-      </button>
+        <RxSwitch.Thumb className={cn(thumbVariants({ size }), className)} />
+      </RxSwitch.Root>
     );
   }
 );
