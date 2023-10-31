@@ -1,9 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Avatar } from ".";
 import { Tredici } from "@components/theme-context-provider";
-import { useTheme } from "@hooks/use-theme";
-import { BsMoonFill, BsSun } from "react-icons/bs";
-
 import cat from "./pics/cat.jpg";
 import raccoon from "./pics/raccoon.jpg";
 import { ThemeButton } from "@components/theme-button";
@@ -30,26 +27,51 @@ export const Normal: Story = {
   render: () => {
     return (
       <Tredici>
-        <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
-          <ThemeButton />
-          <Avatar size="xs">
-            <Avatar.Fallback>SS</Avatar.Fallback>
-          </Avatar>
-          <Avatar size="sm">
-            <Avatar.Fallback></Avatar.Fallback>
-          </Avatar>
-          <Avatar size="md">
-            <Avatar.Image src={cat} />
-            <Avatar.Fallback></Avatar.Fallback>
-          </Avatar>
-          <Avatar size="lg">
-            <Avatar.Image src={"invalid url.com"} />
-            <Avatar.Fallback>RP</Avatar.Fallback>
-          </Avatar>
-          <Avatar size="xl">
-            <Avatar.Image src={raccoon} />
-            <Avatar.Fallback>GDA</Avatar.Fallback>
-          </Avatar>
+        <div className="flex flex-col gap-5">
+          <div style={{ display: "flex", gap: 20, alignItems: "center" }}>
+            <ThemeButton />
+            <Avatar size="sm">
+              <Avatar.Image src={raccoon} />
+              <Avatar.Fallback>SS</Avatar.Fallback>
+            </Avatar>
+            <Avatar size="sm">
+              <Avatar.Fallback>PD</Avatar.Fallback>
+            </Avatar>
+            <Avatar>
+              <Avatar.Image src={cat} />
+            </Avatar>
+            <Avatar>
+              <Avatar.Fallback>SS</Avatar.Fallback>
+            </Avatar>
+            <Avatar size="lg">
+              <Avatar.Image src={cat} />
+            </Avatar>
+            <Avatar size="lg">
+              <Avatar.Fallback>PD</Avatar.Fallback>
+            </Avatar>
+          </div>
+          <div style={{ display: "flex", gap: 20, alignItems: "center" }}>
+            <ThemeButton />
+            <Avatar size="sm">
+              <Avatar.Image src={raccoon} />
+              <Avatar.Fallback variant="secondary">SS</Avatar.Fallback>
+            </Avatar>
+            <Avatar size="sm">
+              <Avatar.Fallback variant="secondary">PD</Avatar.Fallback>
+            </Avatar>
+            <Avatar>
+              <Avatar.Image src={cat} />
+            </Avatar>
+            <Avatar>
+              <Avatar.Fallback variant="secondary">SS</Avatar.Fallback>
+            </Avatar>
+            <Avatar size="lg">
+              <Avatar.Image src={cat} />
+            </Avatar>
+            <Avatar size="lg">
+              <Avatar.Fallback variant="secondary">PD</Avatar.Fallback>
+            </Avatar>
+          </div>
         </div>
       </Tredici>
     );
