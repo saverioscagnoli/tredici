@@ -1,83 +1,134 @@
-import React, { useState, ReactNode, useEffect } from "react";
-import { CheckIcon, Cross2Icon, ArrowDownIcon } from "@radix-ui/react-icons";
-import { useBool } from "@hooks/use-bool";
+import { cn } from "@lib/utils";
+import { ArrowDownIcon, CheckIcon } from "@radix-ui/react-icons";
+import * as RxSelect from "@radix-ui/react-select";
+import * as RxScrollArea from "@radix-ui/react-scroll-area";
+import { ForwardRefExoticComponent, RefAttributes, forwardRef } from "react";
 import "./select.css";
 
-type Value = string | number | null;
-
-interface SelectProps {
-  options?: number[] | string[];
-  className?: string;
-  id?: string;
-  rightIcon?: ReactNode;
-  defaultOpen?: boolean;
-  defaultValue?: string;
-  clearable?: boolean;
-  numbered?: boolean;
-  onValueChange?: (value: Value) => void;
+interface SelectComponent
+  extends ForwardRefExoticComponent<
+    RxSelect.SelectProps & RefAttributes<HTMLDivElement>
+  > {
+  Trigger: typeof SelectTrigger;
+  Body: typeof SelectBody;
+  Item: typeof SelectItem;
+  Group: typeof RxSelect.Group;
+  Label: typeof RxSelect.Label;
+  Separator: typeof SelectSeparator;
 }
 
-const Select: React.FC<SelectProps> = ({
-  options,
-  className,
-  id,
-  rightIcon,
-  defaultOpen,
-  defaultValue,
-  clearable = false,
-  numbered = false,
-  onValueChange,
-  ...props
-}) => {
-  const [isOpen, { setTrue: open, setFalse: close }] = useBool(!!defaultOpen);
-  const [value, setValue] = useState<Value>(defaultValue || null);
+const Select = forwardRef<HTMLDivElement, RxSelect.SelectProps>(
+  ({ children, ...props }, ref) => {
+    return (
+      //@ts-ignore
+      <RxSelect.Root {...props} ref={ref}>
+        {children}
+      </RxSelect.Root>
+    );
+  }
+) as SelectComponent;
 
-  const onSelect = (o: Value) => () => {
-    if (o === value) setValue(null);
-    else setValue(o);
-    close();
-  };
-
-  useEffect(() => {
-    onValueChange?.(value);
-  }, [value]);
-
+const SelectTrigger = forwardRef<
+  HTMLButtonElement,
+  RxSelect.SelectTriggerProps
+>(({ className, placeholder, ...props }, ref) => {
   return (
-    <div {...props} className={["select-13-root", className].join()}>
-      <div id={id} tabIndex={0} className="select-13-trigger" onClick={open}>
-        <span>{value}</span>
-        {clearable && value ? (
-          <Button
-            size="xs"
-            variant="ghost"
-            icon={<Cross2Icon />}
-            onClick={e => {
-              e.stopPropagation();
-              setValue(null);
-            }}
-          />
-        ) : (
-          <span className="select-13-arrow">
-            {rightIcon || <ArrowDownIcon />}
-          </span>
-        )}
-      </div>
-      {isOpen && (
-        <div className="select-13-options-wrapper">
-          {options?.map((o, i) => (
-            <div key={o} className="select-13-option" onClick={onSelect(o)}>
-              <p style={{ marginLeft: "0.25rem", fontWeight: 500 }}>
-                {numbered && `${i + 1}. `} {o}
-              </p>
-              <span className="select-13-check">
-                {o === value && <CheckIcon />}
-              </span>
-            </div>
-          ))}
-        </div>
+    <RxSelect.Trigger
+      {...props}
+      ref={ref}
+      className={cn(
+        className,
+        "flex justify-between items-center px-3 min-w-fit w-48 max-w-full h-9 rounded font-semibold border dark:border-gray-tr-dark border-gray-tr-light shadow hover:outline hover:outline-2 hover:outline-violet-light focus:outline-none"
       )}
-    </div>
+    >
+      <RxSelect.Value placeholder={placeholder} />
+      <RxSelect.Icon className="ml-2">
+        <ArrowDownIcon />
+      </RxSelect.Icon>
+    </RxSelect.Trigger>
   );
-};
+});
+
+const SelectBody = forwardRef<HTMLDivElement, RxSelect.SelectContentProps>(
+  (
+    {
+      children,
+      className,
+      position = "popper",
+      style,
+      onCloseAutoFocus,
+      ...props
+    },
+    ref
+  ) => {
+    return (
+      <RxSelect.Content
+        {...props}
+        ref={ref}
+        position={position}
+        className={cn(
+          "min-h-fit max-h-60 max-w-full p-1 mt-2 font-semibold rounded shadow overflow-auto border dark:bg-[#252525] bg-white dark:border-gray-tr-dark border-gray-tr-light",
+          className,
+          "select-13-scrollbar"
+        )}
+        style={{
+          minWidth: "12rem",
+          ...style
+        }}
+        onCloseAutoFocus={e => {
+          e.preventDefault();
+          onCloseAutoFocus?.(e);
+        }}
+      >
+        <RxScrollArea.Root type="auto">
+          <RxSelect.Viewport>
+            <RxScrollArea.Viewport>{children}</RxScrollArea.Viewport>
+          </RxSelect.Viewport>
+        </RxScrollArea.Root>
+      </RxSelect.Content>
+    );
+  }
+);
+
+const SelectItem = forwardRef<HTMLDivElement, RxSelect.SelectItemProps>(
+  ({ children, className, ...props }, ref) => {
+    return (
+      <RxSelect.Item
+        {...props}
+        ref={ref}
+        className={cn(
+          className,
+          "w-full h-full flex justify-between items-center p-1 rounded cursor-pointer dark:focus:bg-gray-tr-dark focus:bg-gray-tr-light outline-none"
+        )}
+      >
+        <RxSelect.ItemText>{children}</RxSelect.ItemText>
+        <RxSelect.ItemIndicator>
+          <CheckIcon className="ml-2" />
+        </RxSelect.ItemIndicator>
+      </RxSelect.Item>
+    );
+  }
+);
+
+const SelectSeparator = forwardRef<
+  HTMLDivElement,
+  RxSelect.SelectSeparatorProps
+>(({ className, style, ...props }, ref) => {
+  return (
+    <RxSelect.Separator
+      {...props}
+      ref={ref}
+      className={cn("m-1 dark:bg-gray-tr-dark bg-gray-tr-light", className)}
+      style={{ height: "1px", ...style }}
+    />
+  );
+});
+
+Select.Trigger = SelectTrigger;
+Select.Body = SelectBody;
+Select.Item = SelectItem;
+Select.Group = RxSelect.Group;
+Select.Label = RxSelect.Label;
+Select.Separator = SelectSeparator;
 
 export { Select };

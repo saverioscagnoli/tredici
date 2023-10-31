@@ -3,6 +3,9 @@ export default {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      boxShadow: {
+        select: "0 0 0 2px rgb(152, 84, 224)"
+      },
       colors: {
         "violet-light": "rgb(152, 84, 224)",
         "violet-dark": "rgb(173, 123, 226)",
