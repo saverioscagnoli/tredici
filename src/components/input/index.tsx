@@ -1,5 +1,4 @@
 import { ComponentPropsWithoutRef, forwardRef } from "react";
-import "./input.css";
 import { Checkbox } from "@components/checkbox";
 
 const Input = forwardRef<HTMLInputElement, ComponentPropsWithoutRef<"input">>(

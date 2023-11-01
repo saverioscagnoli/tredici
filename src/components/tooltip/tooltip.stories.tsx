@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Tooltip } from ".";
 import { Tredici } from "@components/theme-context-provider";
 import { ThemeButton } from "@components/theme-button";
+import { Button } from "@components/button";
 
 const meta: Meta<typeof Tooltip> = {
   /* 👇 The title prop is optional.
@@ -25,16 +26,15 @@ export const Normal: Story = {
   render: () => {
     return (
       <Tredici>
-        <ThemeButton />
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            gap: "10rem"
-          }}
-        ></div>
+        <div className="flex gap-10">
+          <ThemeButton />
+          <Tooltip>
+            <Tooltip.Trigger>
+              <Button>Hover!</Button>
+            </Tooltip.Trigger>
+            <Tooltip.Body>Tooltip Content!!</Tooltip.Body>
+          </Tooltip>
+        </div>
       </Tredici>
     );
   }
