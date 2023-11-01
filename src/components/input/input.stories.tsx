@@ -1,12 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import "@styles/global.css";
-
-import { Button } from "@components/button";
 import { Input } from ".";
 import { Tredici } from "@components/theme-context-provider";
-import { useTheme } from "@hooks/use-theme";
-import { BsSun, BsMoonFill } from "react-icons/bs";
-import { useState } from "react";
+import { ThemeButton } from "@components/theme-button";
 
 const meta: Meta<typeof Input> = {
   /* 👇 The title prop is optional.
@@ -28,14 +23,12 @@ type Story = StoryObj<typeof Input>;
 
 export const Normal: Story = {
   render: () => {
-    const [type, setType] = useState<"password" | "text">("password");
-    const toggle = () => setType(type === "password" ? "text" : "password");
-
     return (
       <Tredici>
-        <div
-          style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
-        ></div>
+        <div style={{ display: "flex", gap: "1rem" }}>
+          <ThemeButton />
+          <Input />
+        </div>
       </Tredici>
     );
   }
