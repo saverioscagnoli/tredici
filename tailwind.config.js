@@ -1,36 +1,23 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      boxShadow: {
-        select: "0 0 0 2px rgb(152, 84, 224)"
-      },
       colors: {
-        "violet-light": "rgb(152, 84, 224)",
-        "violet-dark": "rgb(173, 123, 226)",
-        "violet-darker-light": "rgb(133, 46, 226)",
-        "violet-darker-dark": "rgb(152, 84, 224)",
-        "violet-darkest-light": "rgb(93, 6, 185)",
-        "violet-darkest-dark": "rgb(133, 46, 226)",
-        "gray-tr-light": "rgba(174, 172, 176, 0.3)",
-        "gray-tr-dark": "rgba(157, 157, 157, 0.3)",
-        "gray-tr-2-light": "rgba(174, 172, 176, 0.5)",
-        "gray-tr-2-dark": "rgba(157, 157, 157, 0.5)",
-        "gray-tr-3-light": "rgba(174, 172, 176, 0.7)",
-        "gray-tr-3-dark": "rgba(157, 157, 157, 0.7)",
+        "fafafa": "#fafafa",
+        "18181b": "#18181b",
         amethyst: {
-          50: "#faf6fe",
-          100: "#f2eafd",
-          200: "#e8d8fc",
-          300: "#d6b9f9",
-          400: "#bc8df3",
-          500: "#a361eb",
-          600: "#9854e0",
-          700: "#772fc1",
-          800: "#662b9e",
-          900: "#53247f",
-          950: "#370e5d"
+          50: "#faf5ff",
+          100: "#f3e7ff",
+          200: "#e9d3ff",
+          300: "#d8b0ff",
+          400: "#c07eff",
+          500: "#b15eff",
+          600: "#942af3",
+          700: "#801ad6",
+          800: "#6c1aaf",
+          900: "#59178c",
+          950: "#3c0269"
         },
         teal: {
           50: "#f1fcfb",
@@ -58,7 +45,7 @@ export default {
           900: "#214622",
           950: "#0d260e"
         },
-        red: {
+        crimson: {
           50: "#fff1f1",
           100: "#ffdfdf",
           200: "#ffc5c5",
@@ -71,7 +58,7 @@ export default {
           900: "#881414",
           950: "#4b0404"
         },
-        silver: {
+        gray: {
           50: "#f7f7f7",
           100: "#ededed",
           200: "#dfdfdf",
@@ -83,19 +70,49 @@ export default {
           800: "#676767",
           900: "#545454",
           950: "#363636"
-        }
-      },
-      animation: {
-        "progress-indefinite": "progress-indefinite 2s infinite"
-      },
-      keyframes: {
-        "progress-indefinite": {
-          "0%": { left: "-50%" },
-          "100%": { left: "100%" }
+        },
+        starship: {
+          50: "#fafee8",
+          100: "#f2fdc4",
+          200: "#edfd8b",
+          300: "#e8fb49",
+          400: "#eaf817",
+          500: "#e2e60a",
+          600: "#c8bc06",
+          700: "#a08a08",
+          800: "#846c0f",
+          900: "#705713",
+          950: "#412f07"
+        },
+        blue: {
+          50: "#e9f2ff",
+          100: "#d7e8ff",
+          200: "#b7d2ff",
+          300: "#8cb3ff",
+          400: "#5e86ff",
+          500: "#3a59ff",
+          600: "#182aff",
+          700: "#0a18e6",
+          800: "#0f1dc4",
+          900: "#162399",
+          950: "#0d1359"
+        },
+        pink: {
+          50: "#fef1f8",
+          100: "#fee5f3",
+          200: "#ffcbe9",
+          300: "#ffa1d4",
+          400: "#ff70ba",
+          500: "#fa3a98",
+          600: "#ea1874",
+          700: "#cc0a5a",
+          800: "#a80c4a",
+          900: "#8c0f40",
+          950: "#560123"
         }
       }
     }
   },
-  plugins: [],
-  darkMode: "class"
+  darkMode: "class",
+  plugins: []
 };

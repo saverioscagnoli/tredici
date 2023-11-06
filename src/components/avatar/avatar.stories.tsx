@@ -1,16 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { Tredici, useTheme } from "../tredici";
+
 import { Avatar } from ".";
-import { Tredici } from "@components/theme-context-provider";
-import cat from "./pics/cat.jpg";
-import raccoon from "./pics/raccoon.jpg";
-import { ThemeButton } from "@components/theme-button";
+import React from "react";
+import { Button } from "../button";
+import { PersonIcon } from "@radix-ui/react-icons";
+
+//@ts-ignore
+import cat from "./cat.jpg";
 
 const meta: Meta<typeof Avatar> = {
-  /* 👇 The title prop is optional.
-   * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
-   * to learn how to generate automatic titles
-   */
-  title: "Avatar",
   component: Avatar
 };
 
@@ -23,53 +22,87 @@ type Story = StoryObj<typeof Avatar>;
  * to learn how to use render functions.
  */
 
-export const Normal: Story = {
+const ThemeButton = ({ colorScheme }: { colorScheme? }) => {
+  const { theme, toggle } = useTheme();
+
+  return (
+    <Button onClick={toggle} colorScheme={colorScheme}>
+      {theme}
+    </Button>
+  );
+};
+
+export const Primary: Story = {
   render: () => {
     return (
       <Tredici>
-        <div className="flex flex-col gap-5">
-          <div style={{ display: "flex", gap: 20, alignItems: "center" }}>
-            <ThemeButton />
-            <Avatar size="sm">
-              <Avatar.Image src={raccoon} />
-              <Avatar.Fallback>SS</Avatar.Fallback>
+        <div className="flex flex-col gap-4">
+          <ThemeButton />
+          <Avatar>
+            <Avatar.Image src={cat} />
+            <Avatar.Fallback content="A" />
+          </Avatar>
+
+          <Avatar colorScheme="teal">
+            <Avatar.Image src="invalid.url" />
+            <Avatar.Fallback content="B" />
+          </Avatar>
+
+          <Avatar colorScheme="green">
+            <Avatar.Image />
+            <Avatar.Fallback content="C" />
+          </Avatar>
+
+          <Avatar colorScheme="crimson">
+            <Avatar.Image />
+            <Avatar.Fallback content="D" />
+          </Avatar>
+
+          <Avatar colorScheme="starship">
+            <Avatar.Image />
+            <Avatar.Fallback content="E" />
+          </Avatar>
+
+          <Avatar colorScheme="blue">
+            <Avatar.Image />
+            <Avatar.Fallback content="F" />
+          </Avatar>
+
+          <Avatar colorScheme="pink">
+            <Avatar.Image />
+            <Avatar.Fallback content="G" />
+          </Avatar>
+
+          <Avatar colorScheme="gray">
+            <Avatar.Image />
+            <Avatar.Fallback content="H" />
+          </Avatar>
+        </div>
+      </Tredici>
+    );
+  }
+};
+
+export const Sizes: Story = {
+  render: () => {
+    return (
+      <Tredici>
+        <div className="flex flex-col gap-4">
+          <ThemeButton />
+          <div className="flex gap-4">
+            <Avatar colorScheme="random" size="sm">
+              <Avatar.Image />
+              <Avatar.Fallback content="SS" />
             </Avatar>
-            <Avatar size="sm">
-              <Avatar.Fallback>PD</Avatar.Fallback>
+
+            <Avatar colorScheme="random" size="md">
+              <Avatar.Image />
+              <Avatar.Fallback content="SS" />
             </Avatar>
-            <Avatar>
-              <Avatar.Image src={cat} />
-            </Avatar>
-            <Avatar>
-              <Avatar.Fallback>SS</Avatar.Fallback>
-            </Avatar>
-            <Avatar size="lg">
-              <Avatar.Image src={cat} />
-            </Avatar>
-            <Avatar size="lg">
-              <Avatar.Fallback>PD</Avatar.Fallback>
-            </Avatar>
-          </div>
-          <div style={{ display: "flex", gap: 20, alignItems: "center" }}>
-            <ThemeButton />
-            <Avatar size="sm">
-              <Avatar.Image src={raccoon} />
-              <Avatar.Fallback variant="secondary">SS</Avatar.Fallback>
-            </Avatar>
-            <Avatar size="sm">
-              <Avatar.Fallback variant="secondary">PD</Avatar.Fallback>
-            </Avatar>
-            <Avatar>
-              <Avatar.Image src={cat} />
-            </Avatar>
-            <Avatar>
-              <Avatar.Fallback variant="secondary">SS</Avatar.Fallback>
-            </Avatar>
-            <Avatar size="lg">
-              <Avatar.Image src={cat} />
-            </Avatar>
-            <Avatar size="lg">
-              <Avatar.Fallback variant="secondary">PD</Avatar.Fallback>
+
+            <Avatar colorScheme="random" size="lg">
+              <Avatar.Image />
+              <Avatar.Fallback content="SS" />
             </Avatar>
           </div>
         </div>

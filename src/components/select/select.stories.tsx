@@ -1,18 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import "@styles/global.css";
+import { Tredici, useTheme } from "../tredici";
 
-import { Button } from "@components/button";
 import { Select } from ".";
-import { Tredici } from "@components/theme-context-provider";
-import { useTheme } from "@hooks/use-theme";
-import { BsSun, BsMoonFill } from "react-icons/bs";
+import React from "react";
+import { Button } from "../button";
+import { PersonIcon } from "@radix-ui/react-icons";
 
 const meta: Meta<typeof Select> = {
-  /* 👇 The title prop is optional.
-   * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
-   * to learn how to generate automatic titles
-   */
-  title: "Select",
   component: Select
 };
 
@@ -25,17 +19,17 @@ type Story = StoryObj<typeof Select>;
  * to learn how to use render functions.
  */
 
-const ThemeButton = () => {
+const ThemeButton = ({ colorScheme }: { colorScheme? }) => {
   const { theme, toggle } = useTheme();
 
   return (
-    <Button onClick={toggle}>
-      {theme === "dark" ? <BsSun /> : <BsMoonFill />}
+    <Button onClick={toggle} colorScheme={colorScheme}>
+      {theme}
     </Button>
   );
 };
 
-export const Normal: Story = {
+export const Primary: Story = {
   render: () => {
     const foods = [
       "🍎 Apples",
@@ -74,38 +68,111 @@ export const Normal: Story = {
 
     return (
       <Tredici>
-        <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+        <div className="flex flex-col gap-8">
           <ThemeButton />
-          <Select>
-            <Select.Trigger placeholder="dsfs" />
-            <Select.Body>
-              {foods.map(food => (
-                <Select.Item key={food} value={food}>
-                  {food}
-                </Select.Item>
-              ))}
-            </Select.Body>
-          </Select>
-          <Select>
-            <Select.Trigger placeholder="dsfs" />
-            <Select.Body>
-              {animals.map(animal => (
-                <Select.Item key={animal} value={animal}>
-                  {animal}
-                </Select.Item>
-              ))}
-            </Select.Body>
-          </Select>
-          <Select>
-            <Select.Trigger placeholder="dsfs" />
-            <Select.Body>
-              {moonPhases.map(phase => (
-                <Select.Item key={phase} value={phase}>
-                  {phase}
-                </Select.Item>
-              ))}
-            </Select.Body>
-          </Select>
+          <div>
+            <Select>
+              <Select.Trigger />
+              <Select.Body>
+                {foods.map(food => (
+                  <Select.Item key={food} value={food}>
+                    {food}
+                  </Select.Item>
+                ))}
+              </Select.Body>
+            </Select>
+          </div>
+
+          <div>
+            <Select>
+              <Select.Trigger colorScheme="teal" />
+              <Select.Body>
+                {animals.map(animal => (
+                  <Select.Item key={animal} value={animal}>
+                    {animal}
+                  </Select.Item>
+                ))}
+              </Select.Body>
+            </Select>
+          </div>
+
+          <div>
+            <Select>
+              <Select.Trigger colorScheme="green" />
+              <Select.Body>
+                {moonPhases.map(phase => (
+                  <Select.Item key={phase} value={phase}>
+                    {phase}
+                  </Select.Item>
+                ))}
+              </Select.Body>
+            </Select>
+          </div>
+
+          <div>
+            <Select>
+              <Select.Trigger colorScheme="crimson" />
+              <Select.Body>
+                {foods.map(food => (
+                  <Select.Item key={food} value={food}>
+                    {food}
+                  </Select.Item>
+                ))}
+              </Select.Body>
+            </Select>
+          </div>
+
+          <div>
+            <Select>
+              <Select.Trigger colorScheme="starship" />
+              <Select.Body>
+                {foods.map(food => (
+                  <Select.Item key={food} value={food}>
+                    {food}
+                  </Select.Item>
+                ))}
+              </Select.Body>
+            </Select>
+          </div>
+
+          <div>
+            <Select>
+              <Select.Trigger colorScheme="blue" />
+              <Select.Body>
+                {foods.map(food => (
+                  <Select.Item key={food} value={food}>
+                    {food}
+                  </Select.Item>
+                ))}
+              </Select.Body>
+            </Select>
+          </div>
+
+          <div>
+            <Select>
+              <Select.Trigger colorScheme="pink" />
+              <Select.Body>
+                {foods.map(food => (
+                  <Select.Item key={food} value={food}>
+                    {food}
+                  </Select.Item>
+                ))}
+              </Select.Body>
+            </Select>
+          </div>
+
+          <div>
+            <Select>
+              <Select.Trigger colorScheme="gray" />
+              <Select.Body>
+                {foods.map(food => (
+                  <Select.Item key={food} value={food}>
+                    {food}
+                  </Select.Item>
+                ))}
+              </Select.Body>
+            </Select>
+          </div>
         </div>
       </Tredici>
     );

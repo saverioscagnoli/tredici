@@ -1,14 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { Tredici, useTheme } from "../tredici";
+
 import { Checkbox } from ".";
-import { Tredici } from "@components/theme-context-provider";
-import { ThemeButton } from "@components/theme-button";
+import React from "react";
+import { Button } from "../button";
 
 const meta: Meta<typeof Checkbox> = {
-  /* 👇 The title prop is optional.
-   * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
-   * to learn how to generate automatic titles
-   */
-  title: "Checkbox",
   component: Checkbox
 };
 
@@ -21,14 +18,26 @@ type Story = StoryObj<typeof Checkbox>;
  * to learn how to use render functions.
  */
 
-export const Normal: Story = {
+const ThemeButton = () => {
+  const { theme, toggle } = useTheme();
+
+  return <Button onClick={toggle}>{theme}</Button>;
+};
+
+export const Primary: Story = {
   render: () => {
     return (
       <Tredici>
-        <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+        <div className="flex flex-col gap-4">
           <ThemeButton />
-          <Checkbox checked />
-          <Checkbox variant="secondary" />
+          <Checkbox />
+          <Checkbox defaultChecked colorScheme="teal" />
+          <Checkbox defaultChecked colorScheme="green" />
+          <Checkbox defaultChecked colorScheme="crimson" />
+          <Checkbox defaultChecked colorScheme="starship" />
+          <Checkbox defaultChecked colorScheme="blue" />
+          <Checkbox defaultChecked colorScheme="pink" />
+          <Checkbox defaultChecked colorScheme="gray" />
         </div>
       </Tredici>
     );

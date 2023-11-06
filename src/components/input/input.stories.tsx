@@ -1,14 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { Tredici, useTheme } from "../tredici";
+
 import { Input } from ".";
-import { Tredici } from "@components/theme-context-provider";
-import { ThemeButton } from "@components/theme-button";
+import React from "react";
+import { Button } from "../button";
 
 const meta: Meta<typeof Input> = {
-  /* 👇 The title prop is optional.
-   * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
-   * to learn how to generate automatic titles
-   */
-  title: "Input",
   component: Input
 };
 
@@ -21,13 +18,60 @@ type Story = StoryObj<typeof Input>;
  * to learn how to use render functions.
  */
 
-export const Normal: Story = {
+const ThemeButton = ({ colorScheme }: { colorScheme? }) => {
+  const { theme, toggle } = useTheme();
+
+  return (
+    <Button onClick={toggle} colorScheme={colorScheme}>
+      {theme}
+    </Button>
+  );
+};
+
+export const Primary: Story = {
   render: () => {
     return (
       <Tredici>
-        <div style={{ display: "flex", gap: "1rem" }}>
-          <ThemeButton />
-          <Input />
+        <div className="flex flex-col gap-4">
+          <div className="flex gap-4">
+            <ThemeButton />
+            <Input />
+          </div>
+
+          <div className="flex gap-4">
+            <ThemeButton colorScheme="teal" />
+            <Input colorScheme="teal" />
+          </div>
+
+          <div className="flex gap-4">
+            <ThemeButton colorScheme="green" />
+            <Input colorScheme="green" />
+          </div>
+
+          <div className="flex gap-4">
+            <ThemeButton colorScheme="crimson" />
+            <Input colorScheme="crimson" />
+          </div>
+
+          <div className="flex gap-4">
+            <ThemeButton colorScheme="starship" />
+            <Input colorScheme="starship" />
+          </div>
+
+          <div className="flex gap-4">
+            <ThemeButton colorScheme="blue" />
+            <Input colorScheme="blue" />
+          </div>
+
+          <div className="flex gap-4">
+            <ThemeButton colorScheme="pink" />
+            <Input colorScheme="pink" />
+          </div>
+
+          <div className="flex gap-4">
+            <ThemeButton colorScheme="gray" />
+            <Input colorScheme="gray" />
+          </div>
         </div>
       </Tredici>
     );

@@ -1,24 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { Tredici, useTheme } from "../tredici";
+
 import { Button } from ".";
-import { Tredici } from "@components/theme-context-provider";
-import { useTheme } from "@hooks/use-theme";
-import {
-  BsMoonFill,
-  BsSun,
-  BsGithub,
-  BsTwitter,
-  BsFacebook,
-  BsTwitch,
-  BsLinkedin
-} from "react-icons/bs";
-import { ThemeButton } from "@components/theme-button";
+import React from "react";
 
 const meta: Meta<typeof Button> = {
-  /* 👇 The title prop is optional.
-   * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
-   * to learn how to generate automatic titles
-   */
-  title: "Button",
   component: Button
 };
 
@@ -31,108 +17,91 @@ type Story = StoryObj<typeof Button>;
  * to learn how to use render functions.
  */
 
-export const Normal: Story = {
+const ThemeButton = () => {
+  const { theme, toggle } = useTheme();
+
+  return <Button onClick={toggle}>{theme}</Button>;
+};
+
+export const Primary: Story = {
   render: () => {
     return (
       <Tredici>
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-4">
           <ThemeButton />
-
-          <div style={{ display: "flex", gap: "1rem" }}>
+          <div className="flex gap-8">
             <Button>Solid</Button>
-            <Button variant="ghost">Ghost</Button>
             <Button variant="outline">Outline</Button>
-          </div>
-          <div style={{ display: "flex", gap: "1rem" }}>
-            <Button disabled>Solid</Button>
-            <Button disabled variant="ghost">
-              Ghost
-            </Button>
-            <Button disabled variant="outline">
-              Outline
-            </Button>
+            <Button variant="ghost">Ghost</Button>
           </div>
 
-          <div className="flex gap-4">
+          <div className="flex gap-8">
             <Button colorScheme="teal">Solid</Button>
-            <Button colorScheme="teal" variant="ghost">
-              Ghost
-            </Button>
             <Button colorScheme="teal" variant="outline">
               Outline
             </Button>
-          </div>
-          <div className="flex gap-4">
-            <Button disabled colorScheme="teal">
-              Solid
-            </Button>
-            <Button disabled colorScheme="teal" variant="ghost">
+            <Button colorScheme="teal" variant="ghost">
               Ghost
-            </Button>
-            <Button disabled colorScheme="teal" variant="outline">
-              Outline
             </Button>
           </div>
 
-          <div className="flex gap-4">
+          <div className="flex gap-8">
             <Button colorScheme="green">Solid</Button>
-            <Button colorScheme="green" variant="ghost">
-              Ghost
-            </Button>
             <Button colorScheme="green" variant="outline">
               Outline
             </Button>
-          </div>
-          <div className="flex gap-4">
-            <Button disabled colorScheme="green">
-              Solid
-            </Button>
-            <Button disabled colorScheme="green" variant="ghost">
+            <Button colorScheme="green" variant="ghost">
               Ghost
-            </Button>
-            <Button disabled colorScheme="green" variant="outline">
-              Outline
             </Button>
           </div>
 
-          <div className="flex gap-4">
-            <Button colorScheme="red">Solid</Button>
-            <Button colorScheme="red" variant="ghost">
-              Ghost
-            </Button>
-            <Button colorScheme="red" variant="outline">
+          <div className="flex gap-8">
+            <Button colorScheme="crimson">Solid</Button>
+            <Button colorScheme="crimson" variant="outline">
               Outline
+            </Button>
+            <Button colorScheme="crimson" variant="ghost">
+              Ghost
             </Button>
           </div>
-          <div className="flex gap-4">
-            <Button disabled colorScheme="red">
-              Solid
-            </Button>
-            <Button disabled colorScheme="red" variant="ghost">
-              Ghost
-            </Button>
-            <Button disabled colorScheme="red" variant="outline">
+
+          <div className="flex gap-8">
+            <Button colorScheme="gray">Solid</Button>
+            <Button colorScheme="gray" variant="outline">
               Outline
+            </Button>
+            <Button colorScheme="gray" variant="ghost">
+              Ghost
             </Button>
           </div>
-          <div className="flex gap-4">
-            <Button colorScheme="silver">Solid</Button>
-            <Button colorScheme="silver" variant="ghost">
-              Ghost
-            </Button>
-            <Button colorScheme="silver" variant="outline">
+
+          <div className="flex gap-8">
+            <Button colorScheme="starship">Solid</Button>
+            <Button colorScheme="starship" variant="outline">
               Outline
+            </Button>
+            <Button colorScheme="starship" variant="ghost">
+              Ghost
             </Button>
           </div>
-          <div className="flex gap-4">
-            <Button disabled colorScheme="silver">
-              Solid
+
+          <div className="flex gap-8">
+            <Button colorScheme="blue">Solid</Button>
+            <Button colorScheme="blue" variant="outline">
+              Outline
             </Button>
-            <Button disabled colorScheme="silver" variant="ghost">
+            <Button colorScheme="blue" variant="ghost">
               Ghost
             </Button>
-            <Button disabled colorScheme="silver" variant="outline">
+          </div>
+
+          <div className="flex gap-8">
+            <Button colorScheme="pink">Solid</Button>
+            <Button colorScheme="pink" variant="outline">
               Outline
+            </Button>
+            <Button colorScheme="pink" variant="ghost">
+              Ghost
             </Button>
           </div>
         </div>
@@ -141,126 +110,60 @@ export const Normal: Story = {
   }
 };
 
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
+
 export const Icon: Story = {
   render: () => {
     return (
       <Tredici>
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-4">
           <ThemeButton />
-
-          <div style={{ display: "flex", gap: "1rem" }}>
-            <Button.Icon>
-              <BsGithub />
-            </Button.Icon>
-            <Button.Icon variant="ghost">
-              <BsTwitter />
-            </Button.Icon>
-            <Button.Icon variant="outline">
-              <BsFacebook />
-            </Button.Icon>
-          </div>
-          <div style={{ display: "flex", gap: "1rem" }}>
-            <Button.Icon disabled>
-              <BsGithub />
-            </Button.Icon>
-            <Button.Icon disabled variant="ghost">
-              <BsTwitter />
-            </Button.Icon>
-            <Button.Icon disabled variant="outline">
-              <BsFacebook />
-            </Button.Icon>
+          <div className="flex gap-8">
+            <Button.Icon icon={<GitHubLogoIcon />} />
+            <Button.Icon variant="outline" icon={<GitHubLogoIcon />} />
+            <Button.Icon variant="ghost" icon={<GitHubLogoIcon />} />
           </div>
 
-          <div style={{ display: "flex", gap: "1rem" }}>
-            <Button.Icon colorScheme="teal">
-              <BsGithub />
-            </Button.Icon>
-            <Button.Icon colorScheme="teal" variant="ghost">
-              <BsTwitter />
-            </Button.Icon>
-            <Button.Icon colorScheme="teal" variant="outline">
-              <BsFacebook />
-            </Button.Icon>
-          </div>
-          <div style={{ display: "flex", gap: "1rem" }}>
-            <Button.Icon colorScheme="teal" disabled>
-              <BsGithub />
-            </Button.Icon>
-            <Button.Icon colorScheme="teal" disabled variant="ghost">
-              <BsTwitter />
-            </Button.Icon>
-            <Button.Icon colorScheme="teal" disabled variant="outline">
-              <BsFacebook />
-            </Button.Icon>
+          <div className="flex gap-8">
+            <Button.Icon colorScheme="teal" icon={<GitHubLogoIcon />} />
+            <Button.Icon colorScheme="teal" variant="outline" icon={<GitHubLogoIcon />} />
+            <Button.Icon colorScheme="teal" variant="ghost" icon={<GitHubLogoIcon />} />
           </div>
 
-          <div style={{ display: "flex", gap: "1rem" }}>
-            <Button.Icon colorScheme="green">
-              <BsGithub />
-            </Button.Icon>
-            <Button.Icon colorScheme="green" variant="ghost">
-              <BsTwitter />
-            </Button.Icon>
-            <Button.Icon colorScheme="green" variant="outline">
-              <BsFacebook />
-            </Button.Icon>
-          </div>
-          <div style={{ display: "flex", gap: "1rem" }}>
-            <Button.Icon colorScheme="green" disabled>
-              <BsGithub />
-            </Button.Icon>
-            <Button.Icon colorScheme="green" disabled variant="ghost">
-              <BsTwitter />
-            </Button.Icon>
-            <Button.Icon colorScheme="green" disabled variant="outline">
-              <BsFacebook />
-            </Button.Icon>
+          <div className="flex gap-8">
+            <Button.Icon colorScheme="green" icon={<GitHubLogoIcon />} />
+            <Button.Icon colorScheme="green" variant="outline" icon={<GitHubLogoIcon />} />
+            <Button.Icon colorScheme="green" variant="ghost" icon={<GitHubLogoIcon />} />
           </div>
 
-          <div style={{ display: "flex", gap: "1rem" }}>
-            <Button.Icon colorScheme="red">
-              <BsGithub />
-            </Button.Icon>
-            <Button.Icon colorScheme="red" variant="ghost">
-              <BsTwitter />
-            </Button.Icon>
-            <Button.Icon colorScheme="red" variant="outline">
-              <BsFacebook />
-            </Button.Icon>
-          </div>
-          <div style={{ display: "flex", gap: "1rem" }}>
-            <Button.Icon colorScheme="red" disabled>
-              <BsGithub />
-            </Button.Icon>
-            <Button.Icon colorScheme="red" disabled variant="ghost">
-              <BsTwitter />
-            </Button.Icon>
-            <Button.Icon colorScheme="red" disabled variant="outline">
-              <BsFacebook />
-            </Button.Icon>
+          <div className="flex gap-8">
+            <Button.Icon colorScheme="crimson" icon={<GitHubLogoIcon />} />
+            <Button.Icon colorScheme="crimson" variant="outline" icon={<GitHubLogoIcon />} />
+            <Button.Icon colorScheme="crimson" variant="ghost" icon={<GitHubLogoIcon />} />
           </div>
 
-          <div style={{ display: "flex", gap: "1rem" }}>
-            <Button.Icon colorScheme="silver">
-              <BsGithub />
-            </Button.Icon>
-            <Button.Icon colorScheme="silver" variant="ghost">
-              <BsTwitter />
-            </Button.Icon>
-            <Button.Icon colorScheme="silver" variant="outline">
-              <BsFacebook />
-            </Button.Icon>
+          <div className="flex gap-8">
+            <Button.Icon colorScheme="starship" icon={<GitHubLogoIcon />} />
+            <Button.Icon colorScheme="starship" variant="outline" icon={<GitHubLogoIcon />} />
+            <Button.Icon colorScheme="starship" variant="ghost" icon={<GitHubLogoIcon />} />
           </div>
-          <div style={{ display: "flex", gap: "1rem" }}>
-            <Button.Icon colorScheme="silver" disabled>
-              <BsGithub />
-            </Button.Icon>
-            <Button.Icon colorScheme="silver" disabled variant="ghost">
-              <BsTwitter />
-            </Button.Icon>
-            <Button.Icon colorScheme="silver" disabled variant="outline">
-              <BsFacebook />
-            </Button.Icon>
+
+          <div className="flex gap-8">
+            <Button.Icon colorScheme="blue" icon={<GitHubLogoIcon />} />
+            <Button.Icon colorScheme="blue" variant="outline" icon={<GitHubLogoIcon />} />
+            <Button.Icon colorScheme="blue" variant="ghost" icon={<GitHubLogoIcon />} />
+          </div>
+
+          <div className="flex gap-8">
+            <Button.Icon colorScheme="pink" icon={<GitHubLogoIcon />} />
+            <Button.Icon colorScheme="pink" variant="outline" icon={<GitHubLogoIcon />} />
+            <Button.Icon colorScheme="pink" variant="ghost" icon={<GitHubLogoIcon />} />
+          </div>
+
+          <div className="flex gap-8">
+            <Button.Icon colorScheme="gray" icon={<GitHubLogoIcon />} />
+            <Button.Icon colorScheme="gray" variant="outline" icon={<GitHubLogoIcon />} />
+            <Button.Icon colorScheme="gray" variant="ghost" icon={<GitHubLogoIcon />} />
           </div>
         </div>
       </Tredici>

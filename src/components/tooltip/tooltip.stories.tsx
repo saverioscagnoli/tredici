@@ -1,15 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { Tredici, useTheme } from "../tredici";
+
 import { Tooltip } from ".";
-import { Tredici } from "@components/theme-context-provider";
-import { ThemeButton } from "@components/theme-button";
-import { Button } from "@components/button";
+import React from "react";
+import { Button } from "../button";
 
 const meta: Meta<typeof Tooltip> = {
-  /* 👇 The title prop is optional.
-   * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
-   * to learn how to generate automatic titles
-   */
-  title: "Tooltip",
   component: Tooltip
 };
 
@@ -22,7 +18,17 @@ type Story = StoryObj<typeof Tooltip>;
  * to learn how to use render functions.
  */
 
-export const Normal: Story = {
+const ThemeButton = ({ colorScheme }: { colorScheme? }) => {
+  const { theme, toggle } = useTheme();
+
+  return (
+    <Button onClick={toggle} colorScheme={colorScheme}>
+      {theme}
+    </Button>
+  );
+};
+
+export const Primary: Story = {
   render: () => {
     return (
       <Tredici>
@@ -32,7 +38,10 @@ export const Normal: Story = {
             <Tooltip.Trigger>
               <Button>Hover!</Button>
             </Tooltip.Trigger>
-            <Tooltip.Body>Tooltip Content!!</Tooltip.Body>
+            <Tooltip.Body>
+              <Tooltip.Arrow />
+              Tooltip Content!!
+            </Tooltip.Body>
           </Tooltip>
         </div>
       </Tredici>

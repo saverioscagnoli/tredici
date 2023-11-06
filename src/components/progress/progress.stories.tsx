@@ -1,29 +1,36 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Button } from "@components/button";
+import { Button } from "../button";
 import { Progress } from ".";
-import { Tredici } from "@components/theme-context-provider";
+import { Tredici, useTheme } from "../tredici";
 import { useState, useEffect } from "react";
-import { ThemeButton } from "@components/theme-button";
+import React from "react";
 
 const meta: Meta<typeof Progress> = {
   /* 👇 The title prop is optional.
    * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
    * to learn how to generate automatic titles
    */
-  title: "Progress",
   component: Progress
 };
 
 export default meta;
 type Story = StoryObj<typeof Progress>;
 
+const ThemeButton = ({ colorScheme }: { colorScheme? }) => {
+  const { theme, toggle } = useTheme();
+
+  return (
+    <Button onClick={toggle} colorScheme={colorScheme}>
+      {theme}
+    </Button>
+  );
+};
+
 /*
  *👇 Render functions are a framework specific feature to allow you control on how the component renders.
  * See https://storybook.js.org/docs/react/api/csf
  * to learn how to use render functions.
  */
-
-
 
 export const Normal: Story = {
   render: () => {
@@ -54,6 +61,36 @@ export const Normal: Story = {
               <Button onClick={decrement}>Decrement</Button>
             </div>
           </div>
+        </div>
+      </Tredici>
+    );
+  }
+};
+
+export const ColorSchemes: Story = {
+  render: () => {
+    const [value, setValue] = useState<number>(0);
+
+    useEffect(() => {
+      const interval = setInterval(() => {
+        setValue(prev => (prev >= 100 ? 0 : prev + 10));
+      }, 1000);
+
+      return () => clearInterval(interval);
+    }, []);
+
+    return (
+      <Tredici>
+        <div className="flex flex-col gap-8">
+          <ThemeButton />
+          <Progress value={value} />
+          <Progress value={value} colorScheme="teal" />
+          <Progress value={value} colorScheme="green" />
+          <Progress value={value} colorScheme="crimson" />
+          <Progress value={value} colorScheme="starship" />
+          <Progress value={value} colorScheme="blue" />
+          <Progress value={value} colorScheme="pink" />
+          <Progress value={value} colorScheme="gray" />
         </div>
       </Tredici>
     );
