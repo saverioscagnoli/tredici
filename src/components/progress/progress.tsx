@@ -2,7 +2,7 @@ import React, { forwardRef } from "react";
 import * as RxProgress from "@radix-ui/react-progress";
 import { c, cn } from "../../lib";
 import "./progress.css";
-import { ColorScheme } from "types";
+import { ColorScheme } from "../../types";
 import { useTheme } from "../tredici";
 
 const fill = c("w-full h-full rounded-full transition-all duration-150", {

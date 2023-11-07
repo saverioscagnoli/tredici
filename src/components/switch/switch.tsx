@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
 import * as RxSwitch from "@radix-ui/react-switch";
 import { c, cn } from "../../lib";
-import { ColorScheme } from "types";
+import { ColorScheme } from "../../types";
 import { useTheme } from "../tredici";
 
 const htmlSwitch = c(

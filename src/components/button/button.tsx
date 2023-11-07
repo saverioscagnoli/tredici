@@ -7,7 +7,7 @@ import React, {
 } from "react";
 import { c, cn } from "../../lib";
 import { useTheme } from "../tredici";
-import { ColorScheme } from "types";
+import { ColorScheme } from "../../types";
 import { ButtonSize, ButtonVariant } from "./button.types";
 
 const buttonSchemes = {
@@ -154,7 +154,7 @@ const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
       className,
       colorScheme = useTheme().defaultColorScheme,
       variant = "solid",
-      size, 
+      size,
       icon,
       ...props
     },

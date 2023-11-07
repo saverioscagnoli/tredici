@@ -109,17 +109,10 @@
     "module": "ESNext",
     "declaration": true,
     "declarationDir": "types",
-    "declarationMap": true,
-    "sourceMap": true,
     "outDir": "dist",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "emitDeclarationOnly": true,
-
-    "baseUrl": "src/",
-    "paths": {
-      "@lib": ["lib/index.ts"]
-    }
   },
   "exclude": ["node_modules", "vite.config.ts", "dist", "**/*.stories.tsx"]
 }
