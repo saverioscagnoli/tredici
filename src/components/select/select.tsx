@@ -8,9 +8,7 @@ import React, {
   forwardRef,
   useEffect
 } from "react";
-import { ColorScheme } from "types";
-import { motion, useAnimation } from "framer-motion";
-import { CSSTransition } from "react-transition-group";
+import { ColorScheme } from "../../types";
 
 interface SelectComponent
   extends ForwardRefExoticComponent<

@@ -5,7 +5,7 @@ import React, {
   ComponentPropsWithoutRef,
   CSSProperties
 } from "react";
-import { ColorScheme } from "types";
+import { ColorScheme } from "../../types";
 
 const spinner = c(
   "",

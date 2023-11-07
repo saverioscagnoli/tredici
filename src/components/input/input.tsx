@@ -1,7 +1,7 @@
 import { useTheme } from "../tredici";
 import { c } from "../../lib";
 import React, { forwardRef, ComponentPropsWithoutRef } from "react";
-import { ColorScheme } from "types";
+import { ColorScheme } from "../../types";
 
 const input = c(
   "w-40 h-9 p-1 bg-transparent rounded-md border shadow font-semibold border-gray-600/40 focus:outline focus:outline-2",

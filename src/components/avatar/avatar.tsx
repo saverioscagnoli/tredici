@@ -5,7 +5,7 @@ import React, {
 } from "react";
 import * as RxAvatar from "@radix-ui/react-avatar";
 import { c, cn, pick } from "../../lib";
-import { ColorScheme } from "types";
+import { ColorScheme } from "../../types";
 import { useTheme } from "../tredici";
 
 const avatar = c(

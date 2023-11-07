@@ -8,7 +8,7 @@ import * as RxAccordion from "@radix-ui/react-accordion";
 import { c, cn } from "../../lib";
 import { ArrowDownIcon } from "@radix-ui/react-icons";
 import "./accordion.css";
-import { ColorScheme } from "types";
+import { ColorScheme } from "../../types";
 import { useTheme } from "../tredici";
 
 type AccordionProps =

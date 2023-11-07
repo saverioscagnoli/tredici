@@ -2,7 +2,7 @@ import React, { forwardRef, ComponentPropsWithoutRef, ReactNode } from "react";
 import * as RxCheckbox from "@radix-ui/react-checkbox";
 import { CheckIcon } from "@radix-ui/react-icons";
 import { c } from "../../lib";
-import { ColorScheme } from "types";
+import { ColorScheme } from "../../types";
 import { useTheme } from "../tredici";
 
 const checkbox = c(

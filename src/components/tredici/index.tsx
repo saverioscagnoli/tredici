@@ -8,7 +8,7 @@ import React, {
   useEffect
 } from "react";
 import styles from "./tredici.css";
-import { ColorScheme } from "types";
+import { ColorScheme } from "../../types";
 
 if (import.meta.env.VITE_ENV === "dev") {
   import("../../styles/global.css");
