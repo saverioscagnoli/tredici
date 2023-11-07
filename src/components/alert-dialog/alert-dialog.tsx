@@ -1,6 +1,7 @@
 import React, { forwardRef } from "react";
 import * as RxAlertDialog from "@radix-ui/react-alert-dialog";
 import { cn } from "../../lib";
+import "./alert-dialog.css";
 
 interface AlertDialogComponent
   extends React.FC<RxAlertDialog.AlertDialogProps> {
@@ -33,12 +34,13 @@ const AlertDialogBody = forwardRef<
 >(({ children, className, ...props }, ref) => {
   return (
     <RxAlertDialog.Portal>
-      <RxAlertDialog.Overlay />
+      <RxAlertDialog.Overlay className="alert-dialog-13-overlay bg-black/50 fixed" />
       <RxAlertDialog.Content
         {...props}
         ref={ref}
         className={cn(
-          "w-[90vw] max-w-[500px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 fixed border border-gray-600/20 shadow rounded-md p-4",
+          "w-[90vw] max-w-[500px] dark:bg-18181b bg-fafafa top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 fixed border border-gray-600/20 shadow rounded-md p-4",
+          "alert-dialog-13-body",
           className
         )}
       >
