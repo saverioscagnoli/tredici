@@ -129,7 +129,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 ) as ButtonComponent;
 
 const buttonIcon = c(
-  "inline-flex justify-center items-center rounded-md select-none cursor-pointer transition-colors disabled:cursor-not-allowed",
+  "inline-flex justify-center items-center select-none cursor-pointer transition-colors disabled:cursor-not-allowed",
   {
     ...buttonSchemes,
     size: {

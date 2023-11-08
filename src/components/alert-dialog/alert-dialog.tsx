@@ -2,6 +2,8 @@ import React, { forwardRef } from "react";
 import * as RxAlertDialog from "@radix-ui/react-alert-dialog";
 import { cn } from "../../lib";
 import "./alert-dialog.css";
+import { Button } from "../button";
+import { Cross2Icon } from "@radix-ui/react-icons";
 
 interface AlertDialogComponent
   extends React.FC<RxAlertDialog.AlertDialogProps> {
@@ -10,6 +12,7 @@ interface AlertDialogComponent
   Title: typeof AlertDialogTitle;
   Description: typeof AlertDialogDescription;
   Cancel: typeof AlertDialogCancel;
+  Close: typeof AlertDialogClose;
   Action: typeof AlertDialogAction;
 }
 
@@ -58,7 +61,7 @@ const AlertDialogTitle = forwardRef<
     <RxAlertDialog.Title
       {...props}
       ref={ref}
-      className={cn("text-2xl font-extrabold", className)}
+      className={cn("text-2xl font-extrabold break-words", className)}
     >
       {children}
     </RxAlertDialog.Title>
@@ -73,7 +76,7 @@ const AlertDialogDescription = forwardRef<
     <RxAlertDialog.Description
       {...props}
       ref={ref}
-      className={cn("text-md mt-2", className)}
+      className={cn("text-md mt-2 break-words", className)}
     >
       {children}
     </RxAlertDialog.Description>
@@ -87,6 +90,21 @@ const AlertDialogCancel = forwardRef<
   return (
     <RxAlertDialog.Cancel {...props} ref={ref}>
       {children}
+    </RxAlertDialog.Cancel>
+  );
+});
+
+const AlertDialogClose = forwardRef<
+  HTMLButtonElement,
+  RxAlertDialog.AlertDialogCancelProps
+>(({ children, ...props }, ref) => {
+  return (
+    <RxAlertDialog.Cancel {...props} ref={ref}>
+      {!children ? (
+        <Button.Icon colorScheme="gray" size="sm" icon={<Cross2Icon />} />
+      ) : (
+        children
+      )}
     </RxAlertDialog.Cancel>
   );
 });
@@ -107,6 +125,7 @@ AlertDialog.Body = AlertDialogBody;
 AlertDialog.Title = AlertDialogTitle;
 AlertDialog.Description = AlertDialogDescription;
 AlertDialog.Cancel = AlertDialogCancel;
+AlertDialog.Close = AlertDialogClose;
 AlertDialog.Action = AlertDialogAction;
 
 export { AlertDialog };
