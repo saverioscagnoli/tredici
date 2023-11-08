@@ -41,7 +41,10 @@ export const Primary: Story = {
               <Button>Open Dialog</Button>
             </AlertDialog.Trigger>
             <AlertDialog.Body>
-              <AlertDialog.Title>Are you incredibly sure?</AlertDialog.Title>
+              <div className="flex justify-between items-center">
+                <AlertDialog.Title>Are you incredibly sure?</AlertDialog.Title>
+                <AlertDialog.Close />
+              </div>
               <AlertDialog.Description>
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                 Pariatur dicta laboriosam veniam totam iste repellendus facere.
