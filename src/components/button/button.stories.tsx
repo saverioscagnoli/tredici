@@ -120,6 +120,7 @@ export const Icon: Story = {
           <ThemeButton />
           <div className="flex gap-8">
             <Button.Icon icon={<GitHubLogoIcon />} />
+            <Button.Icon variant="solid" icon={<GitHubLogoIcon />} round />
             <Button.Icon variant="outline" icon={<GitHubLogoIcon />} />
             <Button.Icon variant="ghost" icon={<GitHubLogoIcon />} />
           </div>

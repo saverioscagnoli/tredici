@@ -146,6 +146,7 @@ interface ButtonIconProps extends ComponentPropsWithoutRef<"button"> {
   variant?: ButtonVariant;
   size?: ButtonSize;
   icon?: ReactNode;
+  round?: boolean;
 }
 
 const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
@@ -156,6 +157,7 @@ const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
       variant = "solid",
       size,
       icon,
+      round,
       ...props
     },
     ref
@@ -164,7 +166,10 @@ const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>(
       <button
         {...props}
         ref={ref}
-        className={buttonIcon({ className, [colorScheme]: variant, size })}
+        className={cn(
+          buttonIcon({ className, [colorScheme]: variant, size }),
+          round && "rounded-full"
+        )}
       >
         {icon}
       </button>
