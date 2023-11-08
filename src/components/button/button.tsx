@@ -78,7 +78,7 @@ const buttonSchemes = {
 };
 
 const button = c(
-  "inline-flex justify-center items-center font-semibold rounded-md select-none cursor-pointer transition-colors disabled:cursor-not-allowed",
+  "inline-flex justify-center items-center font-semibold select-none cursor-pointer transition-colors disabled:cursor-not-allowed",
   {
     ...buttonSchemes,
     size: {
