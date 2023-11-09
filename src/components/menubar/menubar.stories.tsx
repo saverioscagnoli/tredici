@@ -37,33 +37,30 @@ export const Primary: Story = {
 
           <Menubar className="self-start">
             <Menubar.Menu>
-              <Menubar.Trigger>
-                  File
-              </Menubar.Trigger>
+              <Menubar.Trigger>File</Menubar.Trigger>
               <Menubar.Body>
                 <Menubar.Item>New file</Menubar.Item>
                 <Menubar.Item>Open file</Menubar.Item>
                 <Menubar.Item>Save file</Menubar.Item>
+                <Menubar.Arrow />
               </Menubar.Body>
             </Menubar.Menu>
 
             <Menubar.Menu>
-              <Menubar.Trigger>
-                  Edit
-              </Menubar.Trigger>
+              <Menubar.Trigger>Edit</Menubar.Trigger>
               <Menubar.Body>
                 <Menubar.CheckItem checked>Fresh</Menubar.CheckItem>
                 <Menubar.CheckItem checked>Dripped</Menubar.CheckItem>
+                <Menubar.Arrow />
               </Menubar.Body>
             </Menubar.Menu>
 
             <Menubar.Menu>
-              <Menubar.Trigger>
-                  View
-              </Menubar.Trigger>
+              <Menubar.Trigger>View</Menubar.Trigger>
               <Menubar.Body>
                 <Menubar.Item>Zoom in</Menubar.Item>
                 <Menubar.Item>Zoom out</Menubar.Item>
+                <Menubar.Arrow />
               </Menubar.Body>
             </Menubar.Menu>
           </Menubar>
