@@ -50,7 +50,7 @@ const DropdownMenuContent = forwardRef<
         ref={ref}
         sideOffset={sideOffset}
         className={cn(
-          "min-w-[12rem] p-1 rounded dark:bg-fafafa bg-18181b dark:text-18181b text-fafafa shadow",
+          "min-w-[12rem] p-1 rounded dark:bg-fafafa bg-18181b dark:text-18181b text-fafafa text-sm font-semibold shadow",
           className
         )}
       >
@@ -170,7 +170,7 @@ const DropdownMenuSubContent = forwardRef<
         ref={ref}
         sideOffset={sideOffset}
         className={cn(
-          "min-w-[12rem] p-1 rounded dark:bg-fafafa bg-18181b dark:text-18181b text-fafafa shadow",
+          "min-w-[12rem] p-1 rounded dark:bg-fafafa bg-18181b dark:text-18181b text-fafafa text-sm font-semibold shadow",
           className
         )}
       >

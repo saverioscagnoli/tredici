@@ -49,7 +49,7 @@ const ContextMenuBody = forwardRef<
         {...props}
         ref={ref}
         className={cn(
-          "min-w-[12rem] p-1 rounded dark:bg-fafafa bg-18181b dark:text-18181b text-fafafa shadow",
+          "min-w-[12rem] p-1 rounded dark:bg-fafafa bg-18181b dark:text-18181b text-fafafa text-sm font-semibold shadow",
           className
         )}
       >
@@ -169,7 +169,7 @@ const ContextMenuSubBody = forwardRef<
         ref={ref}
         sideOffset={sideOffset}
         className={cn(
-          "min-w-[12rem] p-1 rounded dark:bg-fafafa bg-18181b dark:text-18181b text-fafafa shadow",
+          "min-w-[12rem] p-1 rounded dark:bg-fafafa bg-18181b dark:text-18181b text-fafafa text-sm font-semibold shadow",
           className
         )}
       >
