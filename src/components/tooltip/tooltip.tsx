@@ -52,7 +52,7 @@ const TooltipBody = forwardRef<HTMLDivElement, RxTooltip.TooltipContentProps>(
         ref={ref}
         sideOffset={sideOffset}
         className={cn(
-          "py-1 px-2 rounded-md shadow dark:bg-fafafa bg-18181b dark:text-18181b text-fafafa",
+          "py-1 px-2 rounded-md shadow text-sm font-semibold dark:bg-fafafa bg-18181b dark:text-18181b text-fafafa",
           className
         )}
       >
