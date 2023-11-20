@@ -1,6 +1,6 @@
 {
   "name": "tredici",
-  "version": "0.0.13",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "rollup": "rimraf dist && npm run build:css && rollup -c --inlineDynamicImports",
@@ -37,7 +37,6 @@
     "react-icons": "^4.11.0",
     "rimraf": "^5.0.5",
     "rollup": "^4.2.0",
-    "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-dts": "^6.1.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
@@ -80,6 +79,7 @@
     "@radix-ui/react-tooltip": "^1.0.7",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
+    "inter-ui": "^3.19.3",
     "tailwind-merge": "^2.0.0"
   }
 }
