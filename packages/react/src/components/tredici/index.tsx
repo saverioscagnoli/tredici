@@ -9,6 +9,7 @@ import React, {
 } from "react";
 import styles from "./tredici.css";
 import { ColorScheme } from "../../types";
+import "inter-ui/inter.css";
 
 if (import.meta.env.VITE_ENV === "dev") {
   import("../../styles/global.css");
