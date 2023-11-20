@@ -41,15 +41,6 @@ const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
   }
 ) as AccordionComponent;
 
-const prefix = (color: string, opts?: { dark: boolean }) => {
-  return [
-    opts?.dark && "dark:",
-    "focus-within:shadow-[0_0_0_1.5px_theme(",
-    color,
-    ")]"
-  ].join("");
-};
-
 const accordionItem = c(
   "w-full overflow-hidden break-words focus-within:z-10",
   {
