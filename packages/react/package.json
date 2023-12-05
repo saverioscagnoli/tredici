@@ -1,6 +1,6 @@
 {
   "name": "tredici",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "scripts": {
     "rollup": "rimraf dist && npm run build:css && rollup -c --inlineDynamicImports",
@@ -77,7 +77,6 @@
     "@radix-ui/react-switch": "^1.0.3",
     "@radix-ui/react-tabs": "^1.0.4",
     "@radix-ui/react-tooltip": "^1.0.7",
-    "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "inter-ui": "^3.19.3",
     "tailwind-merge": "^2.0.0"
