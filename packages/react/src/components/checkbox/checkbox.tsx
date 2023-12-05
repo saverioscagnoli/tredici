@@ -26,7 +26,7 @@ const checkbox = c(
   { colorScheme: "amethyst" }
 );
 
-interface CheckboxProps extends ComponentPropsWithoutRef<"button"> {
+interface CheckboxProps extends  RxCheckbox.CheckboxProps{
   colorScheme?: ColorScheme;
   icon?: ReactNode;
 }
