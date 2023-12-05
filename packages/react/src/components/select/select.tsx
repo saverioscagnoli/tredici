@@ -55,10 +55,11 @@ const selectTrigger = c(
 
 interface SelectTriggerProps extends RxSelect.SelectTriggerProps {
   colorScheme?: ColorScheme;
+  icon?: ReactNode | string;
 }
 
 const SelectTrigger = forwardRef<HTMLButtonElement, SelectTriggerProps>(
-  ({ className, colorScheme = "amethyst", placeholder, ...props }, ref) => {
+  ({ className, colorScheme = "amethyst", icon= <ArrowDownIcon />, placeholder, ...props }, ref) => {
     return (
       <RxSelect.Trigger
         {...props}
@@ -67,7 +68,7 @@ const SelectTrigger = forwardRef<HTMLButtonElement, SelectTriggerProps>(
       >
         <RxSelect.Value placeholder={placeholder} />
         <RxSelect.Icon className="ml-2">
-          <ArrowDownIcon />
+          {icon}
         </RxSelect.Icon>
       </RxSelect.Trigger>
     );
