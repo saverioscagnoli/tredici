@@ -71,7 +71,7 @@ const Tredici: React.FC<TrediciProps> = ({
       {...props}
       value={{ theme, setTheme, toggle, defaultColorScheme }}
     >
-      {children}
+      <div className="antialiased">{children}</div>
     </ThemeContext.Provider>
   );
 };
