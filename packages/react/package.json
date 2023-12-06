@@ -1,6 +1,6 @@
 {
   "name": "tredici",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "type": "module",
   "scripts": {
     "rollup": "rimraf dist && npm run build:css && rollup -c --inlineDynamicImports",

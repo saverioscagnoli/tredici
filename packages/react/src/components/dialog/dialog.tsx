@@ -79,16 +79,8 @@ const DialogDescription = forwardRef<
 });
 
 const DialogClose = forwardRef<HTMLButtonElement, RxDialog.DialogCloseProps>(
-  ({ children, ...props }, ref) => {
-    return (
-      <RxDialog.Close {...props} ref={ref}>
-        {!children ? (
-          <Button.Icon colorScheme="crimson" size="sm" icon={<Cross2Icon />} />
-        ) : (
-          children
-        )}
-      </RxDialog.Close>
-    );
+  (props, ref) => {
+    return <RxDialog.Close {...props} ref={ref} />;
   }
 );
 
