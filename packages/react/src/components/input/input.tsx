@@ -32,8 +32,6 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     { className, colorScheme = useTheme().defaultColorScheme, ...props },
     ref
   ) => {
-    console.log(input({ className, colorScheme }));
-
     return (
       <input
         {...props}
