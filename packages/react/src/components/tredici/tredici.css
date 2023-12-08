@@ -488,6 +488,9 @@ video {
 .fixed {
   position: fixed;
 }
+.absolute {
+  position: absolute;
+}
 .relative {
   position: relative;
 }
@@ -699,6 +702,9 @@ video {
 }
 .cursor-pointer {
   cursor: pointer;
+}
+.touch-none {
+  touch-action: none;
 }
 .select-none {
   -webkit-user-select: none;
@@ -1254,6 +1260,12 @@ video {
 }
 .outline {
   outline-style: solid;
+}
+.outline-1 {
+  outline-width: 1px;
+}
+.outline-18181b {
+  outline-color: #18181b;
 }
 .transition-all {
   transition-property: all;
@@ -2366,6 +2378,11 @@ html {
 :is(.dark .dark\:text-white) {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+:is(.dark .dark\:outline-none) {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 
 :is(.dark .dark\:selection\:bg-amethyst-300\/30 *)::-moz-selection {
