@@ -34,10 +34,10 @@ export const Primary: Story = {
           <Checkbox defaultChecked colorScheme="teal" />
           <Checkbox defaultChecked colorScheme="green" />
           <Checkbox defaultChecked colorScheme="crimson" />
-          <Checkbox defaultChecked colorScheme="starship" />
+          <Checkbox defaultChecked colorScheme="yellow" />
           <Checkbox defaultChecked colorScheme="blue" />
           <Checkbox defaultChecked colorScheme="pink" />
-          <Checkbox defaultChecked colorScheme="gray" />
+          <Checkbox defaultChecked colorScheme="b/w" />
         </div>
       </Tredici>
     );

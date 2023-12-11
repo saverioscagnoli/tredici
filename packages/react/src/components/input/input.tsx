@@ -14,8 +14,8 @@ const input = c(
         "dark:focus:outline-green-300 focus:outline-green-500 dark:selection:bg-green-300/30 selection:bg-green-500/50",
       crimson:
         "dark:focus:outline-crimson-300 focus:outline-crimson-500 dark:selection:bg-crimson-300/30 selection:bg-crimson-500/50",
-      starship:
-        "dark:focus:outline-starship-300 focus:outline-starship-500 dark:selection:bg-starship-300/30 selection:bg-starship-500/50",
+      yellow:
+        "dark:focus:outline-yellow-300 focus:outline-yellow-500 dark:selection:bg-yellow-300/30 selection:bg-yellow-500/50",
       blue: "dark:focus:outline-blue-300 focus:outline-blue-500 dark:selection:bg-blue-300/30 selection:bg-blue-500/50",
       pink: "dark:focus:outline-pink-300 focus:outline-pink-500 dark:selection:bg-pink-300/30 selection:bg-pink-500/50",
       gray: "dark:focus:outline-fafafa focus:outline-18181b dark:selection:bg-gray-300/30 selection:bg-gray-500/50"

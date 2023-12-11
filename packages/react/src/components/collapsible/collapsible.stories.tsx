@@ -35,16 +35,14 @@ export const Primary: Story = {
         <div className="flex flex-col gap-4">
           <ThemeButton />
           <Collapsible>
-            <Collapsible.Trigger>
-              <Button>Collapsible Trigger</Button>
-            </Collapsible.Trigger>
+            <Collapsible.Trigger>Collapsible Trigger</Collapsible.Trigger>
 
-            <Collapsible.Body>
+            <Collapsible.Content>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae
               excepturi ad tempora sit, obcaecati quia ea consectetur modi
               dolore placeat fuga, reprehenderit cum explicabo inventore!
               Aperiam rem totam culpa minima!
-            </Collapsible.Body>
+            </Collapsible.Content>
           </Collapsible>
         </div>
       </Tredici>

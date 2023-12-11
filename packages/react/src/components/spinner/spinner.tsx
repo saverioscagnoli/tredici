@@ -15,7 +15,7 @@ const spinner = c(
       teal: "dark:stroke-teal-400 stroke-teal-500",
       green: "dark:stroke-green-400 stroke-green-500",
       crimson: "dark:stroke-crimson-400 stroke-crimson-500",
-      starship: "dark:stroke-starship-400 stroke-starship-500",
+      yellow: "dark:stroke-yellow-400 stroke-yellow-500",
       blue: "dark:stroke-blue-400 stroke-blue-500",
       pink: "dark:stroke-pink-400 stroke-pink-500",
       gray: "dark:stroke-fafafa stroke-18181b"

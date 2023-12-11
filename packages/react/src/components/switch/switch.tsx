@@ -15,8 +15,8 @@ const htmlSwitch = c(
         "dark:data-[state='checked']:bg-green-400 data-[state='checked']:bg-green-500 data-[state='unchecked']:bg-gray-600/20",
       crimson:
         "dark:data-[state='checked']:bg-crimson-400 data-[state='checked']:bg-crimson-500 data-[state='unchecked']:bg-gray-600/20",
-      starship:
-        "dark:data-[state='checked']:bg-starship-400 data-[state='checked']:bg-starship-500 data-[state='unchecked']:bg-gray-600/20",
+      yellow:
+        "dark:data-[state='checked']:bg-yellow-400 data-[state='checked']:bg-yellow-500 data-[state='unchecked']:bg-gray-600/20",
       blue: "dark:data-[state='checked']:bg-blue-400 data-[state='checked']:bg-blue-500 data-[state='unchecked']:bg-gray-600/20",
       pink: "dark:data-[state='checked']:bg-pink-400 data-[state='checked']:bg-pink-500 data-[state='unchecked']:bg-gray-600/20",
       gray: "dark:data-[state='checked']:bg-fafafa data-[state='checked']:bg-18181b data-[state='unchecked']:bg-gray-600/20"

@@ -124,7 +124,7 @@ export const Primary: Story = {
 
           <div>
             <Select>
-              <Select.Trigger colorScheme="starship" />
+              <Select.Trigger colorScheme="yellow" />
               <Select.Body>
                 {foods.map(food => (
                   <Select.Item key={food} value={food}>

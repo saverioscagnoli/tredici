@@ -44,8 +44,8 @@ const selectTrigger = c(
         "dark:hover:outline-green-400 hover:outline-green-500 dark:focus:outline-green-400 focus:outline-green-500",
       crimson:
         "dark:hover:outline-crimson-400 hover:outline-crimson-500 dark:focus:outline-crimson-400 focus:outline-crimson-500",
-      starship:
-        "dark:hover:outline-starship-400 hover:outline-starship-500 dark:focus:outline-starship-400 focus:outline-starship-500",
+      yellow:
+        "dark:hover:outline-yellow-400 hover:outline-yellow-500 dark:focus:outline-yellow-400 focus:outline-yellow-500",
       blue: "dark:hover:outline-blue-400 hover:outline-blue-500 dark:focus:outline-blue-400 focus:outline-blue-500",
       pink: "dark:hover:outline-pink-400 hover:outline-pink-500 dark:focus:outline-pink-400 focus:outline-pink-500",
       gray: "dark:hover:outline-fafafa hover:outline-18181b dark:focus:outline-gray-400 focus:outline-gray-500"
@@ -59,7 +59,16 @@ interface SelectTriggerProps extends RxSelect.SelectTriggerProps {
 }
 
 const SelectTrigger = forwardRef<HTMLButtonElement, SelectTriggerProps>(
-  ({ className, colorScheme = "amethyst", icon= <ArrowDownIcon />, placeholder, ...props }, ref) => {
+  (
+    {
+      className,
+      colorScheme = "amethyst",
+      icon = <ArrowDownIcon />,
+      placeholder,
+      ...props
+    },
+    ref
+  ) => {
     return (
       <RxSelect.Trigger
         {...props}
@@ -67,9 +76,7 @@ const SelectTrigger = forwardRef<HTMLButtonElement, SelectTriggerProps>(
         className={selectTrigger({ className, colorScheme })}
       >
         <RxSelect.Value placeholder={placeholder} />
-        <RxSelect.Icon className="ml-2">
-          {icon}
-        </RxSelect.Icon>
+        <RxSelect.Icon className="ml-2">{icon}</RxSelect.Icon>
       </RxSelect.Trigger>
     );
   }
@@ -169,4 +176,3 @@ Select.Label = RxSelect.Label;
 Select.Separator = SelectSeparator;
 
 export { Select };
-

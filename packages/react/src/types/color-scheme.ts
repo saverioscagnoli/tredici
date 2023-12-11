@@ -3,8 +3,8 @@ type ColorScheme =
   | "teal"
   | "green"
   | "crimson"
-  | "gray"
-  | "starship"
+  | "b/w"
+  | "yellow"
   | "blue"
   | "pink";
 

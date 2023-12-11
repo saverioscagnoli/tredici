@@ -38,7 +38,7 @@ export const Normal: Story = {
       <Tredici>
         <div className="flex flex-col gap-4">
           <ThemeButton />
-          <Slider defaultValue={[50]} onValueCommit={(v) => console.log(v)} />
+          <Slider defaultValue={[50]} onValueCommit={v => console.log(v)} />
         </div>
       </Tredici>
     );
@@ -55,7 +55,7 @@ export const Colors: Story = {
           <Slider defaultValue={[50]} colorScheme="teal" />
           <Slider defaultValue={[50]} colorScheme="green" />
           <Slider defaultValue={[50]} colorScheme="crimson" />
-          <Slider defaultValue={[50]} colorScheme="starship" />
+          <Slider defaultValue={[50]} colorScheme="yellow" />
           <Slider defaultValue={[50]} colorScheme="blue" />
           <Slider defaultValue={[50]} colorScheme="pink" />
           <Slider defaultValue={[50]} colorScheme="gray" />

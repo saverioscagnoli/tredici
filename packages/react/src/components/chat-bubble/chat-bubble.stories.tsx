@@ -33,9 +33,7 @@ export const Primary: Story = {
           <ThemeButton />
           <div className="flex self-end gap-1">
             <ChatBubble type="send">My name is Yoshikage Kira.</ChatBubble>
-            <Avatar>
-              <Avatar.Fallback content="YK" />
-            </Avatar>
+            <Avatar fallback="YK" />
           </div>
           <ChatBubble colorScheme="teal" type="receive">
             I'm 33 years old.
@@ -48,7 +46,7 @@ export const Primary: Story = {
             I work as an employee for the Kame Yu department stores, and I get
             home every day by 8 PM at the latest.
           </ChatBubble>
-          <ChatBubble colorScheme="starship" type="send" className="self-end">
+          <ChatBubble colorScheme="yellow" type="send" className="self-end">
             I don't smoke, but I occasionally drink.
           </ChatBubble>
           <ChatBubble colorScheme="blue" type="receive">
@@ -60,7 +58,7 @@ export const Primary: Story = {
             stretches before going to bed, I usually have no problems sleeping
             until morning.
           </ChatBubble>
-          <ChatBubble colorScheme="gray" type="receive">
+          <ChatBubble colorScheme="b/w" type="receive">
             Just like a baby, I wake up without any fatigue or stress in the
             morning.
           </ChatBubble>

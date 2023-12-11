@@ -6,52 +6,59 @@ import React, {
 import * as RxCollapsible from "@radix-ui/react-collapsible";
 import { cn } from "../../lib";
 import "./collapsible.css";
+import { Button, ButtonComponent, ButtonProps } from "../button";
 
 interface CollapsibleComponent
   extends ForwardRefExoticComponent<
-    RxCollapsible.CollapsibleProps & RefAttributes<HTMLDivElement>
+    CollapsibleProps & RefAttributes<HTMLDivElement>
   > {
   Trigger: typeof CollapsibleTrigger;
-  Body: typeof CollapsibleBody;
+  Content: typeof CollapsibleContent;
 }
 
-const Collapsible = forwardRef<HTMLDivElement, RxCollapsible.CollapsibleProps>(
-  ({ children, ...props }, ref) => {
-    return (
-      <RxCollapsible.Root {...props} ref={ref}>
-        {children}
-      </RxCollapsible.Root>
-    );
+export type CollapsibleProps = RxCollapsible.CollapsibleProps;
+
+const Collapsible = forwardRef<HTMLDivElement, CollapsibleProps>(
+  (props, ref) => {
+    return <RxCollapsible.Root {...props} ref={ref} />;
   }
 ) as CollapsibleComponent;
 
-const CollapsibleTrigger = forwardRef<
-  HTMLButtonElement,
-  RxCollapsible.CollapsibleTriggerProps
->(({ children, ...props }, ref) => {
-  return (
-    <RxCollapsible.Trigger {...props} ref={ref}>
-      {children}
-    </RxCollapsible.Trigger>
-  );
-});
+const CollapsibleTrigger = forwardRef<HTMLButtonElement, ButtonProps>(
+  (props, ref) => {
+    return (
+      <RxCollapsible.Trigger asChild>
+        <Button {...props} ref={ref} />
+      </RxCollapsible.Trigger>
+    );
+  }
+) as ButtonComponent;
 
-const CollapsibleBody = forwardRef<
-  HTMLDivElement,
-  RxCollapsible.CollapsibleContentProps
->(({ children, className, ...props }, ref) => {
-  return (
-    <RxCollapsible.Content
-      {...props}
-      ref={ref}
-      className={cn("overflow-hidden", "collapsible-13-body", className)}
-    >
-      {children}
-    </RxCollapsible.Content>
-  );
-});
+CollapsibleTrigger.Icon = forwardRef<HTMLButtonElement, ButtonProps>(
+  (props, ref) => {
+    return (
+      <RxCollapsible.Trigger asChild>
+        <Button.Icon {...props} ref={ref} />
+      </RxCollapsible.Trigger>
+    );
+  }
+);
+
+export type CollapsibleContentProps = RxCollapsible.CollapsibleContentProps;
+
+const CollapsibleContent = forwardRef<HTMLDivElement, CollapsibleContentProps>(
+  ({ className, ...props }, ref) => {
+    return (
+      <RxCollapsible.Content
+        {...props}
+        ref={ref}
+        className={cn("overflow-hidden", "collapsible-13-content", className)}
+      />
+    );
+  }
+);
 
 Collapsible.Trigger = CollapsibleTrigger;
-Collapsible.Body = CollapsibleBody;
+Collapsible.Content = CollapsibleContent;
 
 export { Collapsible };

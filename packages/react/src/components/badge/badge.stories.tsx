@@ -34,19 +34,59 @@ export const Primary: Story = {
           <Badge label="Badge" colorScheme="teal" className="self-start" />
           <Badge label="Badge" colorScheme="green" className="self-start" />
           <Badge label="Badge" colorScheme="crimson" className="self-start" />
-          <Badge label="Badge" colorScheme="starship" className="self-start" />
+          <Badge label="Badge" colorScheme="yellow" className="self-start" />
           <Badge label="Badge" colorScheme="blue" className="self-start" />
           <Badge label="Badge" colorScheme="pink" className="self-start" />
-          <Badge label="Badge" colorScheme="gray" className="self-start" />
+          <Badge label="Badge" colorScheme="b/w" className="self-start" />
 
-          <Badge label="Badge" variant="outline" colorScheme="amethyst" className="self-start" />
-          <Badge label="Badge" variant="outline" colorScheme="teal" className="self-start" />
-          <Badge label="Badge" variant="outline" colorScheme="green" className="self-start" />
-          <Badge label="Badge" variant="outline" colorScheme="crimson" className="self-start" />
-          <Badge label="Badge" variant="outline" colorScheme="starship" className="self-start" />
-          <Badge label="Badge" variant="outline" colorScheme="blue" className="self-start" />
-          <Badge label="Badge" variant="outline" colorScheme="pink" className="self-start" />
-          <Badge label="Badge" variant="outline" colorScheme="gray" className="self-start" />
+          <Badge
+            label="Badge"
+            variant="outline"
+            colorScheme="amethyst"
+            className="self-start"
+          />
+          <Badge
+            label="Badge"
+            variant="outline"
+            colorScheme="teal"
+            className="self-start"
+          />
+          <Badge
+            label="Badge"
+            variant="outline"
+            colorScheme="green"
+            className="self-start"
+          />
+          <Badge
+            label="Badge"
+            variant="outline"
+            colorScheme="crimson"
+            className="self-start"
+          />
+          <Badge
+            label="Badge"
+            variant="outline"
+            colorScheme="yellow"
+            className="self-start"
+          />
+          <Badge
+            label="Badge"
+            variant="outline"
+            colorScheme="blue"
+            className="self-start"
+          />
+          <Badge
+            label="Badge"
+            variant="outline"
+            colorScheme="pink"
+            className="self-start"
+          />
+          <Badge
+            label="Badge"
+            variant="outline"
+            colorScheme="b/w"
+            className="self-start"
+          />
         </div>
       </Tredici>
     );

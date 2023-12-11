@@ -24,11 +24,11 @@ const badge = c("px-1 py-[1px] text-xs rounded font-semibold tracking-wider", {
     outline:
       "bg-transparent dark:text-crimson-400 text-crimson-500 border dark:border-crimson-400 border-crimson-500"
   },
-  starship: {
+  yellow: {
     solid:
-      "dark:bg-starship-400/60 bg-starship-500/60 dark:text-fafafa text-18181b",
+      "dark:bg-yellow-400/60 bg-yellow-500/60 dark:text-fafafa text-18181b",
     outline:
-      "bg-transparent dark:text-starship-400 text-starship-500 border dark:border-starship-400 border-starship-500"
+      "bg-transparent dark:text-yellow-400 text-yellow-500 border dark:border-yellow-400 border-yellow-500"
   },
   blue: {
     solid: "dark:bg-blue-400/60 bg-blue-500/60 text-fafafa",
@@ -40,15 +40,29 @@ const badge = c("px-1 py-[1px] text-xs rounded font-semibold tracking-wider", {
     outline:
       "bg-transparent dark:text-pink-400 text-pink-500 border dark:border-pink-400 border-pink-500"
   },
-  gray: {
+  "b/w": {
     solid: "dark:bg-fafafa bg-18181b dark:text-18181b text-fafafa",
-    outline: "bg-transparent dark:text-fafafa text-18181b border dark:border-fafafa border-18181b"
+    outline:
+      "bg-transparent dark:text-fafafa text-18181b border dark:border-fafafa border-18181b"
   }
 });
 
-interface BadgeProps extends ComponentPropsWithoutRef<"div"> {
+export interface BadgeProps extends ComponentPropsWithoutRef<"div"> {
+  /**
+   * The text to display inside the badge.
+   */
   label?: string;
+
+  /**
+   * The color scheme of the badge.
+   * @see ColorScheme
+   */
   colorScheme?: ColorScheme;
+
+  /**
+   * The variant of the badge.
+   * @default solid
+   */
   variant?: "solid" | "outline";
 }
 

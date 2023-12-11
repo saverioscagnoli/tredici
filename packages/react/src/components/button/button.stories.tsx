@@ -66,21 +66,21 @@ export const Primary: Story = {
           </div>
 
           <div className="flex gap-8">
-            <Button colorScheme="gray">Solid</Button>
-            <Button colorScheme="gray" variant="outline">
+            <Button colorScheme="b/w">Solid</Button>
+            <Button colorScheme="b/w" variant="outline">
               Outline
             </Button>
-            <Button colorScheme="gray" variant="ghost">
+            <Button colorScheme="b/w" variant="ghost">
               Ghost
             </Button>
           </div>
 
           <div className="flex gap-8">
-            <Button colorScheme="starship">Solid</Button>
-            <Button colorScheme="starship" variant="outline">
+            <Button colorScheme="yellow">Solid</Button>
+            <Button colorScheme="yellow" variant="outline">
               Outline
             </Button>
-            <Button colorScheme="starship" variant="ghost">
+            <Button colorScheme="yellow" variant="ghost">
               Ghost
             </Button>
           </div>
@@ -127,44 +127,100 @@ export const Icon: Story = {
 
           <div className="flex gap-8">
             <Button.Icon colorScheme="teal" icon={<GitHubLogoIcon />} />
-            <Button.Icon colorScheme="teal" variant="outline" icon={<GitHubLogoIcon />} />
-            <Button.Icon colorScheme="teal" variant="ghost" icon={<GitHubLogoIcon />} />
+            <Button.Icon
+              colorScheme="teal"
+              variant="outline"
+              icon={<GitHubLogoIcon />}
+            />
+            <Button.Icon
+              colorScheme="teal"
+              variant="ghost"
+              icon={<GitHubLogoIcon />}
+            />
           </div>
 
           <div className="flex gap-8">
             <Button.Icon colorScheme="green" icon={<GitHubLogoIcon />} />
-            <Button.Icon colorScheme="green" variant="outline" icon={<GitHubLogoIcon />} />
-            <Button.Icon colorScheme="green" variant="ghost" icon={<GitHubLogoIcon />} />
+            <Button.Icon
+              colorScheme="green"
+              variant="outline"
+              icon={<GitHubLogoIcon />}
+            />
+            <Button.Icon
+              colorScheme="green"
+              variant="ghost"
+              icon={<GitHubLogoIcon />}
+            />
           </div>
 
           <div className="flex gap-8">
             <Button.Icon colorScheme="crimson" icon={<GitHubLogoIcon />} />
-            <Button.Icon colorScheme="crimson" variant="outline" icon={<GitHubLogoIcon />} />
-            <Button.Icon colorScheme="crimson" variant="ghost" icon={<GitHubLogoIcon />} />
+            <Button.Icon
+              colorScheme="crimson"
+              variant="outline"
+              icon={<GitHubLogoIcon />}
+            />
+            <Button.Icon
+              colorScheme="crimson"
+              variant="ghost"
+              icon={<GitHubLogoIcon />}
+            />
           </div>
 
           <div className="flex gap-8">
-            <Button.Icon colorScheme="starship" icon={<GitHubLogoIcon />} />
-            <Button.Icon colorScheme="starship" variant="outline" icon={<GitHubLogoIcon />} />
-            <Button.Icon colorScheme="starship" variant="ghost" icon={<GitHubLogoIcon />} />
+            <Button.Icon colorScheme="yellow" icon={<GitHubLogoIcon />} />
+            <Button.Icon
+              colorScheme="yellow"
+              variant="outline"
+              icon={<GitHubLogoIcon />}
+            />
+            <Button.Icon
+              colorScheme="yellow"
+              variant="ghost"
+              icon={<GitHubLogoIcon />}
+            />
           </div>
 
           <div className="flex gap-8">
             <Button.Icon colorScheme="blue" icon={<GitHubLogoIcon />} />
-            <Button.Icon colorScheme="blue" variant="outline" icon={<GitHubLogoIcon />} />
-            <Button.Icon colorScheme="blue" variant="ghost" icon={<GitHubLogoIcon />} />
+            <Button.Icon
+              colorScheme="blue"
+              variant="outline"
+              icon={<GitHubLogoIcon />}
+            />
+            <Button.Icon
+              colorScheme="blue"
+              variant="ghost"
+              icon={<GitHubLogoIcon />}
+            />
           </div>
 
           <div className="flex gap-8">
             <Button.Icon colorScheme="pink" icon={<GitHubLogoIcon />} />
-            <Button.Icon colorScheme="pink" variant="outline" icon={<GitHubLogoIcon />} />
-            <Button.Icon colorScheme="pink" variant="ghost" icon={<GitHubLogoIcon />} />
+            <Button.Icon
+              colorScheme="pink"
+              variant="outline"
+              icon={<GitHubLogoIcon />}
+            />
+            <Button.Icon
+              colorScheme="pink"
+              variant="ghost"
+              icon={<GitHubLogoIcon />}
+            />
           </div>
 
           <div className="flex gap-8">
-            <Button.Icon colorScheme="gray" icon={<GitHubLogoIcon />} />
-            <Button.Icon colorScheme="gray" variant="outline" icon={<GitHubLogoIcon />} />
-            <Button.Icon colorScheme="gray" variant="ghost" icon={<GitHubLogoIcon />} />
+            <Button.Icon colorScheme="b/w" icon={<GitHubLogoIcon />} />
+            <Button.Icon
+              colorScheme="b/w"
+              variant="outline"
+              icon={<GitHubLogoIcon />}
+            />
+            <Button.Icon
+              colorScheme="b/w"
+              variant="ghost"
+              icon={<GitHubLogoIcon />}
+            />
           </div>
         </div>
       </Tredici>

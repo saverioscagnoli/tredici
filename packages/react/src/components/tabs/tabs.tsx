@@ -30,8 +30,8 @@ const tabsTrigger = c(
         "data-[state='active']:dark:bg-green-400 data-[state='active']:bg-green-500 dark:data-[state='active']:text-18181b data-[state='active']:text-fafafa",
       crimson:
         "data-[state='active']:dark:bg-crimson-400 data-[state='active']:bg-crimson-500 dark:data-[state='active']:text-18181b data-[state='active']:text-fafafa",
-      starship:
-        "data-[state='active']:dark:bg-starship-400 data-[state='active']:bg-starship-500 data-[state='active']:text-18181b",
+      yellow:
+        "data-[state='active']:dark:bg-yellow-400 data-[state='active']:bg-yellow-500 data-[state='active']:text-18181b",
       blue: "data-[state='active']:dark:bg-blue-400 data-[state='active']:bg-blue-500 data-[state='active']:text-fafafa",
       pink: "data-[state='active']:dark:bg-pink-400 data-[state='active']:bg-pink-500 dark:data-[state='active']:text-18181b data-[state='active']:text-fafafa",
       gray: "data-[state='active']:dark:bg-fafafa data-[state='active']:bg-18181b dark:data-[state='active']:text-18181b data-[state='active']:text-fafafa"

@@ -28,7 +28,7 @@ const indicator = c(
       teal: "dark:after:bg-teal-400 after:bg-teal-500",
       green: "dark:after:bg-green-400 after:bg-green-500",
       crimson: "dark:after:bg-crimson-400 after:bg-crimson-500",
-      starship: "dark:after:bg-starship-400 after:bg-starship-500",
+      yellow: "dark:after:bg-yellow-400 after:bg-yellow-500",
       blue: "dark:after:bg-blue-400 after:bg-blue-500",
       pink: "dark:after:bg-pink-400 after:bg-pink-500",
       gray: "dark:after:bg-fafafa after:bg-18181b"
