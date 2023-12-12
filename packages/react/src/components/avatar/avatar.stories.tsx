@@ -1,10 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Tredici, useTheme } from "../tredici";
-
 import { Avatar } from ".";
 import React from "react";
 import { Button } from "../button";
-import { PersonIcon } from "@radix-ui/react-icons";
 
 //@ts-ignore
 import cat from "./cat.jpg";
@@ -38,45 +36,14 @@ export const Primary: Story = {
       <Tredici>
         <div className="flex flex-col gap-4">
           <ThemeButton />
-          <Avatar>
-            <Avatar.Image src={cat} />
-            <Avatar.Fallback content="A" />
-          </Avatar>
-
-          <Avatar colorScheme="teal">
-            <Avatar.Image src="invalid.url" />
-            <Avatar.Fallback content="B" />
-          </Avatar>
-
-          <Avatar colorScheme="green">
-            <Avatar.Image />
-            <Avatar.Fallback content="C" />
-          </Avatar>
-
-          <Avatar colorScheme="crimson">
-            <Avatar.Image />
-            <Avatar.Fallback content="D" />
-          </Avatar>
-
-          <Avatar colorScheme="starship">
-            <Avatar.Image />
-            <Avatar.Fallback content="E" />
-          </Avatar>
-
-          <Avatar colorScheme="blue">
-            <Avatar.Image />
-            <Avatar.Fallback content="F" />
-          </Avatar>
-
-          <Avatar colorScheme="pink">
-            <Avatar.Image />
-            <Avatar.Fallback content="G" />
-          </Avatar>
-
-          <Avatar colorScheme="gray">
-            <Avatar.Image />
-            <Avatar.Fallback content="H" />
-          </Avatar>
+          <Avatar imageSrc={cat} fallback="A" />
+          <Avatar colorScheme="teal" imageSrc="invalid" fallback="B" />
+          <Avatar colorScheme="green" fallback="C" />
+          <Avatar colorScheme="crimson" fallback="D" />
+          <Avatar colorScheme="yellow" fallback="E" />
+          <Avatar colorScheme="blue" fallback="F" />
+          <Avatar colorScheme="pink" fallback="G" />
+          <Avatar colorScheme="b/w" fallback="G" />
         </div>
       </Tredici>
     );
@@ -90,20 +57,9 @@ export const Sizes: Story = {
         <div className="flex flex-col gap-4">
           <ThemeButton />
           <div className="flex gap-4">
-            <Avatar colorScheme="random" size="sm">
-              <Avatar.Image />
-              <Avatar.Fallback content="SS" />
-            </Avatar>
-
-            <Avatar colorScheme="random" size="md">
-              <Avatar.Image />
-              <Avatar.Fallback content="SS" />
-            </Avatar>
-
-            <Avatar colorScheme="random" size="lg">
-              <Avatar.Image />
-              <Avatar.Fallback content="SS" />
-            </Avatar>
+            <Avatar colorScheme="random" size="sm" fallback="SS" />
+            <Avatar colorScheme="random" size="md" fallback="SS" />
+            <Avatar colorScheme="random" size="lg" fallback="SS" />
           </div>
         </div>
       </Tredici>

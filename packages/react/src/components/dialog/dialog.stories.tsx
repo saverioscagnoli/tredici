@@ -4,6 +4,7 @@ import { Tredici, useTheme } from "../tredici";
 import { Dialog } from ".";
 import React from "react";
 import { Button } from "../button";
+import { Tooltip } from "../tooltip";
 
 const meta: Meta<typeof Dialog> = {
   component: Dialog
@@ -36,10 +37,15 @@ export const Primary: Story = {
           <ThemeButton />
 
           <Dialog>
-            <Dialog.Trigger>
-              <Button>Open Dialog</Button>
-            </Dialog.Trigger>
-            <Dialog.Body>
+            <Tooltip>
+              <Tooltip.Trigger asChild>
+                <Dialog.Trigger asChild>
+                  <Button>Open Dialog</Button>
+                </Dialog.Trigger>
+              </Tooltip.Trigger>
+              <Tooltip.Body>Open the dialog</Tooltip.Body>
+            </Tooltip>
+            <Dialog.Content>
               <div className="flex justify-between items-center">
                 <Dialog.Title>Dialog Title</Dialog.Title>
                 <Dialog.Close />
@@ -66,7 +72,7 @@ export const Primary: Story = {
                 <Button colorScheme="gray">Holy moly!</Button>
                 <Button>🤚🖐️🖖👌</Button>
               </div>
-            </Dialog.Body>
+            </Dialog.Content>
           </Dialog>
         </div>
       </Tredici>

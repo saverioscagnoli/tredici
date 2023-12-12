@@ -7,104 +7,100 @@ import {
   DotFilledIcon
 } from "@radix-ui/react-icons";
 
-interface ContextMenuComponent
-  extends React.FC<RxContextMenu.ContextMenuProps> {
+export type ContextMenuProps = RxContextMenu.ContextMenuProps;
+
+interface ContextMenuComponent extends React.FC<ContextMenuProps> {
   Trigger: typeof ContextMenuTrigger;
-  Body: typeof ContextMenuBody;
+  Content: typeof ContextMenuContent;
   Group: typeof ContextMenuGroup;
   Label: typeof ContextMenuLabel;
   Item: typeof ContextMenuItem;
   CheckItem: typeof ContextMenuCheckItem;
   Sub: typeof ContextMenuSub;
   SubTrigger: typeof ContextMenuSubTrigger;
-  SubBody: typeof ContextMenuSubBody;
+  SubContent: typeof ContextMenuSubContent;
   RadioGroup: typeof ContextMenuRadioGroup;
   RadioItem: typeof ContextMenuRadioItem;
   Arrow: typeof ContextMenuArrow;
   Separator: typeof ContextMenuSeparator;
 }
 
-const ContextMenu: ContextMenuComponent = ({ children, ...props }) => {
-  return <RxContextMenu.Root {...props}>{children}</RxContextMenu.Root>;
+const ContextMenu: ContextMenuComponent = props => {
+  return <RxContextMenu.Root {...props} />;
 };
 
-const ContextMenuTrigger = forwardRef<
-  HTMLSpanElement,
-  RxContextMenu.ContextMenuTriggerProps
->(({ children, ...props }, ref) => {
-  return (
-    <RxContextMenu.Trigger {...props} ref={ref}>
-      {children}
-    </RxContextMenu.Trigger>
-  );
-});
+export type ContextMenuTriggerProps = RxContextMenu.ContextMenuTriggerProps;
 
-const ContextMenuBody = forwardRef<
-  HTMLDivElement,
-  RxContextMenu.ContextMenuContentProps
->(({ children, className, ...props }, ref) => {
-  return (
-    <RxContextMenu.Portal>
-      <RxContextMenu.Content
+const ContextMenuTrigger = forwardRef<HTMLSpanElement, ContextMenuTriggerProps>(
+  (props, ref) => {
+    return <RxContextMenu.Trigger {...props} ref={ref} />;
+  }
+);
+
+export type ContextMenuContentProps = RxContextMenu.ContextMenuContentProps;
+
+const ContextMenuContent = forwardRef<HTMLDivElement, ContextMenuContentProps>(
+  ({ className, ...props }, ref) => {
+    return (
+      <RxContextMenu.Portal>
+        <RxContextMenu.Content
+          {...props}
+          ref={ref}
+          className={cn(
+            "min-w-[12rem] p-1 rounded dark:bg-fafafa bg-18181b dark:text-18181b text-fafafa text-sm font-semibold shadow",
+            className
+          )}
+        />
+      </RxContextMenu.Portal>
+    );
+  }
+);
+
+export type ContextMenuGroupProps = RxContextMenu.ContextMenuGroupProps;
+
+const ContextMenuGroup = forwardRef<HTMLDivElement, ContextMenuGroupProps>(
+  (props, ref) => {
+    return <RxContextMenu.Group {...props} ref={ref} />;
+  }
+);
+
+export type ContextMenuLabelProps = RxContextMenu.ContextMenuLabelProps;
+
+const ContextMenuLabel = forwardRef<HTMLDivElement, ContextMenuLabelProps>(
+  ({ className, ...props }, ref) => {
+    return (
+      <RxContextMenu.Label
+        {...props}
+        ref={ref}
+        className={cn("text-xs p-1", className)}
+      />
+    );
+  }
+);
+
+export type ContextMenuItemProps = RxContextMenu.ContextMenuItemProps;
+
+const ContextMenuItem = forwardRef<HTMLDivElement, ContextMenuItemProps>(
+  ({ className, ...props }, ref) => {
+    return (
+      <RxContextMenu.Item
         {...props}
         ref={ref}
         className={cn(
-          "min-w-[12rem] p-1 rounded dark:bg-fafafa bg-18181b dark:text-18181b text-fafafa text-sm font-semibold shadow",
+          "flex items-center cursor-pointer p-1 focus:outline-none focus:bg-gray-600/30 rounded",
           className
         )}
-      >
-        {children}
-      </RxContextMenu.Content>
-    </RxContextMenu.Portal>
-  );
-});
+      />
+    );
+  }
+);
 
-const ContextMenuGroup = forwardRef<
-  HTMLDivElement,
-  RxContextMenu.ContextMenuGroupProps
->(({ children, ...props }, ref) => {
-  return (
-    <RxContextMenu.Group {...props} ref={ref}>
-      {children}
-    </RxContextMenu.Group>
-  );
-});
-
-const ContextMenuLabel = forwardRef<
-  HTMLDivElement,
-  RxContextMenu.ContextMenuLabelProps
->(({ children, className, ...props }, ref) => {
-  return (
-    <RxContextMenu.Label
-      {...props}
-      ref={ref}
-      className={cn("text-xs p-1", className)}
-    >
-      {children}
-    </RxContextMenu.Label>
-  );
-});
-
-const ContextMenuItem = forwardRef<
-  HTMLDivElement,
-  RxContextMenu.ContextMenuItemProps
->(({ children, className, ...props }, ref) => {
-  return (
-    <RxContextMenu.Item
-      {...props}
-      ref={ref}
-      className={cn(
-        "flex items-center cursor-pointer p-1 focus:outline-none focus:bg-gray-600/30 rounded",
-        className
-      )}
-    >
-      {children}
-    </RxContextMenu.Item>
-  );
-});
-
-interface ContextMenuCheckItemProps
+export interface ContextMenuCheckItemProps
   extends RxContextMenu.ContextMenuCheckboxItemProps {
+  /**
+   * The icon to display when the checkbox is checked.
+   * @default RxIcons.CheckIcon
+   */
   icon?: ReactNode;
 }
 
@@ -127,16 +123,19 @@ const ContextMenuCheckItem = forwardRef<
   );
 });
 
-const ContextMenuSub: React.FC<RxContextMenu.ContextMenuSubProps> = ({
-  children,
-  ...props
-}) => {
-  return <RxContextMenu.Sub {...props}>{children}</RxContextMenu.Sub>;
+export type ContextMenuSubProps = RxContextMenu.ContextMenuSubProps;
+
+const ContextMenuSub: React.FC<ContextMenuSubProps> = props => {
+  return <RxContextMenu.Sub {...props} />;
 };
 
-interface ContextMenuSubTriggerProps
+export interface ContextMenuSubTriggerProps
   extends RxContextMenu.ContextMenuSubTriggerProps {
-  icon?: ReactNode | "none";
+  /**
+   * The icon to display when the sub menu is open.
+   * @default RxIcons.ArrowRightIcon
+   */
+  icon?: ReactNode;
 }
 
 const ContextMenuSubTrigger = forwardRef<
@@ -153,15 +152,18 @@ const ContextMenuSubTrigger = forwardRef<
       )}
     >
       {children}
-      {icon !== "none" && icon}
+      {icon}
     </RxContextMenu.SubTrigger>
   );
 });
 
-const ContextMenuSubBody = forwardRef<
+export type ContextMenuSubContentProps =
+  RxContextMenu.ContextMenuSubContentProps;
+
+const ContextMenuSubContent = forwardRef<
   HTMLDivElement,
-  RxContextMenu.ContextMenuSubContentProps
->(({ children, className, sideOffset = 7, ...props }, ref) => {
+  ContextMenuSubContentProps
+>(({ className, sideOffset = 7, ...props }, ref) => {
   return (
     <RxContextMenu.Portal>
       <RxContextMenu.SubContent
@@ -172,26 +174,27 @@ const ContextMenuSubBody = forwardRef<
           "min-w-[12rem] p-1 rounded dark:bg-fafafa bg-18181b dark:text-18181b text-fafafa text-sm font-semibold shadow",
           className
         )}
-      >
-        {children}
-      </RxContextMenu.SubContent>
+      />
     </RxContextMenu.Portal>
   );
 });
 
+export type ContextMenuRadioGroupProps =
+  RxContextMenu.ContextMenuRadioGroupProps;
+
 const ContextMenuRadioGroup = forwardRef<
   HTMLDivElement,
-  RxContextMenu.ContextMenuRadioGroupProps
->(({ children, ...props }, ref) => {
-  return (
-    <RxContextMenu.RadioGroup {...props} ref={ref}>
-      {children}
-    </RxContextMenu.RadioGroup>
-  );
+  ContextMenuRadioGroupProps
+>((props, ref) => {
+  return <RxContextMenu.RadioGroup {...props} ref={ref} />;
 });
 
-interface ContextMenuRadioItemProps
+export interface ContextMenuRadioItemProps
   extends RxContextMenu.ContextMenuRadioItemProps {
+  /**
+   * The icon to display when the radio item is checked.
+   * @default RxIcons.DotFilledIcon
+   */
   icon?: ReactNode;
 }
 
@@ -214,20 +217,21 @@ const ContextMenuRadioItem = forwardRef<
   );
 });
 
-const ContextMenuArrow = forwardRef<
-  SVGSVGElement,
-  RxContextMenu.ContextMenuArrowProps
->(({ className, width = 7, height = 3, ...props }, ref) => {
-  return (
-    <RxContextMenu.Arrow
-      {...props}
-      ref={ref}
-      width={width}
-      height={height}
-      className={cn("dark:fill-fafafa fill-18181b", className)}
-    />
-  );
-});
+export type ContextMenuArrowProps = RxContextMenu.ContextMenuArrowProps;
+
+const ContextMenuArrow = forwardRef<SVGSVGElement, ContextMenuArrowProps>(
+  ({ className, width = 7, height = 3, ...props }, ref) => {
+    return (
+      <RxContextMenu.Arrow
+        {...props}
+        ref={ref}
+        width={width}
+        height={height}
+        className={cn("dark:fill-fafafa fill-18181b", className)}
+      />
+    );
+  }
+);
 
 const ContextMenuSeparator = forwardRef<
   HTMLDivElement,
@@ -243,14 +247,14 @@ const ContextMenuSeparator = forwardRef<
 });
 
 ContextMenu.Trigger = ContextMenuTrigger;
-ContextMenu.Body = ContextMenuBody;
+ContextMenu.Content = ContextMenuContent;
 ContextMenu.Group = ContextMenuGroup;
 ContextMenu.Label = ContextMenuLabel;
 ContextMenu.Item = ContextMenuItem;
 ContextMenu.CheckItem = ContextMenuCheckItem;
 ContextMenu.Sub = ContextMenuSub;
 ContextMenu.SubTrigger = ContextMenuSubTrigger;
-ContextMenu.SubBody = ContextMenuSubBody;
+ContextMenu.SubContent = ContextMenuSubContent;
 ContextMenu.RadioGroup = ContextMenuRadioGroup;
 ContextMenu.RadioItem = ContextMenuRadioItem;
 ContextMenu.Arrow = ContextMenuArrow;

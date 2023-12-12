@@ -3,9 +3,7 @@ import { Tredici, useTheme } from "../tredici";
 import { AlertDialog } from ".";
 import React from "react";
 import { Button } from "../button";
-
-//@ts-ignore
-import raccoon from "./pics/raccoon.jpg";
+import { Cross2Icon, EyeClosedIcon } from "@radix-ui/react-icons";
 
 const meta: Meta<typeof AlertDialog> = {
   component: AlertDialog
@@ -37,13 +35,20 @@ export const Primary: Story = {
         <div className="flex gap-8">
           <ThemeButton />
           <AlertDialog>
-            <AlertDialog.Trigger>
+            <AlertDialog.Trigger asChild>
               <Button>Open Dialog</Button>
             </AlertDialog.Trigger>
-            <AlertDialog.Body>
+            <AlertDialog.Content>
               <div className="flex justify-between items-center">
                 <AlertDialog.Title>Are you incredibly sure?</AlertDialog.Title>
-                <AlertDialog.Close />
+                <AlertDialog.Cancel asChild>
+                  <Button.Icon
+                    colorScheme="crimson"
+                    size="sm"
+                    icon={<Cross2Icon />}
+                    round
+                  />
+                </AlertDialog.Cancel>
               </div>
               <AlertDialog.Description>
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit.
@@ -52,14 +57,14 @@ export const Primary: Story = {
                 quaerat, quis quisquam animi.
               </AlertDialog.Description>
               <div className="w-full flex gap-4 mt-2 justify-end">
-                <AlertDialog.Cancel>
+                <AlertDialog.Cancel asChild>
                   <Button colorScheme="gray">Cancel</Button>
                 </AlertDialog.Cancel>
-                <AlertDialog.Action>
+                <AlertDialog.Action asChild>
                   <Button colorScheme="crimson">Delete</Button>
                 </AlertDialog.Action>
               </div>
-            </AlertDialog.Body>
+            </AlertDialog.Content>
           </AlertDialog>
         </div>
       </Tredici>

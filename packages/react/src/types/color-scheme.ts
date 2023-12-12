@@ -3,9 +3,9 @@ type ColorScheme =
   | "teal"
   | "green"
   | "crimson"
-  | "gray"
-  | "starship"
+  | "yellow"
   | "blue"
-  | "pink";
+  | "pink"
+  | "b/w";
 
 export { ColorScheme };

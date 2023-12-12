@@ -4,7 +4,6 @@ import { Tredici, useTheme } from "../tredici";
 import { Accordion } from ".";
 import React from "react";
 import { Button } from "../button";
-import { PersonIcon } from "@radix-ui/react-icons";
 
 const meta: Meta<typeof Accordion> = {
   component: Accordion

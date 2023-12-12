@@ -11,7 +11,7 @@ import "./accordion.css";
 import { ColorScheme } from "../../types";
 import { useTheme } from "../tredici";
 
-type AccordionProps =
+export type AccordionProps =
   | RxAccordion.AccordionSingleProps
   | RxAccordion.AccordionMultipleProps;
 
@@ -25,7 +25,7 @@ interface AccordionComponent
 }
 
 const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
-  ({ children, className, ...props }, ref) => {
+  ({ className, ...props }, ref) => {
     return (
       <RxAccordion.Root
         {...props}
@@ -34,9 +34,7 @@ const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
           "w-40 dark:bg-18181b bg-fafafa border border-gray-600/20 shadow rounded-md",
           className
         )}
-      >
-        {children}
-      </RxAccordion.Root>
+      />
     );
   }
 ) as AccordionComponent;
@@ -52,27 +50,28 @@ const accordionItem = c(
         "dark:focus-within:shadow-[0_0_0_1.5px_theme(colors.green.400)] focus-within:shadow-[0_0_0_1.5px_theme(colors.green.500)]",
       crimson:
         "dark:focus-within:shadow-[0_0_0_1.5px_theme(colors.crimson.400)] focus-within:shadow-[0_0_0_1.5px_theme(colors.crimson.500)]",
-      starship:
-        "dark:focus-within:shadow-[0_0_0_1.5px_theme(colors.starship.400)] focus-within:shadow-[0_0_0_1.5px_theme(colors.starship.500)]",
+      yellow:
+        "dark:focus-within:shadow-[0_0_0_1.5px_theme(colors.yellow.400)] focus-within:shadow-[0_0_0_1.5px_theme(colors.yellow.500)]",
       blue: "dark:focus-within:shadow-[0_0_0_1.5px_theme(colors.blue.400)] focus-within:shadow-[0_0_0_1.5px_theme(colors.blue.500)]",
       pink: "dark:focus-within:shadow-[0_0_0_1.5px_theme(colors.pink.400)] focus-within:shadow-[0_0_0_1.5px_theme(colors.pink.500)]",
-      gray: "dark:focus-within:shadow-[0_0_0_1.5px_theme(colors.fafafa)] focus-within:shadow-[0_0_0_1.5px_theme(colors.18181b)]"
+      "b/w":
+        "dark:focus-within:shadow-[0_0_0_1.5px_theme(colors.fafafa)] focus-within:shadow-[0_0_0_1.5px_theme(colors.18181b)]"
     }
   }
 );
 
-interface AccordionItemProps extends RxAccordion.AccordionItemProps {
+export interface AccordionItemProps extends RxAccordion.AccordionItemProps {
+  /**
+   * The color scheme of the accordion item.
+   * @see ColorScheme
+   * @default useTheme().defaultColorScheme
+   */
   colorScheme?: ColorScheme;
 }
 
 const AccordionItem = forwardRef<HTMLDivElement, AccordionItemProps>(
   (
-    {
-      children,
-      className,
-      colorScheme = useTheme().defaultColorScheme,
-      ...props
-    },
+    { className, colorScheme = useTheme().defaultColorScheme, ...props },
     ref
   ) => {
     return (
@@ -83,14 +82,17 @@ const AccordionItem = forwardRef<HTMLDivElement, AccordionItemProps>(
           accordionItem({ className, colorScheme }),
           "accordion-13-item"
         )}
-      >
-        {children}
-      </RxAccordion.Item>
+      />
     );
   }
 );
 
-interface AccordionTriggerProps extends RxAccordion.AccordionTriggerProps {
+export interface AccordionTriggerProps
+  extends RxAccordion.AccordionTriggerProps {
+  /**
+   * The icon at the end of the accordion trigger.
+   * @default <ArrowDownIcon /> "From Radix UI"
+   */
   icon?: ReactNode;
 }
 
@@ -114,24 +116,25 @@ const AccordionTrigger = forwardRef<HTMLButtonElement, AccordionTriggerProps>(
   }
 );
 
-const AccordionContent = forwardRef<
-  HTMLDivElement,
-  RxAccordion.AccordionContentProps
->(({ children, className, ...props }, ref) => {
-  return (
-    <RxAccordion.Content
-      {...props}
-      ref={ref}
-      className={cn(
-        "accordion-13-content",
-        "border-b border-b-gray-600/20",
-        className
-      )}
-    >
-      <div className="p-2">{children}</div>
-    </RxAccordion.Content>
-  );
-});
+export type AccordionContentProps = RxAccordion.AccordionContentProps;
+
+const AccordionContent = forwardRef<HTMLDivElement, AccordionContentProps>(
+  ({ children, className, ...props }, ref) => {
+    return (
+      <RxAccordion.Content
+        {...props}
+        ref={ref}
+        className={cn(
+          "accordion-13-content",
+          "border-b border-b-gray-600/20",
+          className
+        )}
+      >
+        <div className="p-2">{children}</div>
+      </RxAccordion.Content>
+    );
+  }
+);
 
 Accordion.Item = AccordionItem;
 Accordion.Trigger = AccordionTrigger;

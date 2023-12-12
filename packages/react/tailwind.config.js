@@ -4,8 +4,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        "fafafa": "#fafafa",
+        fafafa: "#fafafa",
         "18181b": "#18181b",
+        "0c0c0e": "#0c0c0e",
+        "ededed": "#ededed",
         amethyst: {
           50: "#faf5ff",
           100: "#f3e7ff",
@@ -71,7 +73,7 @@ export default {
           900: "#545454",
           950: "#363636"
         },
-        starship: {
+        yellow: {
           50: "#fafee8",
           100: "#f2fdc4",
           200: "#edfd8b",

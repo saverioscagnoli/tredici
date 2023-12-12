@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Tredici, useTheme } from "../tredici";
-
 import { Button } from ".";
 import React from "react";
+import { ColorScheme } from "../../types";
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
 
 const meta: Meta<typeof Button> = {
   component: Button
@@ -23,149 +24,80 @@ const ThemeButton = () => {
   return <Button onClick={toggle}>{theme}</Button>;
 };
 
+const template = (colorScheme: ColorScheme | "gray", icon?: boolean) => {
+  let C = icon ? Button.Icon : Button;
+  return (
+    <div className="flex gap-4 mt-4">
+      <C colorScheme={colorScheme} icon={<GitHubLogoIcon />}>
+        Button
+      </C>
+      <C colorScheme={colorScheme} disabled icon={<GitHubLogoIcon />}>
+        Button
+      </C>
+
+      <C colorScheme={colorScheme} variant="outline" icon={<GitHubLogoIcon />}>
+        Button
+      </C>
+      <C
+        colorScheme={colorScheme}
+        variant="outline"
+        disabled
+        icon={<GitHubLogoIcon />}
+      >
+        Button
+      </C>
+
+      <C colorScheme={colorScheme} variant="ghost" icon={<GitHubLogoIcon />}>
+        Button
+      </C>
+      <C
+        colorScheme={colorScheme}
+        variant="ghost"
+        disabled
+        icon={<GitHubLogoIcon />}
+      >
+        Button
+      </C>
+    </div>
+  );
+};
+
 export const Primary: Story = {
   render: () => {
     return (
       <Tredici>
-        <div className="flex flex-col gap-4">
-          <ThemeButton />
-          <div className="flex gap-8">
-            <Button>Solid</Button>
-            <Button variant="outline">Outline</Button>
-            <Button variant="ghost">Ghost</Button>
-          </div>
-
-          <div className="flex gap-8">
-            <Button colorScheme="teal">Solid</Button>
-            <Button colorScheme="teal" variant="outline">
-              Outline
-            </Button>
-            <Button colorScheme="teal" variant="ghost">
-              Ghost
-            </Button>
-          </div>
-
-          <div className="flex gap-8">
-            <Button colorScheme="green">Solid</Button>
-            <Button colorScheme="green" variant="outline">
-              Outline
-            </Button>
-            <Button colorScheme="green" variant="ghost">
-              Ghost
-            </Button>
-          </div>
-
-          <div className="flex gap-8">
-            <Button colorScheme="crimson">Solid</Button>
-            <Button colorScheme="crimson" variant="outline">
-              Outline
-            </Button>
-            <Button colorScheme="crimson" variant="ghost">
-              Ghost
-            </Button>
-          </div>
-
-          <div className="flex gap-8">
-            <Button colorScheme="gray">Solid</Button>
-            <Button colorScheme="gray" variant="outline">
-              Outline
-            </Button>
-            <Button colorScheme="gray" variant="ghost">
-              Ghost
-            </Button>
-          </div>
-
-          <div className="flex gap-8">
-            <Button colorScheme="starship">Solid</Button>
-            <Button colorScheme="starship" variant="outline">
-              Outline
-            </Button>
-            <Button colorScheme="starship" variant="ghost">
-              Ghost
-            </Button>
-          </div>
-
-          <div className="flex gap-8">
-            <Button colorScheme="blue">Solid</Button>
-            <Button colorScheme="blue" variant="outline">
-              Outline
-            </Button>
-            <Button colorScheme="blue" variant="ghost">
-              Ghost
-            </Button>
-          </div>
-
-          <div className="flex gap-8">
-            <Button colorScheme="pink">Solid</Button>
-            <Button colorScheme="pink" variant="outline">
-              Outline
-            </Button>
-            <Button colorScheme="pink" variant="ghost">
-              Ghost
-            </Button>
-          </div>
+        <ThemeButton />
+        <div className="flex flex-col">
+          {template("amethyst")}
+          {template("teal")}
+          {template("green")}
+          {template("crimson")}
+          {template("yellow")}
+          {template("blue")}
+          {template("pink")}
+          {template("b/w")}
+          {template("gray")}
         </div>
       </Tredici>
     );
   }
 };
 
-import { GitHubLogoIcon } from "@radix-ui/react-icons";
-
 export const Icon: Story = {
   render: () => {
     return (
       <Tredici>
-        <div className="flex flex-col gap-4">
-          <ThemeButton />
-          <div className="flex gap-8">
-            <Button.Icon icon={<GitHubLogoIcon />} />
-            <Button.Icon variant="solid" icon={<GitHubLogoIcon />} round />
-            <Button.Icon variant="outline" icon={<GitHubLogoIcon />} />
-            <Button.Icon variant="ghost" icon={<GitHubLogoIcon />} />
-          </div>
-
-          <div className="flex gap-8">
-            <Button.Icon colorScheme="teal" icon={<GitHubLogoIcon />} />
-            <Button.Icon colorScheme="teal" variant="outline" icon={<GitHubLogoIcon />} />
-            <Button.Icon colorScheme="teal" variant="ghost" icon={<GitHubLogoIcon />} />
-          </div>
-
-          <div className="flex gap-8">
-            <Button.Icon colorScheme="green" icon={<GitHubLogoIcon />} />
-            <Button.Icon colorScheme="green" variant="outline" icon={<GitHubLogoIcon />} />
-            <Button.Icon colorScheme="green" variant="ghost" icon={<GitHubLogoIcon />} />
-          </div>
-
-          <div className="flex gap-8">
-            <Button.Icon colorScheme="crimson" icon={<GitHubLogoIcon />} />
-            <Button.Icon colorScheme="crimson" variant="outline" icon={<GitHubLogoIcon />} />
-            <Button.Icon colorScheme="crimson" variant="ghost" icon={<GitHubLogoIcon />} />
-          </div>
-
-          <div className="flex gap-8">
-            <Button.Icon colorScheme="starship" icon={<GitHubLogoIcon />} />
-            <Button.Icon colorScheme="starship" variant="outline" icon={<GitHubLogoIcon />} />
-            <Button.Icon colorScheme="starship" variant="ghost" icon={<GitHubLogoIcon />} />
-          </div>
-
-          <div className="flex gap-8">
-            <Button.Icon colorScheme="blue" icon={<GitHubLogoIcon />} />
-            <Button.Icon colorScheme="blue" variant="outline" icon={<GitHubLogoIcon />} />
-            <Button.Icon colorScheme="blue" variant="ghost" icon={<GitHubLogoIcon />} />
-          </div>
-
-          <div className="flex gap-8">
-            <Button.Icon colorScheme="pink" icon={<GitHubLogoIcon />} />
-            <Button.Icon colorScheme="pink" variant="outline" icon={<GitHubLogoIcon />} />
-            <Button.Icon colorScheme="pink" variant="ghost" icon={<GitHubLogoIcon />} />
-          </div>
-
-          <div className="flex gap-8">
-            <Button.Icon colorScheme="gray" icon={<GitHubLogoIcon />} />
-            <Button.Icon colorScheme="gray" variant="outline" icon={<GitHubLogoIcon />} />
-            <Button.Icon colorScheme="gray" variant="ghost" icon={<GitHubLogoIcon />} />
-          </div>
+        <ThemeButton />
+        <div className="flex flex-col">
+          {template("amethyst", true)}
+          {template("teal", true)}
+          {template("green", true)}
+          {template("crimson", true)}
+          {template("yellow", true)}
+          {template("blue", true)}
+          {template("pink", true)}
+          {template("b/w", true)}
+          {template("gray", true)}
         </div>
       </Tredici>
     );

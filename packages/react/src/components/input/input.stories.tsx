@@ -54,8 +54,8 @@ export const Primary: Story = {
           </div>
 
           <div className="flex gap-4">
-            <ThemeButton colorScheme="starship" />
-            <Input colorScheme="starship" />
+            <ThemeButton colorScheme="yellow" />
+            <Input colorScheme="yellow" />
           </div>
 
           <div className="flex gap-4">

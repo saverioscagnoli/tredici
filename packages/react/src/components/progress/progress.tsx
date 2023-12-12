@@ -11,14 +11,14 @@ const fill = c("w-full h-full rounded-full transition-all duration-150", {
     teal: "dark:bg-teal-400 bg-teal-500",
     green: "dark:bg-green-400 bg-green-500",
     crimson: "dark:bg-crimson-400 bg-crimson-500",
-    starship: "dark:bg-starship-400 bg-starship-500",
+    yellow: "dark:bg-yellow-400 bg-yellow-500",
     blue: "dark:bg-blue-400 bg-blue-500",
     pink: "dark:bg-pink-400 bg-pink-500",
-    gray: "dark:bg-fafafa bg-18181b"
+    "b/w": "dark:bg-fafafa bg-18181b"
   }
 });
 
-interface ProgressProps extends RxProgress.ProgressProps {
+export interface ProgressProps extends RxProgress.ProgressProps {
   indeterminate?: boolean;
   colorScheme?: ColorScheme;
 }

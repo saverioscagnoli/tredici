@@ -1,7 +1,7 @@
-.collapsible-13-body[data-state="open"] {
+.collapsible-13-content[data-state="open"] {
   animation: slideDown 50ms ease-in-out;
 }
-.collapsible-13-body[data-state="closed"] {
+.collapsible-13-content[data-state="closed"] {
   animation: slideUp 50ms ease-in-out;
 }
 

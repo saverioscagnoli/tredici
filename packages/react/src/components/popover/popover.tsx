@@ -2,40 +2,39 @@ import React, { forwardRef } from "react";
 import * as RxPopover from "@radix-ui/react-popover";
 import { cn } from "../../lib";
 
-interface PopoverComponent extends React.FC<RxPopover.PopoverProps> {
+export type PopoverProps = RxPopover.PopoverProps;
+
+interface PopoverComponent extends React.FC<PopoverProps> {
   Trigger: typeof PopoverTrigger;
   Anchor: typeof PopoverAnchor;
-  Body: typeof PopoverBody;
+  Content: typeof PopoverContent;
   Arrow: typeof PopoverArrow;
 }
 
-const Popover: PopoverComponent = ({ children, ...props }) => {
-  return <RxPopover.Root {...props}>{children}</RxPopover.Root>;
+const Popover: PopoverComponent = props => {
+  return <RxPopover.Root {...props} />;
 };
 
-const PopoverTrigger = forwardRef<
-  HTMLButtonElement,
-  RxPopover.PopoverTriggerProps
->(({ children, ...props }, ref) => {
-  return (
-    <RxPopover.Trigger {...props} ref={ref}>
-      {children}
-    </RxPopover.Trigger>
-  );
-});
+export type PopoverTriggerProps = RxPopover.PopoverTriggerProps;
 
-const PopoverAnchor = forwardRef<HTMLDivElement, RxPopover.PopoverAnchorProps>(
-  ({ children, ...props }, ref) => {
-    return (
-      <RxPopover.Anchor {...props} ref={ref}>
-        {children}
-      </RxPopover.Anchor>
-    );
+const PopoverTrigger = forwardRef<HTMLButtonElement, PopoverTriggerProps>(
+  (props, ref) => {
+    return <RxPopover.Trigger {...props} ref={ref} />;
   }
 );
 
-const PopoverBody = forwardRef<HTMLDivElement, RxPopover.PopoverContentProps>(
-  ({ children, className, sideOffset = 7, ...props }, ref) => {
+export type PopoverAnchorProps = RxPopover.PopoverAnchorProps;
+
+const PopoverAnchor = forwardRef<HTMLDivElement, PopoverAnchorProps>(
+  (props, ref) => {
+    return <RxPopover.Anchor {...props} ref={ref} />;
+  }
+);
+
+export type PopoverContentProps = RxPopover.PopoverContentProps;
+
+const PopoverContent = forwardRef<HTMLDivElement, PopoverContentProps>(
+  ({ className, sideOffset = 7, ...props }, ref) => {
     return (
       <RxPopover.Portal>
         <RxPopover.Content
@@ -46,15 +45,15 @@ const PopoverBody = forwardRef<HTMLDivElement, RxPopover.PopoverContentProps>(
             "w-52 h-fit p-2 shadow rounded-md dark:bg-fafafa bg-18181b dark:text-18181b text-fafafa",
             className
           )}
-        >
-          {children}
-        </RxPopover.Content>
+        />
       </RxPopover.Portal>
     );
   }
 );
 
-const PopoverArrow = forwardRef<SVGSVGElement, RxPopover.PopoverArrowProps>(
+export type PopoverArrowProps = RxPopover.PopoverArrowProps;
+
+const PopoverArrow = forwardRef<SVGSVGElement, PopoverArrowProps>(
   ({ className, width = 7, height = 3, ...props }, ref) => {
     return (
       <RxPopover.Arrow
@@ -70,7 +69,7 @@ const PopoverArrow = forwardRef<SVGSVGElement, RxPopover.PopoverArrowProps>(
 
 Popover.Trigger = PopoverTrigger;
 Popover.Anchor = PopoverAnchor;
-Popover.Body = PopoverBody;
+Popover.Content = PopoverContent;
 Popover.Arrow = PopoverArrow;
 
 export { Popover };

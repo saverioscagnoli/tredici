@@ -15,11 +15,12 @@ const htmlSwitch = c(
         "dark:data-[state='checked']:bg-green-400 data-[state='checked']:bg-green-500 data-[state='unchecked']:bg-gray-600/20",
       crimson:
         "dark:data-[state='checked']:bg-crimson-400 data-[state='checked']:bg-crimson-500 data-[state='unchecked']:bg-gray-600/20",
-      starship:
-        "dark:data-[state='checked']:bg-starship-400 data-[state='checked']:bg-starship-500 data-[state='unchecked']:bg-gray-600/20",
+      yellow:
+        "dark:data-[state='checked']:bg-yellow-400 data-[state='checked']:bg-yellow-500 data-[state='unchecked']:bg-gray-600/20",
       blue: "dark:data-[state='checked']:bg-blue-400 data-[state='checked']:bg-blue-500 data-[state='unchecked']:bg-gray-600/20",
       pink: "dark:data-[state='checked']:bg-pink-400 data-[state='checked']:bg-pink-500 data-[state='unchecked']:bg-gray-600/20",
-      gray: "dark:data-[state='checked']:bg-fafafa data-[state='checked']:bg-18181b data-[state='unchecked']:bg-gray-600/20"
+      "b/w":
+        "dark:data-[state='checked']:bg-fafafa data-[state='checked']:bg-18181b data-[state='unchecked']:bg-gray-600/20"
     },
     size: {
       sm: "w-7 h-4 p-0.5",
@@ -42,8 +43,18 @@ const thumb = c(
   { size: "md" }
 );
 
-interface SwitchProps extends RxSwitch.SwitchProps {
+export interface SwitchProps extends RxSwitch.SwitchProps {
+  /**
+   * The color scheme of the switch.
+   * @see ColorScheme
+   * @default useTheme().defaultColorScheme
+   */
   colorScheme?: ColorScheme;
+
+  /**
+   * The size of the switch.
+   * @default "md"
+   */
   size?: "sm" | "md" | "lg";
 }
 
@@ -67,7 +78,7 @@ const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
         <RxSwitch.Thumb
           className={cn(
             thumb({ size }),
-            colorScheme === "gray" && "data-[state='checked']:dark:bg-18181b",
+            colorScheme === "b/w" && "dark:data-[state='checked']:bg-18181b",
             className
           )}
         />

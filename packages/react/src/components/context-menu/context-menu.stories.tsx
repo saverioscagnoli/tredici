@@ -42,7 +42,7 @@ export const Primary: Story = {
             <ContextMenu.Trigger className="w-40 h-40 flex justify-center items-center bg-teal-500">
               Right click here
             </ContextMenu.Trigger>
-            <ContextMenu.Body>
+            <ContextMenu.Content>
               <ContextMenu.Item>New file</ContextMenu.Item>
               <ContextMenu.Item>New folder</ContextMenu.Item>
 
@@ -62,10 +62,10 @@ export const Primary: Story = {
 
               <ContextMenu.Sub>
                 <ContextMenu.SubTrigger>Save...</ContextMenu.SubTrigger>
-                <ContextMenu.SubBody>
+                <ContextMenu.SubContent>
                   <ContextMenu.Item>Save as...</ContextMenu.Item>
                   <ContextMenu.Item>Save all</ContextMenu.Item>
-                </ContextMenu.SubBody>
+                </ContextMenu.SubContent>
               </ContextMenu.Sub>
 
               <ContextMenu.Separator />
@@ -94,7 +94,7 @@ export const Primary: Story = {
                   Jane Doe
                 </ContextMenu.RadioItem>
               </ContextMenu.RadioGroup>
-            </ContextMenu.Body>
+            </ContextMenu.Content>
           </ContextMenu>
         </div>
       </Tredici>

@@ -87,7 +87,7 @@ export const ColorSchemes: Story = {
           <Progress value={value} colorScheme="teal" />
           <Progress value={value} colorScheme="green" />
           <Progress value={value} colorScheme="crimson" />
-          <Progress value={value} colorScheme="starship" />
+          <Progress value={value} colorScheme="yellow" />
           <Progress value={value} colorScheme="blue" />
           <Progress value={value} colorScheme="pink" />
           <Progress value={value} colorScheme="gray" />

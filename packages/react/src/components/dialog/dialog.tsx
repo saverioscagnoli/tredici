@@ -2,34 +2,31 @@ import React, { forwardRef } from "react";
 import * as RxDialog from "@radix-ui/react-dialog";
 import "./dialog.css";
 import { cn } from "../../lib";
-import { Cross2Icon } from "@radix-ui/react-icons";
-import { Button } from "../button";
 
 interface DialogComponent extends React.FC<RxDialog.DialogProps> {
   Trigger: typeof DialogTrigger;
-  Body: typeof DialogBody;
+  Content: typeof DialogContent;
   Title: typeof DialogTitle;
   Description: typeof DialogDescription;
   Close: typeof DialogClose;
 }
 
-const Dialog: DialogComponent = ({ children, ...props }) => {
-  return <RxDialog.Root {...props}>{children}</RxDialog.Root>;
+const Dialog: DialogComponent = props => {
+  return <RxDialog.Root {...props} />;
 };
 
-const DialogTrigger = forwardRef<
-  HTMLButtonElement,
-  RxDialog.DialogTriggerProps
->(({ children, ...props }, ref) => {
-  return (
-    <RxDialog.Trigger {...props} ref={ref}>
-      {children}
-    </RxDialog.Trigger>
-  );
-});
+export type DialogTriggerProps = RxDialog.DialogTriggerProps;
 
-const DialogBody = forwardRef<HTMLDivElement, RxDialog.DialogContentProps>(
-  ({ children, className, ...props }, ref) => {
+const DialogTrigger = forwardRef<HTMLButtonElement, DialogTriggerProps>(
+  (props, ref) => {
+    return <RxDialog.Trigger {...props} ref={ref} />;
+  }
+);
+
+export type DialogContentProps = RxDialog.DialogContentProps;
+
+const DialogContent = forwardRef<HTMLDivElement, DialogContentProps>(
+  ({ className, ...props }, ref) => {
     return (
       <RxDialog.Portal>
         <RxDialog.Overlay className="dialog-13-overlay bg-black/50 fixed" />
@@ -41,51 +38,50 @@ const DialogBody = forwardRef<HTMLDivElement, RxDialog.DialogContentProps>(
             "dialog-13-body",
             className
           )}
-        >
-          {children}
-        </RxDialog.Content>
+        />
       </RxDialog.Portal>
     );
   }
 );
 
-const DialogTitle = forwardRef<HTMLHeadingElement, RxDialog.DialogTitleProps>(
-  ({ children, className, ...props }, ref) => {
+export type DialogTitleProps = RxDialog.DialogTitleProps;
+
+const DialogTitle = forwardRef<HTMLHeadingElement, DialogTitleProps>(
+  ({ className, ...props }, ref) => {
     return (
       <RxDialog.Title
         {...props}
         ref={ref}
         className={cn("text-2xl font-extrabold break-words", className)}
-      >
-        {children}
-      </RxDialog.Title>
+      />
     );
   }
 );
 
-const DialogDescription = forwardRef<
-  HTMLDivElement,
-  RxDialog.DialogDescriptionProps
->(({ children, className, ...props }, ref) => {
-  return (
-    <RxDialog.Description
-      {...props}
-      ref={ref}
-      className={cn("w-full text-md mt-2 break-words", className)}
-    >
-      {children}
-    </RxDialog.Description>
-  );
-});
+export type DialogDescriptionProps = RxDialog.DialogDescriptionProps;
 
-const DialogClose = forwardRef<HTMLButtonElement, RxDialog.DialogCloseProps>(
+const DialogDescription = forwardRef<HTMLDivElement, DialogDescriptionProps>(
+  ({ className, ...props }, ref) => {
+    return (
+      <RxDialog.Description
+        {...props}
+        ref={ref}
+        className={cn("w-full text-md mt-2 break-words", className)}
+      />
+    );
+  }
+);
+
+export type DialogCloseProps = RxDialog.DialogCloseProps;
+
+const DialogClose = forwardRef<HTMLButtonElement, DialogCloseProps>(
   (props, ref) => {
     return <RxDialog.Close {...props} ref={ref} />;
   }
 );
 
 Dialog.Trigger = DialogTrigger;
-Dialog.Body = DialogBody;
+Dialog.Content = DialogContent;
 Dialog.Title = DialogTitle;
 Dialog.Description = DialogDescription;
 Dialog.Close = DialogClose;

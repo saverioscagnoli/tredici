@@ -63,7 +63,7 @@ export const Normal: Story = {
             </div>
 
             <div className="flex gap-2">
-              <RadioGroup.Item colorScheme="starship" id="r2" value="2" />
+              <RadioGroup.Item colorScheme="yellow" id="r2" value="2" />
               <label htmlFor="r2">Two</label>
             </div>
 

@@ -1,6 +1,7 @@
 import React, { ComponentPropsWithoutRef, forwardRef } from "react";
 import { c, cn } from "../../lib";
 import { ColorScheme } from "../../types";
+import { useTheme } from "../tredici";
 
 const chatBubble = c("break-words", {
   colorScheme: {
@@ -9,11 +10,11 @@ const chatBubble = c("break-words", {
     teal: "dark:bg-teal-400 bg-teal-500 dark:text-18181b text-fafafa",
     green: "dark:bg-green-400 bg-green-500 dark:text-18181b text-fafafa",
     crimson: "dark:bg-crimson-400 bg-crimson-500 text-fafafa",
-    starship:
-      "dark:bg-starship-400 bg-starship-500 text-18181b",
+    yellow: "dark:bg-yellow-400 bg-yellow-500 text-18181b",
     blue: "bg-blue-500 text-fafafa",
     pink: "bg-pink-500 text-fafafa",
-    gray: "dark:bg-fafafa bg-18181b dark:text-18181b text-fafafa"
+    "b/w": "dark:bg-fafafa bg-18181b dark:text-18181b text-fafafa",
+    gray: "dark:text-fafafa text-18181b dark:bg-gray-400/20 bg-gray-500/20"
   }
 });
 
@@ -25,10 +26,11 @@ const chatBubbleArrowSend = c(
       teal: "dark:border-l-teal-400 border-l-teal-500",
       green: "dark:border-l-green-400 border-l-green-500",
       crimson: "dark:border-l-crimson-400 border-l-crimson-500",
-      starship: "dark:border-l-starship-400 border-l-starship-500",
+      yellow: "dark:border-l-yellow-400 border-l-yellow-500",
       blue: "border-l-blue-500",
       pink: "border-l-pink-500",
-      gray: "dark:border-l-fafafa border-l-18181b"
+      "b/w": "dark:border-l-fafafa border-l-18181b",
+      gray: "dark:border-l-gray-400/20 border-l-gray-500/20"
     }
   }
 );
@@ -41,21 +43,40 @@ const chatBubbleArrowReceive = c(
       teal: "dark:border-r-teal-400 border-r-teal-500",
       green: "dark:border-r-green-400 border-r-green-500",
       crimson: "dark:border-r-crimson-400 border-r-crimson-500",
-      starship: "dark:border-r-starship-400 border-r-starship-500",
+      yellow: "dark:border-r-yellow-400 border-r-yellow-500",
       blue: "border-r-blue-500",
       pink: "border-r-pink-500",
-      gray: "dark:border-r-fafafa border-r-18181b"
+      "b/w": "dark:border-r-fafafa border-r-18181b",
+      gray: "dark:border-r-gray-400/20 border-r-gray-500/20"
     }
   }
 );
 
-interface ChatBubbleProps extends ComponentPropsWithoutRef<"div"> {
-  colorScheme?: ColorScheme;
+export interface ChatBubbleProps extends ComponentPropsWithoutRef<"div"> {
+  /**
+   * The color scheme of the button.
+   * @see ColorScheme
+   * @default defaultColorScheme
+   */
+  colorScheme?: ColorScheme | "gray";
+
+  /**
+   * The type of the chat bubble, it determines the arrow position.
+   */
   type?: "send" | "receive";
 }
 
 const ChatBubble = forwardRef<HTMLDivElement, ChatBubbleProps>(
-  ({ children, className, colorScheme = "amethyst", type, ...props }, ref) => {
+  (
+    {
+      children,
+      className,
+      colorScheme = useTheme().defaultColorScheme,
+      type,
+      ...props
+    },
+    ref
+  ) => {
     return (
       <div className={cn("flex", className)}>
         {type === "receive" && (
