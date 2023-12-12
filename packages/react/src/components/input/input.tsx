@@ -18,12 +18,13 @@ const input = c(
         "dark:focus:outline-yellow-300 focus:outline-yellow-500 dark:selection:bg-yellow-300/30 selection:bg-yellow-500/50",
       blue: "dark:focus:outline-blue-300 focus:outline-blue-500 dark:selection:bg-blue-300/30 selection:bg-blue-500/50",
       pink: "dark:focus:outline-pink-300 focus:outline-pink-500 dark:selection:bg-pink-300/30 selection:bg-pink-500/50",
-      gray: "dark:focus:outline-fafafa focus:outline-18181b dark:selection:bg-gray-300/30 selection:bg-gray-500/50"
+      "b/w":
+        "dark:focus:outline-fafafa focus:outline-18181b dark:selection:bg-gray-300/30 selection:bg-gray-500/50"
     }
   }
 );
 
-interface InputProps extends ComponentPropsWithoutRef<"input"> {
+export interface InputProps extends ComponentPropsWithoutRef<"input"> {
   colorScheme?: ColorScheme;
 }
 

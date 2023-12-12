@@ -15,11 +15,16 @@ const fill = c(" h-full absolute rounded-full", {
     yellow: "dark:bg-yellow-400 bg-yellow-500",
     blue: "dark:bg-blue-400 bg-blue-500",
     pink: "dark:bg-pink-400 bg-pink-500",
-    gray: "dark:bg-fafafa bg-18181b"
+    "b/w": "dark:bg-fafafa bg-18181b"
   }
 });
 
-interface SliderProps extends RxSlider.SliderProps {
+export interface SliderProps extends RxSlider.SliderProps {
+  /**
+   * The color scheme of the slider.
+   * @see ColorScheme
+   * @default useTheme().defaultColorScheme
+   */
   colorScheme?: ColorScheme;
 }
 
@@ -59,14 +64,8 @@ const Slider = forwardRef<HTMLSpanElement, SliderProps>(
         <RxSlider.Track className="h-1.5 relative flex-1 rounded-full dark:bg-gray-300/20 bg-gray-600/20">
           <RxSlider.Range className={fill({ className, colorScheme })} />
         </RxSlider.Track>
-        <Tooltip open={open}>
-          <Tooltip.Trigger>
-            <RxSlider.Thumb className="block w-4 h-4 bg-fafafa dark:outline-none outline outline-18181b outline-1 rounded-full cursor-pointer" />
-          </Tooltip.Trigger>
-          <Tooltip.Body>
-            {value ?? internalValue}
-            <Tooltip.Arrow />
-          </Tooltip.Body>
+        <Tooltip open={open} content={`${value ?? internalValue}`}>
+          <RxSlider.Thumb className="block w-4 h-4 bg-fafafa dark:outline-none outline outline-18181b outline-1 rounded-full cursor-pointer" />
         </Tooltip>
       </RxSlider.Root>
     );

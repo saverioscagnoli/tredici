@@ -6,7 +6,6 @@ import React, {
 import * as RxCollapsible from "@radix-ui/react-collapsible";
 import { cn } from "../../lib";
 import "./collapsible.css";
-import { Button, ButtonComponent, ButtonProps } from "../button";
 
 interface CollapsibleComponent
   extends ForwardRefExoticComponent<
@@ -24,25 +23,14 @@ const Collapsible = forwardRef<HTMLDivElement, CollapsibleProps>(
   }
 ) as CollapsibleComponent;
 
-const CollapsibleTrigger = forwardRef<HTMLButtonElement, ButtonProps>(
-  (props, ref) => {
-    return (
-      <RxCollapsible.Trigger asChild>
-        <Button {...props} ref={ref} />
-      </RxCollapsible.Trigger>
-    );
-  }
-) as ButtonComponent;
+export type CollapsibleTriggerProps = RxCollapsible.CollapsibleTriggerProps;
 
-CollapsibleTrigger.Icon = forwardRef<HTMLButtonElement, ButtonProps>(
-  (props, ref) => {
-    return (
-      <RxCollapsible.Trigger asChild>
-        <Button.Icon {...props} ref={ref} />
-      </RxCollapsible.Trigger>
-    );
-  }
-);
+const CollapsibleTrigger = forwardRef<
+  HTMLButtonElement,
+  CollapsibleTriggerProps
+>((props, ref) => {
+  return <RxCollapsible.Trigger {...props} ref={ref} />;
+});
 
 export type CollapsibleContentProps = RxCollapsible.CollapsibleContentProps;
 

@@ -8,16 +8,14 @@ import { c, cn } from "../../lib";
 import { ColorScheme } from "../../types";
 import { useTheme } from "../tredici";
 
+export type TabsProps = RxTabs.TabsProps;
+
 interface TabsComponent
-  extends ForwardRefExoticComponent<
-    RxTabs.TabsProps & RefAttributes<HTMLDivElement>
-  > {
+  extends ForwardRefExoticComponent<TabsProps & RefAttributes<HTMLDivElement>> {
   List: typeof TabsList;
   Trigger: typeof TabsTrigger;
-  Content: typeof TabsBody;
+  Content: typeof TabsContent;
 }
-
-// dark:data-[state='active']:bg-gray-950 data-[state='active']:bg-gray-200
 
 const tabsTrigger = c(
   "w-full h-7 px-12 whitespace-nowrap inline-flex justify-center items-center font-semibold rounded select-none cursor-pointer transition-colors disabled:cursor-not-allowed bg-transparent focus:outline-none",
@@ -34,23 +32,24 @@ const tabsTrigger = c(
         "data-[state='active']:dark:bg-yellow-400 data-[state='active']:bg-yellow-500 data-[state='active']:text-18181b",
       blue: "data-[state='active']:dark:bg-blue-400 data-[state='active']:bg-blue-500 data-[state='active']:text-fafafa",
       pink: "data-[state='active']:dark:bg-pink-400 data-[state='active']:bg-pink-500 dark:data-[state='active']:text-18181b data-[state='active']:text-fafafa",
-      gray: "data-[state='active']:dark:bg-fafafa data-[state='active']:bg-18181b dark:data-[state='active']:text-18181b data-[state='active']:text-fafafa"
+      "b/w":
+        "data-[state='active']:dark:bg-fafafa data-[state='active']:bg-18181b dark:data-[state='active']:text-18181b data-[state='active']:text-fafafa"
     }
   }
 );
 
-const Tabs = forwardRef<HTMLDivElement, RxTabs.TabsProps>(
-  ({ children, className, ...props }, ref) => {
+const Tabs = forwardRef<HTMLDivElement, TabsProps>(
+  ({ className, ...props }, ref) => {
     return (
-      <RxTabs.Root ref={ref} {...props} className={cn("w-fit", className)}>
-        {children}
-      </RxTabs.Root>
+      <RxTabs.Root ref={ref} {...props} className={cn("w-fit", className)} />
     );
   }
 ) as TabsComponent;
 
-const TabsList = forwardRef<HTMLDivElement, RxTabs.TabsListProps>(
-  ({ children, className, ...props }, ref) => {
+export type TabsListProps = RxTabs.TabsListProps;
+
+const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
+  ({ className, ...props }, ref) => {
     return (
       <RxTabs.List
         ref={ref}
@@ -59,25 +58,23 @@ const TabsList = forwardRef<HTMLDivElement, RxTabs.TabsListProps>(
           "h-10 px-2 flex justify-between items-center border border-gray-500/20 rounded-md",
           className
         )}
-      >
-        {children}
-      </RxTabs.List>
+      />
     );
   }
 );
 
-interface TabsTriggerProps extends RxTabs.TabsTriggerProps {
+export interface TabsTriggerProps extends RxTabs.TabsTriggerProps {
+  /**
+   * The color scheme of the tabs trigger.
+   * @see ColorScheme
+   * @default useTheme().defaultColorScheme
+   */
   colorScheme?: ColorScheme;
 }
 
 const TabsTrigger = forwardRef<HTMLButtonElement, TabsTriggerProps>(
   (
-    {
-      children,
-      className,
-      colorScheme = useTheme().defaultColorScheme,
-      ...props
-    },
+    { className, colorScheme = useTheme().defaultColorScheme, ...props },
     ref
   ) => {
     return (
@@ -85,26 +82,22 @@ const TabsTrigger = forwardRef<HTMLButtonElement, TabsTriggerProps>(
         ref={ref}
         {...props}
         className={tabsTrigger({ className, colorScheme })}
-      >
-        {children}
-      </RxTabs.Trigger>
+      />
     );
   }
 );
 
-const TabsBody = forwardRef<HTMLDivElement, RxTabs.TabsContentProps>(
-  ({ children, ...props }, ref) => {
-    return (
-      <RxTabs.Content ref={ref} {...props}>
-        {children}
-      </RxTabs.Content>
-    );
+export type TabsContentProps = RxTabs.TabsContentProps;
+
+const TabsContent = forwardRef<HTMLDivElement, TabsContentProps>(
+  (props, ref) => {
+    return <RxTabs.Content ref={ref} {...props} />;
   }
 );
 
 Tabs.List = TabsList;
 Tabs.Trigger = TabsTrigger;
-Tabs.Content = TabsBody;
+Tabs.Content = TabsContent;
 
 Tabs.displayName = "Tabs";
 

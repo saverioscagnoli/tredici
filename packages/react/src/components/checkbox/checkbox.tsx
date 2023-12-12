@@ -22,7 +22,7 @@ const checkbox = c("w-4 h-4 inline-flex items-center rounded", {
   }
 });
 
-interface CheckboxProps extends RxCheckbox.CheckboxProps {
+export interface CheckboxProps extends RxCheckbox.CheckboxProps {
   /**
    * The color scheme of the button.
    * @see ColorScheme

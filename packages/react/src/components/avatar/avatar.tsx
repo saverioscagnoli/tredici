@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { CSSProperties, forwardRef } from "react";
 import * as RxAvatar from "@radix-ui/react-avatar";
 import { c, pick } from "../../lib";
 import { ColorScheme } from "../../types";
@@ -47,10 +47,27 @@ export interface AvatarProps extends RxAvatar.AvatarProps {
    * The fallback text if the image fails to load.
    */
   fallback?: string;
+
+  /**
+   * The font size of the fallback text.
+   * @default 1rem
+   */
+  fontSize?: CSSProperties["fontSize"];
 }
 
 const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(
-  ({ className, colorScheme, size, fallback, imageSrc, ...props }, ref) => {
+  (
+    {
+      className,
+      colorScheme,
+      size,
+      fallback,
+      imageSrc,
+      fontSize = "1rem",
+      ...props
+    },
+    ref
+  ) => {
     if (colorScheme === "random") {
       colorScheme = pick([
         "amethyst",
@@ -76,7 +93,7 @@ const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(
           className="w-full h-full object-cover object-center"
           src={imageSrc}
         />
-        <RxAvatar.Fallback>{fallback}</RxAvatar.Fallback>
+        <RxAvatar.Fallback style={{ fontSize }}>{fallback}</RxAvatar.Fallback>
       </RxAvatar.Root>
     );
   }

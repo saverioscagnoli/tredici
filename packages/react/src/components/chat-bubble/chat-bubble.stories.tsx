@@ -62,6 +62,9 @@ export const Primary: Story = {
             Just like a baby, I wake up without any fatigue or stress in the
             morning.
           </ChatBubble>
+          <ChatBubble colorScheme="gray" type="send" className="self-end">
+            I was told there were no issues at my last check-up.
+          </ChatBubble>
         </div>
       </Tredici>
     );

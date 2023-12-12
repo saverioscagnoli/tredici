@@ -26,12 +26,10 @@ body {
 }
 
 html {
-  font-family: "Inter", "system-ui" !important;
-  font-variant: normal;
+  font-family: "Work Sans", sans-serif;
 }
 
-@supports (font-variation-settings: normal) {
-  html {
-    font-family: "Inter var", "system-ui" !important;
-  }
+@font-face {
+  font-family: "Work Sans";
+  src: url("../assets/work-sans.ttf");
 }

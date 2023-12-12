@@ -13,7 +13,8 @@ const chatBubble = c("break-words", {
     yellow: "dark:bg-yellow-400 bg-yellow-500 text-18181b",
     blue: "bg-blue-500 text-fafafa",
     pink: "bg-pink-500 text-fafafa",
-    "b/w": "dark:bg-fafafa bg-18181b dark:text-18181b text-fafafa"
+    "b/w": "dark:bg-fafafa bg-18181b dark:text-18181b text-fafafa",
+    gray: "dark:text-fafafa text-18181b dark:bg-gray-400/20 bg-gray-500/20"
   }
 });
 
@@ -28,7 +29,8 @@ const chatBubbleArrowSend = c(
       yellow: "dark:border-l-yellow-400 border-l-yellow-500",
       blue: "border-l-blue-500",
       pink: "border-l-pink-500",
-      "b/w": "dark:border-l-fafafa border-l-18181b"
+      "b/w": "dark:border-l-fafafa border-l-18181b",
+      gray: "dark:border-l-gray-400/20 border-l-gray-500/20"
     }
   }
 );
@@ -44,7 +46,8 @@ const chatBubbleArrowReceive = c(
       yellow: "dark:border-r-yellow-400 border-r-yellow-500",
       blue: "border-r-blue-500",
       pink: "border-r-pink-500",
-      "b/w": "dark:border-r-fafafa border-r-18181b"
+      "b/w": "dark:border-r-fafafa border-r-18181b",
+      gray: "dark:border-r-gray-400/20 border-r-gray-500/20"
     }
   }
 );
@@ -55,7 +58,7 @@ export interface ChatBubbleProps extends ComponentPropsWithoutRef<"div"> {
    * @see ColorScheme
    * @default defaultColorScheme
    */
-  colorScheme?: ColorScheme;
+  colorScheme?: ColorScheme | "gray";
 
   /**
    * The type of the chat bubble, it determines the arrow position.

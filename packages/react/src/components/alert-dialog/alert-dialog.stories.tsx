@@ -35,28 +35,33 @@ export const Primary: Story = {
         <div className="flex gap-8">
           <ThemeButton />
           <AlertDialog>
-            <AlertDialog.Trigger.Icon icon={<EyeClosedIcon />} />
+            <AlertDialog.Trigger asChild>
+              <Button>Open Dialog</Button>
+            </AlertDialog.Trigger>
             <AlertDialog.Content>
               <div className="flex justify-between items-center">
                 <AlertDialog.Title>Are you incredibly sure?</AlertDialog.Title>
-                <AlertDialog.Cancel.Icon
-                  colorScheme="crimson"
-                  size="sm"
-                  icon={<Cross2Icon />}
-                />
+                <AlertDialog.Cancel asChild>
+                  <Button.Icon
+                    colorScheme="crimson"
+                    size="sm"
+                    icon={<Cross2Icon />}
+                    round
+                  />
+                </AlertDialog.Cancel>
               </div>
-              <p>
+              <AlertDialog.Description>
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                 Pariatur dicta laboriosam veniam totam iste repellendus facere.
                 Vitae nihil sint, ut quae excepturi libero nam quam nisi
                 quaerat, quis quisquam animi.
-              </p>
+              </AlertDialog.Description>
               <div className="w-full flex gap-4 mt-2 justify-end">
-                <AlertDialog.Cancel colorScheme="b/w">
-                  Cancel
+                <AlertDialog.Cancel asChild>
+                  <Button colorScheme="gray">Cancel</Button>
                 </AlertDialog.Cancel>
-                <AlertDialog.Action colorScheme="crimson">
-                  Delete
+                <AlertDialog.Action asChild>
+                  <Button colorScheme="crimson">Delete</Button>
                 </AlertDialog.Action>
               </div>
             </AlertDialog.Content>

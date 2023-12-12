@@ -24,25 +24,25 @@ interface DropdownMenuComponent
   Separator: typeof DropdownMenuSeparator;
 }
 
-const DropdownMenu: DropdownMenuComponent = ({ children, ...props }) => {
-  return <RxDropdownMenu.Root {...props}>{children}</RxDropdownMenu.Root>;
+const DropdownMenu: DropdownMenuComponent = props => {
+  return <RxDropdownMenu.Root {...props} />;
 };
+
+export type DropdownMenuTriggerProps = RxDropdownMenu.DropdownMenuTriggerProps;
 
 const DropdownMenuTrigger = forwardRef<
   HTMLButtonElement,
-  RxDropdownMenu.DropdownMenuTriggerProps
->(({ children, ...props }, ref) => {
-  return (
-    <RxDropdownMenu.Trigger {...props} ref={ref}>
-      {children}
-    </RxDropdownMenu.Trigger>
-  );
+  DropdownMenuTriggerProps
+>((props, ref) => {
+  return <RxDropdownMenu.Trigger {...props} ref={ref} />;
 });
+
+export type DropdownMenuContentProps = RxDropdownMenu.DropdownMenuContentProps;
 
 const DropdownMenuContent = forwardRef<
   HTMLDivElement,
-  RxDropdownMenu.DropdownMenuContentProps
->(({ children, className, sideOffset = 7, ...props }, ref) => {
+  DropdownMenuContentProps
+>(({ className, sideOffset = 7, ...props }, ref) => {
   return (
     <RxDropdownMenu.Portal>
       <RxDropdownMenu.Content
@@ -53,58 +53,51 @@ const DropdownMenuContent = forwardRef<
           "min-w-[12rem] p-1 rounded dark:bg-fafafa bg-18181b dark:text-18181b text-fafafa text-sm font-semibold shadow",
           className
         )}
-      >
-        {children}
-      </RxDropdownMenu.Content>
+      />
     </RxDropdownMenu.Portal>
   );
 });
 
-const DropdownMenuGroup = forwardRef<
-  HTMLDivElement,
-  RxDropdownMenu.DropdownMenuGroupProps
->(({ children, ...props }, ref) => {
-  return (
-    <RxDropdownMenu.Group {...props} ref={ref}>
-      {children}
-    </RxDropdownMenu.Group>
-  );
-});
+export type DropdownMenuGroupProps = RxDropdownMenu.DropdownMenuGroupProps;
 
-const DropdownMenuLabel = forwardRef<
-  HTMLDivElement,
-  RxDropdownMenu.DropdownMenuLabelProps
->(({ children, className, ...props }, ref) => {
-  return (
-    <RxDropdownMenu.Label
-      {...props}
-      ref={ref}
-      className={cn("text-xs p-1", className)}
-    >
-      {children}
-    </RxDropdownMenu.Label>
-  );
-});
+const DropdownMenuGroup = forwardRef<HTMLDivElement, DropdownMenuGroupProps>(
+  (props, ref) => {
+    return <RxDropdownMenu.Group {...props} ref={ref} />;
+  }
+);
 
-const DropdownMenuItem = forwardRef<
-  HTMLDivElement,
-  RxDropdownMenu.DropdownMenuItemProps
->(({ children, className, ...props }, ref) => {
-  return (
-    <RxDropdownMenu.Item
-      {...props}
-      ref={ref}
-      className={cn(
-        "flex items-center cursor-pointer p-1 focus:outline-none focus:bg-gray-600/30 rounded",
-        className
-      )}
-    >
-      {children}
-    </RxDropdownMenu.Item>
-  );
-});
+export type DropdownMenuLabelProps = RxDropdownMenu.DropdownMenuLabelProps;
 
-interface DropdownMenuCheckItemProps
+const DropdownMenuLabel = forwardRef<HTMLDivElement, DropdownMenuLabelProps>(
+  ({ className, ...props }, ref) => {
+    return (
+      <RxDropdownMenu.Label
+        {...props}
+        ref={ref}
+        className={cn("text-xs p-1", className)}
+      />
+    );
+  }
+);
+
+export type DropdownMenuItemProps = RxDropdownMenu.DropdownMenuItemProps;
+
+const DropdownMenuItem = forwardRef<HTMLDivElement, DropdownMenuItemProps>(
+  ({ className, ...props }, ref) => {
+    return (
+      <RxDropdownMenu.Item
+        {...props}
+        ref={ref}
+        className={cn(
+          "flex items-center cursor-pointer p-1 focus:outline-none focus:bg-gray-600/30 rounded",
+          className
+        )}
+      />
+    );
+  }
+);
+
+export interface DropdownMenuCheckItemProps
   extends RxDropdownMenu.DropdownMenuCheckboxItemProps {
   icon?: ReactNode;
 }
@@ -128,14 +121,13 @@ const DropdownMenuCheckItem = forwardRef<
   );
 });
 
-const DropdownMenuSub: React.FC<RxDropdownMenu.DropdownMenuSubProps> = (
-  { children, ...props },
-  ref
-) => {
-  return <RxDropdownMenu.Sub {...props}>{children}</RxDropdownMenu.Sub>;
+const DropdownMenuSub: React.FC<
+  RxDropdownMenu.DropdownMenuSubProps
+> = props => {
+  return <RxDropdownMenu.Sub {...props} />;
 };
 
-interface DropdownMenuSubTriggerProps
+export interface DropdownMenuSubTriggerProps
   extends RxDropdownMenu.DropdownMenuSubTriggerProps {
   icon?: ReactNode | "none";
 }
@@ -159,10 +151,13 @@ const DropdownMenuSubTrigger = forwardRef<
   );
 });
 
+export type DropdownMenuSubContentProps =
+  RxDropdownMenu.DropdownMenuSubContentProps;
+
 const DropdownMenuSubContent = forwardRef<
   HTMLDivElement,
-  RxDropdownMenu.MenuSubContentProps
->(({ children, className, sideOffset = 7, ...props }, ref) => {
+  DropdownMenuSubContentProps
+>(({ className, sideOffset = 7, ...props }, ref) => {
   return (
     <RxDropdownMenu.Portal>
       <RxDropdownMenu.SubContent
@@ -173,25 +168,22 @@ const DropdownMenuSubContent = forwardRef<
           "min-w-[12rem] p-1 rounded dark:bg-fafafa bg-18181b dark:text-18181b text-fafafa text-sm font-semibold shadow",
           className
         )}
-      >
-        {children}
-      </RxDropdownMenu.SubContent>
+      />
     </RxDropdownMenu.Portal>
   );
 });
 
+export type DropdownMenuRadioGroupProps =
+  RxDropdownMenu.DropdownMenuRadioGroupProps;
+
 const DropdownMenuRadioGroup = forwardRef<
   HTMLDivElement,
-  RxDropdownMenu.DropdownMenuRadioGroupProps
->(({ children, ...props }, ref) => {
-  return (
-    <RxDropdownMenu.RadioGroup {...props} ref={ref}>
-      {children}
-    </RxDropdownMenu.RadioGroup>
-  );
+  DropdownMenuRadioGroupProps
+>((props, ref) => {
+  return <RxDropdownMenu.RadioGroup {...props} ref={ref} />;
 });
 
-interface DropdownMenuRadioItemProps
+export interface DropdownMenuRadioItemProps
   extends RxDropdownMenu.DropdownMenuRadioItemProps {
   icon?: ReactNode;
 }
@@ -215,24 +207,28 @@ const DropdownMenuRadioItem = forwardRef<
   );
 });
 
-const DropdownMenuArrow = forwardRef<
-  SVGSVGElement,
-  RxDropdownMenu.DropdownMenuArrowProps
->(({ className, width = 7, height = 3, ...props }, ref) => {
-  return (
-    <RxDropdownMenu.Arrow
-      {...props}
-      ref={ref}
-      width={width}
-      height={height}
-      className={cn("dark:fill-fafafa fill-18181b", className)}
-    />
-  );
-});
+export type DropdownMenuArrowProps = RxDropdownMenu.DropdownMenuArrowProps;
+
+const DropdownMenuArrow = forwardRef<SVGSVGElement, DropdownMenuArrowProps>(
+  ({ className, width = 7, height = 3, ...props }, ref) => {
+    return (
+      <RxDropdownMenu.Arrow
+        {...props}
+        ref={ref}
+        width={width}
+        height={height}
+        className={cn("dark:fill-fafafa fill-18181b", className)}
+      />
+    );
+  }
+);
+
+export type DropdownMenuSeparatorProps =
+  RxDropdownMenu.DropdownMenuSeparatorProps;
 
 const DropdownMenuSeparator = forwardRef<
   HTMLDivElement,
-  RxDropdownMenu.DropdownMenuSeparatorProps
+  DropdownMenuSeparatorProps
 >(({ className, ...props }, ref) => {
   return (
     <RxDropdownMenu.Separator

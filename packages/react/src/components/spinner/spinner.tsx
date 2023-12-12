@@ -18,7 +18,7 @@ const spinner = c(
       yellow: "dark:stroke-yellow-400 stroke-yellow-500",
       blue: "dark:stroke-blue-400 stroke-blue-500",
       pink: "dark:stroke-pink-400 stroke-pink-500",
-      gray: "dark:stroke-fafafa stroke-18181b"
+      "b/w": "dark:stroke-fafafa stroke-18181b"
     },
     size: {
       xs: "w-3 h-3",
@@ -33,10 +33,29 @@ const spinner = c(
 
 type SpinnerSize = "xs" | "sm" | "md" | "lg" | "xl";
 
-interface SpinnerProps extends ComponentPropsWithoutRef<"svg"> {
+export interface SpinnerProps extends ComponentPropsWithoutRef<"svg"> {
+  /**
+   * The color scheme of the spinner.
+   * @see ColorScheme
+   * @default useTheme().defaultColorScheme
+   */
   colorScheme?: ColorScheme;
+
+  /**
+   * The size of the spinner.
+   * @default "md"
+   */
   size?: SpinnerSize;
+
+  /**
+   * The opacity of the spinner track.
+   * @default 1
+   */
   trackOpacity?: CSSProperties["strokeOpacity"];
+
+  /**
+   * The color of the spinner.
+   */
   spinnerColor?: CSSProperties["stroke"];
 }
 

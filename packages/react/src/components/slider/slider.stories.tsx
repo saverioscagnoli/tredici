@@ -58,7 +58,7 @@ export const Colors: Story = {
           <Slider defaultValue={[50]} colorScheme="yellow" />
           <Slider defaultValue={[50]} colorScheme="blue" />
           <Slider defaultValue={[50]} colorScheme="pink" />
-          <Slider defaultValue={[50]} colorScheme="gray" />
+          <Slider defaultValue={[50]} colorScheme="b/w" />
         </div>
       </Tredici>
     );

@@ -11,7 +11,7 @@ import "./accordion.css";
 import { ColorScheme } from "../../types";
 import { useTheme } from "../tredici";
 
-type AccordionProps =
+export type AccordionProps =
   | RxAccordion.AccordionSingleProps
   | RxAccordion.AccordionMultipleProps;
 
@@ -25,7 +25,7 @@ interface AccordionComponent
 }
 
 const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
-  ({ children, className, ...props }, ref) => {
+  ({ className, ...props }, ref) => {
     return (
       <RxAccordion.Root
         {...props}
@@ -34,9 +34,7 @@ const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
           "w-40 dark:bg-18181b bg-fafafa border border-gray-600/20 shadow rounded-md",
           className
         )}
-      >
-        {children}
-      </RxAccordion.Root>
+      />
     );
   }
 ) as AccordionComponent;
@@ -63,17 +61,17 @@ const accordionItem = c(
 );
 
 export interface AccordionItemProps extends RxAccordion.AccordionItemProps {
+  /**
+   * The color scheme of the accordion item.
+   * @see ColorScheme
+   * @default useTheme().defaultColorScheme
+   */
   colorScheme?: ColorScheme;
 }
 
 const AccordionItem = forwardRef<HTMLDivElement, AccordionItemProps>(
   (
-    {
-      children,
-      className,
-      colorScheme = useTheme().defaultColorScheme,
-      ...props
-    },
+    { className, colorScheme = useTheme().defaultColorScheme, ...props },
     ref
   ) => {
     return (
@@ -84,15 +82,17 @@ const AccordionItem = forwardRef<HTMLDivElement, AccordionItemProps>(
           accordionItem({ className, colorScheme }),
           "accordion-13-item"
         )}
-      >
-        {children}
-      </RxAccordion.Item>
+      />
     );
   }
 );
 
 export interface AccordionTriggerProps
   extends RxAccordion.AccordionTriggerProps {
+  /**
+   * The icon at the end of the accordion trigger.
+   * @default <ArrowDownIcon /> "From Radix UI"
+   */
   icon?: ReactNode;
 }
 

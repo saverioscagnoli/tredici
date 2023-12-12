@@ -7,8 +7,9 @@ import {
   DotFilledIcon
 } from "@radix-ui/react-icons";
 
-interface ContextMenuComponent
-  extends React.FC<RxContextMenu.ContextMenuProps> {
+export type ContextMenuProps = RxContextMenu.ContextMenuProps;
+
+interface ContextMenuComponent extends React.FC<ContextMenuProps> {
   Trigger: typeof ContextMenuTrigger;
   Content: typeof ContextMenuContent;
   Group: typeof ContextMenuGroup;

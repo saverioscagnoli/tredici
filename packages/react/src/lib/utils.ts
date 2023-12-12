@@ -42,3 +42,10 @@ export function c<T extends Record<string, Record<string, string>>>(
 export function pick<T>(arr: T[]): T {
   return arr[Math.floor(Math.random() * arr.length)];
 }
+
+export function dark(className: TemplateStringsArray): string {
+  return className[0]
+    .split(" ")
+    .map((c, i) => `${i === 0 ? " " : ""}dark:${c}`)
+    .join(" ");
+}

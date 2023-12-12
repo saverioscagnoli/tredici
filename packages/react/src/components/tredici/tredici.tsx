@@ -9,7 +9,6 @@ import React, {
 } from "react";
 import styles from "./tredici.css";
 import { ColorScheme } from "../../types";
-import "inter-ui/inter.css";
 
 if (import.meta.env.VITE_ENV === "dev") {
   import("../../styles/global.css");
@@ -18,9 +17,24 @@ if (import.meta.env.VITE_ENV === "dev") {
 type Theme = "light" | "dark";
 
 interface ThemeContextProps {
+  /**
+   * The current theme.
+   */
   theme: Theme;
+
+  /**
+   * Sets the current theme.
+   */
   setTheme: Dispatch<SetStateAction<Theme>>;
+
+  /**
+   * Toggles the current theme.
+   */
   toggle: () => void;
+
+  /**
+   * The default color scheme.
+   */
   defaultColorScheme: ColorScheme;
 }
 
@@ -37,7 +51,16 @@ const useTheme = () => {
 };
 
 interface TrediciProps {
+  /**
+   * The content of the app.
+   */
   children: ReactNode;
+
+  /**
+   * The default color scheme.
+   * @see ColorScheme
+   * @default "amethyst"
+   */
   defaultColorScheme?: ColorScheme;
 }
 

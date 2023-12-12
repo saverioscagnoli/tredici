@@ -6,6 +6,8 @@ export default {
       colors: {
         fafafa: "#fafafa",
         "18181b": "#18181b",
+        "0c0c0e": "#0c0c0e",
+        "ededed": "#ededed",
         amethyst: {
           50: "#faf5ff",
           100: "#f3e7ff",
