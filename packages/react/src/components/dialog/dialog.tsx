@@ -52,7 +52,7 @@ const DialogTitle = forwardRef<HTMLHeadingElement, DialogTitleProps>(
       <RxDialog.Title
         {...props}
         ref={ref}
-        className={cn("text-2xl font-extrabold break-words", className)}
+        className={cn("text-2xl font-bold break-words", className)}
       />
     );
   }
