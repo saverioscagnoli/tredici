@@ -62,14 +62,21 @@ interface TrediciProps {
    * @default "amethyst"
    */
   defaultColorScheme?: ColorScheme;
+
+  /**
+   * The default theme.
+   * @default "light"
+   */
+  defaultTheme?: Theme;
 }
 
 const Tredici: React.FC<TrediciProps> = ({
   children,
   defaultColorScheme = "amethyst",
+  defaultTheme = "light",
   ...props
 }) => {
-  const [theme, setTheme] = useState<Theme>("light");
+  const [theme, setTheme] = useState<Theme>(defaultTheme);
   const toggle = () => setTheme(theme === "light" ? "dark" : "light");
 
   useEffect(() => {
