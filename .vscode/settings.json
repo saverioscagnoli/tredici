@@ -1,9 +1,0 @@
-{
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true,
-  "editor.bracketPairColorization.enabled": true,
-  "tailwindCSS.experimental.classRegex": [
-    ["c\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
-  ],
-  "css.lint.unknownAtRules": "ignore"
-}
