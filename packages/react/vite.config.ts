@@ -7,24 +7,24 @@ import dts from "vite-plugin-dts";
 export default defineConfig({
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
-    },
+      "@": path.resolve(__dirname, "./src")
+    }
   },
   build: {
     lib: {
       entry: path.resolve(__dirname, "src/components/index.ts"),
       name: "@tredici/react",
-      fileName: "index",
+      fileName: "index"
     },
     rollupOptions: {
       external: ["react", "react-dom"],
       output: {
         globals: {
           react: "React",
-          "react-dom": "ReactDOM",
-        },
-      },
-    },
+          "react-dom": "ReactDOM"
+        }
+      }
+    }
   },
-  plugins: [react(), dts({ rollupTypes: true })],
+  plugins: [react(), dts({ rollupTypes: true })]
 });
