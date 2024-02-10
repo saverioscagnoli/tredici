@@ -3,10 +3,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   variants: {
     extend: {
-      backgroundColor: ["disabled", "disabled:hover", "disabled:active"],
-      borderColor: ["disabled", "disabled:hover", "disabled:active"],
-      textColor: ["disabled", "disabled:hover", "disabled:active"]
-      // Add other properties as needed
+      outline: {
+        "no-offset": "0"
+      }
     }
   },
   theme: {

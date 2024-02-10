@@ -24,7 +24,8 @@
     "paths": {
       "@components": ["components/index.ts"],
       "@lib": ["lib/index.ts"],
-      "@tailwind": ["index.css"]
+      "@tailwind": ["index.css"],
+      "@examples": ["examples/index.ts"]
     }
   },
   "include": ["src"],

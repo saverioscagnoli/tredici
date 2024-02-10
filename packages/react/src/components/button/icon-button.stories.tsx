@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { IconButton } from "./button";
-import { Tredici, useTheme } from "@components";
+import { Tredici } from "@components";
 import {
   BsSun,
   BsSunFill,
@@ -10,6 +10,7 @@ import {
   BsFacebook,
   BsGithub
 } from "react-icons/bs";
+import { ThemeButton } from "components/examples";
 
 const meta: Meta<typeof IconButton> = {
   title: "Components/IconButton",
@@ -21,22 +22,12 @@ export default meta;
 
 type Story = StoryObj<typeof IconButton>;
 
-const ThemeIconButton = () => {
-  const { theme, toggleTheme } = useTheme();
-
-  return (
-    <IconButton className="self-start" onClick={toggleTheme}>
-      {theme}
-    </IconButton>
-  );
-};
-
 export const Default: Story = {
   render: () => {
     return (
       <Tredici>
         <div className="flex flex-col gap-4">
-          <ThemeIconButton />
+          <ThemeButton />
           <div className="flex flex-col gap-2">
             <div className="flex gap-2">
               <IconButton icon={<BsSun />} />
