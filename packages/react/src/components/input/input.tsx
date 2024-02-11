@@ -18,7 +18,7 @@ interface InputProps extends Omit<ComponentPropsWithoutRef<"input">, "size"> {
 }
 
 const inputVariants = cva(
-  "bg-transparent p-2 border border-gray-700/75 dark:border-gray-500 text-black dark:text-white caret-black dark:caret-white outline-none",
+  "bg-transparent p-2 font-semibold border border-gray-700/75 dark:border-gray-500 text-black dark:text-white caret-black dark:caret-white outline-none",
   {
     variants: {
       colorScheme: {

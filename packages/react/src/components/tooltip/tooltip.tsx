@@ -43,7 +43,7 @@ const Tooltip: TooltipComponent = ({
             sideOffset={sideOffset}
             style={style}
             className={cn(
-              "py-1 px-2 rounded-md shadow text-sm",
+              "py-1 px-2 rounded-lg shadow font-semibold text-sm",
               "bg-black text-white",
               "dark:bg-white dark:text-black",
               "tooltip-content",

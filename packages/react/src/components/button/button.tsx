@@ -218,7 +218,7 @@ const compoundVariants = [
 ];
 
 const buttonVariants = cva(
-  "inline-flex justify-center items-center select-none cursor-pointer transition-colors disabled:cursor-not-allowed",
+  "inline-flex justify-center items-center font-semibold select-none cursor-pointer transition-colors disabled:cursor-not-allowed",
   {
     variants: {
       variant: {
@@ -237,7 +237,7 @@ const buttonVariants = cva(
       },
       size: {
         sm: "h-6 px-2 text-sm rounded-sm",
-        md: "h-9 px-3 text-md rounded-md",
+        md: "h-9 px-3 text-md rounded-lg",
         lg: "h-12 px-4 text-lg rounded-lg"
       }
     },
@@ -299,8 +299,8 @@ const iconButtonVariants = cva(
       },
       size: {
         sm: "w-6 h-6 text-sm rounded-sm",
-        md: "w-9 h-9 rounded-md",
-        lg: "w-11 h-11 text-lg rouned-md"
+        md: "w-9 h-9 rounded-lg",
+        lg: "w-11 h-11 text-lg rouned-lg"
       }
     },
     // @ts-ignore
