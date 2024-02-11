@@ -13,8 +13,22 @@ type ButtonColorScheme =
 type ButtonSize = "sm" | "md" | "lg";
 
 interface ButtonProps extends ComponentPropsWithoutRef<"button"> {
+  /**
+   * The variant of the button.
+   * @default "solid"
+   */
   variant?: ButtonVariant;
+
+  /**
+   * The color scheme of the button.
+   * @default "amethyst"
+   */
   colorScheme?: ButtonColorScheme;
+
+  /**
+   * The size of the button.
+   * @default "md"
+   */
   size?: ButtonSize;
 }
 
@@ -236,7 +250,7 @@ const buttonVariants = cva(
         "b/w": ""
       },
       size: {
-        sm: "h-6 px-2 text-sm rounded-sm",
+        sm: "h-6 px-2 text-sm rounded",
         md: "h-9 px-3 text-md rounded-lg",
         lg: "h-12 px-4 text-lg rounded-lg"
       }
@@ -272,10 +286,15 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   }
 );
 
+Button.displayName = "Button";
+
 export { Button };
 export type { ButtonProps, ButtonVariant, ButtonSize };
 
 interface IconButtonProps extends ButtonProps {
+  /**
+   * The icon to render inside the button.
+   */
   icon?: ReactNode;
 }
 
@@ -298,9 +317,9 @@ const iconButtonVariants = cva(
         "b/w": ""
       },
       size: {
-        sm: "w-6 h-6 text-sm rounded-sm",
+        sm: "w-6 h-6 text-sm rounded",
         md: "w-9 h-9 rounded-lg",
-        lg: "w-11 h-11 text-lg rouned-lg"
+        lg: "w-11 h-11 text-lg rounded-lg"
       }
     },
     // @ts-ignore
@@ -339,6 +358,8 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
     );
   }
 );
+
+IconButton.displayName = "IconButton";
 
 export { IconButton };
 export type { IconButtonProps };

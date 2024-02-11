@@ -12,13 +12,26 @@ type InputColorScheme =
 type InputSize = "sm" | "md" | "lg";
 
 interface InputProps extends Omit<ComponentPropsWithoutRef<"input">, "size"> {
+  /**
+   * The color scheme of the input.
+   * @default "amethyst"
+   */
   colorScheme?: InputColorScheme;
+
+  /**
+   * The size of the input.
+   * @default "md"
+   */
   size?: InputSize;
+
+  /**
+   * The HTML size attribute of the input.
+   */
   htmlSize?: number;
 }
 
 const inputVariants = cva(
-  "bg-transparent p-2 font-semibold border border-gray-700/75 dark:border-gray-500 text-black dark:text-white caret-black dark:caret-white outline-none",
+  "px-1 py-2 bg-transparent font-semibold border border-gray-700/75 dark:border-gray-500 text-black dark:text-white caret-black dark:caret-white outline-none",
   {
     variants: {
       colorScheme: {
@@ -34,8 +47,8 @@ const inputVariants = cva(
         "b/w": ["focus:outline-black", "dark:focus:outline-white"]
       },
       size: {
-        sm: "h-6 text-sm rounded-sm",
-        md: "h-8 text-base rounded-md",
+        sm: "h-6 text-sm rounded",
+        md: "h-8 rounded-md",
         lg: "h-10 text-lg rounded-lg"
       }
     },
@@ -72,6 +85,8 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     );
   }
 );
+
+Input.displayName = "Input";
 
 export { Input };
 export type { InputProps, InputColorScheme, InputSize };

@@ -36,3 +36,20 @@ export const Default: Story = {
     );
   }
 };
+
+export const Sizes: Story = {
+  render: () => {
+    return (
+      <Tredici>
+        <div className="flex flex-col gap-4">
+          <ThemeButton />
+          <div className="flex flex-col gap-2 self-start">
+            <Avatar size="sm" src={catJpg} fallback="AD" />
+            <Avatar size="md" src={catJpg} fallback="AD" />
+            <Avatar size="lg" src={catJpg} fallback="AD" />
+          </div>
+        </div>
+      </Tredici>
+    );
+  }
+};

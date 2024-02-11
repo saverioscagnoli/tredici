@@ -79,3 +79,4 @@ Tooltip.displayName = "Tooltip";
 Tooltip.Arrow = TooltipArrow;
 
 export { Tooltip };
+export type { TooltipProps, TooltipSide };

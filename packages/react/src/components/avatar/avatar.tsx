@@ -13,9 +13,26 @@ type AvatarColorScheme =
 type AvatarSize = "sm" | "md" | "lg";
 
 interface AvatarProps extends RxAvatar.AvatarProps {
+  /**
+   * The color scheme of the avatar.
+   * @default "amethyst"
+   */
   colorScheme?: AvatarColorScheme;
+
+  /**
+   * The size of the avatar.
+   * @default "md"
+   */
   size?: AvatarSize;
+
+  /**
+   * The image source of the avatar.
+   */
   src?: string;
+
+  /**
+   * The fallback content of the avatar.
+   */
   fallback?: string | ReactNode;
 }
 
@@ -31,7 +48,10 @@ const avatarVariants = cva(
         teal: ["bg-teal-500 text-white", "dark:bg-teal-400 dark:text-black"],
         green: ["bg-green-500 text-white", "dark:bg-green-400 dark:text-black"],
         red: ["bg-red-500 text-white", "dark:bg-red-400 dark:text-black"],
-        yellow: ["bg-yellow-500 text-black", "dark:bg-yellow-400 dark:text-black"],
+        yellow: [
+          "bg-yellow-500 text-black",
+          "dark:bg-yellow-400 dark:text-black"
+        ],
         blue: ["bg-blue-500 text-white", "dark:bg-blue-400 dark:text-black"],
         "b/w": ["bg-black text-white", "dark:bg-white dark:text-black"]
       },
@@ -75,4 +95,8 @@ const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(
     );
   }
 );
+
+Avatar.displayName = "Avatar";
+
 export { Avatar };
+export type { AvatarProps, AvatarColorScheme, AvatarSize };

@@ -199,3 +199,27 @@ export const Default: Story = {
     );
   }
 };
+
+export const Sizes: Story = {
+  render: () => {
+    return (
+      <Tredici>
+        <div className="flex flex-col gap-4">
+          <ThemeButton />
+          <div className="flex gap-2">
+            <div className="flex gap-2">
+              <IconButton icon={<BsSun />} size="sm" />
+              <IconButton icon={<BsSun />} size="md" />
+              <IconButton icon={<BsSun />} size="lg" />
+            </div>
+            <div className="flex gap-2">
+              <IconButton icon={<BsSun />} size="sm" disabled />
+              <IconButton icon={<BsSun />} size="md" disabled />
+              <IconButton icon={<BsSun />} size="lg" disabled />
+            </div>
+          </div>
+        </div>
+      </Tredici>
+    );
+  }
+};

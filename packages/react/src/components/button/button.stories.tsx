@@ -146,3 +146,22 @@ export const Default: Story = {
     );
   }
 };
+
+export const Sizes: Story = {
+  render: () => {
+    return (
+      <Tredici>
+        <div className="flex flex-col gap-4">
+          <ThemeButton />
+          <div className="flex flex-col gap-2">
+            <div className="flex gap-2">
+              <Button size="sm">Button</Button>
+              <Button size="md">Button</Button>
+              <Button size="lg">Button</Button>
+            </div>
+          </div>
+        </div>
+      </Tredici>
+    );
+  }
+};

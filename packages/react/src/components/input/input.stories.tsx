@@ -33,3 +33,20 @@ export const Default: Story = {
     );
   }
 };
+
+export const Sizes: Story = {
+  render: () => {
+    return (
+      <Tredici>
+        <div className="flex flex-col gap-4">
+          <ThemeButton />
+          <div className="flex flex-col gap-2 self-start">
+            <Input size="sm" />
+            <Input size="md" />
+            <Input size="lg" />
+          </div>
+        </div>
+      </Tredici>
+    );
+  }
+};
