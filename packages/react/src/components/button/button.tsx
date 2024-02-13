@@ -1,5 +1,6 @@
 import { ComponentPropsWithoutRef, ReactNode, forwardRef } from "react";
 import { cva } from "class-variance-authority";
+import { cn } from "@lib";
 
 type ButtonVariant = "solid" | "outline" | "ghost";
 type ButtonColorScheme =
@@ -296,6 +297,12 @@ interface IconButtonProps extends ButtonProps {
    * The icon to render inside the button.
    */
   icon?: ReactNode;
+
+  /**
+   * Wheter the button should be round
+   */
+
+  round?: boolean;
 }
 
 const iconButtonVariants = cva(
@@ -338,6 +345,7 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
       colorScheme = "amethyst",
       size = "md",
       icon,
+      round,
       ...props
     },
     ref
@@ -346,7 +354,7 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
       <button
         ref={ref}
         className={iconButtonVariants({
-          className,
+          className: cn(className, round && "!rounded-full"),
           variant,
           colorScheme,
           size

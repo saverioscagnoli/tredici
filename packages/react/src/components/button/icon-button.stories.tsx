@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { IconButton } from "./button";
 import { Tredici } from "@components";
+import { SiSnapchat } from "react-icons/si";
 import {
   BsSun,
   BsSunFill,
   BsSpotify,
   BsTwitter,
-  BsSnapchat,
   BsFacebook,
   BsGithub
 } from "react-icons/bs";
@@ -116,26 +116,26 @@ export const Default: Story = {
               />
             </div>
             <div className="flex gap-2">
-              <IconButton icon={<BsSnapchat />} colorScheme="yellow" />
+              <IconButton icon={<SiSnapchat />} colorScheme="yellow" />
               <IconButton
-                icon={<BsSnapchat />}
+                icon={<SiSnapchat />}
                 colorScheme="yellow"
                 variant="outline"
               />
               <IconButton
-                icon={<BsSnapchat />}
+                icon={<SiSnapchat />}
                 colorScheme="yellow"
                 variant="ghost"
               />
-              <IconButton icon={<BsSnapchat />} colorScheme="yellow" disabled />
+              <IconButton icon={<SiSnapchat />} colorScheme="yellow" disabled />
               <IconButton
-                icon={<BsSnapchat />}
+                icon={<SiSnapchat />}
                 colorScheme="yellow"
                 variant="outline"
                 disabled
               />
               <IconButton
-                icon={<BsSnapchat />}
+                icon={<SiSnapchat />}
                 colorScheme="yellow"
                 variant="ghost"
                 disabled

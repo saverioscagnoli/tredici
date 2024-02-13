@@ -1,4 +1,5 @@
 import * as RxAvatar from "@radix-ui/react-avatar";
+import { PersonIcon } from "@radix-ui/react-icons";
 import { cva } from "class-variance-authority";
 import { ReactNode, forwardRef } from "react";
 
@@ -68,6 +69,12 @@ const avatarVariants = cva(
   }
 );
 
+const iconSizeTable = {
+  sm: 15,
+  md: 20,
+  lg: 25
+};
+
 const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(
   (
     {
@@ -75,7 +82,9 @@ const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(
       colorScheme = "amethyst",
       size = "md",
       src,
-      fallback,
+      fallback = (
+        <PersonIcon width={iconSizeTable[size]} height={iconSizeTable[size]} />
+      ),
       ...props
     },
     ref

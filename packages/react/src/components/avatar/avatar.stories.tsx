@@ -30,6 +30,7 @@ export const Default: Story = {
             <Avatar colorScheme="yellow" fallback="KL" />
             <Avatar colorScheme="blue" fallback="MN" />
             <Avatar colorScheme="b/w" fallback="OP" />
+            <Avatar colorScheme="b/w" />
           </div>
         </div>
       </Tredici>
@@ -43,10 +44,22 @@ export const Sizes: Story = {
       <Tredici>
         <div className="flex flex-col gap-4">
           <ThemeButton />
-          <div className="flex flex-col gap-2 self-start">
-            <Avatar size="sm" src={catJpg} fallback="AD" />
-            <Avatar size="md" src={catJpg} fallback="AD" />
-            <Avatar size="lg" src={catJpg} fallback="AD" />
+          <div className="flex gap-4">
+            <div className="flex flex-col gap-2 self-start">
+              <Avatar size="sm" src={catJpg} fallback="AD" />
+              <Avatar size="md" src={catJpg} fallback="AD" />
+              <Avatar size="lg" src={catJpg} fallback="AD" />
+            </div>
+            <div className="flex flex-col gap-2 self-start">
+              <Avatar size="sm" fallback="AD" />
+              <Avatar size="md" fallback="BS" />
+              <Avatar size="lg" fallback="GC" />
+            </div>
+            <div className="flex flex-col gap-2 self-start">
+              <Avatar size="sm" />
+              <Avatar size="md" />
+              <Avatar size="lg" />
+            </div>
           </div>
         </div>
       </Tredici>
