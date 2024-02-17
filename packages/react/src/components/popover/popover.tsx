@@ -69,11 +69,14 @@ type PopoverCloseProps = RxPopover.PopoverCloseProps;
 
 const PopoverClose = forwardRef<HTMLButtonElement, PopoverCloseProps>(
   ({ children, className, ...props }, ref) => {
-    if (!!children) {
+    if (children) {
       return (
-        <RxPopover.PopoverClose className={className} {...props} ref={ref}>
-          {children}
-        </RxPopover.PopoverClose>
+        <RxPopover.PopoverClose
+          children={children}
+          className={className}
+          {...props}
+          ref={ref}
+        />
       );
     } else {
       return (
