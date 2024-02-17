@@ -17,6 +17,8 @@ type DialogProps = RxDialog.DialogProps;
 
 const Dialog = RxDialog.Dialog as DialogComponent;
 
+type DialogTriggerProps = RxDialog.DialogTriggerProps;
+
 const DialogTrigger = RxDialog.DialogTrigger;
 
 type DialogContentProps = RxDialog.DialogContentProps;
@@ -48,11 +50,11 @@ const DialogContent = forwardRef<HTMLDivElement, DialogContentProps>(
 
 type DialogTitleProps = RxDialog.DialogTitleProps;
 
-const DialogTitle = forwardRef<HTMLDivElement, DialogTitleProps>(
+const DialogTitle = forwardRef<HTMLHeadingElement, DialogTitleProps>(
   ({ className, ...props }, ref) => {
     return (
       <RxDialog.Title
-        className={cn("text-xl font-bold break-words", className)}
+        className={cn("text-2xl font-bold break-words", className)}
         {...props}
         ref={ref}
       />
@@ -66,8 +68,7 @@ const DialogDescription = forwardRef<HTMLDivElement, DialogDescriptionProps>(
   ({ className, style, ...props }, ref) => {
     return (
       <RxDialog.Description
-        className={cn("mt-3", className)}
-        style={{ lineHeight: "1.3rem", ...style }}
+        className={cn("mt-3 leading-5 font-semibold", className)}
         {...props}
         ref={ref}
       />
@@ -107,11 +108,13 @@ Dialog.Content = DialogContent;
 Dialog.Title = DialogTitle;
 Dialog.Description = DialogDescription;
 Dialog.Close = DialogClose;
+
 Dialog.displayName = "Dialog";
 
 export { Dialog };
 export type {
   DialogProps,
+  DialogTriggerProps,
   DialogContentProps,
   DialogTitleProps,
   DialogDescriptionProps,

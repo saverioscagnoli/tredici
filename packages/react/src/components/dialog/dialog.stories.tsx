@@ -56,7 +56,7 @@ export const Default: Story = {
                 stores, and I get home every day by 8 PM at the latest. I don't
                 smoke, but I occasionally drink.
               </Dialog.Description>
-              <div className="flex justify-end gap-2 mt-2">
+              <div className="flex justify-end gap-2 mt-3">
                 <Dialog.Close asChild disabled={playing}>
                   <Button colorScheme="b/w" variant="ghost">
                     No, thanks
