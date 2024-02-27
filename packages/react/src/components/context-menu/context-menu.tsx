@@ -7,6 +7,8 @@ import {
   DotFilledIcon
 } from "@radix-ui/react-icons";
 
+import "./context-menu.css";
+
 interface ContextMenuComponent extends React.FC<ContextMenuProps> {
   Trigger: typeof ContextMenuTrigger;
   Content: typeof ContextMenuContent;
@@ -37,9 +39,10 @@ const ContextMenuContent = forwardRef<HTMLDivElement, ContextMenuContentProps>(
       <RxContextMenu.Portal>
         <RxContextMenu.Content
           className={cn(
-            "min-w-40 h-fit p-0.5 py-1 border border-gray-500/75 rounded shadow",
+            "min-w-[5rem] h-fit p-1 border border-gray-500/75 rounded shadow-lg",
             "bg-[#fafafa] text-black",
             "dark:bg-[#18181b] dark:text-white",
+            "context-menu-content",
             className
           )}
           {...props}
@@ -55,7 +58,7 @@ type ContextMenuLabelProps = RxContextMenu.ContextMenuLabelProps;
 const ContextMenuLabel = forwardRef<HTMLDivElement, ContextMenuLabelProps>(
   ({ className, ...props }, ref) => {
     return (
-      <RxContextMenu.ContextMenuLabel
+      <RxContextMenu.Label
         className={cn("pl-5 py-0.5 pb-1 text-xs", className)}
         {...props}
         ref={ref}
@@ -69,7 +72,7 @@ type ContextMenuItemProps = RxContextMenu.ContextMenuItemProps;
 const ContextMenuItem = forwardRef<HTMLDivElement, ContextMenuItemProps>(
   ({ className, ...props }, ref) => {
     return (
-      <RxContextMenu.ContextMenuItem
+      <RxContextMenu.Item
         className={cn(
           "pl-6 pr-3 rounded-sm hover:cursor-default text-[14px]",
           "hover:bg-[#18181b] hover:text-white",
@@ -93,7 +96,7 @@ const ContextMenuCheckboxItem = forwardRef<
   ContextMenuCheckboxItemProps
 >(({ className, children, icon = <CheckIcon />, ...props }, ref) => {
   return (
-    <RxContextMenu.ContextMenuCheckboxItem
+    <RxContextMenu.CheckboxItem
       className={cn(
         "pl-6 pr-3 relative rounded-sm hover:cursor-default text-[14px]",
         "hover:bg-[#18181b] hover:text-white",
@@ -103,11 +106,11 @@ const ContextMenuCheckboxItem = forwardRef<
       {...props}
       ref={ref}
     >
-      <RxContextMenu.ContextMenuItemIndicator className="w-6 h-6 absolute left-0 flex justify-center items-center">
+      <RxContextMenu.ItemIndicator className="w-6 h-6 absolute left-0 flex justify-center items-center">
         {icon}
-      </RxContextMenu.ContextMenuItemIndicator>
+      </RxContextMenu.ItemIndicator>
       {children}
-    </RxContextMenu.ContextMenuCheckboxItem>
+    </RxContextMenu.CheckboxItem>
   );
 });
 
@@ -125,7 +128,7 @@ const ContextMenuRadioItem = forwardRef<
   ContextMenuRadioItemProps
 >(({ className, children, icon = <DotFilledIcon />, ...props }, ref) => {
   return (
-    <RxContextMenu.ContextMenuRadioItem
+    <RxContextMenu.RadioItem
       className={cn(
         "pl-6 pr-3 relative rounded-sm hover:cursor-default text-[14px]",
         "hover:bg-[#18181b] hover:text-white",
@@ -135,11 +138,11 @@ const ContextMenuRadioItem = forwardRef<
       {...props}
       ref={ref}
     >
-      <RxContextMenu.ContextMenuItemIndicator className="w-6 h-6 absolute left-0 flex justify-center items-center">
+      <RxContextMenu.ItemIndicator className="w-6 h-6 absolute left-0 flex justify-center items-center">
         {icon}
-      </RxContextMenu.ContextMenuItemIndicator>
+      </RxContextMenu.ItemIndicator>
       {children}
-    </RxContextMenu.ContextMenuRadioItem>
+    </RxContextMenu.RadioItem>
   );
 });
 
@@ -157,7 +160,7 @@ const ContextMenuSubTrigger = forwardRef<
   ContextMenuSubTriggerProps
 >(({ className, children, icon = <ChevronRightIcon />, ...props }, ref) => {
   return (
-    <RxContextMenu.ContextMenuSubTrigger
+    <RxContextMenu.SubTrigger
       className={cn(
         "pl-6 flex justify-between items-center rounded-sm hover:cursor-default text-[14px]",
         "hover:bg-[#18181b] hover:text-white",
@@ -169,7 +172,7 @@ const ContextMenuSubTrigger = forwardRef<
     >
       {children}
       {icon}
-    </RxContextMenu.ContextMenuSubTrigger>
+    </RxContextMenu.SubTrigger>
   );
 });
 
@@ -183,9 +186,10 @@ const ContextMenuSubContent = forwardRef<
     <RxContextMenu.Portal>
       <RxContextMenu.SubContent
         className={cn(
-          "min-w-40 h-fit p-1 border border-gray-500/75 rounded shadow",
+          "min-w-[5rem] h-fit p-1 border border-gray-500/75 rounded shadow-lg",
           "bg-[#fafafa] text-black",
           "dark:bg-[#18181b] dark:text-white",
+          "context-menu-content",
           className
         )}
         {...props}
@@ -202,7 +206,7 @@ const ContextMenuSeparator = forwardRef<
   ContextMenuSeparatorProps
 >(({ className, ...props }, ref) => {
   return (
-    <RxContextMenu.ContextMenuSeparator
+    <RxContextMenu.Separator
       className={cn(
         "h-[1px] my-1",
         "bg-gray-500/30",
