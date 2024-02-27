@@ -10,7 +10,8 @@ type ButtonColorScheme =
   | "red"
   | "yellow"
   | "blue"
-  | "b/w";
+  | "b/w"
+  | "gray";
 type ButtonSize = "sm" | "md" | "lg";
 
 interface ButtonProps extends ComponentPropsWithoutRef<"button"> {
@@ -229,6 +230,34 @@ const compoundVariants = [
       "disabled:hover:bg-transparent disabled:active:bg-transparent disabled:text-black",
       "dark:disabled:hover:bg-transparent dark:disabled:active:bg-transparent dark:disabled:text-white"
     ]
+  },
+  {
+    variant: "solid",
+    colorScheme: "gray",
+    className: [
+      "bg-gray-500/20 hover:bg-gray-600/30 active:bg-gray-700/50 disabled:opacity-75 text-black disabled:bg-gray-500/20 disabled:hover:bg-gray-500/20",	
+      "dark:bg-gray-400/20 dark:hover:bg-gray-300/30 dark:active:bg-gray-500/50 dark:text-white dark:disabled:opacity-75 dark:disabled:bg-gray-400/20 dark:disabled:hover:bg-gray-400/20"
+    ]
+  },
+  {
+    variant: "outline",
+    colorScheme: "gray",
+    className: [
+      "border border-gray-700/20 bg-transparent hover:bg-gray-500/20 active:bg-gray-600/30 disabled:opacity-75 text-black",
+      "dark:border dark:border-gray-300/20 dark:bg-transparent dark:hover:bg-gray-400/20 dark:active:bg-gray-300/30 dark:text-white dark:disabled:opacity-75",
+      "disabled:hover:bg-transparent disabled:active:bg-transparent",
+      "dark:disabled:hover:bg-transparent dark:disabled:active:bg-transparent"
+    ]
+  },
+  {
+    variant: "ghost",
+    colorScheme: "gray",
+    className: [
+      "bg-transparent hover:bg-gray-500/20 active:bg-gray-600/30 disabled:opacity-75 text-black",
+      "dark:bg-transparent dark:hover:bg-gray-400/20 dark:active:bg-gray-300/30 dark:text-white dark:disabled:opacity-75",
+      "disabled:hover:bg-transparent disabled:active:bg-transparent",
+      "dark:disabled:hover:bg-transparent dark:disabled:active:bg-transparent"
+    ]
   }
 ];
 
@@ -248,7 +277,8 @@ const buttonVariants = cva(
         red: "",
         yellow: "",
         blue: "",
-        "b/w": ""
+        "b/w": "",
+        gray: ""
       },
       size: {
         sm: "h-6 px-2 text-sm rounded",
@@ -321,7 +351,8 @@ const iconButtonVariants = cva(
         red: "",
         yellow: "",
         blue: "",
-        "b/w": ""
+        "b/w": "",
+        gray: ""
       },
       size: {
         sm: "w-6 h-6 text-sm rounded",

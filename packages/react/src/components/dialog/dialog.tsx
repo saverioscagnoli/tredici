@@ -68,7 +68,7 @@ const DialogDescription = forwardRef<HTMLDivElement, DialogDescriptionProps>(
   ({ className, style, ...props }, ref) => {
     return (
       <RxDialog.Description
-        className={cn("mt-3 leading-5 font-semibold", className)}
+        className={cn("mt-4 leading-5 font-semibold", className)}
         {...props}
         ref={ref}
       />

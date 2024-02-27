@@ -6,3 +6,5 @@ export * from "./input/input";
 export * from "./checkbox/checkbox";
 export * from "./popover/popover";
 export * from "./dialog/dialog";
+export * from "./alert-dialog/alert-dialog";
+export * from "./aspect-ratio/aspect-ratio";

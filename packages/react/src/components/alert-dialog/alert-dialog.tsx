@@ -70,7 +70,7 @@ const AlertDialogDescription = forwardRef<
 >(({ className, ...props }, ref) => {
   return (
     <RxAlertDialog.Description
-      className={cn("mt-3 leading-5 font-semibold", className)}
+      className={cn("mt-4 leading-5 font-semibold", className)}
       {...props}
       ref={ref}
     />

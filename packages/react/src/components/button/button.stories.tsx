@@ -140,6 +140,24 @@ export const Default: Story = {
                 Button
               </Button>
             </div>
+            <div className="flex gap-2">
+              <Button colorScheme="gray">Button</Button>
+              <Button colorScheme="gray" variant="outline">
+                Button
+              </Button>
+              <Button colorScheme="gray" variant="ghost">
+                Button
+              </Button>
+              <Button colorScheme="gray" disabled>
+                Button
+              </Button>
+              <Button colorScheme="gray" variant="outline" disabled>
+                Button
+              </Button>
+              <Button colorScheme="gray" variant="ghost" disabled>
+                Button
+              </Button>
+            </div>
           </div>
         </div>
       </Tredici>

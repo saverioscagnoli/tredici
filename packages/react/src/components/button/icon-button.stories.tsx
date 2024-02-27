@@ -193,6 +193,32 @@ export const Default: Story = {
                 disabled
               />
             </div>
+            <div className="flex gap-2">
+              <IconButton icon={<BsGithub />} colorScheme="gray" />
+              <IconButton
+                icon={<BsGithub />}
+                colorScheme="gray"
+                variant="outline"
+              />
+              <IconButton
+                icon={<BsGithub />}
+                colorScheme="gray"
+                variant="ghost"
+              />
+              <IconButton icon={<BsGithub />} colorScheme="b/w" disabled />
+              <IconButton
+                icon={<BsGithub />}
+                colorScheme="gray"
+                variant="outline"
+                disabled
+              />
+              <IconButton
+                icon={<BsGithub />}
+                colorScheme="gray"
+                variant="ghost"
+                disabled
+              />
+            </div>
           </div>
         </div>
       </Tredici>

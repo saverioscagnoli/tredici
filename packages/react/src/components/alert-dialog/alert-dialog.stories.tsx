@@ -35,9 +35,7 @@ export const Default: Story = {
               </AlertDialog.Description>
               <div className="flex justify-end gap-2 mt-3">
                 <AlertDialog.Cancel>
-                  <Button colorScheme="b/w" variant="ghost">
-                    No {":("}
-                  </Button>
+                  <Button colorScheme="gray">No {":("}</Button>
                 </AlertDialog.Cancel>
                 <AlertDialog.Action>
                   <Button colorScheme="red">Delete</Button>

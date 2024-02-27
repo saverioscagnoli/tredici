@@ -58,9 +58,7 @@ export const Default: Story = {
               </Dialog.Description>
               <div className="flex justify-end gap-2 mt-3">
                 <Dialog.Close asChild disabled={playing}>
-                  <Button colorScheme="b/w" variant="ghost">
-                    No, thanks
-                  </Button>
+                  <Button colorScheme="gray">No, thanks</Button>
                 </Dialog.Close>
                 <Button onClick={onPlay}>Wow! 👋</Button>
               </div>
