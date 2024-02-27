@@ -3,7 +3,6 @@ import { ContextMenu } from "./context-menu";
 import { ThemeButton } from "components/examples";
 import { Tredici } from "@components";
 import { useState } from "react";
-import { GitHubLogoIcon } from "@radix-ui/react-icons";
 
 const meta: Meta<typeof ContextMenu> = {
   title: "Components/ContextMenu",
