@@ -40,17 +40,11 @@ export const Default: Story = {
                 </div>
                 <div className="flex justify-between items-center gap-2">
                   <p className="text-sm w-20">Width</p>
-                  <Input
-                    size="sm"
-                    className="text-white dark:!text-black caret-white dark:caret-black"
-                  />
+                  <Input size="sm" />
                 </div>
                 <div className="flex justify-between items-center gap-2">
                   <p className="text-sm w-20">Height</p>
-                  <Input
-                    size="sm"
-                    className="text-white dark:!text-black caret-white dark:caret-black"
-                  />
+                  <Input size="sm" />
                 </div>
               </Popover.Content>
             </Popover>

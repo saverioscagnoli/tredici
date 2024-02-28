@@ -32,9 +32,9 @@ const PopoverContent = forwardRef<HTMLDivElement, PopoverContentProps>(
         <RxPopover.Content
           sideOffset={sideOffset}
           className={cn(
-            "w-52 h-fit p-2 shadow-lg rounded-md",
-            "bg-[#18181b] text-white",
-            "dark:bg-white dark:text-black",
+            "w-52 h-fit p-2 border border-gray-500/75 shadow-lg rounded",
+            "bg-[#fafafa] text-black",
+            "dark:bg-[#18181b] dark:text-white",
             "popover-content",
             className
           )}
@@ -55,7 +55,7 @@ const PopoverArrow = forwardRef<SVGSVGElement, PopoverArrowProps>(
   ({ className, width = 7, height = 3, ...props }, ref) => {
     return (
       <RxPopover.Arrow
-        className={cn("fill-[#18181b] dark:fill-white", className)}
+        className={cn("fill-gray-500/75", className)}
         width={width}
         height={height}
         {...props}

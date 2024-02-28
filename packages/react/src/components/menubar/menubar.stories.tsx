@@ -52,7 +52,6 @@ export const Default: Story = {
                   <Menubar.Separator />
 
                   <Menubar.Item>Close</Menubar.Item>
-                  <Menubar.Arrow />
                 </Menubar.Content>
               </Menubar.Menu>
               <Menubar.Menu>
@@ -71,7 +70,6 @@ export const Default: Story = {
                   <Menubar.Separator />
 
                   <Menubar.Item>Select all</Menubar.Item>
-                  <Menubar.Arrow />
                 </Menubar.Content>
               </Menubar.Menu>
 
@@ -90,7 +88,6 @@ export const Default: Story = {
                   <Menubar.Separator />
 
                   <Menubar.Item>Terminal</Menubar.Item>
-                  <Menubar.Arrow />
                 </Menubar.Content>
               </Menubar.Menu>
 
@@ -102,7 +99,6 @@ export const Default: Story = {
                   <Menubar.Item>Release Notes</Menubar.Item>
                   <Menubar.Item>Feedback</Menubar.Item>
                   <Menubar.Item>Report Issue</Menubar.Item>
-                  <Menubar.Arrow />
                 </Menubar.Content>
               </Menubar.Menu>
             </Menubar>
