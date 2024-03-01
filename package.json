@@ -1,0 +1,20 @@
+{
+  "name": "tredici-root",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/saverioscagnoli/tredici.git"
+  },
+  "author": {
+    "name": "Saverio Scagnoli",
+    "email": "svscagn@gmail.com"
+  },
+  "packageManager": "yarn@1.22.21",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "storybook": "yarn workspace tredici-components storybook"
+  },
+  "license": "MIT"
+}
