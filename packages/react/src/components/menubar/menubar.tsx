@@ -5,14 +5,86 @@ import {
   ForwardRefExoticComponent,
   ReactNode,
   RefAttributes,
-  forwardRef
+  createContext,
+  forwardRef,
+  useContext
 } from "react";
+import { cva } from "class-variance-authority";
 
 import "./menubar.css";
 
+type MenubarColorScheme =
+  | "amethyst"
+  | "teal"
+  | "green"
+  | "red"
+  | "yellow"
+  | "blue"
+  | "b/w";
+
+const ColorSchemeContext = createContext<MenubarColorScheme | null>(null);
+
+const useColorScheme = () => {
+  const ctx = useContext(ColorSchemeContext);
+  if (ctx === null) {
+    throw new Error("useColorScheme must be used within a ColorSchemeProvider");
+  }
+
+  return ctx;
+};
+
+interface MenubarProviderProps {
+  children: ReactNode;
+  colorScheme: MenubarColorScheme;
+}
+
+const MenubarProvider: React.FC<MenubarProviderProps> = ({
+  colorScheme,
+  ...props
+}) => {
+  return <ColorSchemeContext.Provider value={colorScheme} {...props} />;
+};
+
+const menubarItemVariants = cva("hover:outline-none", {
+  variants: {
+    colorScheme: {
+      amethyst: [
+        "hover:bg-amethyst-500 hover:text-white",
+        "dark:hover:bg-amethyst-400 dark:hover:text-black"
+      ],
+      teal: [
+        "hover:bg-teal-500 hover:text-white",
+        "dark:hover:bg-teal-400 dark:hover:text-black"
+      ],
+      green: [
+        "hover:bg-green-500 hover:text-white",
+        "dark:hover:bg-green-400 dark:hover:text-black"
+      ],
+      red: [
+        "hover:bg-red-500 hover:text-white",
+        "dark:hover:bg-red-400 dark:hover:text-black"
+      ],
+
+      yellow: [
+        "hover:bg-yellow-500 hover:text-black",
+        "dark:hover:bg-yellow-400"
+      ],
+      blue: [
+        "hover:bg-blue-500 hover:text-white",
+        "dark:hover:bg-blue-400 dark:hover:text-black"
+      ],
+      "b/w": [
+        "hover:bg-[#18181b] hover:text-white",
+        "dark:hover:bg-[#fafafa] dark:hover:text-black"
+      ],
+      gray: ["hover:bg-gray-400/25", "dark:hover:bg-gray-500/30"]
+    }
+  }
+});
+
 interface MenubarComponent
   extends ForwardRefExoticComponent<
-    RxMenubar.MenubarProps & RefAttributes<HTMLDivElement>
+    MenubarProps & RefAttributes<HTMLDivElement>
   > {
   Menu: typeof RxMenubar.Menu;
   Trigger: typeof MenubarTrigger;
@@ -29,21 +101,25 @@ interface MenubarComponent
   Arrow: typeof MenubarArrow;
 }
 
-type MenubarProps = RxMenubar.MenubarProps;
+interface MenubarProps extends RxMenubar.MenubarProps {
+  colorScheme?: MenubarColorScheme;
+}
 
 const Menubar = forwardRef<HTMLDivElement, MenubarProps>(
-  ({ className, ...props }, ref) => {
+  ({ className, colorScheme = "amethyst", ...props }, ref) => {
     return (
-      <RxMenubar.Menubar
-        className={cn(
-          "w-fit p-1 flex justify-between items-center",
-          "text-black",
-          "dark:text-white",
-          className
-        )}
-        {...props}
-        ref={ref}
-      />
+      <MenubarProvider colorScheme={colorScheme}>
+        <RxMenubar.Menubar
+          className={cn(
+            "w-fit p-1 flex justify-between items-center",
+            "text-black",
+            "dark:text-white",
+            className
+          )}
+          {...props}
+          ref={ref}
+        />
+      </MenubarProvider>
     );
   }
 ) as MenubarComponent;
@@ -107,76 +183,95 @@ const MenubarLabel = forwardRef<HTMLDivElement, MenubarLabelProps>(
   }
 );
 
-type MenubarItemProps = RxMenubar.MenubarItemProps;
+interface MenubarItemProps extends RxMenubar.MenubarItemProps {
+  colorScheme?: MenubarColorScheme;
+  leftIcon?: ReactNode;
+}
 
 const MenbarItem = forwardRef<HTMLDivElement, MenubarItemProps>(
-  ({ className, ...props }, ref) => {
+  ({ className, children, colorScheme, leftIcon, ...props }, ref) => {
     return (
       <RxMenubar.Item
-        className={cn(
-          "pl-6 pr-3 rounded-sm hover:cursor-default text-[14px]",
-          "hover:bg-[#18181b] hover:text-white",
-          "dark:hover:bg-[#fafafa] dark:hover:text-black",
-          className
-        )}
+        className={menubarItemVariants({
+          className: cn(
+            "pr-3 flex items-center relative rounded-sm hover:cursor-default text-[14px]",
+            className
+          ),
+          colorScheme: colorScheme ?? useColorScheme()
+        })}
         {...props}
         ref={ref}
-      />
+      >
+        <div className="w-7 flex justify-center items-center">{leftIcon}</div>
+        {children}
+      </RxMenubar.Item>
     );
   }
 );
 
 interface MenubarCheckboxItemProps extends RxMenubar.MenubarCheckboxItemProps {
+  colorScheme?: MenubarColorScheme;
   icon?: ReactNode;
 }
 
 const MenubarCheckboxItem = forwardRef<
   HTMLDivElement,
   MenubarCheckboxItemProps
->(({ className, children, icon = <CheckIcon />, ...props }, ref) => {
-  return (
-    <RxMenubar.CheckboxItem
-      className={cn(
-        "pl-6 pr-3 rounded-sm hover:cursor-default text-[14px]",
-        "hover:bg-[#18181b] hover:text-white",
-        "dark:hover:bg-[#fafafa] dark:hover:text-black",
-        className
-      )}
-      {...props}
-      ref={ref}
-    >
-      <RxMenubar.ItemIndicator className="w-6 h-6 absolute left-0 flex justify-center items-center">
-        {icon}
-      </RxMenubar.ItemIndicator>
-      {children}
-    </RxMenubar.CheckboxItem>
-  );
-});
+>(
+  (
+    { className, children, colorScheme, icon = <CheckIcon />, ...props },
+    ref
+  ) => {
+    return (
+      <RxMenubar.CheckboxItem
+        className={menubarItemVariants({
+          className: cn(
+            "pr-3 flex items-center relative rounded-sm hover:cursor-default text-[14px]",
+            className
+          ),
+          colorScheme: colorScheme ?? useColorScheme()
+        })}
+        {...props}
+        ref={ref}
+      >
+        <div className="w-7 flex justify-center items-center">
+          <RxMenubar.ItemIndicator>{icon}</RxMenubar.ItemIndicator>
+        </div>
+        {children}
+      </RxMenubar.CheckboxItem>
+    );
+  }
+);
 
 type MenubarRadioGroupProps = RxMenubar.MenubarRadioGroupProps;
 
 const MenubarRadioGroup = RxMenubar.RadioGroup;
 
 interface MenubarRadioItemProps extends RxMenubar.MenubarRadioItemProps {
+  colorScheme?: MenubarColorScheme;
   icon?: ReactNode;
 }
 
 const MenubarRadioItem = forwardRef<HTMLDivElement, MenubarRadioItemProps>(
-  ({ className, children, icon = <CheckIcon />, ...props }, ref) => {
+  (
+    { className, children, colorScheme, icon = <CheckIcon />, ...props },
+    ref
+  ) => {
     return (
       <RxMenubar.RadioItem
-        className={cn(
-          "pl-6 pr-3 rounded-sm hover:cursor-default text-[14px]",
-          "hover:bg-[#18181b] hover:text-white",
-          "dark:hover:bg-[#fafafa] dark:hover:text-black",
-          className
-        )}
+        className={menubarItemVariants({
+          className: cn(
+            "pr-3 flex items-center relative rounded-sm hover:cursor-default text-[14px]",
+            className
+          ),
+          colorScheme: colorScheme ?? useColorScheme()
+        })}
         {...props}
         ref={ref}
       >
-        <RxMenubar.ItemIndicator className="w-6 h-6 absolute left-0 flex justify-center items-center">
-          {icon}
-        </RxMenubar.ItemIndicator>
+        <div className="w-7 flex justify-center items-center">
+          <RxMenubar.ItemIndicator>{icon}</RxMenubar.ItemIndicator>
+        </div>
         {children}
       </RxMenubar.RadioItem>
     );
@@ -188,24 +283,38 @@ type MenubarSubProps = RxMenubar.MenubarSubProps;
 const MenubarSub = RxMenubar.Sub;
 
 interface MenubarSubTriggerProps extends RxMenubar.MenubarSubTriggerProps {
+  colorScheme?: MenubarColorScheme;
+  leftIcon?: ReactNode;
   icon?: ReactNode;
 }
 
 const MenubarSubTrigger = forwardRef<HTMLDivElement, MenubarSubTriggerProps>(
-  ({ className, children, icon = <ChevronRightIcon />, ...props }, ref) => {
+  (
+    {
+      className,
+      children,
+      colorScheme,
+      leftIcon,
+      icon = <ChevronRightIcon />,
+      ...props
+    },
+    ref
+  ) => {
     return (
       <RxMenubar.SubTrigger
-        className={cn(
-          "pl-6 flex justify-between items-center rounded-sm hover:cursor-default text-[14px]",
-          "hover:bg-[#18181b] hover:text-white",
-          "dark:hover:bg-[#fafafa] dark:hover:text-black",
-          className
-        )}
+        className={menubarItemVariants({
+          className: cn(
+            "flex justify-between items-center relative rounded-sm hover:cursor-default text-[14px]",
+            className
+          ),
+          colorScheme: colorScheme ?? useColorScheme()
+        })}
         {...props}
         ref={ref}
       >
+        <div className="w-7 flex justify-center items-center">{leftIcon}</div>
         {children}
-        {icon}
+        <span className="ml-auto">{icon}</span>
       </RxMenubar.SubTrigger>
     );
   }

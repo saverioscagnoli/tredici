@@ -8,3 +8,6 @@ export * from "./popover/popover";
 export * from "./dialog/dialog";
 export * from "./alert-dialog/alert-dialog";
 export * from "./aspect-ratio/aspect-ratio";
+export * from "./context-menu/context-menu";
+export * from "./dropdown-menu/dropdown-menu";
+export * from "./menubar/menubar";

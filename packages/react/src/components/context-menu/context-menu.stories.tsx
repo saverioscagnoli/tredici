@@ -3,6 +3,17 @@ import { ContextMenu } from "./context-menu";
 import { ThemeButton } from "components/examples";
 import { Tredici } from "@components";
 import { useState } from "react";
+import {
+  ArrowLeftIcon,
+  ArrowRightIcon,
+  LinkedInLogoIcon,
+  MagnifyingGlassIcon,
+  ReloadIcon,
+  Share1Icon,
+  StarFilledIcon,
+  TwitterLogoIcon
+} from "@radix-ui/react-icons";
+import { BsSave, BsPrinter, BsFacebook } from "react-icons/bs";
 
 const meta: Meta<typeof ContextMenu> = {
   title: "Components/ContextMenu",
@@ -15,61 +26,78 @@ export default meta;
 type Story = StoryObj<typeof ContextMenu>;
 
 export const Default: Story = {
-  render: () => {
-    const [check1, setCheck1] = useState<boolean>(false);
-    const [check2, setCheck2] = useState<boolean>(true);
-
-    const [radioValue, setRadioValue] = useState<string>("1");
-
-    const handleCheck1 = () => setCheck1(prev => !prev);
-    const handleCheck2 = () => setCheck2(prev => !prev);
+  args: {
+    colorScheme: "amethyst"
+  },
+  render: ({ colorScheme }) => {
+    const [check, setCheck] = useState<boolean>(true);
+    const handleCheck = () => setCheck(prev => !prev);
 
     return (
       <Tredici>
         <div className="flex flex-col gap-4">
           <ThemeButton />
-          <ContextMenu>
+          <ContextMenu colorScheme={colorScheme}>
             <ContextMenu.Trigger className="w-52 h-52 bg-red-400 flex justify-center items-center">
               Right click here...
             </ContextMenu.Trigger>
             <ContextMenu.Content>
-              <ContextMenu.Item>Back</ContextMenu.Item>
-              <ContextMenu.Item>Forward</ContextMenu.Item>
+              <ContextMenu.Item leftIcon={<ArrowLeftIcon />}>
+                Back
+              </ContextMenu.Item>
+              <ContextMenu.Item leftIcon={<ArrowRightIcon />}>
+                Forward
+              </ContextMenu.Item>
+              <ContextMenu.Item leftIcon={<ReloadIcon />}>
+                Reload
+              </ContextMenu.Item>
+
+              <ContextMenu.Separator />
+
+              <ContextMenu.Item leftIcon={<StarFilledIcon />}>
+                Add To Favorites
+              </ContextMenu.Item>
+
+              <ContextMenu.CheckboxItem
+                checked={check}
+                onCheckedChange={handleCheck}
+              >
+                Show Passwords
+              </ContextMenu.CheckboxItem>
+
+              <ContextMenu.Separator />
+
+              <ContextMenu.Item leftIcon={<BsSave />}>
+                Save Page As...
+              </ContextMenu.Item>
+              <ContextMenu.Item leftIcon={<BsPrinter />}>
+                Print...
+              </ContextMenu.Item>
+
+              <ContextMenu.Separator />
+
               <ContextMenu.Sub>
-                <ContextMenu.SubTrigger>Others...</ContextMenu.SubTrigger>
+                <ContextMenu.SubTrigger leftIcon={<Share1Icon />}>
+                  Share
+                </ContextMenu.SubTrigger>
                 <ContextMenu.SubContent>
-                  <ContextMenu.Item>Reload</ContextMenu.Item>
-                  <ContextMenu.Item>Save As...</ContextMenu.Item>
-                  <ContextMenu.Item>Print...</ContextMenu.Item>
-
-                  <ContextMenu.Separator />
-
-                  <ContextMenu.Item>Inspect</ContextMenu.Item>
+                  <ContextMenu.Item leftIcon={<TwitterLogoIcon />}>
+                    Twitter
+                  </ContextMenu.Item>
+                  <ContextMenu.Item leftIcon={<BsFacebook />}>
+                    Facebook
+                  </ContextMenu.Item>
+                  <ContextMenu.Item leftIcon={<LinkedInLogoIcon />}>
+                    LinkedIn
+                  </ContextMenu.Item>
                 </ContextMenu.SubContent>
               </ContextMenu.Sub>
 
               <ContextMenu.Separator />
 
-              <ContextMenu.CheckboxItem checked={check1} onClick={handleCheck1}>
-                Show Hidden Files
-              </ContextMenu.CheckboxItem>
-              <ContextMenu.CheckboxItem checked={check2} onClick={handleCheck2}>
-                Show System Files
-              </ContextMenu.CheckboxItem>
-
-              <ContextMenu.Separator />
-
-              <ContextMenu.RadioGroup
-                value={radioValue}
-                onValueChange={setRadioValue}
-              >
-                <ContextMenu.Label>Color</ContextMenu.Label>
-                <ContextMenu.RadioItem value="1">
-                  Turquoise
-                </ContextMenu.RadioItem>
-                <ContextMenu.RadioItem value="2">Purpure</ContextMenu.RadioItem>
-                <ContextMenu.RadioItem value="3">Orange</ContextMenu.RadioItem>
-              </ContextMenu.RadioGroup>
+              <ContextMenu.Item leftIcon={<MagnifyingGlassIcon />}>
+                Inspect
+              </ContextMenu.Item>
             </ContextMenu.Content>
           </ContextMenu>
         </div>

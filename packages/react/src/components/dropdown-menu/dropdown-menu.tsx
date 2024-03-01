@@ -5,9 +5,79 @@ import {
   ChevronRightIcon,
   DotFilledIcon
 } from "@radix-ui/react-icons";
-import { ReactNode, forwardRef } from "react";
+import { ReactNode, createContext, forwardRef, useContext } from "react";
+import { cva } from "class-variance-authority";
 
 import "./dropdown-menu.css";
+
+type DropdownMenuColorScheme =
+  | "amethyst"
+  | "teal"
+  | "green"
+  | "red"
+  | "yellow"
+  | "blue"
+  | "b/w";
+
+const ColorSchemeContext = createContext<DropdownMenuColorScheme | null>(null);
+
+const useColorScheme = () => {
+  const ctx = useContext(ColorSchemeContext);
+  if (ctx === null) {
+    throw new Error("useColorScheme must be used within a ColorSchemeProvider");
+  }
+
+  return ctx;
+};
+
+interface DropdownMenuProviderProps {
+  children: ReactNode;
+  colorScheme: DropdownMenuColorScheme;
+}
+
+const DropdownMenuProvider: React.FC<DropdownMenuProviderProps> = ({
+  colorScheme,
+  ...props
+}) => {
+  return <ColorSchemeContext.Provider value={colorScheme} {...props} />;
+};
+
+const dropdownMenuItemVariants = cva("hover:outline-none", {
+  variants: {
+    colorScheme: {
+      amethyst: [
+        "hover:bg-amethyst-500 hover:text-white",
+        "dark:hover:bg-amethyst-400 dark:hover:text-black"
+      ],
+      teal: [
+        "hover:bg-teal-500 hover:text-white",
+        "dark:hover:bg-teal-400 dark:hover:text-black"
+      ],
+      green: [
+        "hover:bg-green-500 hover:text-white",
+        "dark:hover:bg-green-400 dark:hover:text-black"
+      ],
+      red: [
+        "hover:bg-red-500 hover:text-white",
+        "dark:hover:bg-red-400 dark:hover:text-black"
+      ],
+
+      yellow: [
+        "hover:bg-yellow-500 hover:text-black",
+        "dark:hover:bg-yellow-400"
+      ],
+      blue: [
+        "hover:bg-blue-500 hover:text-white",
+        "dark:hover:bg-blue-400 dark:hover:text-black"
+      ],
+      "b/w": [
+        "hover:bg-[#18181b] hover:text-white",
+        "dark:hover:bg-[#fafafa] dark:hover:text-black"
+      ],
+      gray: ["hover:bg-gray-400/25", "dark:hover:bg-gray-500/30"]
+    }
+  }
+});
 
 type DropdownMenuComponent = React.FC<DropdownMenuProps> & {
   Trigger: typeof DropdownMenuTrigger;
@@ -24,9 +94,20 @@ type DropdownMenuComponent = React.FC<DropdownMenuProps> & {
   Arrow: typeof DropdownMenuArrow;
 };
 
-type DropdownMenuProps = RxDropdownMenu.DropdownMenuProps;
+interface DropdownMenuProps extends RxDropdownMenu.DropdownMenuProps {
+  colorScheme?: DropdownMenuColorScheme;
+}
 
-const DropdownMenu = RxDropdownMenu.DropdownMenu as DropdownMenuComponent;
+const DropdownMenu: DropdownMenuComponent = ({
+  colorScheme = "amethyst",
+  ...props
+}) => {
+  return (
+    <DropdownMenuProvider colorScheme={colorScheme}>
+      <RxDropdownMenu.DropdownMenu {...props} />
+    </DropdownMenuProvider>
+  );
+};
 
 type DropdownMenuTriggerProps = RxDropdownMenu.DropdownMenuTriggerProps;
 
@@ -37,7 +118,7 @@ type DropdownMenuContentProps = RxDropdownMenu.DropdownMenuContentProps;
 const DropdownMenuContent = forwardRef<
   HTMLDivElement,
   DropdownMenuContentProps
->(({ className, children, ...props }, ref) => {
+>(({ className, children, sideOffset = 4, ...props }, ref) => {
   return (
     <RxDropdownMenu.Portal>
       <RxDropdownMenu.Content
@@ -48,6 +129,7 @@ const DropdownMenuContent = forwardRef<
           "dropdown-menu-content",
           className
         )}
+        sideOffset={sideOffset}
         {...props}
         ref={ref}
       >
@@ -71,52 +153,66 @@ const DropdownMenuLabel = forwardRef<HTMLDivElement, DropdownMenuLabelProps>(
   }
 );
 
-type DropdownMenuItemProps = RxDropdownMenu.DropdownMenuItemProps;
+interface DropdownMenuItemProps extends RxDropdownMenu.DropdownMenuItemProps {
+  colorScheme?: DropdownMenuColorScheme;
+  leftIcon?: ReactNode;
+}
 
 const DropdownMenuItem = forwardRef<HTMLDivElement, DropdownMenuItemProps>(
-  ({ className, ...props }, ref) => {
+  ({ className, children, colorScheme, leftIcon, ...props }, ref) => {
     return (
       <RxDropdownMenu.Item
-        className={cn(
-          "pl-6 pr-3 rounded-sm hover:cursor-default text-[14px]",
-          "hover:bg-[#18181b] hover:text-white",
-          "dark:hover:bg-[#fafafa] dark:hover:text-black",
-          className
-        )}
+        className={dropdownMenuItemVariants({
+          className: cn(
+            "pr-3 flex items-center relative rounded-sm hover:cursor-default text-[14px]",
+            className
+          ),
+          colorScheme: colorScheme ?? useColorScheme()
+        })}
         {...props}
         ref={ref}
-      />
+      >
+        <div className="w-7 flex justify-center items-center">{leftIcon}</div>
+        {children}
+      </RxDropdownMenu.Item>
     );
   }
 );
 
 interface DropdownMenuCheckboxItemProps
   extends RxDropdownMenu.DropdownMenuCheckboxItemProps {
+  colorScheme?: DropdownMenuColorScheme;
   icon?: ReactNode;
 }
 
 const DropdownMenuCheckboxItem = forwardRef<
   HTMLDivElement,
   DropdownMenuCheckboxItemProps
->(({ className, children, icon = <CheckIcon />, ...props }, ref) => {
-  return (
-    <RxDropdownMenu.CheckboxItem
-      className={cn(
-        "pl-6 pr-3 rounded-sm hover:cursor-default text-[14px]",
-        "hover:bg-[#18181b] hover:text-white",
-        "dark:hover:bg-[#fafafa] dark:hover:text-black",
-        className
-      )}
-      {...props}
-      ref={ref}
-    >
-      <RxDropdownMenu.ItemIndicator className="w-6 h-6 absolute left-0 flex justify-center items-center">
-        {icon}
-      </RxDropdownMenu.ItemIndicator>
-      {children}
-    </RxDropdownMenu.CheckboxItem>
-  );
-});
+>(
+  (
+    { className, children, colorScheme, icon = <CheckIcon />, ...props },
+    ref
+  ) => {
+    return (
+      <RxDropdownMenu.CheckboxItem
+        className={dropdownMenuItemVariants({
+          className: cn(
+            "pr-3 flex items-center relative rounded-sm hover:cursor-default text-[14px]",
+            className
+          ),
+          colorScheme: colorScheme ?? useColorScheme()
+        })}
+        {...props}
+        ref={ref}
+      >
+        <div className="w-7 flex justify-center items-center">
+          <RxDropdownMenu.ItemIndicator>{icon}</RxDropdownMenu.ItemIndicator>
+        </div>
+        {children}
+      </RxDropdownMenu.CheckboxItem>
+    );
+  }
+);
 
 type DropdownMenuRadioGroupProps = RxDropdownMenu.DropdownMenuRadioGroupProps;
 
@@ -124,31 +220,38 @@ const DropdownMenuRadioGroup = RxDropdownMenu.RadioGroup;
 
 interface DropdownMenuRadioItemProps
   extends RxDropdownMenu.DropdownMenuRadioItemProps {
+  colorScheme?: DropdownMenuColorScheme;
   icon?: ReactNode;
 }
 
 const DropdownMenuRadioItem = forwardRef<
   HTMLDivElement,
   DropdownMenuRadioItemProps
->(({ className, children, icon = <DotFilledIcon />, ...props }, ref) => {
-  return (
-    <RxDropdownMenu.RadioItem
-      className={cn(
-        "pl-6 pr-3 rounded-sm hover:cursor-default text-[14px]",
-        "hover:bg-[#18181b] hover:text-white",
-        "dark:hover:bg-[#fafafa] dark:hover:text-black",
-        className
-      )}
-      {...props}
-      ref={ref}
-    >
-      <RxDropdownMenu.ItemIndicator className="w-6 h-6 absolute left-0 flex justify-center items-center">
-        {icon}
-      </RxDropdownMenu.ItemIndicator>
-      {children}
-    </RxDropdownMenu.RadioItem>
-  );
-});
+>(
+  (
+    { className, children, colorScheme, icon = <DotFilledIcon />, ...props },
+    ref
+  ) => {
+    return (
+      <RxDropdownMenu.RadioItem
+        className={dropdownMenuItemVariants({
+          className: cn(
+            "pr-3 flex items-center relative rounded-sm hover:cursor-default text-[14px]",
+            className
+          ),
+          colorScheme: colorScheme ?? useColorScheme()
+        })}
+        {...props}
+        ref={ref}
+      >
+        <div className="w-7 flex justify-center items-center">
+          <RxDropdownMenu.ItemIndicator>{icon}</RxDropdownMenu.ItemIndicator>
+        </div>
+        {children}
+      </RxDropdownMenu.RadioItem>
+    );
+  }
+);
 
 type DropdownMenuSubProps = RxDropdownMenu.DropdownMenuSubProps;
 
@@ -156,29 +259,45 @@ const DropdownMenuSub = RxDropdownMenu.Sub;
 
 interface DropdownMenuSubTriggerProps
   extends RxDropdownMenu.DropdownMenuSubTriggerProps {
+  colorScheme?: DropdownMenuColorScheme;
+  leftIcon?: ReactNode;
   icon?: ReactNode;
 }
 
 const DropdownMenuSubTrigger = forwardRef<
   HTMLDivElement,
   DropdownMenuSubTriggerProps
->(({ className, children, icon = <ChevronRightIcon />, ...props }, ref) => {
-  return (
-    <RxDropdownMenu.SubTrigger
-      className={cn(
-        "pl-6 flex justify-between items-center rounded-sm hover:cursor-default text-[14px]",
-        "hover:bg-[#18181b] hover:text-white",
-        "dark:hover:bg-[#fafafa] dark:hover:text-black",
-        className
-      )}
-      {...props}
-      ref={ref}
-    >
-      {children}
-      {icon}
-    </RxDropdownMenu.SubTrigger>
-  );
-});
+>(
+  (
+    {
+      className,
+      children,
+      colorScheme,
+      leftIcon,
+      icon = <ChevronRightIcon />,
+      ...props
+    },
+    ref
+  ) => {
+    return (
+      <RxDropdownMenu.SubTrigger
+        className={dropdownMenuItemVariants({
+          className: cn(
+            "flex justify-between items-center relative rounded-sm hover:cursor-default text-[14px]",
+            className
+          ),
+          colorScheme: colorScheme ?? useColorScheme()
+        })}
+        {...props}
+        ref={ref}
+      >
+        <div className="w-7 flex justify-center items-center">{leftIcon}</div>
+        {children}
+        <span className="ml-auto">{icon}</span>
+      </RxDropdownMenu.SubTrigger>
+    );
+  }
+);
 
 type DropdownMenuSubContentProps = RxDropdownMenu.DropdownMenuSubContentProps;
 

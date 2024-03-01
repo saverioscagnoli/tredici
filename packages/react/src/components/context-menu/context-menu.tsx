@@ -1,6 +1,6 @@
 import { cn } from "@lib";
 import * as RxContextMenu from "@radix-ui/react-context-menu";
-import { ReactNode, forwardRef } from "react";
+import { ReactNode, createContext, forwardRef, useContext } from "react";
 import {
   CheckIcon,
   ChevronRightIcon,
@@ -8,6 +8,76 @@ import {
 } from "@radix-ui/react-icons";
 
 import "./context-menu.css";
+import { cva } from "class-variance-authority";
+
+type ContextMenuColorScheme =
+  | "amethyst"
+  | "teal"
+  | "green"
+  | "red"
+  | "yellow"
+  | "blue"
+  | "b/w";
+
+const ColorSchemeContext = createContext<ContextMenuColorScheme | null>(null);
+
+const useColorScheme = () => {
+  const ctx = useContext(ColorSchemeContext);
+  if (ctx === null) {
+    throw new Error("useColorScheme must be used within a ColorSchemeProvider");
+  }
+
+  return ctx;
+};
+
+interface ContextMenuProviderProps {
+  children: ReactNode;
+  colorScheme: ContextMenuColorScheme;
+}
+
+const ContextMenuProvider: React.FC<ContextMenuProviderProps> = ({
+  colorScheme,
+  ...props
+}) => {
+  return <ColorSchemeContext.Provider value={colorScheme} {...props} />;
+};
+
+const contextMenuItemVariants = cva("hover:outline-none", {
+  variants: {
+    colorScheme: {
+      amethyst: [
+        "hover:bg-amethyst-500 hover:text-white",
+        "dark:hover:bg-amethyst-400 dark:hover:text-black"
+      ],
+      teal: [
+        "hover:bg-teal-500 hover:text-white",
+        "dark:hover:bg-teal-400 dark:hover:text-black"
+      ],
+      green: [
+        "hover:bg-green-500 hover:text-white",
+        "dark:hover:bg-green-400 dark:hover:text-black"
+      ],
+      red: [
+        "hover:bg-red-500 hover:text-white",
+        "dark:hover:bg-red-400 dark:hover:text-black"
+      ],
+
+      yellow: [
+        "hover:bg-yellow-500 hover:text-black",
+        "dark:hover:bg-yellow-400"
+      ],
+      blue: [
+        "hover:bg-blue-500 hover:text-white",
+        "dark:hover:bg-blue-400 dark:hover:text-black"
+      ],
+      "b/w": [
+        "hover:bg-[#18181b] hover:text-white",
+        "dark:hover:bg-[#fafafa] dark:hover:text-black"
+      ],
+      gray: ["hover:bg-gray-400/25", "dark:hover:bg-gray-500/30"]
+    }
+  }
+});
 
 interface ContextMenuComponent extends React.FC<ContextMenuProps> {
   Trigger: typeof ContextMenuTrigger;
@@ -23,9 +93,20 @@ interface ContextMenuComponent extends React.FC<ContextMenuProps> {
   Separator: typeof ContextMenuSeparator;
 }
 
-type ContextMenuProps = RxContextMenu.ContextMenuProps;
+interface ContextMenuProps extends RxContextMenu.ContextMenuProps {
+  colorScheme?: ContextMenuColorScheme;
+}
 
-const ContextMenu = RxContextMenu.ContextMenu as ContextMenuComponent;
+const ContextMenu: ContextMenuComponent = ({
+  colorScheme = "amethyst",
+  ...props
+}) => {
+  return (
+    <ContextMenuProvider colorScheme={colorScheme}>
+      <RxContextMenu.ContextMenu {...props} />
+    </ContextMenuProvider>
+  );
+};
 
 type ContextMenuTriggerProps = RxContextMenu.ContextMenuTriggerProps;
 
@@ -67,52 +148,66 @@ const ContextMenuLabel = forwardRef<HTMLDivElement, ContextMenuLabelProps>(
   }
 );
 
-type ContextMenuItemProps = RxContextMenu.ContextMenuItemProps;
+interface ContextMenuItemProps extends RxContextMenu.ContextMenuItemProps {
+  colorScheme?: ContextMenuColorScheme;
+  leftIcon?: ReactNode;
+}
 
 const ContextMenuItem = forwardRef<HTMLDivElement, ContextMenuItemProps>(
-  ({ className, ...props }, ref) => {
+  ({ className, children, colorScheme, leftIcon, ...props }, ref) => {
     return (
       <RxContextMenu.Item
-        className={cn(
-          "pl-6 pr-3 rounded-sm hover:cursor-default text-[14px]",
-          "hover:bg-[#18181b] hover:text-white",
-          "dark:hover:bg-[#fafafa] dark:hover:text-black",
-          className
-        )}
+        className={contextMenuItemVariants({
+          className: cn(
+            "pr-3 flex items-center relative rounded-sm hover:cursor-default text-[14px]",
+            className
+          ),
+          colorScheme: colorScheme ?? useColorScheme()
+        })}
         {...props}
         ref={ref}
-      />
+      >
+        <div className="w-7 flex justify-center items-center">{leftIcon}</div>
+        {children}
+      </RxContextMenu.Item>
     );
   }
 );
 
 interface ContextMenuCheckboxItemProps
   extends RxContextMenu.ContextMenuCheckboxItemProps {
+  colorScheme?: ContextMenuColorScheme;
   icon?: ReactNode;
 }
 
 const ContextMenuCheckboxItem = forwardRef<
   HTMLDivElement,
   ContextMenuCheckboxItemProps
->(({ className, children, icon = <CheckIcon />, ...props }, ref) => {
-  return (
-    <RxContextMenu.CheckboxItem
-      className={cn(
-        "pl-6 pr-3 relative rounded-sm hover:cursor-default text-[14px]",
-        "hover:bg-[#18181b] hover:text-white",
-        "dark:hover:bg-[#fafafa] dark:hover:text-black",
-        className
-      )}
-      {...props}
-      ref={ref}
-    >
-      <RxContextMenu.ItemIndicator className="w-6 h-6 absolute left-0 flex justify-center items-center">
-        {icon}
-      </RxContextMenu.ItemIndicator>
-      {children}
-    </RxContextMenu.CheckboxItem>
-  );
-});
+>(
+  (
+    { className, children, colorScheme, icon = <CheckIcon />, ...props },
+    ref
+  ) => {
+    return (
+      <RxContextMenu.CheckboxItem
+        className={contextMenuItemVariants({
+          className: cn(
+            "pr-3 flex items-center relative rounded-sm hover:cursor-default text-[14px]",
+            className
+          ),
+          colorScheme: colorScheme ?? useColorScheme()
+        })}
+        {...props}
+        ref={ref}
+      >
+        <div className="w-7 flex justify-center items-center">
+          <RxContextMenu.ItemIndicator>{icon}</RxContextMenu.ItemIndicator>
+        </div>
+        {children}
+      </RxContextMenu.CheckboxItem>
+    );
+  }
+);
 
 type ContextMenuRadioGroupProps = RxContextMenu.ContextMenuRadioGroupProps;
 
@@ -120,31 +215,38 @@ const ContextMenuRadioGroup = RxContextMenu.ContextMenuRadioGroup;
 
 interface ContextMenuRadioItemProps
   extends RxContextMenu.ContextMenuRadioItemProps {
+  colorScheme?: ContextMenuColorScheme;
   icon?: ReactNode;
 }
 
 const ContextMenuRadioItem = forwardRef<
   HTMLDivElement,
   ContextMenuRadioItemProps
->(({ className, children, icon = <DotFilledIcon />, ...props }, ref) => {
-  return (
-    <RxContextMenu.RadioItem
-      className={cn(
-        "pl-6 pr-3 relative rounded-sm hover:cursor-default text-[14px]",
-        "hover:bg-[#18181b] hover:text-white",
-        "dark:hover:bg-[#fafafa] dark:hover:text-black",
-        className
-      )}
-      {...props}
-      ref={ref}
-    >
-      <RxContextMenu.ItemIndicator className="w-6 h-6 absolute left-0 flex justify-center items-center">
-        {icon}
-      </RxContextMenu.ItemIndicator>
-      {children}
-    </RxContextMenu.RadioItem>
-  );
-});
+>(
+  (
+    { className, children, colorScheme, icon = <DotFilledIcon />, ...props },
+    ref
+  ) => {
+    return (
+      <RxContextMenu.RadioItem
+        className={contextMenuItemVariants({
+          className: cn(
+            "pr-3 flex items-center relative rounded-sm hover:cursor-default text-[14px]",
+            className
+          ),
+          colorScheme: colorScheme ?? useColorScheme()
+        })}
+        {...props}
+        ref={ref}
+      >
+        <div className="w-7 flex justify-center items-center">
+          <RxContextMenu.ItemIndicator>{icon}</RxContextMenu.ItemIndicator>
+        </div>
+        {children}
+      </RxContextMenu.RadioItem>
+    );
+  }
+);
 
 type ContextMenuSubProps = RxContextMenu.ContextMenuSubProps;
 
@@ -152,29 +254,45 @@ const ContextMenuSub = RxContextMenu.ContextMenuSub;
 
 interface ContextMenuSubTriggerProps
   extends RxContextMenu.ContextMenuSubTriggerProps {
+  colorScheme?: ContextMenuColorScheme;
+  leftIcon?: ReactNode;
   icon?: ReactNode;
 }
 
 const ContextMenuSubTrigger = forwardRef<
   HTMLDivElement,
   ContextMenuSubTriggerProps
->(({ className, children, icon = <ChevronRightIcon />, ...props }, ref) => {
-  return (
-    <RxContextMenu.SubTrigger
-      className={cn(
-        "pl-6 flex justify-between items-center rounded-sm hover:cursor-default text-[14px]",
-        "hover:bg-[#18181b] hover:text-white",
-        "dark:hover:bg-[#fafafa] dark:hover:text-black",
-        className
-      )}
-      {...props}
-      ref={ref}
-    >
-      {children}
-      {icon}
-    </RxContextMenu.SubTrigger>
-  );
-});
+>(
+  (
+    {
+      className,
+      children,
+      colorScheme,
+      leftIcon,
+      icon = <ChevronRightIcon />,
+      ...props
+    },
+    ref
+  ) => {
+    return (
+      <RxContextMenu.SubTrigger
+        className={contextMenuItemVariants({
+          className: cn(
+            "flex justify-between items-center relative rounded-sm hover:cursor-default text-[14px]",
+            className
+          ),
+          colorScheme: colorScheme ?? useColorScheme()
+        })}
+        {...props}
+        ref={ref}
+      >
+        <div className="w-7 flex justify-center items-center">{leftIcon}</div>
+        {children}
+        <span className="ml-auto">{icon}</span>
+      </RxContextMenu.SubTrigger>
+    );
+  }
+);
 
 type ContextMenuSubContentProps = RxContextMenu.ContextMenuSubContentProps;
 
