@@ -1,9 +1,10 @@
+import { cn } from "@/lib/utils";
 import { cva } from "class-variance-authority";
 import { ComponentPropsWithoutRef, ReactNode, forwardRef } from "react";
 
-type ButtonVariant = "solid" | "outline" | "ghost" | "link";
+type IconButtonVariant = "solid" | "outline" | "ghost";
 
-type ButtonColorScheme =
+type IconButtonColorScheme =
   | "purple"
   | "teal"
   | "green"
@@ -13,12 +14,11 @@ type ButtonColorScheme =
   | "b/w"
   | "gray";
 
-type ButtonSize = "sm" | "md" | "lg";
+type IconButtonSize = "sm" | "md" | "lg";
 
-const buttonVariants = cva(
+const iconButtonVariants = cva(
   [
     "inline-flex justify-center items-center",
-    "font-semibold",
     "transition-colors",
     "select-none",
     "disabled:cursor-not-allowed"
@@ -73,23 +73,6 @@ const buttonVariants = cva(
             "disabled:opacity-50",
             "disabled:bg-transparent",
             "dark:disabled:bg-transparent"
-          ]
-        ]
-      },
-      {
-        variant: "link",
-        colorScheme: "purple",
-        className: [
-          "bg-transparent",
-          "text-purple-500",
-          "underline-offset-2",
-          "hover:underline",
-          "active:underline",
-          [
-            "disabled:opacity-50",
-            "disabled:bg-transparent",
-            "dark:disabled:bg-transparent",
-            "disabled:no-underline"
           ]
         ]
       },
@@ -149,23 +132,6 @@ const buttonVariants = cva(
         ]
       },
       {
-        variant: "link",
-        colorScheme: "teal",
-        className: [
-          "bg-transparent",
-          "text-teal-500",
-          "underline-offset-2",
-          "hover:underline",
-          "active:underline",
-          [
-            "disabled:opacity-50",
-            "disabled:bg-transparent",
-            "dark:disabled:bg-transparent",
-            "disabled:no-underline"
-          ]
-        ]
-      },
-      {
         variant: "solid",
         colorScheme: "green",
         className: [
@@ -217,23 +183,6 @@ const buttonVariants = cva(
             "disabled:opacity-50",
             "disabled:bg-transparent",
             "dark:disabled:bg-transparent"
-          ]
-        ]
-      },
-      {
-        variant: "link",
-        colorScheme: "green",
-        className: [
-          "bg-transparent",
-          "text-green-500",
-          "underline-offset-2",
-          "hover:underline",
-          "active:underline",
-          [
-            "disabled:opacity-50",
-            "disabled:bg-transparent",
-            "dark:disabled:bg-transparent",
-            "disabled:no-underline"
           ]
         ]
       },
@@ -293,23 +242,6 @@ const buttonVariants = cva(
         ]
       },
       {
-        variant: "link",
-        colorScheme: "red",
-        className: [
-          "bg-transparent",
-          "text-red-500",
-          "underline-offset-2",
-          "hover:underline",
-          "active:underline",
-          [
-            "disabled:opacity-50",
-            "disabled:bg-transparent",
-            "dark:disabled:bg-transparent",
-            "disabled:no-underline"
-          ]
-        ]
-      },
-      {
         variant: "solid",
         colorScheme: "yellow",
         className: [
@@ -360,23 +292,6 @@ const buttonVariants = cva(
             "disabled:opacity-50",
             "disabled:bg-transparent",
             "dark:disabled:bg-transparent"
-          ]
-        ]
-      },
-      {
-        variant: "link",
-        colorScheme: "yellow",
-        className: [
-          "bg-transparent",
-          "text-yellow-500",
-          "underline-offset-2",
-          "hover:underline",
-          "active:underline",
-          [
-            "disabled:opacity-50",
-            "disabled:bg-transparent",
-            "dark:disabled:bg-transparent",
-            "disabled:no-underline"
           ]
         ]
       },
@@ -436,23 +351,6 @@ const buttonVariants = cva(
         ]
       },
       {
-        variant: "link",
-        colorScheme: "blue",
-        className: [
-          "bg-transparent",
-          "text-blue-500",
-          "underline-offset-2",
-          "hover:underline",
-          "active:underline",
-          [
-            "disabled:opacity-50",
-            "disabled:bg-transparent",
-            "dark:disabled:bg-transparent",
-            "disabled:no-underline"
-          ]
-        ]
-      },
-      {
         variant: "solid",
         colorScheme: "b/w",
         className: [
@@ -507,23 +405,6 @@ const buttonVariants = cva(
             "disabled:text-black",
             "dark:disabled:bg-transparent",
             "dark:disabled:text-white"
-          ]
-        ]
-      },
-      {
-        variant: "link",
-        colorScheme: "b/w",
-        className: [
-          "bg-transparent",
-          ["text-black", "dark:text-white"],
-          "underline-offset-2",
-          "hover:underline",
-          "active:underline",
-          [
-            "disabled:opacity-50",
-            "disabled:bg-transparent",
-            "dark:disabled:bg-transparent",
-            "disabled:no-underline"
           ]
         ]
       },
@@ -594,23 +475,6 @@ const buttonVariants = cva(
             "dark:disabled:bg-transparent"
           ]
         ]
-      },
-      {
-        variant: "link",
-        colorScheme: "gray",
-        className: [
-          "bg-transparent",
-          "text-gray-500",
-          "underline-offset-2",
-          "hover:underline",
-          "active:underline",
-          [
-            "disabled:opacity-50",
-            "disabled:bg-transparent",
-            "dark:disabled:bg-transparent",
-            "disabled:no-underline"
-          ]
-        ]
       }
     ],
     variants: {
@@ -631,9 +495,9 @@ const buttonVariants = cva(
         gray: ""
       },
       size: {
-        sm: "h-6 px-2 text-sm rounded",
-        md: "h-8 px-3 text-md rounded-md",
-        lg: "h-11 px-4 text-lg rounded-lg"
+        sm: "w-6 h-6 rounded",
+        md: "w-8 h-8 rounded-md",
+        lg: "w-11 h-11 rounded-xl"
       }
     },
     defaultVariants: {
@@ -643,49 +507,50 @@ const buttonVariants = cva(
   }
 );
 
-type ButtonProps = ComponentPropsWithoutRef<"button"> & {
-  variant?: ButtonVariant;
-  colorScheme?: ButtonColorScheme;
-  size?: ButtonSize;
-  leftIcon?: ReactNode;
-  rightIcon?: ReactNode;
+type IconButtonProps = ComponentPropsWithoutRef<"button"> & {
+  variant?: IconButtonVariant;
+  colorScheme?: IconButtonColorScheme;
+  size?: IconButtonSize;
+  icon?: ReactNode;
+  round?: boolean;
 };
 
-const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
   (
     {
-      children,
       className,
       variant = "solid",
       colorScheme = "purple",
       size = "md",
-      leftIcon,
-      rightIcon,
+      icon,
+      round,
       ...props
     },
     ref
   ) => {
-    const isSmall = size === "sm";
-
     return (
       <button
-        className={buttonVariants({ className, variant, colorScheme, size })}
+        className={iconButtonVariants({
+          className: cn(round && "!rounded-full", className),
+          variant,
+          colorScheme,
+          size
+        })}
         {...props}
         ref={ref}
       >
-        {leftIcon && (
-          <span className={isSmall ? "mr-1" : "mr-2"}>{leftIcon}</span>
-        )}
-        {children}
-        {rightIcon && (
-          <span className={isSmall ? "ml-1" : "ml-2"}>{rightIcon}</span>
-        )}
+        {icon}
       </button>
     );
   }
 );
 
-Button.displayName = "Button";
+IconButton.displayName = "IconButton";
 
-export { Button };
-export type { ButtonProps, ButtonVariant, ButtonColorScheme, ButtonSize };
+export { IconButton };
+export type {
+  IconButtonProps,
+  IconButtonVariant,
+  IconButtonColorScheme,
+  IconButtonSize
+};
