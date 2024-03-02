@@ -1,7 +1,7 @@
 import { ComponentProps, useState, useEffect } from "react";
 import "@/index.css";
 
-const Frame: React.FC<ComponentProps<"div">> = props => {
+const Frame: React.FC<ComponentProps<"div">> = ({ children, ...props }) => {
   const [theme, setTheme] = useState<"light" | "dark">("light");
 
   const toggleTheme = () => setTheme(theme === "light" ? "dark" : "light");
@@ -28,6 +28,7 @@ const Frame: React.FC<ComponentProps<"div">> = props => {
         >
           {theme}
         </button>
+        {children}
       </div>
     </div>
   );
