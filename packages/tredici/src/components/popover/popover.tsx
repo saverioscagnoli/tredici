@@ -3,10 +3,12 @@ import * as RxPopover from "@radix-ui/react-popover";
 import "./popover.css";
 import { forwardRef } from "react";
 import { cn } from "@/lib/utils";
+import { Cross1Icon } from "@radix-ui/react-icons";
 
 type PopoverComponent = React.FC<RxPopover.PopoverProps> & {
   Trigger: typeof PopoverTrigger;
   Content: typeof PopoverContent;
+  Close: typeof PopoverClose;
   Anchor: typeof PopoverAnchor;
   Arrow: typeof PopoverArrow;
 };
@@ -28,7 +30,7 @@ const PopoverContent = forwardRef<HTMLDivElement, PopoverContentProps>(
         <RxPopover.Content
           sideOffset={sideOffset}
           className={cn(
-            "w-fit h-fit",
+            "h-fit",
             "p-2",
             "border border-gray-500/75",
             "shadow-lg rounded",
@@ -41,6 +43,38 @@ const PopoverContent = forwardRef<HTMLDivElement, PopoverContentProps>(
         />
       </RxPopover.Portal>
     );
+  }
+);
+
+type PopoverCloseProps = RxPopover.PopoverCloseProps;
+
+const PopoverClose = forwardRef<HTMLButtonElement, PopoverCloseProps>(
+  ({ children, className, ...props }, ref) => {
+    if (!children) {
+      return (
+        <RxPopover.Close
+          className={cn("absolute top-2 right-2", "p-1", className)}
+          {...props}
+          ref={ref}
+        >
+          <Cross1Icon
+            className={cn([
+              ["text-gray-500", "hover:text-gray-950"],
+              ["dark:text-gray-400", "dark:hover:text-gray-300"]
+            ])}
+          />
+        </RxPopover.Close>
+      );
+    } else {
+      return (
+        <RxPopover.Close
+          children={children}
+          className={className}
+          {...props}
+          ref={ref}
+        />
+      );
+    }
   }
 );
 
@@ -66,6 +100,7 @@ const PopoverArrow = forwardRef<SVGSVGElement, PopoverArrowProps>(
 
 Popover.Trigger = PopoverTrigger;
 Popover.Content = PopoverContent;
+Popover.Close = PopoverClose;
 Popover.Anchor = PopoverAnchor;
 Popover.Arrow = PopoverArrow;
 
