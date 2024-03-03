@@ -42,7 +42,7 @@ export const Default: Story = {
             <ContextMenu.Item leftIcon={<ArrowLeftIcon />}>
               Back
             </ContextMenu.Item>
-            <ContextMenu.Item leftIcon={<ArrowRightIcon />}>
+            <ContextMenu.Item leftIcon={<ArrowRightIcon />} disabled>
               Forward
             </ContextMenu.Item>
             <ContextMenu.Item leftIcon={<ReloadIcon />}>

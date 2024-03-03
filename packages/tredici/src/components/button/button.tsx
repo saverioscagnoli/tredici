@@ -21,7 +21,7 @@ const buttonVariants = cva(
     "font-semibold",
     "transition-colors",
     "select-none",
-    "disabled:cursor-not-allowed"
+    ["disabled:opacity-50", "disabled:pointer-events-none"]
   ],
   {
     compoundVariants: [
@@ -31,10 +31,7 @@ const buttonVariants = cva(
         className: [
           "text-white",
           "dark:text-black",
-          "bg-purple-500",
-          "hover:bg-purple-600",
-          "active:bg-purple-700",
-          ["disabled:opacity-50", "disabled:bg-purple-500"]
+          ["bg-purple-500", "hover:bg-purple-600", "active:bg-purple-700"]
         ]
       },
       {
@@ -49,11 +46,6 @@ const buttonVariants = cva(
             "active:bg-purple-200",
             "dark:hover:bg-purple-950",
             "dark:active:bg-purple-900"
-          ],
-          [
-            "disabled:opacity-50",
-            "disabled:bg-transparent",
-            "dark:disabled:bg-transparent"
           ]
         ]
       },
@@ -68,11 +60,6 @@ const buttonVariants = cva(
             "active:bg-purple-200",
             "dark:hover:bg-purple-950",
             "dark:active:bg-purple-900"
-          ],
-          [
-            "disabled:opacity-50",
-            "disabled:bg-transparent",
-            "dark:disabled:bg-transparent"
           ]
         ]
       },
@@ -84,13 +71,7 @@ const buttonVariants = cva(
           "text-purple-500",
           "underline-offset-2",
           "hover:underline",
-          "active:underline",
-          [
-            "disabled:opacity-50",
-            "disabled:bg-transparent",
-            "dark:disabled:bg-transparent",
-            "disabled:no-underline"
-          ]
+          "active:underline"
         ]
       },
       {
@@ -101,12 +82,7 @@ const buttonVariants = cva(
           "dark:text-black",
           "bg-teal-500",
           "hover:bg-teal-600",
-          "active:bg-teal-700",
-          [
-            "disabled:opacity-50",
-            "disabled:bg-teal-500",
-            "dark:disabled:bg-teal-500"
-          ]
+          "active:bg-teal-700"
         ]
       },
       {
@@ -121,11 +97,6 @@ const buttonVariants = cva(
             "active:bg-teal-200",
             "dark:hover:bg-teal-950",
             "dark:active:bg-teal-900"
-          ],
-          [
-            "disabled:opacity-50",
-            "disabled:bg-transparent",
-            "dark:disabled:bg-transparent"
           ]
         ]
       },
@@ -140,11 +111,6 @@ const buttonVariants = cva(
             "active:bg-teal-200",
             "dark:hover:bg-teal-950",
             "dark:active:bg-teal-900"
-          ],
-          [
-            "disabled:opacity-50",
-            "disabled:bg-transparent",
-            "dark:disabled:bg-transparent"
           ]
         ]
       },
@@ -156,13 +122,7 @@ const buttonVariants = cva(
           "text-teal-500",
           "underline-offset-2",
           "hover:underline",
-          "active:underline",
-          [
-            "disabled:opacity-50",
-            "disabled:bg-transparent",
-            "dark:disabled:bg-transparent",
-            "disabled:no-underline"
-          ]
+          "active:underline"
         ]
       },
       {
@@ -173,12 +133,7 @@ const buttonVariants = cva(
           "dark:text-black",
           "bg-green-500",
           "hover:bg-green-600",
-          "active:bg-green-700",
-          [
-            "disabled:opacity-50",
-            "disabled:bg-green-500",
-            "dark:disabled:bg-green-500"
-          ]
+          "active:bg-green-700"
         ]
       },
       {
@@ -193,11 +148,6 @@ const buttonVariants = cva(
             "active:bg-green-200",
             "dark:hover:bg-green-950",
             "dark:active:bg-green-900"
-          ],
-          [
-            "disabled:opacity-50",
-            "disabled:bg-transparent",
-            "dark:disabled:bg-transparent"
           ]
         ]
       },
@@ -212,11 +162,6 @@ const buttonVariants = cva(
             "active:bg-green-200",
             "dark:hover:bg-green-950",
             "dark:active:bg-green-900"
-          ],
-          [
-            "disabled:opacity-50",
-            "disabled:bg-transparent",
-            "dark:disabled:bg-transparent"
           ]
         ]
       },
@@ -228,13 +173,7 @@ const buttonVariants = cva(
           "text-green-500",
           "underline-offset-2",
           "hover:underline",
-          "active:underline",
-          [
-            "disabled:opacity-50",
-            "disabled:bg-transparent",
-            "dark:disabled:bg-transparent",
-            "disabled:no-underline"
-          ]
+          "active:underline"
         ]
       },
       {
@@ -245,12 +184,7 @@ const buttonVariants = cva(
           "dark:text-black",
           "bg-red-500",
           "hover:bg-red-600",
-          "active:bg-red-700",
-          [
-            "disabled:opacity-50",
-            "disabled:bg-red-500",
-            "dark:disabled:bg-red-500"
-          ]
+          "active:bg-red-700"
         ]
       },
       {
@@ -265,11 +199,6 @@ const buttonVariants = cva(
             "active:bg-red-200",
             "dark:hover:bg-red-950",
             "dark:active:bg-red-900"
-          ],
-          [
-            "disabled:opacity-50",
-            "disabled:bg-transparent",
-            "dark:disabled:bg-transparent"
           ]
         ]
       },
@@ -284,11 +213,6 @@ const buttonVariants = cva(
             "active:bg-red-200",
             "dark:hover:bg-red-950",
             "dark:active:bg-red-900"
-          ],
-          [
-            "disabled:opacity-50",
-            "disabled:bg-transparent",
-            "dark:disabled:bg-transparent"
           ]
         ]
       },
@@ -300,13 +224,7 @@ const buttonVariants = cva(
           "text-red-500",
           "underline-offset-2",
           "hover:underline",
-          "active:underline",
-          [
-            "disabled:opacity-50",
-            "disabled:bg-transparent",
-            "dark:disabled:bg-transparent",
-            "disabled:no-underline"
-          ]
+          "active:underline"
         ]
       },
       {
@@ -316,12 +234,7 @@ const buttonVariants = cva(
           "text-black",
           "bg-yellow-500",
           "hover:bg-yellow-600",
-          "active:bg-yellow-700",
-          [
-            "disabled:opacity-50",
-            "disabled:bg-yellow-500",
-            "dark:disabled:bg-yellow-500"
-          ]
+          "active:bg-yellow-700"
         ]
       },
       {
@@ -336,11 +249,6 @@ const buttonVariants = cva(
             "active:bg-yellow-200",
             "dark:hover:bg-yellow-950",
             "dark:active:bg-yellow-900"
-          ],
-          [
-            "disabled:opacity-50",
-            "disabled:bg-transparent",
-            "dark:disabled:bg-transparent"
           ]
         ]
       },
@@ -355,11 +263,6 @@ const buttonVariants = cva(
             "active:bg-yellow-200",
             "dark:hover:bg-yellow-950",
             "dark:active:bg-yellow-900"
-          ],
-          [
-            "disabled:opacity-50",
-            "disabled:bg-transparent",
-            "dark:disabled:bg-transparent"
           ]
         ]
       },
@@ -371,13 +274,7 @@ const buttonVariants = cva(
           "text-yellow-500",
           "underline-offset-2",
           "hover:underline",
-          "active:underline",
-          [
-            "disabled:opacity-50",
-            "disabled:bg-transparent",
-            "dark:disabled:bg-transparent",
-            "disabled:no-underline"
-          ]
+          "active:underline"
         ]
       },
       {
@@ -388,12 +285,7 @@ const buttonVariants = cva(
           "dark:text-black",
           "bg-blue-500",
           "hover:bg-blue-600",
-          "active:bg-blue-700",
-          [
-            "disabled:opacity-50",
-            "disabled:bg-blue-500",
-            "dark:disabled:bg-blue-500"
-          ]
+          "active:bg-blue-700"
         ]
       },
       {
@@ -408,11 +300,6 @@ const buttonVariants = cva(
             "active:bg-blue-200",
             "dark:hover:bg-blue-950",
             "dark:active:bg-blue-900"
-          ],
-          [
-            "disabled:opacity-50",
-            "disabled:bg-transparent",
-            "dark:disabled:bg-transparent"
           ]
         ]
       },
@@ -427,11 +314,6 @@ const buttonVariants = cva(
             "active:bg-blue-200",
             "dark:hover:bg-blue-950",
             "dark:active:bg-blue-900"
-          ],
-          [
-            "disabled:opacity-50",
-            "disabled:bg-transparent",
-            "dark:disabled:bg-transparent"
           ]
         ]
       },
@@ -443,13 +325,7 @@ const buttonVariants = cva(
           "text-blue-500",
           "underline-offset-2",
           "hover:underline",
-          "active:underline",
-          [
-            "disabled:opacity-50",
-            "disabled:bg-transparent",
-            "dark:disabled:bg-transparent",
-            "disabled:no-underline"
-          ]
+          "active:underline"
         ]
       },
       {
@@ -463,8 +339,7 @@ const buttonVariants = cva(
             "dark:text-black",
             "dark:bg-light",
             "dark:hover:bg-gray-200"
-          ],
-          ["disabled:opacity-50", "disabled:bg-dark", "dark:disabled:bg-light"]
+          ]
         ]
       },
       {
@@ -479,11 +354,6 @@ const buttonVariants = cva(
             "dark:border-light",
             "dark:text-white",
             "dark:hover:bg-gray-800"
-          ],
-          [
-            "disabled:opacity-50",
-            "disabled:bg-transparent",
-            "dark:disabled:bg-transparent"
           ]
         ]
       },
@@ -500,13 +370,6 @@ const buttonVariants = cva(
             "dark:text-white",
             "dark:hover:bg-light",
             "dark:hover:text-black"
-          ],
-          [
-            "disabled:opacity-50",
-            "disabled:bg-transparent",
-            "disabled:text-black",
-            "dark:disabled:bg-transparent",
-            "dark:disabled:text-white"
           ]
         ]
       },
@@ -518,13 +381,7 @@ const buttonVariants = cva(
           ["text-black", "dark:text-white"],
           "underline-offset-2",
           "hover:underline",
-          "active:underline",
-          [
-            "disabled:opacity-50",
-            "disabled:bg-transparent",
-            "dark:disabled:bg-transparent",
-            "disabled:no-underline"
-          ]
+          "active:underline"
         ]
       },
       {
@@ -539,8 +396,7 @@ const buttonVariants = cva(
               "dark:active:bg-gray-500/50",
               "dark:text-white"
             ]
-          ],
-          ["disabled:opacity-50", "disabled:bg-gray-500/20"]
+          ]
         ]
       },
       {
@@ -561,11 +417,6 @@ const buttonVariants = cva(
               "dark:active:bg-gray-300/30",
               "dark:text-white"
             ]
-          ],
-          [
-            "disabled:opacity-50",
-            "disabled:bg-transparent",
-            "dark:disabled:bg-transparent"
           ]
         ]
       },
@@ -587,11 +438,6 @@ const buttonVariants = cva(
               "dark:active:bg-gray-300/30",
               "dark:text-white"
             ]
-          ],
-          [
-            "disabled:opacity-50",
-            "disabled:bg-transparent",
-            "dark:disabled:bg-transparent"
           ]
         ]
       },
@@ -603,13 +449,7 @@ const buttonVariants = cva(
           "text-gray-500",
           "underline-offset-2",
           "hover:underline",
-          "active:underline",
-          [
-            "disabled:opacity-50",
-            "disabled:bg-transparent",
-            "dark:disabled:bg-transparent",
-            "disabled:no-underline"
-          ]
+          "active:underline"
         ]
       }
     ],

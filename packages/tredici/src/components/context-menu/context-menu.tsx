@@ -98,6 +98,7 @@ const contextMenuItemVariants = cva(["hover:outline-none"], {
     }
   }
 });
+
 type ContextMenuProps = RxContextMenu.ContextMenuProps & {
   colorScheme?: ContextMenuColorScheme;
 };
@@ -173,6 +174,10 @@ const ContextMenuItem = forwardRef<HTMLDivElement, ContextMenuItemProps>(
             "relative",
             "rounded-sm",
             "hover:cursor-default",
+            [
+              "data-[disabled]:opacity-30",
+              "data-[disabled]:pointer-events-none"
+            ],
             className
           ),
           colorScheme: colorScheme ?? useColorScheme()
