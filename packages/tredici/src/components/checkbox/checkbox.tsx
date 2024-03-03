@@ -115,5 +115,7 @@ const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(
   }
 );
 
+Checkbox.displayName = RxCheckbox.Root.displayName;
+
 export { Checkbox };
 export type { CheckboxProps, CheckboxColorScheme, CheckboxSize };

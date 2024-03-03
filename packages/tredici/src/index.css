@@ -6,4 +6,9 @@
 
 body {
   font-family: "DM Sans", sans-serif;
+  color: #18181b;
+}
+
+html.dark body {
+  color: #fafafa;
 }
