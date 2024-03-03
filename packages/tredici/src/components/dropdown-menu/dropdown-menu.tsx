@@ -135,7 +135,7 @@ const DropdownMenuContent = forwardRef<
           "border border-gray-500/75",
           "rounded",
           "shadow-lg",
-          ["bg-[#fafafa] text-dark", "dark:bg-[#18181b] dark:text-light"],
+          ["bg-light text-dark", "dark:bg-dark dark:text-light"],
           "dropdown-menu-content",
           className
         )}
@@ -350,8 +350,8 @@ const DropdownMenuSubContent = forwardRef<
       <RxDropdownMenu.SubContent
         className={cn(
           "min-w-fit h-fit p-1 border border-gray-500/75 rounded shadow-lg",
-          "bg-[#fafafa] text-dark",
-          "dark:bg-[#18181b] dark:text-light",
+          "bg-light text-dark",
+          "dark:bg-dark dark:text-light",
           "dropdown-menu-content",
           className
         )}
