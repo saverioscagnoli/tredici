@@ -36,7 +36,9 @@ const Frame: React.FC<ComponentProps<"div"> & { full?: boolean }> = ({
         {...props}
       >
         <IconButton
-          className={full ? "absolute top-8 right-12" : "absolute top-4 right-4"}
+          className={
+            full ? "absolute top-8 right-12" : "absolute top-4 right-4"
+          }
           icon={isDark ? <SunIcon /> : <MoonIcon />}
           onClick={toggleTheme}
         />

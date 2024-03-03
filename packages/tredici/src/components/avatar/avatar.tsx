@@ -1,7 +1,16 @@
 import { cn } from "@/lib/utils";
 import * as RxAvatar from "@radix-ui/react-avatar";
+import { PersonIcon } from "@radix-ui/react-icons";
 import { cva } from "class-variance-authority";
-import { createContext, forwardRef, useContext } from "react";
+import {
+  Children,
+  createContext,
+  forwardRef,
+  isValidElement,
+  useContext,
+  useEffect,
+  useState
+} from "react";
 
 type AvatarComponent = React.ForwardRefExoticComponent<
   AvatarProps & React.RefAttributes<HTMLSpanElement>
@@ -21,19 +30,14 @@ type AvatarColorScheme =
 
 type AvatarSize = "sm" | "md" | "lg" | "xl";
 
-type AvatarContext = {
-  colorScheme?: AvatarColorScheme;
-  size?: AvatarSize;
-};
+const SizeContext = createContext<AvatarSize | null>(null);
 
-const avatarContext = createContext<AvatarContext | null>(null);
-
-const useAvatar = () => {
-  const ctx = useContext(avatarContext);
+const useSize = () => {
+  const ctx = useContext(SizeContext);
 
   if (!ctx) {
     throw new Error(
-      "Avatar compound components cannot be rendered outside Avatar"
+      "Avatar compound components cannot be rendered outside the Avatar component"
     );
   }
 
@@ -61,7 +65,7 @@ const avatarVariants = cva(
       },
       size: {
         sm: "w-8 h-8 text-xs",
-        md: "w-10 h-10 text-sm",
+        md: "w-10 h-10",
         lg: "w-12 h-12 text-lg",
         xl: "w-16 h-16 text-2xl"
       }
@@ -78,15 +82,37 @@ type AvatarProps = RxAvatar.AvatarProps & {
 };
 
 const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(
-  ({ className, colorScheme = "purple", size = "md", ...props }, ref) => {
+  (
+    { children, className, colorScheme = "purple", size = "md", ...props },
+    ref
+  ) => {
+    const [fallback, setFallback] = useState<boolean>(false);
+
+    useEffect(() => {
+      Children.forEach(children, child => {
+        if (isValidElement(child)) {
+          if (child.type === Avatar.Fallback) {
+            setFallback(true);
+          }
+        }
+      });
+    }, []);
+
     return (
-      <avatarContext.Provider value={{ colorScheme, size }}>
+      <SizeContext.Provider value={size}>
         <RxAvatar.Root
-          className={avatarVariants({ className, colorScheme, size })}
+          className={avatarVariants({
+            className,
+            colorScheme,
+            size
+          })}
           {...props}
           ref={ref}
-        />
-      </avatarContext.Provider>
+        >
+          {children}
+          {!fallback && <AvatarFallback />}
+        </RxAvatar.Root>
+      </SizeContext.Provider>
     );
   }
 ) as AvatarComponent;
@@ -105,10 +131,17 @@ const AvatarImage = forwardRef<HTMLImageElement, AvatarImageProps>(
   }
 );
 
+const fallbackIconSize = {
+  sm: 15,
+  md: 19,
+  lg: 23,
+  xl: 30
+};
+
 type AvatarFallbackProps = RxAvatar.AvatarFallbackProps;
 
 const AvatarFallback = forwardRef<HTMLSpanElement, AvatarFallbackProps>(
-  ({ className, ...props }, ref) => {
+  ({ children, className, ...props }, ref) => {
     return (
       <RxAvatar.Fallback
         className={cn(
@@ -118,7 +151,14 @@ const AvatarFallback = forwardRef<HTMLSpanElement, AvatarFallbackProps>(
         )}
         {...props}
         ref={ref}
-      />
+      >
+        {children ?? (
+          <PersonIcon
+            width={fallbackIconSize[useSize()]}
+            height={fallbackIconSize[useSize()]}
+          />
+        )}
+      </RxAvatar.Fallback>
     );
   }
 );

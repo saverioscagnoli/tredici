@@ -1,7 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { Avatar } from "./avatar";
 import { Frame } from "@/components/fundamentals";
-
 const src =
   "https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80";
 
@@ -20,7 +19,7 @@ export const Default: Story = {
   },
   render: ({ colorScheme }) => {
     return (
-      <Frame>
+      <Frame className="relative">
         <div className="flex flex-col gap-4">
           <div className="flex gap-4 items-center">
             <Avatar size="sm">
@@ -51,14 +50,10 @@ export const Default: Story = {
             </Avatar>
           </div>
           <div className="flex gap-4 items-center">
-            <Avatar size="sm" colorScheme={colorScheme}>
-            </Avatar>
-            <Avatar size="md" colorScheme={colorScheme}>
-            </Avatar>
-            <Avatar size="lg" colorScheme={colorScheme}>
-            </Avatar>
-            <Avatar size="xl" colorScheme={colorScheme}>
-            </Avatar>
+            <Avatar size="sm" colorScheme={colorScheme} />
+            <Avatar size="md" colorScheme={colorScheme} />
+            <Avatar size="lg" colorScheme={colorScheme} />
+            <Avatar size="xl" colorScheme={colorScheme} />
           </div>
         </div>
       </Frame>
