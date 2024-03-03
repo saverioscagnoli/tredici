@@ -349,9 +349,12 @@ const DropdownMenuSubContent = forwardRef<
     <RxDropdownMenu.Portal>
       <RxDropdownMenu.SubContent
         className={cn(
-          "min-w-fit h-fit p-1 border border-gray-500/75 rounded shadow-lg",
-          "bg-light text-dark",
-          "dark:bg-dark dark:text-light",
+          "min-w-fit h-fit",
+          "p-1",
+          "border border-gray-500/75",
+          "rounded",
+          "shadow-lg",
+          ["bg-light", "text-dark", "dark:bg-dark", "dark:text-light"],
           "dropdown-menu-content",
           className
         )}
