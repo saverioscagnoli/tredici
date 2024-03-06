@@ -1,6 +1,6 @@
 .popover-content {
   transform-origin: var(--radix-popover-content-transform-origin);
-  animation: scale-in 40ms ease-out;
+  animation: scale-in 50ms ease-out;
 }
 
 @keyframes scale-in {
