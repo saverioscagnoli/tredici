@@ -24,7 +24,6 @@ export const Default: Story = {
           className="w-[310px]"
           colorScheme={colorScheme}
           defaultValue="acc"
-          orientation="vertical"
         >
           <Tabs.List>
             <Tabs.Trigger className="px-10" value="acc">
