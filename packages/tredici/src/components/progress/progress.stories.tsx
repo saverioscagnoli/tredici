@@ -13,6 +13,10 @@ export default meta;
 
 type Story = StoryObj<typeof Progress>;
 
+function rng(min: number, max: number) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 export const Default: Story = {
   args: {
     colorScheme: "purple"
@@ -20,8 +24,8 @@ export const Default: Story = {
   render: ({ colorScheme }) => {
     const [value, setValue] = useState(30);
 
-    const inc = () => setValue(v => v + 10);
-    const dec = () => setValue(v => v - 10);
+    const inc = () => setValue(v => v + rng(10, 30));
+    const dec = () => setValue(v => v - rng(10, 30));
 
     return (
       <Frame>

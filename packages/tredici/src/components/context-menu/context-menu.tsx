@@ -48,57 +48,6 @@ const useColorScheme = () => {
   return ctx;
 };
 
-const contextMenuItemVariants = cva(["hover:outline-none"], {
-  variants: {
-    colorScheme: {
-      purple: [
-        [
-          ["hover:bg-purple-500", "dark:hover:bg-purple-400"],
-          ["hover:text-light", "dark:hover:text-dark"]
-        ]
-      ],
-      teal: [
-        [
-          ["hover:bg-teal-500", "dark:hover:bg-teal-400"],
-          ["hover:text-light", "dark:hover:text-dark"]
-        ]
-      ],
-      green: [
-        [
-          ["hover:bg-green-500", "dark:hover:bg-green-400"],
-          ["hover:text-light", "dark:hover:text-dark"]
-        ]
-      ],
-      red: [
-        [
-          ["hover:bg-red-500", "dark:hover:bg-red-400"],
-          ["hover:text-light", "dark:hover:text-dark"]
-        ]
-      ],
-      yellow: [
-        [
-          ["hover:bg-yellow-500", "dark:hover:bg-yellow-400"],
-          ["hover:text-light", "dark:hover:text-dark"]
-        ]
-      ],
-      blue: [
-        [
-          ["hover:bg-blue-500", "dark:hover:bg-blue-400"],
-          ["hover:text-light", "dark:hover:text-dark"]
-        ]
-      ],
-      "b/w": [
-        [
-          ["hover:bg-dark", "dark:hover:bg-light"],
-          ["hover:text-light", "dark:hover:text-dark"]
-        ]
-      ],
-
-      gray: ["hover:bg-gray-400/25", "dark:hover:bg-gray-500/30"]
-    }
-  }
-});
-
 type ContextMenuProps = RxContextMenu.ContextMenuProps & {
   colorScheme?: ContextMenuColorScheme;
 };
@@ -157,6 +106,56 @@ const ContextMenuLabel = forwardRef<HTMLDivElement, ContextMenuLabelProps>(
   }
 );
 
+const contextMenuItemVariants = cva(["outline-none"], {
+  variants: {
+    colorScheme: {
+      purple: [
+        [
+          ["focus:bg-purple-500", "dark:focus:bg-purple-400"],
+          ["focus:text-light", "dark:focus:text-dark"]
+        ]
+      ],
+      teal: [
+        [
+          ["focus:bg-teal-500", "dark:focus:bg-teal-400"],
+          ["focus:text-light", "dark:focus:text-dark"]
+        ]
+      ],
+      green: [
+        [
+          ["focus:bg-green-500", "dark:focus:bg-green-400"],
+          ["focus:text-light", "dark:focus:text-dark"]
+        ]
+      ],
+      red: [
+        [
+          ["focus:bg-red-500", "dark:focus:bg-red-400"],
+          ["focus:text-light", "dark:focus:text-dark"]
+        ]
+      ],
+      yellow: [
+        [
+          ["focus:bg-yellow-500", "dark:focus:bg-yellow-400"],
+          ["focus:text-light", "dark:focus:text-dark"]
+        ]
+      ],
+      blue: [
+        [
+          ["focus:bg-blue-500", "dark:focus:bg-blue-400"],
+          ["focus:text-light", "dark:focus:text-dark"]
+        ]
+      ],
+      "b/w": [
+        [
+          ["focus:bg-dark", "dark:focus:bg-light"],
+          ["focus:text-light", "dark:focus:text-dark"]
+        ]
+      ],
+      gray: ["focus:bg-gray-400/25", "dark:focus:bg-gray-500/30"]
+    }
+  }
+});
+
 type ContextMenuItemProps = RxContextMenu.ContextMenuItemProps & {
   colorScheme?: ContextMenuColorScheme;
   leftIcon?: ReactNode;
@@ -173,7 +172,7 @@ const ContextMenuItem = forwardRef<HTMLDivElement, ContextMenuItemProps>(
             "text-[14px]",
             "relative",
             "rounded-sm",
-            "hover:cursor-default",
+            "focus:cursor-default",
             [
               "data-[disabled]:opacity-30",
               "data-[disabled]:pointer-events-none"
@@ -223,7 +222,7 @@ const ContextMenuCheckboxItem = forwardRef<
             "text-[14px]",
             "relative",
             "rounded-sm",
-            "hover:cursor-default",
+            "focus:cursor-default",
             className
           ),
           colorScheme: colorScheme ?? useColorScheme()
@@ -269,7 +268,7 @@ const ContextMenuRadioItem = forwardRef<
             "text-[14px]",
             "relative",
             "rounded-sm",
-            "hover:cursor-default",
+            "focus:cursor-default",
             className
           ),
           colorScheme: colorScheme ?? useColorScheme()
@@ -319,7 +318,7 @@ const ContextMenuSubTrigger = forwardRef<
             "text-[14px]",
             "relative",
             "rounded-sm",
-            "hover:cursor-default",
+            "focus:cursor-default",
             className
           ),
           colorScheme: colorScheme ?? useColorScheme()

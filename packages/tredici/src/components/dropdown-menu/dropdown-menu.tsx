@@ -49,53 +49,53 @@ const useColorScheme = () => {
   return ctx;
 };
 
-const dropdownMenuItemVariants = cva(["hover:outline-none"], {
+const dropdownMenuItemVariants = cva(["outline-none"], {
   variants: {
     colorScheme: {
       purple: [
         [
-          ["hover:bg-purple-500", "dark:hover:bg-purple-400"],
-          ["hover:text-light", "dark:hover:text-dark"]
+          ["focus:bg-purple-500", "dark:focus:bg-purple-400"],
+          ["focus:text-light", "dark:focus:text-dark"]
         ]
       ],
       teal: [
         [
-          ["hover:bg-teal-500", "dark:hover:bg-teal-400"],
-          ["hover:text-light", "dark:hover:text-dark"]
+          ["focus:bg-teal-500", "dark:focus:bg-teal-400"],
+          ["focus:text-light", "dark:focus:text-dark"]
         ]
       ],
       green: [
         [
-          ["hover:bg-green-500", "dark:hover:bg-green-400"],
-          ["hover:text-light", "dark:hover:text-dark"]
+          ["focus:bg-green-500", "dark:focus:bg-green-400"],
+          ["focus:text-light", "dark:focus:text-dark"]
         ]
       ],
       red: [
         [
-          ["hover:bg-red-500", "dark:hover:bg-red-400"],
-          ["hover:text-light", "dark:hover:text-dark"]
+          ["focus:bg-red-500", "dark:focus:bg-red-400"],
+          ["focus:text-light", "dark:focus:text-dark"]
         ]
       ],
       yellow: [
         [
-          ["hover:bg-yellow-500", "dark:hover:bg-yellow-400"],
-          ["hover:text-light", "dark:hover:text-dark"]
+          ["focus:bg-yellow-500", "dark:focus:bg-yellow-400"],
+          ["focus:text-light", "dark:focus:text-dark"]
         ]
       ],
       blue: [
         [
-          ["hover:bg-blue-500", "dark:hover:bg-blue-400"],
-          ["hover:text-light", "dark:hover:text-dark"]
+          ["focus:bg-blue-500", "dark:focus:bg-blue-400"],
+          ["focus:text-light", "dark:focus:text-dark"]
         ]
       ],
       "b/w": [
         [
-          ["hover:bg-dark", "dark:hover:bg-light"],
-          ["hover:text-light", "dark:hover:text-dark"]
+          ["focus:bg-dark", "dark:focus:bg-light"],
+          ["focus:text-light", "dark:focus:text-dark"]
         ]
       ],
 
-      gray: ["hover:bg-gray-400/25", "dark:hover:bg-gray-500/30"]
+      gray: ["focus:bg-gray-400/25", "dark:focus:bg-gray-500/30"]
     }
   }
 });
@@ -176,7 +176,7 @@ const DropdownMenuItem = forwardRef<HTMLDivElement, DropdownMenuItemProps>(
             "text-[14px]",
             "relative",
             "rounded-sm",
-            "hover:cursor-default",
+            "focus:cursor-default",
             [
               "data-[disabled]:opacity-30",
               "data-[disabled]:pointer-events-none"
@@ -226,7 +226,7 @@ const DropdownMenuCheckboxItem = forwardRef<
             "text-[14px]",
             "relative",
             "rounded-sm",
-            "hover:cursor-default",
+            "focus:cursor-default",
             className
           ),
           colorScheme: colorScheme ?? useColorScheme()
@@ -272,7 +272,7 @@ const DropdownMenuRadioItem = forwardRef<
             "text-[14px]",
             "relative",
             "rounded-sm",
-            "hover:cursor-default",
+            "focus:cursor-default",
             className
           ),
           colorScheme: colorScheme ?? useColorScheme()
@@ -323,7 +323,7 @@ const DropdownMenuSubTrigger = forwardRef<
             "text-[14px]",
             "relative",
             "rounded-sm",
-            "hover:cursor-default",
+            "focus:cursor-default",
             className
           ),
           colorScheme: colorScheme ?? useColorScheme()

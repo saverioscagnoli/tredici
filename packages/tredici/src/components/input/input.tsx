@@ -13,6 +13,7 @@ type InputColorScheme =
   | "green"
   | "red"
   | "yellow"
+  | "blue"
   | "b/w"
   | "gray";
 
@@ -35,6 +36,7 @@ const inputVariants = cva(
         green: ["focus:outline-green-500", "dark:focus:outline-green-400"],
         red: ["focus:outline-red-500", "dark:focus:outline-red-400"],
         yellow: ["focus:outline-yellow-500", "dark:focus:outline-yellow-400"],
+        blue: ["focus:outline-blue-500", "dark:focus:outline-blue-400"],
         "b/w": ["focus:outline-dark", "dark:focus:outline-light"],
         gray: ["focus:outline-gray-600/75", "dark:focus:outline-gray-400"]
       },
