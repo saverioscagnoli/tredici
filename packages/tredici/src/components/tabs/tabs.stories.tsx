@@ -34,7 +34,7 @@ export const Default: Story = {
             </Tabs.Trigger>
           </Tabs.List>
           <Tabs.Content
-            className="border border-gray-500/75 rounded-md p-4"
+            className="border border-gray-500/75 rounded-md p-4 shadow-md"
             value="acc"
           >
             <p className="text-lg font-semibold">Account</p>
@@ -70,7 +70,7 @@ export const Default: Story = {
             </div>
           </Tabs.Content>
           <Tabs.Content
-            className="border border-gray-500/75 rounded p-4"
+            className="border border-gray-500/75 rounded-md p-4 shadow-md"
             value="pass"
           >
             <p className="text-lg font-semibold">Password</p>

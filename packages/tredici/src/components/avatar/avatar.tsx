@@ -12,6 +12,30 @@ import {
   useState
 } from "react";
 
+import "@radix-ui/colors/plum.css";
+import "@radix-ui/colors/plum-dark.css";
+
+import "@radix-ui/colors/teal.css";
+import "@radix-ui/colors/teal-dark.css";
+
+import "@radix-ui/colors/grass.css";
+import "@radix-ui/colors/grass-dark.css";
+
+import "@radix-ui/colors/red.css";
+import "@radix-ui/colors/red-dark.css";
+
+import "@radix-ui/colors/amber.css";
+import "@radix-ui/colors/amber-dark.css";
+
+import "@radix-ui/colors/blue.css";
+import "@radix-ui/colors/blue-dark.css";
+
+import "@radix-ui/colors/gray.css";
+import "@radix-ui/colors/gray-dark.css";
+
+import "@radix-ui/colors/slate.css";
+import "@radix-ui/colors/slate-dark.css";
+
 type AvatarComponent = React.ForwardRefExoticComponent<
   AvatarProps & React.RefAttributes<HTMLSpanElement>
 > & {
@@ -20,13 +44,14 @@ type AvatarComponent = React.ForwardRefExoticComponent<
 };
 
 type AvatarColorScheme =
-  | "purple"
+  | "plum"
   | "teal"
-  | "green"
+  | "grass"
   | "red"
-  | "yellow"
+  | "amber"
   | "blue"
-  | "b/w";
+  | "b/w"
+  | "gray";
 
 type AvatarSize = "sm" | "md" | "lg" | "xl";
 
@@ -55,13 +80,14 @@ const avatarVariants = cva(
   {
     variants: {
       colorScheme: {
-        purple: ["bg-purple-500", ["text-light", "dark:text-dark"]],
-        teal: ["bg-teal-500", ["text-light", "dark:text-dark"]],
-        green: ["bg-green-500", ["text-light", "dark:text-dark"]],
-        red: ["bg-red-500", "text-light"],
-        yellow: ["bg-yellow-500", "text-dark"],
-        blue: ["bg-blue-500", ["text-light", "dark:text-dark"]],
-        "b/w": ["bg-dark text-light", "dark:bg-light", "dark:text-dark"]
+        plum: ["bg-[--plum-9]", "text-[--slate-1]"],
+        teal: ["bg-[--teal-9]", "text-[--slate-1]"],
+        grass: ["bg-[--grass-9]", "text-[--slate-1]"],
+        red: ["bg-[--red-9]", "text-[--slate-1]", "dark:text-[--slate-12]"],
+        amber: ["bg-[--amber-9]", "text-[--slate-12]", "dark:text-[--slate-1]"],
+        blue: ["bg-[--blue-9]", ["text-[--slate-1]", "dark:text-[--slate-12]"]],
+        "b/w": ["bg-[--slate-12]", "text-[--slate-1]"],
+        gray: ["bg-[--gray-5]", "text-[--slate-12]"]
       },
       size: {
         sm: "w-8 h-8 text-xs",
@@ -83,7 +109,7 @@ type AvatarProps = RxAvatar.AvatarProps & {
 
 const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(
   (
-    { children, className, colorScheme = "purple", size = "md", ...props },
+    { children, className, colorScheme = "plum", size = "md", ...props },
     ref
   ) => {
     const [fallback, setFallback] = useState<boolean>(false);

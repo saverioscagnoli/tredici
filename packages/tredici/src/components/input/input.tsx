@@ -24,6 +24,7 @@ const inputVariants = cva(
     "w-full",
     "bg-transparent",
     "font-semibold",
+    "shadow-md",
     "border border-gray-500/75",
     ["caret-black", "dark:caret-white"],
     "outline-none"

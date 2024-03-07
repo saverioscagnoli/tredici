@@ -13,8 +13,14 @@ export default meta;
 type Story = StoryObj<typeof Checkbox>;
 
 export const Default: Story = {
+  argTypes: {
+    colorScheme: {
+      control: "select",
+      options: ["plum", "teal", "grass", "red", "amber", "blue", "b/w", "gray"]
+    }
+  },
   args: {
-    colorScheme: "purple"
+    colorScheme: "plum"
   },
 
   render: ({ colorScheme }) => {
@@ -23,7 +29,7 @@ export const Default: Story = {
         <div className="flex flex-col gap-4">
           <div className="flex gap-4 items-center">
             <Checkbox colorScheme={colorScheme} size="sm" defaultChecked />
-            <Checkbox colorScheme={colorScheme} size="md" defaultChecked />
+            <Checkbox className="checkbox blue" size="md" defaultChecked />
             <Checkbox colorScheme={colorScheme} size="lg" defaultChecked />
           </div>
           <div className="flex gap-4 items-center">
