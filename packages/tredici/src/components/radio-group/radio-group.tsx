@@ -11,14 +11,13 @@ import {
 import "./radio-group.css";
 
 type RadioGroupItemColorScheme =
-  | "purple"
+  | "plum"
   | "teal"
-  | "green"
+  | "grass"
   | "red"
-  | "yellow"
+  | "amber"
   | "blue"
-  | "b/w"
-  | "gray";
+  | "b/w";
 
 type RadioGroupItemSize = "sm" | "md" | "lg";
 
@@ -53,7 +52,7 @@ type RadioGroupProps = RxRadioGroup.RadioGroupProps & {
 };
 
 const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
-  ({ colorScheme = "purple", size = "md", ...props }, ref) => {
+  ({ colorScheme = "plum", size = "md", ...props }, ref) => {
     return (
       <RadioGroupContext.Provider value={{ colorScheme, size }}>
         <RxRadioGroup.Root {...props} ref={ref} />
@@ -63,24 +62,17 @@ const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
 ) as RadioGroupComponent;
 
 const radioItemVariants = cva(
-  [
-    "bg-transparent",
-    "rounded-full",
-    "border",
-    ["border-gray-500/75", "dark:border-gray-600/75"],
-    "shadow"
-  ],
+  ["bg-transparent", "rounded-full", "border border-[--gray-7]", "shadow"],
   {
     variants: {
       size: {
-        sm: "w-3 h-3",
-        md: "w-4 h-4",
+        sm: "w-4 h-4",
+        md: "w-5 h-5",
         lg: "w-6 h-6"
       }
     }
   }
 );
-
 const radioIndicatorVariants = cva(
   [
     "w-full h-full",
@@ -91,23 +83,22 @@ const radioIndicatorVariants = cva(
   {
     variants: {
       colorScheme: {
-        purple: ["after:bg-purple-500"],
-        teal: ["after:bg-teal-500", "after:dark:bg-teal-400"],
-        green: ["after:bg-green-500", "after:dark:bg-green-400"],
-        red: ["after:bg-red-500", "after:dark:bg-red-400"],
-        yellow: ["after:bg-yellow-500", "after:dark:bg-yellow-400"],
-        blue: ["after:bg-blue-500", "after:dark:bg-blue-400"],
-        "b/w": ["after:bg-dark", "after:dark:bg-light"],
-        gray: ["after:bg-gray-500", "after:dark:bg-gray-400"]
+        plum: "after:bg-[--plum-9]",
+        teal: "after:bg-[--teal-9]",
+        grass: "after:bg-[--grass-9]",
+        red: "after:bg-[--red-9]",
+        amber: "after:bg-[--amber-9]",
+        blue: "after:bg-[--blue-9]",
+        "b/w": "after:bg-[--slate-12]"
       },
       size: {
-        sm: "after:w-1.5 after:h-1.5",
-        md: "after:w-2 after:h-2",
+        sm: "after:w-2 after:h-2",
+        md: "after:w-2.5 after:h-2.5",
         lg: "after:w-3 after:h-3"
       }
     },
     defaultVariants: {
-      colorScheme: "purple",
+      colorScheme: "plum",
       size: "md"
     }
   }

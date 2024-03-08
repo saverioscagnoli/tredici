@@ -5,11 +5,7 @@ import { GitHubLogoIcon } from "@radix-ui/react-icons";
 
 const meta: Meta<typeof Button> = {
   title: "Components/Button",
-  component: Button,
-  args: {
-    variant: "solid",
-    colorScheme: "purple"
-  }
+  component: Button
 };
 
 export default meta;
@@ -17,6 +13,20 @@ export default meta;
 type Story = StoryObj<typeof Button>;
 
 export const Default: Story = {
+  argTypes: {
+    variant: {
+      control: "select",
+      options: ["solid", "secondary", "outline", "ghost", "link"]
+    },
+    colorScheme: {
+      control: "select",
+      options: ["plum", "teal", "grass", "red", "amber", "blue", "b/w", "gray"]
+    }
+  },
+  args: {
+    variant: "solid",
+    colorScheme: "plum"
+  },
   render: ({ variant, colorScheme }) => {
     return (
       <Frame>

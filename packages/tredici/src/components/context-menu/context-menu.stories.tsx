@@ -25,8 +25,14 @@ export default meta;
 type Story = StoryObj<typeof ContextMenu>;
 
 export const Default: Story = {
+  argTypes: {
+    colorScheme: {
+      control: "select",
+      options: ["plum", "teal", "grass", "red", "amber", "blue", "b/w", "gray"]
+    }
+  },
   args: {
-    colorScheme: "purple"
+    colorScheme: "plum"
   },
   render: ({ colorScheme }) => {
     const [check, setCheck] = useState<boolean>(false);

@@ -57,8 +57,14 @@ export default meta;
 type Story = StoryObj<typeof Menubar>;
 
 export const Default: Story = {
+  argTypes: {
+    colorScheme: {
+      control: "select",
+      options: ["plum", "teal", "grass", "red", "amber", "blue", "b/w", "gray"]
+    }
+  },
   args: {
-    colorScheme: "purple"
+    colorScheme: "plum"
   },
   render: ({ colorScheme }) => {
     const [autoSave, setAutoSave] = useState<boolean>(true);
@@ -157,6 +163,7 @@ export const Default: Story = {
               <Menubar.Item leftIcon={<ExitIcon />} colorScheme="red">
                 Exit
               </Menubar.Item>
+              <Menubar.Arrow />
             </Menubar.Content>
           </Menubar.Menu>
 
@@ -187,6 +194,7 @@ export const Default: Story = {
               <Menubar.Item leftIcon={<ChatBubbleIcon />}>
                 Toggle Block Comment
               </Menubar.Item>
+              <Menubar.Arrow />
             </Menubar.Content>
           </Menubar.Menu>
 
@@ -258,6 +266,7 @@ export const Default: Story = {
                 Source Control
               </Menubar.Item>
               <Menubar.Item leftIcon={<BsBug />}>Debug</Menubar.Item>
+              <Menubar.Arrow />
             </Menubar.Content>
           </Menubar.Menu>
 
@@ -274,6 +283,7 @@ export const Default: Story = {
               <Menubar.Item leftIcon={<EnvelopeClosedIcon />}>
                 Feedback
               </Menubar.Item>
+              <Menubar.Arrow />
             </Menubar.Content>
           </Menubar.Menu>
         </Menubar>

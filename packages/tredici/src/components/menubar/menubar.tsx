@@ -15,6 +15,30 @@ import {
   DotFilledIcon
 } from "@radix-ui/react-icons";
 
+import "@radix-ui/colors/plum.css";
+import "@radix-ui/colors/plum-dark.css";
+
+import "@radix-ui/colors/teal.css";
+import "@radix-ui/colors/teal-dark.css";
+
+import "@radix-ui/colors/grass.css";
+import "@radix-ui/colors/grass-dark.css";
+
+import "@radix-ui/colors/red.css";
+import "@radix-ui/colors/red-dark.css";
+
+import "@radix-ui/colors/amber.css";
+import "@radix-ui/colors/amber-dark.css";
+
+import "@radix-ui/colors/blue.css";
+import "@radix-ui/colors/blue-dark.css";
+
+import "@radix-ui/colors/gray.css";
+import "@radix-ui/colors/gray-dark.css";
+
+import "@radix-ui/colors/slate.css";
+import "@radix-ui/colors/slate-dark.css";
+
 import "./menubar.css";
 
 type MenubarComponent = ForwardRefExoticComponent<
@@ -32,14 +56,15 @@ type MenubarComponent = ForwardRefExoticComponent<
   SubTrigger: typeof MenubarSubTrigger;
   SubContent: typeof MenubarSubContent;
   Separator: typeof MenubarSeparator;
+  Arrow: typeof MenubarArrow;
 };
 
 type MenubarColorScheme =
-  | "purple"
+  | "plum"
   | "teal"
-  | "green"
+  | "grass"
   | "red"
-  | "yellow"
+  | "amber"
   | "blue"
   | "b/w"
   | "gray";
@@ -61,50 +86,17 @@ const useColorScheme = () => {
 const menubarItemVariants = cva(["outline-none"], {
   variants: {
     colorScheme: {
-      purple: [
-        [
-          ["focus:bg-purple-500", "dark:focus:bg-purple-400"],
-          ["focus:text-light", "dark:focus:text-dark"]
-        ]
+      plum: ["focus:bg-[--plum-10]", "focus:text-[--slate-1]"],
+      teal: ["focus:bg-[--teal-10]", "focus:text-[--slate-1]"],
+      grass: ["focus:bg-[--grass-10]", "focus:text-[--slate-1]"],
+      red: ["focus:bg-[--red-10]", "focus:text-[--slate-1]"],
+      amber: [
+        "focus:bg-[--amber-10]",
+        ["focus:text-[--slate-12]", "dark:focus:text-[--slate-1]"]
       ],
-      teal: [
-        [
-          ["focus:bg-teal-500", "dark:focus:bg-teal-400"],
-          ["focus:text-light", "dark:focus:text-dark"]
-        ]
-      ],
-      green: [
-        [
-          ["focus:bg-green-500", "dark:focus:bg-green-400"],
-          ["focus:text-light", "dark:focus:text-dark"]
-        ]
-      ],
-      red: [
-        [
-          ["focus:bg-red-500", "dark:focus:bg-red-400"],
-          ["focus:text-light", "dark:focus:text-dark"]
-        ]
-      ],
-      yellow: [
-        [
-          ["focus:bg-yellow-500", "dark:focus:bg-yellow-400"],
-          ["focus:text-light", "dark:focus:text-dark"]
-        ]
-      ],
-      blue: [
-        [
-          ["focus:bg-blue-500", "dark:focus:bg-blue-400"],
-          ["focus:text-light", "dark:focus:text-dark"]
-        ]
-      ],
-      "b/w": [
-        [
-          ["focus:bg-dark", "dark:focus:bg-light"],
-          ["focus:text-light", "dark:focus:text-dark"]
-        ]
-      ],
-
-      gray: ["focus:bg-gray-400/25", "dark:focus:bg-gray-500/30"]
+      blue: ["focus:bg-[--blue-10]", "focus:text-[--slate-1]"],
+      "b/w": ["focus:bg-[--slate-12]", "focus:text-[--slate-1]"],
+      gray: ["focus:bg-[--gray-4]", "dark:focus:bg-[--gray-5]"]
     }
   }
 });
@@ -114,7 +106,7 @@ type MenubarProps = RxMenubar.MenubarProps & {
 };
 
 const Menubar = forwardRef<HTMLDivElement, MenubarProps>(
-  ({ className, colorScheme = "purple", ...props }, ref) => {
+  ({ className, colorScheme = "plum", ...props }, ref) => {
     return (
       <ColorSchemeContext.Provider value={colorScheme}>
         <RxMenubar.Root
@@ -122,7 +114,6 @@ const Menubar = forwardRef<HTMLDivElement, MenubarProps>(
             "w-fit",
             "flex justify-between items-center",
             "p-1",
-            ["text-black", "dark:text-white"],
             className
           )}
           {...props}
@@ -147,11 +138,8 @@ const MenubarTrigger = forwardRef<HTMLButtonElement, MenubarTriggerProps>(
           "px-2",
           "rounded",
           "text-sm",
-          ["focus:bg-gray-500/10", "dark:focus:bg-gray-500/20"],
-          [
-            "data-[state='open']:bg-gray-500/20",
-            "dark:data-[state='open']:bg-gray-500/40"
-          ],
+          "focus:bg-[--gray-4]",
+          "data-[state='open']:bg-[--gray-4]",
           className
         )}
         {...props}
@@ -170,10 +158,11 @@ const MenubarContent = forwardRef<HTMLDivElement, MenubarContentProps>(
           className={cn(
             "min-w-fit h-fit",
             "p-1",
-            "border border-gray-500/75",
+            "border border-[--gray-7]",
             "rounded",
             "shadow-lg",
-            ["bg-light text-dark", "dark:bg-dark dark:text-light"],
+            "bg-[--slate-1]",
+            "text-[--slate-12]",
             "menubar-content",
             className
           )}
@@ -379,9 +368,13 @@ const MenubarSubContent = forwardRef<HTMLDivElement, MenubarSubContentProps>(
       <RxMenubar.Portal>
         <RxMenubar.SubContent
           className={cn(
-            "min-w-fit h-fit p-1 border border-gray-500/75 rounded shadow-lg",
-            "bg-light text-dark",
-            "dark:bg-dark dark:text-light",
+            "min-w-fit h-fit",
+            "p-1",
+            "border border-[--gray-7]",
+            "rounded",
+            "shadow-lg",
+            "bg-[--slate-1]",
+            "text-[--slate-12]",
             "menubar-content",
             className
           )}
@@ -399,14 +392,25 @@ const MenubarSeparator = forwardRef<HTMLDivElement, MenubarSeparatorProps>(
   ({ className, ...props }, ref) => {
     return (
       <RxMenubar.Separator
-        className={cn(
-          "h-[1px] my-1",
-          "bg-gray-500/30",
-          "dark:bg-gray-500/75",
-          className
-        )}
+        className={cn("h-[1px] my-1", "bg-[--gray-7]", className)}
         {...props}
         ref={ref}
+      />
+    );
+  }
+);
+
+type MenubarArrowProps = RxMenubar.MenubarArrowProps;
+
+const MenubarArrow = forwardRef<SVGSVGElement, MenubarArrowProps>(
+  ({ width = 7, height = 4, className, ...props }, ref) => {
+    return (
+      <RxMenubar.Arrow
+        ref={ref}
+        width={width}
+        height={height}
+        className={cn("fill-[--gray-7]", className)}
+        {...props}
       />
     );
   }
@@ -424,6 +428,7 @@ Menubar.Sub = MenubarSub;
 Menubar.SubTrigger = MenubarSubTrigger;
 Menubar.SubContent = MenubarSubContent;
 Menubar.Separator = MenubarSeparator;
+Menubar.Arrow = MenubarArrow;
 
 Menubar.displayName = RxMenubar.Root.displayName;
 
@@ -442,5 +447,6 @@ export type {
   MenubarSubProps,
   MenubarSubTriggerProps,
   MenubarSubContentProps,
-  MenubarSeparatorProps
+  MenubarSeparatorProps,
+  MenubarArrowProps
 };

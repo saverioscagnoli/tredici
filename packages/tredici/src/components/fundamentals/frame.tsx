@@ -4,6 +4,9 @@ import { IconButton } from "@/components/icon-button";
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 import { cn } from "@/lib/utils";
 
+import "@radix-ui/colors/slate.css";
+import "@radix-ui/colors/slate-dark.css";
+
 const Frame: React.FC<ComponentProps<"div"> & { full?: boolean }> = ({
   children,
   className,
@@ -30,7 +33,7 @@ const Frame: React.FC<ComponentProps<"div"> & { full?: boolean }> = ({
       <div
         className={cn(
           full ? "w-screen h-screen" : "w-1/2 h-96",
-          "relative flex justify-center items-center bg-[#fafafa] dark:bg-[#18181b] border transition-colors rounded shadow",
+          "relative flex justify-center items-center bg-[var(--slate-1)] border transition-colors rounded shadow",
           className
         )}
         {...props}

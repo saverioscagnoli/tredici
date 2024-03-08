@@ -12,8 +12,14 @@ export default meta;
 type Story = StoryObj<typeof RadioGroup>;
 
 export const Default: Story = {
+  argTypes: {
+    colorScheme: {
+      control: "select",
+      options: ["plum", "teal", "grass", "red", "amber", "blue", "b/w"]
+    }
+  },
   args: {
-    colorScheme: "purple"
+    colorScheme: "plum"
   },
   render: ({ colorScheme }) => {
     return (

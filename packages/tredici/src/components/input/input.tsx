@@ -7,15 +7,38 @@ import {
   forwardRef
 } from "react";
 
+import "@radix-ui/colors/plum.css";
+import "@radix-ui/colors/plum-dark.css";
+
+import "@radix-ui/colors/teal.css";
+import "@radix-ui/colors/teal-dark.css";
+
+import "@radix-ui/colors/grass.css";
+import "@radix-ui/colors/grass-dark.css";
+
+import "@radix-ui/colors/red.css";
+import "@radix-ui/colors/red-dark.css";
+
+import "@radix-ui/colors/amber.css";
+import "@radix-ui/colors/amber-dark.css";
+
+import "@radix-ui/colors/blue.css";
+import "@radix-ui/colors/blue-dark.css";
+
+import "@radix-ui/colors/gray.css";
+import "@radix-ui/colors/gray-dark.css";
+
+import "@radix-ui/colors/slate.css";
+import "@radix-ui/colors/slate-dark.css";
+
 type InputColorScheme =
-  | "purple"
+  | "plum"
   | "teal"
-  | "green"
+  | "grass"
   | "red"
-  | "yellow"
+  | "amber"
   | "blue"
-  | "b/w"
-  | "gray";
+  | "b/w";
 
 type InputSize = "sm" | "md" | "lg";
 
@@ -23,22 +46,21 @@ const inputVariants = cva(
   [
     "w-full",
     "bg-transparent",
-    "font-semibold",
-    "border border-gray-500/75",
-    ["caret-black", "dark:caret-white"],
+    "shadow",
+    "border border-[--gray-7]",
+    "caret-[--slate-12]",
     "outline-none"
   ],
   {
     variants: {
       colorScheme: {
-        purple: ["focus:outline-purple-500", "dark:focus:outline-purple-400"],
-        teal: ["focus:outline-teal-500", "dark:focus:outline-teal-400"],
-        green: ["focus:outline-green-500", "dark:focus:outline-green-400"],
-        red: ["focus:outline-red-500", "dark:focus:outline-red-400"],
-        yellow: ["focus:outline-yellow-500", "dark:focus:outline-yellow-400"],
-        blue: ["focus:outline-blue-500", "dark:focus:outline-blue-400"],
-        "b/w": ["focus:outline-dark", "dark:focus:outline-light"],
-        gray: ["focus:outline-gray-600/75", "dark:focus:outline-gray-400"]
+        plum: ["focus:outline-[--plum-9]"],
+        teal: ["focus:outline-[--teal-9]"],
+        grass: ["focus:outline-[--grass-9]"],
+        red: ["focus:outline-[--red-9]"],
+        amber: ["focus:outline-[--amber-9]"],
+        blue: ["focus:outline-[--blue-9]"],
+        "b/w": ["focus:outline-[--slate-12]"]
       },
       size: {
         sm: "h-6 px-1 py-1 text-sm rounded",
@@ -47,7 +69,7 @@ const inputVariants = cva(
       }
     },
     defaultVariants: {
-      colorScheme: "purple",
+      colorScheme: "plum",
       size: "md"
     }
   }
@@ -68,7 +90,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       style,
       onChange,
       onValueChange,
-      colorScheme = "purple",
+      colorScheme = "plum",
       size = "md",
       ...props
     },

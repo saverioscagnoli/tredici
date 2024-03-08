@@ -3,12 +3,36 @@ import * as RxScrollArea from "@radix-ui/react-scroll-area";
 import { cva } from "class-variance-authority";
 import { ForwardRefExoticComponent, RefAttributes, forwardRef } from "react";
 
+import "@radix-ui/colors/plum.css";
+import "@radix-ui/colors/plum-dark.css";
+
+import "@radix-ui/colors/teal.css";
+import "@radix-ui/colors/teal-dark.css";
+
+import "@radix-ui/colors/grass.css";
+import "@radix-ui/colors/grass-dark.css";
+
+import "@radix-ui/colors/red.css";
+import "@radix-ui/colors/red-dark.css";
+
+import "@radix-ui/colors/amber.css";
+import "@radix-ui/colors/amber-dark.css";
+
+import "@radix-ui/colors/blue.css";
+import "@radix-ui/colors/blue-dark.css";
+
+import "@radix-ui/colors/gray.css";
+import "@radix-ui/colors/gray-dark.css";
+
+import "@radix-ui/colors/slate.css";
+import "@radix-ui/colors/slate-dark.css";
+
 type ScrollAreaScrollbarColorScheme =
-  | "purple"
+  | "plum"
   | "teal"
-  | "green"
+  | "grass"
   | "red"
-  | "yellow"
+  | "amber"
   | "blue"
   | "b/w"
   | "gray";
@@ -58,41 +82,18 @@ const scrollAreaThumbVariants = cva(
   {
     variants: {
       colorScheme: {
-        purple: [
-          ["bg-purple-500", "hover:bg-purple-600"],
-          ["dark:bg-purple-400", "dark:hover:bg-purple-500"]
-        ],
-        teal: [
-          ["bg-teal-500", "hover:bg-teal-600"],
-          ["dark:bg-teal-400", "dark:hover:bg-teal-500"]
-        ],
-        green: [
-          ["bg-green-500", "hover:bg-green-600"],
-          ["dark:bg-green-400", "dark:hover:bg-green-500"]
-        ],
-        red: [
-          ["bg-red-500", "hover:bg-red-600"],
-          ["dark:bg-red-400", "dark:hover:bg-red-500"]
-        ],
-        yellow: [
-          ["bg-yellow-500", "hover:bg-yellow-600"],
-          ["dark:bg-yellow-400", "dark:hover:bg-yellow-500"]
-        ],
-        blue: [
-          ["bg-blue-500", "hover:bg-blue-600"],
-          ["dark:bg-blue-400", "dark:hover:bg-blue-500"]
-        ],
-
-        "b/w": ["bg-dark", "dark:bg-light"],
-
-        gray: [
-          ["bg-gray-500/50", "hover:bg-gray-600/50"],
-          ["dark:bg-gray-400/50", "dark:hover:bg-gray-500"]
-        ]
+        plum: ["bg-[--plum-9]", "hover:bg-[--plum-11]"],
+        teal: ["bg-[--teal-9]", "hover:bg-[--teal-11]"],
+        grass: ["bg-[--grass-9]", "hover:bg-[--grass-11]"],
+        red: ["bg-[--red-9]", "hover:bg-[--red-11]"],
+        amber: ["bg-[--amber-9]", "hover:bg-[--amber-11]"],
+        blue: ["bg-[--blue-9]", "hover:bg-[--blue-11]"],
+        "b/w": ["bg-[--slate-12]"],
+        gray: ["bg-[--gray-7]", "hover:bg-[--gray-9]"]
       }
     },
     defaultVariants: {
-      colorScheme: "purple"
+      colorScheme: "plum"
     }
   }
 );
@@ -104,7 +105,7 @@ type ScrollAreaScrollbarProps = RxScrollArea.ScrollAreaScrollbarProps & {
 const ScrollAreaScrollbar = forwardRef<
   HTMLDivElement,
   ScrollAreaScrollbarProps
->(({ className, colorScheme = "purple", ...props }, ref) => {
+>(({ className, colorScheme = "plum", ...props }, ref) => {
   return (
     <RxScrollArea.Scrollbar
       className={cn(
@@ -113,8 +114,6 @@ const ScrollAreaScrollbar = forwardRef<
         "touch-none",
         "p-[3px]",
         "bg-transparent",
-        // In the future I may want to add a variant for the scrollbar's opacity.
-        // ["bg-gray-300/45", "dark:bg-gray-500/40"],
         [
           "data-[orientation='vertical']:w-3",
           "data-[orientation='horizontal']:flex-col",
@@ -126,7 +125,7 @@ const ScrollAreaScrollbar = forwardRef<
       ref={ref}
     >
       <RxScrollArea.Thumb
-        className={scrollAreaThumbVariants({ className, colorScheme })}
+        className={scrollAreaThumbVariants({ colorScheme })}
       />
     </RxScrollArea.Scrollbar>
   );

@@ -31,7 +31,7 @@ export const Default: Story = {
             </Dialog.Description>
             <div className="w-full mt-2 flex justify-end gap-4">
               <Dialog.Close>
-                <Button colorScheme="gray">Cancel</Button>
+                <Button colorScheme="b/w" variant="secondary">Cancel</Button>
               </Dialog.Close>
               <Dialog.Close>
                 <Button colorScheme="red">Confirm</Button>
