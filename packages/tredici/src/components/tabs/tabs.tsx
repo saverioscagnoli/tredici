@@ -9,12 +9,36 @@ import {
   useContext
 } from "react";
 
+import "@radix-ui/colors/plum.css";
+import "@radix-ui/colors/plum-dark.css";
+
+import "@radix-ui/colors/teal.css";
+import "@radix-ui/colors/teal-dark.css";
+
+import "@radix-ui/colors/grass.css";
+import "@radix-ui/colors/grass-dark.css";
+
+import "@radix-ui/colors/red.css";
+import "@radix-ui/colors/red-dark.css";
+
+import "@radix-ui/colors/amber.css";
+import "@radix-ui/colors/amber-dark.css";
+
+import "@radix-ui/colors/blue.css";
+import "@radix-ui/colors/blue-dark.css";
+
+import "@radix-ui/colors/gray.css";
+import "@radix-ui/colors/gray-dark.css";
+
+import "@radix-ui/colors/slate.css";
+import "@radix-ui/colors/slate-dark.css";
+
 type TabsColorScheme =
-  | "purple"
+  | "plum"
   | "teal"
-  | "green"
+  | "grass"
   | "red"
-  | "yellow"
+  | "amber"
   | "blue"
   | "b/w"
   | "gray";
@@ -48,7 +72,7 @@ type TabsProps = RxTabs.TabsProps & {
 const Tabs = forwardRef<
   HTMLDivElement,
   TabsProps & RefAttributes<HTMLDivElement>
->(({ className, colorScheme = "purple", ...props }, ref) => {
+>(({ className, colorScheme = "plum", ...props }, ref) => {
   return (
     <ColorSchemeContext.Provider value={colorScheme}>
       <RxTabs.Root
@@ -69,9 +93,8 @@ const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
         className={cn(
           "flex",
           "p-1",
-          "border border-gray-500/75",
+          "border border-[--gray-7]",
           "rounded-md",
-          ["bg-gray-500/5", "dark:bg-gray-400/5"],
           "data-[orientation='vertical']:flex-col",
           className
         )}
@@ -82,54 +105,40 @@ const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
   }
 );
 
-const tabsTriggerVariants = cva([], {
+const tabsTriggerVariants = cva(["data-[state='active']:shadow"], {
   variants: {
     colorScheme: {
-      purple: [
-        "data-[state='active']:bg-purple-500",
-        "data-[state='active']:dark:bg-purple-400",
-        "data-[state='active']:text-white",
-        "data-[state='active']:dark:text-black"
+      plum: [
+        "data-[state='active']:bg-[--plum-9]",
+        "data-[state='active']:text-[--slate-1]"
       ],
       teal: [
-        "data-[state='active']:bg-teal-500",
-        "data-[state='active']:dark:bg-teal-400",
-        "data-[state='active']:text-white",
-        "data-[state='active']:dark:text-black"
+        "data-[state='active']:bg-[--teal-9]",
+        "data-[state='active']:text-[--slate-1]"
       ],
-      green: [
-        "data-[state='active']:bg-green-500",
-        "data-[state='active']:dark:bg-green-400",
-        "data-[state='active']:text-white",
-        "data-[state='active']:dark:text-black"
+      grass: [
+        "data-[state='active']:bg-[--grass-9]",
+        "data-[state='active']:text-[--slate-1]"
       ],
       red: [
-        "data-[state='active']:bg-red-500",
-        "data-[state='active']:dark:bg-red-400",
-        "data-[state='active']:text-white",
-        "data-[state='active']:dark:text-black"
+        "data-[state='active']:bg-[--red-9]",
+        "data-[state='active']:text-[--slate-1]"
       ],
-      yellow: [
-        "data-[state='active']:bg-yellow-500",
-        "data-[state='active']:dark:bg-yellow-400",
-        "data-[state='active']:text-white",
-        "data-[state='active']:dark:text-black"
+      amber: [
+        "data-[state='active']:bg-[--amber-9]",
+        "data-[state='active']:text-[--slate-1]"
       ],
       blue: [
-        "data-[state='active']:bg-blue-500",
-        "data-[state='active']:dark:bg-blue-400",
-        "data-[state='active']:text-white",
-        "data-[state='active']:dark:text-black"
+        "data-[state='active']:bg-[--blue-9]",
+        "data-[state='active']:text-[--slate-1]"
       ],
       "b/w": [
-        "data-[state='active']:bg-dark",
-        "data-[state='active']:dark:bg-light",
-        "data-[state='active']:text-white",
-        "data-[state='active']:dark:text-black"
+        "data-[state='active']:bg-[--slate-12]",
+        "data-[state='active']:text-[--slate-1]"
       ],
       gray: [
-        "data-[state='active']:bg-gray-400/25",
-        "data-[state='active']:dark:bg-gray-500/40"
+        "data-[state='active']:bg-[--gray-6]",
+        "data-[state='active']:text-[--slate-12]"
       ]
     }
   }

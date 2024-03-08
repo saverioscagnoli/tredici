@@ -12,7 +12,19 @@ export default meta;
 type Story = StoryObj<typeof ScrollArea>;
 
 export const Default: Story = {
-  render: () => {
+  argTypes: {
+    // @ts-ignore
+    colorScheme: {
+      control: "select",
+      options: ["plum", "teal", "grass", "red", "amber", "blue", "b/w", "gray"]
+    }
+  },
+  args: {
+    // @ts-ignore
+    colorScheme: "plum"
+  },
+  // @ts-ignore
+  render: ({ colorScheme }) => {
     return (
       <Frame>
         <ScrollArea className="w-48 h-64 rounded shadow border border-gray-500/75">
@@ -21,7 +33,7 @@ export const Default: Story = {
               Item {i + 1}
             </div>
           ))}
-          <ScrollArea.Scrollbar colorScheme="purple" />
+          <ScrollArea.Scrollbar colorScheme={colorScheme} />
         </ScrollArea>
       </Frame>
     );

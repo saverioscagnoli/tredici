@@ -30,7 +30,7 @@ export const Default: Story = {
             </AlertDialog.Description>
             <div className="w-full mt-2 flex justify-end gap-4">
               <AlertDialog.Cancel>
-                <Button colorScheme="gray">Cancel</Button>
+                <Button colorScheme="b/w" variant="secondary">Cancel</Button>
               </AlertDialog.Cancel>
               <AlertDialog.Action>
                 <Button colorScheme="red">Confirm</Button>

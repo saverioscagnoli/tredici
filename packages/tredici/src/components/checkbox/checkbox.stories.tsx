@@ -29,7 +29,7 @@ export const Default: Story = {
         <div className="flex flex-col gap-4">
           <div className="flex gap-4 items-center">
             <Checkbox colorScheme={colorScheme} size="sm" defaultChecked />
-            <Checkbox className="checkbox blue" size="md" defaultChecked />
+            <Checkbox colorScheme={colorScheme} size="md" defaultChecked />
             <Checkbox colorScheme={colorScheme} size="lg" defaultChecked />
           </div>
           <div className="flex gap-4 items-center">

@@ -3,33 +3,50 @@ import * as RxProgress from "@radix-ui/react-progress";
 import { forwardRef } from "react";
 import { cva } from "class-variance-authority";
 
+import "@radix-ui/colors/plum.css";
+import "@radix-ui/colors/plum-dark.css";
+
+import "@radix-ui/colors/teal.css";
+import "@radix-ui/colors/teal-dark.css";
+
+import "@radix-ui/colors/grass.css";
+import "@radix-ui/colors/grass-dark.css";
+
+import "@radix-ui/colors/red.css";
+import "@radix-ui/colors/red-dark.css";
+
+import "@radix-ui/colors/amber.css";
+import "@radix-ui/colors/amber-dark.css";
+
+import "@radix-ui/colors/blue.css";
+import "@radix-ui/colors/blue-dark.css";
+
+import "@radix-ui/colors/gray.css";
+import "@radix-ui/colors/gray-dark.css";
+
+import "@radix-ui/colors/slate.css";
+import "@radix-ui/colors/slate-dark.css";
+
 import "./progress.css";
 
-type ProgressColorScheme =
-  | "purple"
-  | "teal"
-  | "green"
-  | "red"
-  | "yellow"
-  | "b/w"
-  | "gray";
+type ProgressColorScheme = "plum" | "teal" | "grass" | "red" | "amber" | "b/w";
 
 const progressIndicatorVariants = cva(
   ["w-full h-full", "rounded-full", "progress-indicator"],
   {
     variants: {
       colorScheme: {
-        purple: ["bg-purple-500", "dark:bg-purple-400"],
-        teal: ["bg-teal-500", "dark:bg-teal-400"],
-        green: ["bg-green-500", "dark:bg-green-400"],
-        red: ["bg-red-500", "dark:bg-red-400"],
-        yellow: ["bg-yellow-500", "dark:bg-yellow-400"],
-        "b/w": ["bg-dark", "dark:bg-light"],
-        gray: ["bg-gray-500", "dark:bg-gray-400"]
+        plum: "bg-[--plum-9]",
+        teal: "bg-[--teal-9]",
+        grass: "bg-[--grass-9]",
+        red: "bg-[--red-9]",
+        amber: "bg-[--amber-9]",
+        blue: "bg-[--blue-9]",
+        "b/w": "bg-[--slate-12]"
       }
     },
     defaultVariants: {
-      colorScheme: "purple"
+      colorScheme: "plum"
     }
   }
 );
@@ -41,14 +58,7 @@ type ProgressProps = RxProgress.ProgressProps & {
 
 const Progress = forwardRef<HTMLDivElement, ProgressProps>(
   (
-    {
-      className,
-      value,
-      indefinite,
-      colorScheme = "purple",
-      max = 100,
-      ...props
-    },
+    { className, value, indefinite, colorScheme = "plum", max = 100, ...props },
     ref
   ) => {
     value = value ?? 0;
@@ -58,7 +68,7 @@ const Progress = forwardRef<HTMLDivElement, ProgressProps>(
         className={cn(
           "h-1.5",
           "relative",
-          ["bg-gray-500/20", "dark:bg-gray-400/40"],
+          "bg-[--gray-5]",
           "overflow-hidden",
           "rounded-full",
           "progress",

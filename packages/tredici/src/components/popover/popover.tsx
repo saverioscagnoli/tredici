@@ -1,9 +1,14 @@
 import * as RxPopover from "@radix-ui/react-popover";
-
-import "./popover.css";
 import { forwardRef } from "react";
 import { cn } from "@/lib/utils";
 import { Cross1Icon } from "@radix-ui/react-icons";
+
+import "@radix-ui/colors/gray.css";
+
+import "@radix-ui/colors/slate.css";
+import "@radix-ui/colors/slate-dark.css";
+
+import "./popover.css";
 
 type PopoverComponent = React.FC<RxPopover.PopoverProps> & {
   Trigger: typeof PopoverTrigger;
@@ -32,9 +37,9 @@ const PopoverContent = forwardRef<HTMLDivElement, PopoverContentProps>(
           className={cn(
             "h-fit",
             "p-2",
-            "border border-gray-500/75",
+            "border border-[--gray-7]",
             "shadow-lg rounded",
-            ["bg-light text-dark", "dark:bg-dark dark:text-light"],
+            ["bg-[--slate-1]", "text-[--slate-12]"],
             "popover-content",
             className
           )}
@@ -58,10 +63,7 @@ const PopoverClose = forwardRef<HTMLButtonElement, PopoverCloseProps>(
           ref={ref}
         >
           <Cross1Icon
-            className={cn([
-              ["text-gray-500", "hover:text-gray-950"],
-              ["dark:text-gray-400", "dark:hover:text-gray-300"]
-            ])}
+            className={cn(["text-[--gray-10]", "hover:text-[--gray-12]"])}
           />
         </RxPopover.Close>
       );
@@ -91,7 +93,7 @@ const PopoverArrow = forwardRef<SVGSVGElement, PopoverArrowProps>(
         ref={ref}
         width={width}
         height={height}
-        className={cn("fill-gray-500/75", className)}
+        className={cn("fill-[--gray-7]", className)}
         {...props}
       />
     );

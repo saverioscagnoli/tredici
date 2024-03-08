@@ -9,14 +9,38 @@ import * as RxSelect from "@radix-ui/react-select";
 import { cva } from "class-variance-authority";
 import React, { createContext, forwardRef, useContext } from "react";
 
+import "@radix-ui/colors/plum.css";
+import "@radix-ui/colors/plum-dark.css";
+
+import "@radix-ui/colors/teal.css";
+import "@radix-ui/colors/teal-dark.css";
+
+import "@radix-ui/colors/grass.css";
+import "@radix-ui/colors/grass-dark.css";
+
+import "@radix-ui/colors/red.css";
+import "@radix-ui/colors/red-dark.css";
+
+import "@radix-ui/colors/amber.css";
+import "@radix-ui/colors/amber-dark.css";
+
+import "@radix-ui/colors/blue.css";
+import "@radix-ui/colors/blue-dark.css";
+
+import "@radix-ui/colors/gray.css";
+import "@radix-ui/colors/gray-dark.css";
+
+import "@radix-ui/colors/slate.css";
+import "@radix-ui/colors/slate-dark.css";
+
 import "./select.css";
 
 type SelectColorScheme =
-  | "purple"
+  | "plum"
   | "teal"
-  | "green"
+  | "grass"
   | "red"
-  | "yellow"
+  | "amber"
   | "blue"
   | "b/w"
   | "gray";
@@ -58,7 +82,7 @@ type SelectProps = RxSelect.SelectProps & {
 };
 
 const Select: SelectComponent = ({
-  colorScheme = "purple",
+  colorScheme = "plum",
   size = "md",
   ...props
 }) => {
@@ -77,60 +101,44 @@ const selectTriggerVariants = cva(
     "text-nowrap",
     "shadow",
     "select-none outline-none",
-    "border border-gray-500/75",
+    "border border-[--gray-7]",
     "outline-none",
     ["data-[disabled]:opacity-50", "data-[disabled]:pointer-events-none"]
   ],
   {
     variants: {
       colorScheme: {
-        purple: [
-          "focus:outline-purple-500",
-          "dark:focus:outline-purple-400",
-          "data-[state='open']:outline-purple-500",
-          "data-[state='open']:dark:outline-purple-400"
+        plum: [
+          "focus:outline-[--plum-9]",
+          "data-[state='open']:outline-[--plum-9]"
         ],
         teal: [
-          "focus:outline-teal-500",
-          "dark:hover:outline-teal-400",
-          "data-[state='open']:outline-teal-500",
-          "data-[state='open']:dark:outline-teal-400"
+          "focus:outline-[--teal-9]",
+          "data-[state='open']:outline-[--teal-9]"
         ],
-        green: [
-          "focus:outline-green-500",
-          "dark:focus:outline-green-400",
-          "data-[state='open']:outline-green-500",
-          "data-[state='open']:dark:outline-green-400"
+        grass: [
+          "focus:outline-[--grass-9]",
+          "data-[state='open']:outline-[--grass-9]"
         ],
         red: [
-          "focus:outline-red-500",
-          "dark:focus:outline-red-400",
-          "data-[state='open']:outline-red-500",
-          "data-[state='open']:dark:outline-red-400"
+          "focus:outline-[--red-9]",
+          "data-[state='open']:outline-[--red-9]"
         ],
-        yellow: [
-          "focus:outline-yellow-500",
-          "dark:focus:outline-yellow-400",
-          "data-[state='open']:outline-yellow-500",
-          "data-[state='open']:dark:outline-yellow-400"
+        amber: [
+          "focus:outline-[--amber-9]",
+          "data-[state='open']:outline-[--amber-9]"
         ],
         blue: [
-          "focus:outline-blue-500",
-          "dark:focus:outline-blue-400",
-          "data-[state='open']:outline-blue-500",
-          "data-[state='open']:dark:outline-blue-400"
+          "focus:outline-[--blue-9]",
+          "data-[state='open']:outline-[--blue-9]"
         ],
         "b/w": [
-          "focus:outline-dark",
-          "dark:focus:outline-light",
-          "data-[state='open']:outline-dark",
-          "data-[state='open']:dark:outline-light"
+          "focus:outline-[--slate-12]",
+          "data-[state='open']:outline-[--slate-12]"
         ],
         gray: [
-          "focus:outline-gray-600/75",
-          "dark:focus:outline-gray-400",
-          "data-[state='open']:outline-gray-600/75",
-          "data-[state='open']:dark:outline-gray-400"
+          "focus:outline-[--slate-12]",
+          "data-[state='open']:outline-[--slate-12]"
         ]
       },
       size: {
@@ -181,6 +189,29 @@ type SelectValueProps = RxSelect.SelectValueProps;
 
 const SelectValue = RxSelect.Value;
 
+const selectContentVariants = cva(
+  [
+    "w-[var(--radix-select-trigger-width)]",
+    "border border-[--gray-7]",
+    "overflow-hidden",
+    ["bg-light", "dark:bg-dark"],
+    "cursor-default",
+    "select-content"
+  ],
+  {
+    variants: {
+      size: {
+        sm: "rounded",
+        md: "rounded-md",
+        lg: "rounded-md"
+      }
+    },
+    defaultVariants: {
+      size: "md"
+    }
+  }
+);
+
 type SelectContentProps = RxSelect.SelectContentProps;
 
 const SelectContent = forwardRef<HTMLDivElement, SelectContentProps>(
@@ -190,21 +221,10 @@ const SelectContent = forwardRef<HTMLDivElement, SelectContentProps>(
   ) => {
     const { size } = useSelectContext();
 
-    const rounded = { sm: "rounded", md: "rounded-md", lg: "rounded-md" }[size];
-
     return (
       <RxSelect.Portal>
         <RxSelect.Content
-          className={cn(
-            "w-[var(--radix-select-trigger-width)]",
-            "border border-gray-500/75",
-            rounded,
-            "overflow-hidden",
-            ["bg-light", "dark:bg-dark"],
-            "cursor-default",
-            "select-content",
-            className
-          )}
+          className={selectContentVariants({ className, size })}
           position={position}
           sideOffset={sideOffset}
           {...props}
@@ -233,49 +253,14 @@ const selectItemVariants = cva(
   {
     variants: {
       colorScheme: {
-        purple: [
-          [
-            ["focus:bg-purple-500", "dark:focus:bg-purple-400"],
-            ["focus:text-light", "dark:focus:text-dark"]
-          ]
-        ],
-        teal: [
-          [
-            ["focus:bg-teal-500", "dark:focus:bg-teal-400"],
-            ["focus:text-light", "dark:focus:text-dark"]
-          ]
-        ],
-        green: [
-          [
-            ["focus:bg-green-500", "dark:focus:bg-green-400"],
-            ["focus:text-light", "dark:focus:text-dark"]
-          ]
-        ],
-        red: [
-          [
-            ["focus:bg-red-500", "dark:focus:bg-red-400"],
-            ["focus:text-light", "dark:focus:text-dark"]
-          ]
-        ],
-        yellow: [
-          [
-            ["focus:bg-yellow-500", "dark:focus:bg-yellow-400"],
-            ["focus:text-light", "dark:focus:text-dark"]
-          ]
-        ],
-        blue: [
-          [
-            ["focus:bg-blue-500", "dark:focus:bg-blue-400"],
-            ["focus:text-light", "dark:focus:text-dark"]
-          ]
-        ],
-        "b/w": [
-          [
-            ["focus:bg-dark", "dark:focus:bg-light"],
-            ["focus:text-light", "dark:focus:text-dark"]
-          ]
-        ],
-        gray: ["focus:bg-gray-400/25", "dark:focus:bg-gray-500/30"]
+        plum: [["focus:bg-[--plum-9]", ["focus:text-[--slate-1]"]]],
+        teal: [["focus:bg-[--teal-9]", "focus:text-[--slate-1]"]],
+        grass: [["focus:bg-[--grass-9]", "focus:text-[--slate-1]"]],
+        red: [["focus:bg-[--red-9]", "focus:text-[--slate-1]"]],
+        amber: [["focus:bg-[--amber-9]", "focus:text-[--slate-1]"]],
+        blue: [["focus:bg-[--blue-9]", "focus:text-[--slate-1]"]],
+        "b/w": [["focus:bg-[--slate-12]", "focus:text-[--slate-1]"]],
+        gray: ["focus:bg-[--gray-4]", "dark:focus:bg-[--gray-5]"]
       },
       size: {
         sm: "h-6 px-1 py-1 text-sm rounded-sm",
@@ -284,7 +269,7 @@ const selectItemVariants = cva(
       }
     },
     defaultVariants: {
-      colorScheme: "purple"
+      colorScheme: "plum"
     }
   }
 );
@@ -356,12 +341,7 @@ const SelectSeparator = forwardRef<HTMLDivElement, SelectSeparatorProps>(
   ({ className, ...props }, ref) => {
     return (
       <RxSelect.Separator
-        className={cn(
-          "h-[1px] my-1",
-          "bg-gray-500/30",
-          "dark:bg-gray-500/75",
-          className
-        )}
+        className={cn("h-[1px] my-1", "bg-[--gray-7]", className)}
         {...props}
         ref={ref}
       />

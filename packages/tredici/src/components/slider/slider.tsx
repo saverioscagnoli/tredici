@@ -3,28 +3,53 @@ import * as RxSlider from "@radix-ui/react-slider";
 import { cva } from "class-variance-authority";
 import { RefAttributes, forwardRef } from "react";
 
+import "@radix-ui/colors/plum.css";
+import "@radix-ui/colors/plum-dark.css";
+
+import "@radix-ui/colors/teal.css";
+import "@radix-ui/colors/teal-dark.css";
+
+import "@radix-ui/colors/grass.css";
+import "@radix-ui/colors/grass-dark.css";
+
+import "@radix-ui/colors/red.css";
+import "@radix-ui/colors/red-dark.css";
+
+import "@radix-ui/colors/amber.css";
+import "@radix-ui/colors/amber-dark.css";
+
+import "@radix-ui/colors/blue.css";
+import "@radix-ui/colors/blue-dark.css";
+
+import "@radix-ui/colors/gray.css";
+import "@radix-ui/colors/gray-dark.css";
+
+import "@radix-ui/colors/slate.css";
+import "@radix-ui/colors/slate-dark.css";
+
 type SliderColorScheme =
-  | "purple"
+  | "plum"
   | "teal"
-  | "green"
+  | "grass"
   | "red"
-  | "yellow"
+  | "amber"
   | "blue"
-  | "b/w"
-  | "gray";
+  | "b/w";
 
 const sliderRangeVariants = cva(["h-full", "absolute", "rounded-full"], {
   variants: {
     colorScheme: {
-      purple: ["bg-purple-500", "dark:bg-purple-400"],
-      teal: ["bg-teal-500", "dark:bg-teal-400"],
-      green: ["bg-green-500", "dark:bg-green-400"],
-      red: ["bg-red-500", "dark:bg-red-400"],
-      yellow: ["bg-yellow-500", "dark:bg-yellow-400"],
-      blue: ["bg-blue-500", "dark:bg-blue-400"],
-      "b/w": ["bg-dark", "dark:bg-light"],
-      gray: ["bg-gray-500", "dark:bg-gray-400"]
+      plum: "bg-[--plum-9]",
+      teal: "bg-[--teal-9]",
+      grass: "bg-[--grass-9]",
+      red: "bg-[--red-9]",
+      amber: "bg-[--amber-9]",
+      blue: "bg-[--blue-9]",
+      "b/w": "bg-[--slate-12]"
     }
+  },
+  defaultVariants: {
+    colorScheme: "plum"
   }
 });
 
@@ -35,7 +60,7 @@ type SliderProps = RxSlider.SliderProps & {
 const Slider = forwardRef<
   HTMLSpanElement,
   SliderProps & RefAttributes<HTMLSpanElement>
->(({ className, colorScheme = "purple", ...props }, ref) => {
+>(({ className, colorScheme = "plum", ...props }, ref) => {
   return (
     <RxSlider.Root
       className={cn(
@@ -48,21 +73,31 @@ const Slider = forwardRef<
       ref={ref}
     >
       <RxSlider.Track
-        className={cn("h-full", "relative flex-1", "rounded-full", [
-          "bg-gray-500/20",
-          "dark:bg-gray-400/40"
-        ])}
+        className={cn(
+          "h-full",
+          "relative flex-1",
+          "rounded-full",
+          "bg-[--gray-5]"
+        )}
       >
         <RxSlider.Range
           className={sliderRangeVariants({ className, colorScheme })}
         />
       </RxSlider.Track>
       <RxSlider.Thumb
-        className={cn("w-4 h-4", "rounded-full", "block", "shadow", "outline-none", [
-          "bg-light",
-          "border border-dark",
-          "dark:border-none"
-        ])}
+        className={cn(
+          "w-4 h-4",
+          "rounded-full",
+          "block",
+          "shadow",
+          "outline-none",
+          [
+            "bg-[--slate-1]",
+            "dark:bg-[--slate-12]",
+            "border border-[--slate-12]",
+            "dark:border-none"
+          ]
+        )}
       />
     </RxSlider.Root>
   );

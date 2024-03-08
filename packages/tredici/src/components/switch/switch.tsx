@@ -3,15 +3,38 @@ import * as RxSwitch from "@radix-ui/react-switch";
 import { cva } from "class-variance-authority";
 import { RefAttributes, forwardRef } from "react";
 
+import "@radix-ui/colors/plum.css";
+import "@radix-ui/colors/plum-dark.css";
+
+import "@radix-ui/colors/teal.css";
+import "@radix-ui/colors/teal-dark.css";
+
+import "@radix-ui/colors/grass.css";
+import "@radix-ui/colors/grass-dark.css";
+
+import "@radix-ui/colors/red.css";
+import "@radix-ui/colors/red-dark.css";
+
+import "@radix-ui/colors/amber.css";
+import "@radix-ui/colors/amber-dark.css";
+
+import "@radix-ui/colors/blue.css";
+import "@radix-ui/colors/blue-dark.css";
+
+import "@radix-ui/colors/gray.css";
+import "@radix-ui/colors/gray-dark.css";
+
+import "@radix-ui/colors/slate.css";
+import "@radix-ui/colors/slate-dark.css";
+
 type SwitchColorScheme =
-  | "purple"
+  | "plum"
   | "teal"
-  | "green"
+  | "grass"
   | "red"
-  | "yellow"
+  | "amber"
   | "blue"
-  | "b/w"
-  | "gray";
+  | "b/w";
 
 type SwitchSize = "sm" | "md" | "lg";
 
@@ -27,45 +50,23 @@ const switchVariants = cva(
     "shadow",
     "rounded-full",
     "transition-colors",
-    [
-      "data-[state='unchecked']:bg-gray-500/20",
-      "data-[state='unchecked']:dark:bg-gray-400/40"
-    ]
+    ["data-[state='unchecked']:bg-[--gray-5]"]
   ],
   {
     variants: {
       colorScheme: {
-        purple: [
-          "data-[state='checked']:bg-purple-500",
-          "data-[state='checked']:dark:bg-purple-400"
-        ],
-        teal: [
-          "data-[state='checked']:bg-teal-500",
-          "data-[state='checked']:dark:bg-teal-400"
-        ],
-        green: [
-          "data-[state='checked']:bg-green-500",
-          "data-[state='checked']:dark:bg-green-400"
-        ],
-        red: [
-          "data-[state='checked']:bg-red-500",
-          "data-[state='checked']:dark:bg-red-400"
-        ],
-        yellow: [
-          "data-[state='checked']:bg-yellow-500",
-          "data-[state='checked']:dark:bg-yellow-400"
-        ],
-        blue: [
-          "data-[state='checked']:bg-blue-500",
-          "data-[state='checked']:dark:bg-blue-400"
-        ],
+        plum: "data-[state='checked']:bg-[--plum-9]",
+        teal: "data-[state='checked']:bg-[--teal-9]",
+        grass: "data-[state='checked']:bg-[--grass-9]",
+        red: "data-[state='checked']:bg-[--red-9]",
+
+        amber: "data-[state='checked']:bg-[--amber-9]",
+        blue: "data-[state='checked']:bg-[--blue-9]",
         "b/w": [
-          "data-[state='checked']:bg-dark",
-          "data-[state='checked']:dark:bg-light"
-        ],
-        gray: [
-          "data-[state='checked']:bg-gray-500",
-          "data-[state='checked']:dark:bg-gray-400"
+          [
+            "data-[state='checked']:bg-[--slate-12]",
+            "data-[state='checked']:text-[--slate-1]"
+          ]
         ]
       },
       size: {
@@ -75,29 +76,32 @@ const switchVariants = cva(
       }
     },
     defaultVariants: {
-      colorScheme: "purple",
+      colorScheme: "plum",
       size: "md"
     }
   }
 );
 
-const switchThumbVariants = cva(["block", "bg-light", "rounded-full"], {
-  variants: {
-    size: {
-      sm: "w-[12px] h-[12px] data-[state='checked']:translate-x-[11px] transition-[transform_100ms]",
-      md: "w-[20px] h-[20px] data-[state='checked']:translate-x-[17px] transition-[transform_100ms]",
-      lg: "w-[28px] h-[28px] data-[state='checked']:translate-x-[25px] transition-[transform_100ms]"
+const switchThumbVariants = cva(
+  ["block", ["bg-[--slate-1]", "dark:bg-[--slate-12]"], "rounded-full"],
+  {
+    variants: {
+      size: {
+        sm: "w-[12px] h-[12px] data-[state='checked']:translate-x-[11px] transition-[transform_100ms]",
+        md: "w-[20px] h-[20px] data-[state='checked']:translate-x-[17px] transition-[transform_100ms]",
+        lg: "w-[28px] h-[28px] data-[state='checked']:translate-x-[25px] transition-[transform_100ms]"
+      }
+    },
+    defaultVariants: {
+      size: "md"
     }
-  },
-  defaultVariants: {
-    size: "md"
   }
-});
+);
 
 const Switch = forwardRef<
   HTMLButtonElement,
   SwitchProps & RefAttributes<HTMLButtonElement>
->(({ className, colorScheme = "purple", size = "md", ...props }, ref) => {
+>(({ className, colorScheme = "plum", size = "md", ...props }, ref) => {
   return (
     <RxSwitch.Root
       className={switchVariants({ className, colorScheme, size })}
@@ -107,7 +111,8 @@ const Switch = forwardRef<
       <RxSwitch.Thumb
         className={switchThumbVariants({
           className: cn(
-            colorScheme === "b/w" && "data-[state='checked']:dark:bg-dark"
+            colorScheme === "b/w" &&
+              "data-[state='checked']:dark:bg-[--slate-1]"
           ),
           size
         })}

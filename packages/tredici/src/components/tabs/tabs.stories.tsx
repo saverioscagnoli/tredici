@@ -14,8 +14,14 @@ export default meta;
 type Story = StoryObj<typeof Tabs>;
 
 export const Default: Story = {
+  argTypes: {
+    colorScheme: {
+      control: "select",
+      options: ["plum", "teal", "grass", "red", "amber", "blue", "b/w", "gray"]
+    }
+  },
   args: {
-    colorScheme: "purple"
+    colorScheme: "plum"
   },
   render: ({ colorScheme }) => {
     return (
@@ -48,6 +54,7 @@ export const Default: Story = {
                   Name
                 </label>
                 <Input
+                  // @ts-ignore
                   colorScheme={colorScheme}
                   id="name"
                   defaultValue="Pedro Duarte"
@@ -58,13 +65,18 @@ export const Default: Story = {
                   Username
                 </label>
                 <Input
+                  // @ts-ignore
                   colorScheme={colorScheme}
                   id="username"
                   defaultValue="@peduarte"
                 />
               </div>
 
-              <Button colorScheme="green" className="self-start mt-4">
+              <Button
+                colorScheme="grass"
+                variant="secondary"
+                className="self-start mt-4"
+              >
                 Save changes
               </Button>
             </div>
@@ -83,16 +95,29 @@ export const Default: Story = {
                 <label htmlFor="currp" className="font-semibold">
                   Current password
                 </label>
-                <Input colorScheme={colorScheme} id="currp" type="password" />
+
+                <Input // @ts-ignore
+                  colorScheme={colorScheme}
+                  id="currp"
+                  type="password"
+                />
               </div>
               <div className="flex flex-col gap-2">
                 <label htmlFor="newp" className="font-semibold">
                   New password
                 </label>
-                <Input colorScheme={colorScheme} id="newp" type="password" />
+                <Input // @ts-ignore
+                  colorScheme={colorScheme}
+                  id="newp"
+                  type="password"
+                />
               </div>
 
-              <Button colorScheme="green" className="self-start mt-4">
+              <Button
+                colorScheme="grass"
+                variant="secondary"
+                className="self-start mt-4"
+              >
                 Save password
               </Button>
             </div>
