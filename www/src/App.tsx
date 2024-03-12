@@ -1,5 +1,5 @@
 import { Navbar, TabElement, TabLabel } from "@components";
-import { Introduction } from "@mdx";
+import { AlertDialogPage, Introduction } from "@pages";
 import { ScrollArea } from "@tredici";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -45,6 +45,7 @@ function App() {
           <Router>
             <Routes>
               <Route path="/docs" element={<Introduction />} />
+              <Route path="/docs/alert-dialog" element={<AlertDialogPage />} />
             </Routes>
           </Router>
         </div>
