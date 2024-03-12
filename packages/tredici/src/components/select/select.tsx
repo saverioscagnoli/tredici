@@ -1,3 +1,4 @@
+import * as RxSelect from "@radix-ui/react-select";
 import { cn } from "@/lib/utils";
 import {
   ArrowDownIcon,
@@ -5,7 +6,6 @@ import {
   ChevronDownIcon,
   ChevronUpIcon
 } from "@radix-ui/react-icons";
-import * as RxSelect from "@radix-ui/react-select";
 import { cva } from "class-variance-authority";
 import React, { createContext, forwardRef, useContext } from "react";
 

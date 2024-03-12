@@ -1,5 +1,5 @@
-import { cn } from "@/lib/utils";
 import * as RxAvatar from "@radix-ui/react-avatar";
+import { cn } from "@/lib/utils";
 import { PersonIcon } from "@radix-ui/react-icons";
 import { cva } from "class-variance-authority";
 import {

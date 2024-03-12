@@ -1,5 +1,5 @@
-import { cn } from "@/lib/utils";
 import * as RxTooltip from "@radix-ui/react-tooltip";
+import { cn } from "@/lib/utils";
 import React, { forwardRef } from "react";
 
 import "@radix-ui/colors/slate.css";

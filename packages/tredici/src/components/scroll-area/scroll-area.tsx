@@ -1,5 +1,5 @@
-import { cn } from "@/lib/utils";
 import * as RxScrollArea from "@radix-ui/react-scroll-area";
+import { cn } from "@/lib/utils";
 import { cva } from "class-variance-authority";
 import { ForwardRefExoticComponent, RefAttributes, forwardRef } from "react";
 

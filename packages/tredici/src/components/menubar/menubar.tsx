@@ -1,3 +1,4 @@
+import * as RxMenubar from "@radix-ui/react-menubar";
 import {
   ForwardRefExoticComponent,
   ReactNode,
@@ -6,7 +7,6 @@ import {
   forwardRef,
   useContext
 } from "react";
-import * as RxMenubar from "@radix-ui/react-menubar";
 import { cn } from "@/lib/utils";
 import { cva } from "class-variance-authority";
 import {

@@ -1,5 +1,5 @@
-import { cn } from "@/lib/utils";
 import * as RxProgress from "@radix-ui/react-progress";
+import { cn } from "@/lib/utils";
 import { forwardRef } from "react";
 import { cva } from "class-variance-authority";
 

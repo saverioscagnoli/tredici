@@ -1,5 +1,5 @@
-import { cn } from "@/lib/utils";
 import * as RxSwitch from "@radix-ui/react-switch";
+import { cn } from "@/lib/utils";
 import { cva } from "class-variance-authority";
 import { RefAttributes, forwardRef } from "react";
 

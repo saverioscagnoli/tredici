@@ -1,6 +1,6 @@
+import * as RxToast from "@radix-ui/react-toast";
 import { cn } from "@/lib/utils";
 import { Cross1Icon } from "@radix-ui/react-icons";
-import * as RxToast from "@radix-ui/react-toast";
 import {
   Children,
   ForwardRefExoticComponent,
