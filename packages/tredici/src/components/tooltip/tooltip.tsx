@@ -37,6 +37,7 @@ const TooltipContent = forwardRef<HTMLDivElement, TooltipContentProps>(
           "py-[1px]",
           "px-2",
           "rounded",
+          "shadow",
           "tooltip-content",
           className
         )}
