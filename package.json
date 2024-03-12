@@ -11,7 +11,8 @@
   },
   "packageManager": "yarn@1.22.21",
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "www"
   ],
   "scripts": {
     "storybook": "yarn workspace tredici-components storybook"

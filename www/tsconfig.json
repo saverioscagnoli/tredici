@@ -26,6 +26,7 @@
       "@lib": ["lib/index.ts"],
       "@contexts": ["contexts/index.ts"],
       "@hooks": ["hooks/index.ts"],
+      "@mdx": ["components/mdx/index.ts"]
     }
   },
   "include": ["src"],

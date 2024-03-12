@@ -1,14 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
 
+@import "@radix-ui/colors/slate.css";
+@import "@radix-ui/colors/slate-dark.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
   font-family: "DM Sans", sans-serif;
-  color: #18181b;
-}
-
-html.dark body {
-  color: #fafafa;
+  color: var(--slate-12);
+  background: var(--slate-1);
 }

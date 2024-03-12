@@ -12,9 +12,11 @@ function Navbar() {
     <div className="w-full h-12 sticky flex justify-between items-center px-8 border-b border-b-[--gray-7]">
       <p className="text-xl font-semibold">Tredici</p>
       <div className="flex gap-4">
-        <Button variant="link" colorScheme="b/w" size="sm" className="mt-1">
-          Documentation
-        </Button>
+        <a href="/docs">
+          <Button variant="link" colorScheme="b/w" size="sm" className="mt-1">
+            Documentation
+          </Button>
+        </a>
         <a href="https://github.com/saverioscagnoli/tredici" target="_blank">
           <IconButton
             icon={<GitHubLogoIcon />}
