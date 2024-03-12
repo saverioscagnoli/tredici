@@ -90,11 +90,11 @@ const PopoverArrow = forwardRef<SVGSVGElement, PopoverArrowProps>(
   ({ width = 7, height = 4, className, ...props }, ref) => {
     return (
       <RxPopover.Arrow
-        ref={ref}
         width={width}
         height={height}
         className={cn("fill-[--gray-7]", className)}
         {...props}
+        ref={ref}
       />
     );
   }
