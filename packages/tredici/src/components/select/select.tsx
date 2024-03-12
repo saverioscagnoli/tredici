@@ -103,42 +103,35 @@ const selectTriggerVariants = cva(
     "select-none outline-none",
     "border border-[--gray-7]",
     "outline-none",
+    "transition-colors",
+    "focus:ring-2",
+    "data-[state='open']:ring-2",
+    "focus:border-transparent",
+    "data-[state='open']:border-transparent",
     ["data-[disabled]:opacity-50", "data-[disabled]:pointer-events-none"]
   ],
   {
     variants: {
       colorScheme: {
-        plum: [
-          "focus:outline-[--plum-9]",
-          "data-[state='open']:outline-[--plum-9]"
-        ],
-        teal: [
-          "focus:outline-[--teal-9]",
-          "data-[state='open']:outline-[--teal-9]"
-        ],
+        plum: ["focus:ring-[--plum-9]", "data-[state='open']:ring-[--plum-9]"],
+        teal: ["focus:ring-[--teal-9]", "data-[state='open']:ring-[--teal-9]"],
         grass: [
-          "focus:outline-[--grass-9]",
-          "data-[state='open']:outline-[--grass-9]"
+          "focus:ring-[--grass-9]",
+          "data-[state='open']:ring-[--grass-9]"
         ],
-        red: [
-          "focus:outline-[--red-9]",
-          "data-[state='open']:outline-[--red-9]"
-        ],
+        red: ["focus:ring-[--red-9]", "data-[state='open']:ring-[--red-9]"],
         amber: [
-          "focus:outline-[--amber-9]",
-          "data-[state='open']:outline-[--amber-9]"
+          "focus:ring-[--amber-9]",
+          "data-[state='open']:ring-[--amber-9]"
         ],
-        blue: [
-          "focus:outline-[--blue-9]",
-          "data-[state='open']:outline-[--blue-9]"
-        ],
+        blue: ["focus:ring-[--blue-9]", "data-[state='open']:ring-[--blue-9]"],
         "b/w": [
-          "focus:outline-[--slate-12]",
-          "data-[state='open']:outline-[--slate-12]"
+          "focus:ring-[--slate-12]",
+          "data-[state='open']:ring-[--slate-12]"
         ],
         gray: [
-          "focus:outline-[--slate-12]",
-          "data-[state='open']:outline-[--slate-12]"
+          "focus:ring-[--slate-12]",
+          "data-[state='open']:ring-[--slate-12]"
         ]
       },
       size: {

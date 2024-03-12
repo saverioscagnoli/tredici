@@ -8,6 +8,12 @@ import {
   forwardRef
 } from "react";
 
+import "@radix-ui/colors/gray.css";
+import "@radix-ui/colors/gray-dark.css";
+
+import "@radix-ui/colors/slate.css";
+import "@radix-ui/colors/slate-dark.css";
+
 import "./toast.css";
 
 type ToastComponent = ForwardRefExoticComponent<

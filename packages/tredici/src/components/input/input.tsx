@@ -46,21 +46,25 @@ const inputVariants = cva(
   [
     "w-full",
     "bg-transparent",
+    "font-semibold",
     "shadow",
     "border border-[--gray-7]",
     "caret-[--slate-12]",
-    "outline-none"
+    "transition-colors",
+    "outline-none",
+    "focus:ring-2",
+    "focus:border-transparent"
   ],
   {
     variants: {
       colorScheme: {
-        plum: ["focus:outline-[--plum-9]"],
-        teal: ["focus:outline-[--teal-9]"],
-        grass: ["focus:outline-[--grass-9]"],
-        red: ["focus:outline-[--red-9]"],
-        amber: ["focus:outline-[--amber-9]"],
-        blue: ["focus:outline-[--blue-9]"],
-        "b/w": ["focus:outline-[--slate-12]"]
+        plum: ["focus:ring-[--plum-9]"],
+        teal: ["focus:ring-[--teal-9]"],
+        grass: ["focus:ring-[--grass-9]"],
+        red: ["focus:ring-[--red-9]"],
+        amber: ["focus:ring-[--amber-9]"],
+        blue: ["focus:ring-[--blue-9]"],
+        "b/w": ["focus:ring-[--gray-9]"]
       },
       size: {
         sm: "h-6 px-1 py-1 text-sm rounded",

@@ -2,6 +2,9 @@ import { cn } from "@/lib/utils";
 import * as RxTooltip from "@radix-ui/react-tooltip";
 import React, { forwardRef } from "react";
 
+import "@radix-ui/colors/slate.css";
+import "@radix-ui/colors/slate-dark.css";
+
 import "./tooltip.css";
 
 type TooltipComponent = React.FC<TooltipProps> & {

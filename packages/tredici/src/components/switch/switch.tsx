@@ -50,7 +50,7 @@ const switchVariants = cva(
     "shadow",
     "rounded-full",
     "transition-colors",
-    ["data-[state='unchecked']:bg-[--gray-5]"]
+    "data-[state='unchecked']:bg-[--gray-5]"
   ],
   {
     variants: {
