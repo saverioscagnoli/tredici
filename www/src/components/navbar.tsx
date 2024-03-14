@@ -9,7 +9,7 @@ function Navbar() {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className="w-full h-12 sticky flex justify-between items-center px-8 border-b border-b-[--gray-7]">
+    <div className="w-full h-12 sticky flex justify-between items-center px-8 border-b border-b-[--gray-7] bg-[--slate-1]">
       <p className="text-xl font-semibold">Tredici</p>
       <div className="flex gap-4">
         <a href="/docs">

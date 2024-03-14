@@ -1,15 +1,29 @@
 import { Navbar, TabElement, TabLabel } from "@components";
+import { useTheme } from "@hooks";
 import { AlertDialogPage, Introduction } from "@pages";
 import { ScrollArea } from "@tredici";
+import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
+  const [bg, setBg] = useState<"pattern" | "pattern-dark">("pattern");
+  const { theme } = useTheme();
+
+  useEffect(() => {
+    setBg(theme === "dark" ? "pattern-dark" : "pattern");
+  }, [theme]);
+
   return (
-    <div className="w-screen h-screen flex flex-col">
+    <div
+      className="w-screen h-screen flex flex-col"
+      style={{
+        backgroundImage: `url("/${bg}.svg")`
+      }}
+    >
       <Navbar />
       <div className="w-full h-full flex justify-between overflow-auto">
         <ScrollArea>
-          <div className="h-full flex flex-col py-8 px-12 gap-[2px]">
+          <div className="h-full flex flex-col py-8 px-12 gap-[2px] bg-[--slate-1]">
             <TabLabel>Overview</TabLabel>
             <TabElement to="/docs">Introduction</TabElement>
             <TabElement to="/docs/installation">Installation</TabElement>
@@ -41,14 +55,15 @@ function App() {
 
           <ScrollArea.Scrollbar colorScheme="gray" />
         </ScrollArea>
-        <div className="w-1/2">
+        <ScrollArea className="w-1/2">
           <Router>
             <Routes>
               <Route path="/docs" element={<Introduction />} />
               <Route path="/docs/alert-dialog" element={<AlertDialogPage />} />
             </Routes>
           </Router>
-        </div>
+          <ScrollArea.Scrollbar colorScheme="gray" />
+        </ScrollArea>
         <div className="w-1/4">sidebar</div>
       </div>
     </div>

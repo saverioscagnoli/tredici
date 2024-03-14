@@ -15,7 +15,8 @@
     "www"
   ],
   "scripts": {
-    "storybook": "yarn workspace tredici-components storybook"
+    "storybook": "yarn workspace tredici-components storybook",
+    "www": "yarn workspace www dev"
   },
   "license": "MIT"
 }
