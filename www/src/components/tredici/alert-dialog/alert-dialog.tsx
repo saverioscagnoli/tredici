@@ -34,6 +34,7 @@ const AlertDialogContent = forwardRef<HTMLDivElement, AlertDialogContentProps>(
       <RxAlertDialog.Portal>
         <RxAlertDialog.Overlay
           className={cn(
+            "z-[9998]",
             "bg-[--gray-a11]",
             "fixed inset-0",
             "alert-dialog-overlay"
@@ -41,6 +42,7 @@ const AlertDialogContent = forwardRef<HTMLDivElement, AlertDialogContentProps>(
         />
         <RxAlertDialog.Content
           className={cn(
+            "z-[9999]",
             "w-11/12 max-w-[500px] max-h-[85vh]",
             "p-5",
             "rounded-md",

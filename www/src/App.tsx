@@ -1,7 +1,7 @@
 import { Navbar, SideTabs } from "@components";
 import { useTheme } from "@hooks";
 import { cn } from "@lib";
-import { Introduction } from "@pages";
+import { AlertDialogPage, Introduction } from "@pages";
 import { useEffect, useState } from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
@@ -28,13 +28,15 @@ function App() {
             "flex flex-col justify-center",
             "lg:block",
             "fixed",
-            "w-full h-[calc(100%-4rem)]",
-            "mt-16 ml-[300px]",
+            "overflow-y-auto",
+            "w-full h-full",
+            "ml-[300px]",
             "px-32 py-20"
           )}
         >
           <Routes>
             <Route path="/docs" element={<Introduction />} />
+            <Route path="/docs/alert-dialog" element={<AlertDialogPage />} />
           </Routes>
         </div>
       </div>
