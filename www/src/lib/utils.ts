@@ -5,4 +5,8 @@ function cn(...args: ClassValue[]) {
   return twMerge(clsx(...args));
 }
 
-export { cn };
+function toKebabCase(str: string) {
+  return str.replace(/ /, "-").toLowerCase();
+}
+
+export { cn, toKebabCase };

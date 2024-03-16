@@ -4,3 +4,4 @@ export * from "./tabs";
 export * from "./scroll-area";
 export * from "./alert-dialog";
 export * from "./collapsible";
+export * from "./dropdown-menu";

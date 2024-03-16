@@ -11,21 +11,25 @@ body {
   font-family: "DM Sans", sans-serif;
   color: var(--slate-12);
   background-color: var(--slate-1);
-  transition: background-color 100ms ease;
 }
 
-.preview-container::after {
-  content: "";
-  display: block;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 50px;
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0),
-   var(--slate-1)
-  );
+::-webkit-scrollbar {
+  width: 14px;
 }
 
+::-webkit-scrollbar-thumb {
+  border: 4px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  border-radius: 9999px;
+  background-color: var(--gray-8);
+}
+
+.side-tabs::-webkit-scrollbar-thumb {
+  visibility: hidden;
+}
+
+.side-tabs:active::-webkit-scrollbar-thumb,
+.side-tabs:focus::-webkit-scrollbar-thumb,
+.side-tabs:hover::-webkit-scrollbar-thumb {
+  visibility: visible;
+}

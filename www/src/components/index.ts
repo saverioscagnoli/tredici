@@ -1,3 +1,4 @@
-export * from "./navbar";
 export * from "./theme-provider";
-export * from "./tabs";
+export * from "./navbar";
+export * from "./heading";
+export * from "./side-tabs";
