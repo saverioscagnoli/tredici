@@ -2,11 +2,14 @@ import { Tabs, TabsProps } from "@tredici";
 import React from "react";
 import { CodeBlock } from "./code-block";
 
-type ModuleInstallTabsProps = TabsProps& {
+type ModuleInstallTabsProps = TabsProps & {
   packages: string[];
 };
 
-const ModuleInstallTabs: React.FC<ModuleInstallTabsProps> = ({ packages, ...props }) => {
+const ModuleInstallTabs: React.FC<ModuleInstallTabsProps> = ({
+  packages,
+  ...props
+}) => {
   const packageString = packages.join(" ");
 
   return (

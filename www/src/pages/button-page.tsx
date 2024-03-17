@@ -3,11 +3,25 @@ import {
   Heading,
   CodeTabs,
   PreviewRect,
-  SizeRadio
+  SizeRadio,
+  PreviewTabs,
+  ModuleInstallTabs,
+  CodeBlock
 } from "@components";
+import { ButtonDemo } from "@examples/button";
 import { useScrollToHash } from "@hooks";
 import { Button, ButtonColorScheme, ButtonSize } from "@tredici";
 import { useState } from "react";
+
+import code from "@examples/button?raw";
+import { Link } from "react-router-dom";
+import {
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  GitHubLogoIcon
+} from "@radix-ui/react-icons";
+
+const usage = `<Button variant="..." />`;
 
 const ButtonPage = () => {
   const [colorScheme, setColorScheme] = useState<ButtonColorScheme>("plum");
@@ -24,31 +38,126 @@ const ButtonPage = () => {
         <p className="mt-4 text-lg backdrop-blur-sm rounded">
           The Button component is used to trigger an action or event.
         </p>
-        <Heading as="h2" id="button-props" className="mt-8">
+
+        <PreviewTabs demo={<ButtonDemo />} demoCode={code} />
+
+        <Heading as="h2" id="installation" className="mt-8">
+          Installation
+        </Heading>
+        <p className="mt-2 text-lg backdrop-blur-sm rounded">
+          First, install the required packages.
+        </p>
+
+        <ModuleInstallTabs className="mt-4" packages={["@radix-ui/colors"]} />
+
+        <p className="mt-8 text-lg backdrop-blur-sm rounded">
+          Then you can import the component files and use them in your app.
+        </p>
+
+        <CodeTabs
+          componentUrl="https://raw.githubusercontent.com/saverioscagnoli/tredici/master/packages/tredici/src/components/button/button.tsx"
+          className="mt-8 "
+        />
+
+        <Heading as="h2" id="usage" className="mt-8">
+          Usage
+        </Heading>
+
+        <CodeBlock
+          code={usage}
+          language="typescript"
+          copyButton={false}
+          className="mt-4"
+        />
+
+        <Heading as="h2" id="examples" className="mt-8">
+          Examples
+        </Heading>
+
+        <Heading as="h3" id="Solid" className="mt-8">
           Solid
         </Heading>
-        
-        <Heading as="h2" id="secondary" className="mt-8">
+
+        <PreviewTabs
+          demo={<Button variant="solid">Solid</Button>}
+          demoCode='<Button variant="solid">Solid</Button>'
+          className="mt-4"
+        />
+
+        <Heading as="h3" id="secondary" className="mt-8">
           Secondary
         </Heading>
-        <PreviewRect className="mt-4 relative">
-          <Button variant="secondary" colorScheme={colorScheme} size={size}>
-            Button
-          </Button>
-          <ColorSchemeSelect<ButtonColorScheme>
-            colorScheme={colorScheme}
-            setColorScheme={setColorScheme}
-            colors={["plum", "teal", "grass", "red", "amber", "blue", "b/w"]}
-            className="absolute top-4 right-4 gap-16"
-          />
-          <SizeRadio
-            componentSize={size}
-            setSize={setSize}
-            sizes={["sm", "md", "lg"]}
-            className="flex flex-col gap-3 absolute left-4 top-4"
-            colorScheme={colorScheme}
-          />
-        </PreviewRect>
+
+        <PreviewTabs
+          demo={<Button variant="secondary">Secondary</Button>}
+          demoCode='<Button variant="secondary">Secondary</Button>'
+          className="mt-4"
+        />
+
+        <Heading as="h3" id="outline" className="mt-8">
+          Outline
+        </Heading>
+
+        <PreviewTabs
+          demo={<Button variant="outline">Outline</Button>}
+          demoCode='<Button variant="outline">Outline</Button>'
+          className="mt-4"
+        />
+
+        <Heading as="h3" id="ghost" className="mt-8">
+          Ghost
+        </Heading>
+
+        <PreviewTabs
+          demo={<Button variant="ghost">Ghost</Button>}
+          demoCode='<Button variant="ghost">Ghost</Button>'
+          className="mt-4"
+        />
+
+        <Heading as="h3" id="link" className="mt-8">
+          Link
+        </Heading>
+
+        <PreviewTabs
+          demo={<Button variant="link">Link</Button>}
+          demoCode='<Button variant="link">Link</Button>'
+          className="mt-4"
+        />
+
+        <Heading as="h3" id="with-icon" className="mt-8">
+          With icon
+        </Heading>
+
+        <PreviewTabs
+          demo={
+            <Button variant="solid" leftIcon={<GitHubLogoIcon />}>
+              Github
+            </Button>
+          }
+          demoCode='<Button variant="solid" leftIcon={<GitHubLogoIcon />}>Solid</Button>'
+          className="mt-4"
+        />
+
+        <div className="mt-8 flex justify-between">
+          <Link to="/docs/avatar">
+            <Button
+              variant="secondary"
+              colorScheme="b/w"
+              leftIcon={<ChevronLeftIcon />}
+            >
+              Avatar
+            </Button>
+          </Link>
+          <Link to="/docs/checkbox">
+            <Button
+              variant="secondary"
+              colorScheme="b/w"
+              rightIcon={<ChevronRightIcon />}
+            >
+              Checkbox
+            </Button>
+          </Link>
+        </div>
       </div>
     </div>
   );

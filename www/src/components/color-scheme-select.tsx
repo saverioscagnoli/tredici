@@ -17,15 +17,15 @@ const ColorSchemeSelect = <T extends string>({
     <Select
       value={colorScheme}
       onValueChange={setColorScheme as (v: string) => void}
-      colorScheme={colorScheme}
+      colorScheme="gray"
     >
       <Select.Trigger {...props}>
         <Select.Value placeholder="Select a color..." />
       </Select.Trigger>
-      <Select.Content>
+      <Select.Content sideOffset={7}>
         {colors.map(c => (
           <Select.Item key={c} value={c}>
-            {c}
+            {c.at(0).toUpperCase() + c.slice(1)}
           </Select.Item>
         ))}
       </Select.Content>

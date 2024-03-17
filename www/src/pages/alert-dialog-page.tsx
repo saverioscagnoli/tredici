@@ -3,14 +3,14 @@ import {
   CodeTabs,
   Heading,
   ModuleInstallTabs,
-  PreviewRect
+  PreviewTabs
 } from "@components";
-import { AlertDialogDemo } from "@examples";
+import { AlertDialogDemo } from "@examples/alert-dialog";
 import { useScrollToHash } from "@hooks";
 import { ChevronLeftIcon, ChevronRightIcon } from "@radix-ui/react-icons";
 import { Button, Tabs } from "@tredici";
 
-import code from "components/examples/alert-dialog?raw";
+import code from "@examples/alert-dialog?raw";
 import { Link } from "react-router-dom";
 
 const usage = `<AlertDialog>
@@ -40,24 +40,7 @@ const AlertDialogPage = () => {
           It requires the user to interact with it before they can continue.
         </p>
 
-        <Tabs defaultValue="preview" className="mt-12" variant="flushed">
-          <Tabs.List>
-            <Tabs.Trigger value="preview" className="px-12">
-              Preview
-            </Tabs.Trigger>
-            <Tabs.Trigger value="code" className="px-12">
-              Code
-            </Tabs.Trigger>
-          </Tabs.List>
-          <Tabs.Content value="preview">
-            <PreviewRect>
-              <AlertDialogDemo />
-            </PreviewRect>
-          </Tabs.Content>
-          <Tabs.Content value="code">
-            <CodeBlock code={code} language="typescript" />
-          </Tabs.Content>
-        </Tabs>
+        <PreviewTabs demo={<AlertDialogDemo />} demoCode={code} />
 
         <Heading as="h2" id="alert-dialog-props" className="mt-8">
           Installation
@@ -65,6 +48,7 @@ const AlertDialogPage = () => {
         <p className="mt-2 text-lg backdrop-blur-sm rounded">
           First, install the required packages.
         </p>
+        
         <ModuleInstallTabs
           className="mt-4"
           packages={["@radix-ui/react-alert-dialog", "@radix-ui/colors"]}

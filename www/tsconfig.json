@@ -26,7 +26,7 @@
       "@contexts": ["contexts/index.ts"],
       "@hooks": ["hooks/index.ts"],
       "@pages": ["pages/index.ts"],
-      "@examples": ["components/examples/index.ts"]
+      "@examples/*": ["components/examples/*"]
     }
   },
   "include": ["src"],
