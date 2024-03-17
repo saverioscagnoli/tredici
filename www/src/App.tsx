@@ -7,6 +7,7 @@ import {
   ButtonPage,
   CheckboxPage,
   CollapsiblePage,
+  ContextMenuPage,
   Introduction
 } from "@pages";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
@@ -36,6 +37,7 @@ function App() {
             <Route path="/docs/button" element={<ButtonPage />} />
             <Route path="/docs/checkbox" element={<CheckboxPage />} />
             <Route path="/docs/collapsible" element={<CollapsiblePage />} />
+            <Route path="/docs/context-menu" element={<ContextMenuPage />} />
           </Routes>
         </div>
       </div>
