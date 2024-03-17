@@ -1,6 +1,7 @@
 import {
   CodeBlock,
   CodeTabs,
+  FooterButtons,
   Heading,
   ModuleInstallTabs,
   PreviewTabs
@@ -64,26 +65,7 @@ const CollapsiblePage = () => {
           className="mt-4"
         />
 
-        <div className="mt-8 flex justify-between">
-          <Link to="/docs/checkbox">
-            <Button
-              variant="secondary"
-              colorScheme="b/w"
-              leftIcon={<ChevronLeftIcon />}
-            >
-              Checkbox
-            </Button>
-          </Link>
-          <Link to="/docs/context-menu">
-            <Button
-              variant="secondary"
-              colorScheme="b/w"
-              rightIcon={<ChevronRightIcon />}
-            >
-              Context Menu
-            </Button>
-          </Link>
-        </div>
+        <FooterButtons labels={["Checkbox", "Context Menu"]} />
       </div>
     </div>
   );

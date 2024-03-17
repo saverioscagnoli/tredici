@@ -10,3 +10,4 @@ export * from "./preview-rect";
 export * from "./code-block";
 export * from "./module-install-tabs";
 export * from "./preview-tabs";
+export * from "./footer-buttons";

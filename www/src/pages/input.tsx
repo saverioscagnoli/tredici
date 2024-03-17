@@ -1,6 +1,7 @@
 import {
   CodeBlock,
   CodeTabs,
+  FooterButtons,
   Heading,
   ModuleInstallTabs,
   PreviewTabs
@@ -56,26 +57,7 @@ const InputPage = () => {
           className="mt-4"
         />
 
-        <div className="mt-8 flex justify-between">
-          <Link to="/docs/icon-button">
-            <Button
-              variant="secondary"
-              colorScheme="b/w"
-              leftIcon={<ChevronLeftIcon />}
-            >
-              Icon Button
-            </Button>
-          </Link>
-          <Link to="/docs/menubar">
-            <Button
-              variant="secondary"
-              colorScheme="b/w"
-              rightIcon={<ChevronRightIcon />}
-            >
-              Menubar
-            </Button>
-          </Link>
-        </div>
+        <FooterButtons labels={["Icon Button", "Menubar"]} />
       </div>
     </div>
   );

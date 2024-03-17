@@ -1,6 +1,7 @@
 import {
   CodeBlock,
   CodeTabs,
+  FooterButtons,
   Heading,
   ModuleInstallTabs,
   PreviewTabs
@@ -48,7 +49,7 @@ const AlertDialogPage = () => {
         <p className="mt-2 text-lg backdrop-blur-sm rounded">
           First, install the required packages.
         </p>
-        
+
         <ModuleInstallTabs
           className="mt-4"
           packages={["@radix-ui/react-alert-dialog", "@radix-ui/colors"]}
@@ -75,26 +76,7 @@ const AlertDialogPage = () => {
           className="mt-4"
         />
 
-        <div className="mt-8 flex justify-between">
-          <Link to="/docs/getting-started">
-            <Button
-              variant="secondary"
-              colorScheme="b/w"
-              leftIcon={<ChevronLeftIcon />}
-            >
-              Getting Started
-            </Button>
-          </Link>
-          <Link to="/docs/aspect-ratio">
-            <Button
-              variant="secondary"
-              colorScheme="b/w"
-              rightIcon={<ChevronRightIcon />}
-            >
-              Aspect Ratio
-            </Button>
-          </Link>
-        </div>
+        <FooterButtons labels={["Dark Theme", "Aspect Ratio"]} />
       </div>
     </div>
   );

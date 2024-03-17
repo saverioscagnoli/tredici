@@ -1,6 +1,7 @@
 import {
   CodeBlock,
   CodeTabs,
+  FooterButtons,
   Heading,
   ModuleInstallTabs,
   PreviewTabs
@@ -35,7 +36,6 @@ const usage = `<Menubar>
     </Menubar.Content>
   </Menubar.Menu>
 </Menubar>`;
-
 
 const MenubarPage = () => {
   return (
@@ -84,26 +84,7 @@ const MenubarPage = () => {
           className="mt-4"
         />
 
-        <div className="mt-8 flex justify-between">
-          <Link to="/docs/input">
-            <Button
-              variant="secondary"
-              colorScheme="b/w"
-              leftIcon={<ChevronLeftIcon />}
-            >
-              Input
-            </Button>
-          </Link>
-          <Link to="/docs/popover">
-            <Button
-              variant="secondary"
-              colorScheme="b/w"
-              rightIcon={<ChevronRightIcon />}
-            >
-              Popover
-            </Button>
-          </Link>
-        </div>
+        <FooterButtons labels={["Input", "Popover"]} />
       </div>
     </div>
   );

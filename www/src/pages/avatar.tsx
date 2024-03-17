@@ -1,6 +1,7 @@
 import {
   CodeBlock,
   CodeTabs,
+  FooterButtons,
   Heading,
   ModuleInstallTabs,
   PreviewTabs
@@ -66,26 +67,7 @@ const AvatarPage = () => {
           className="mt-4"
         />
 
-        <div className="mt-8 flex justify-between">
-          <Link to="/docs/aspect-ratio">
-            <Button
-              variant="secondary"
-              colorScheme="b/w"
-              leftIcon={<ChevronLeftIcon />}
-            >
-              Aspect Ratio
-            </Button>
-          </Link>
-          <Link to="/docs/button">
-            <Button
-              variant="secondary"
-              colorScheme="b/w"
-              rightIcon={<ChevronRightIcon />}
-            >
-              Button
-            </Button>
-          </Link>
-        </div>
+        <FooterButtons labels={["Aspect Ratio", "Button"]} />
       </div>
     </div>
   );

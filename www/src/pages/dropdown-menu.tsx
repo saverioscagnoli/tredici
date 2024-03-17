@@ -1,6 +1,7 @@
 import {
   CodeBlock,
   CodeTabs,
+  FooterButtons,
   Heading,
   ModuleInstallTabs,
   PreviewTabs
@@ -125,26 +126,7 @@ const DropdownMenuPage = () => {
           className="mt-4"
         />
 
-        <div className="mt-8 flex justify-between">
-          <Link to="/docs/dialog">
-            <Button
-              variant="secondary"
-              colorScheme="b/w"
-              leftIcon={<ChevronLeftIcon />}
-            >
-              Dialog
-            </Button>
-          </Link>
-          <Link to="/docs/icon-button">
-            <Button
-              variant="secondary"
-              colorScheme="b/w"
-              rightIcon={<ChevronRightIcon />}
-            >
-              Icon Button
-            </Button>
-          </Link>
-        </div>
+        <FooterButtons labels={["Dialog", "Icon Button"]} />
       </div>
     </div>
   );

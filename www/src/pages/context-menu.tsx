@@ -1,6 +1,7 @@
 import {
   CodeBlock,
   CodeTabs,
+  FooterButtons,
   Heading,
   ModuleInstallTabs,
   PreviewTabs
@@ -124,26 +125,7 @@ const ContextMenuPage = () => {
           className="mt-4"
         />
 
-        <div className="mt-8 flex justify-between">
-          <Link to="/docs/collapsible">
-            <Button
-              variant="secondary"
-              colorScheme="b/w"
-              leftIcon={<ChevronLeftIcon />}
-            >
-              Collapsible
-            </Button>
-          </Link>
-          <Link to="/docs/dialog">
-            <Button
-              variant="secondary"
-              colorScheme="b/w"
-              rightIcon={<ChevronRightIcon />}
-            >
-              Dialog
-            </Button>
-          </Link>
-        </div>
+        <FooterButtons labels={["Collapsible", "Dialog"]} />
       </div>
     </div>
   );

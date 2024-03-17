@@ -6,7 +6,8 @@ import {
   SizeRadio,
   PreviewTabs,
   ModuleInstallTabs,
-  CodeBlock
+  CodeBlock,
+  FooterButtons
 } from "@components";
 import { ButtonDemo } from "@examples/button";
 import { Button } from "@tredici";
@@ -131,26 +132,7 @@ const ButtonPage = () => {
           className="mt-4"
         />
 
-        <div className="mt-8 flex justify-between">
-          <Link to="/docs/avatar">
-            <Button
-              variant="secondary"
-              colorScheme="b/w"
-              leftIcon={<ChevronLeftIcon />}
-            >
-              Avatar
-            </Button>
-          </Link>
-          <Link to="/docs/checkbox">
-            <Button
-              variant="secondary"
-              colorScheme="b/w"
-              rightIcon={<ChevronRightIcon />}
-            >
-              Checkbox
-            </Button>
-          </Link>
-        </div>
+        <FooterButtons labels={["Avatar", "Checkbox"]} />
       </div>
     </div>
   );
