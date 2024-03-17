@@ -9,9 +9,7 @@ import {
   CodeBlock
 } from "@components";
 import { ButtonDemo } from "@examples/button";
-import { useScrollToHash } from "@hooks";
-import { Button, ButtonColorScheme, ButtonSize } from "@tredici";
-import { useState } from "react";
+import { Button } from "@tredici";
 
 import code from "@examples/button?raw";
 import { Link } from "react-router-dom";
@@ -24,11 +22,6 @@ import {
 const usage = `<Button variant="..." />`;
 
 const ButtonPage = () => {
-  const [colorScheme, setColorScheme] = useState<ButtonColorScheme>("plum");
-  const [size, setSize] = useState<ButtonSize>("md");
-
-  useScrollToHash();
-
   return (
     <div className="flex">
       <div className="w-1/2">
