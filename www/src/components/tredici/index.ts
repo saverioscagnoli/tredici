@@ -13,3 +13,4 @@ export * from "./radio-group";
 export * from "./checkbox";
 export * from "./context-menu";
 export * from "./dialog";
+export * from "./input";

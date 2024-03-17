@@ -8,3 +8,5 @@ export * from "./collapsible";
 export * from "./context-menu";
 export * from "./dialog";
 export * from "./dropdown-menu";
+export * from "./icon-button";
+export * from "./input";
