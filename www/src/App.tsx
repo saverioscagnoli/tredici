@@ -1,5 +1,4 @@
 import { Navbar, SideTabs } from "@components";
-import { useTheme } from "@hooks";
 import { cn } from "@lib";
 import {
   AlertDialogPage,
@@ -7,9 +6,9 @@ import {
   AvatarPage,
   ButtonPage,
   CheckboxPage,
+  CollapsiblePage,
   Introduction
 } from "@pages";
-import { useEffect, useState } from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
 function App() {
@@ -36,6 +35,7 @@ function App() {
             <Route path="/docs/avatar" element={<AvatarPage />} />
             <Route path="/docs/button" element={<ButtonPage />} />
             <Route path="/docs/checkbox" element={<CheckboxPage />} />
+            <Route path="/docs/collapsible" element={<CollapsiblePage />} />
           </Routes>
         </div>
       </div>
