@@ -12,7 +12,8 @@ import {
   DropdownMenuPage,
   IconButtonPage,
   InputPage,
-  Introduction
+  Introduction,
+  MenubarPage
 } from "@pages";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
@@ -46,6 +47,7 @@ function App() {
             <Route path="/docs/dropdown-menu" element={<DropdownMenuPage />} />
             <Route path="/docs/icon-button" element={<IconButtonPage />} />
             <Route path="/docs/input" element={<InputPage />} />
+            <Route path="/docs/menubar" element={<MenubarPage />} />
           </Routes>
         </div>
       </div>

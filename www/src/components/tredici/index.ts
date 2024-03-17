@@ -14,3 +14,4 @@ export * from "./checkbox";
 export * from "./context-menu";
 export * from "./dialog";
 export * from "./input";
+export * from "./menubar";

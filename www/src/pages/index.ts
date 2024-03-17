@@ -10,3 +10,4 @@ export * from "./dialog";
 export * from "./dropdown-menu";
 export * from "./icon-button";
 export * from "./input";
+export * from "./menubar";
