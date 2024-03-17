@@ -6,6 +6,7 @@ import {
   AspectRatioPage,
   AvatarPage,
   ButtonPage,
+  CheckboxPage,
   Introduction
 } from "@pages";
 import { useEffect, useState } from "react";
@@ -34,6 +35,7 @@ function App() {
             <Route path="/docs/aspect-ratio" element={<AspectRatioPage />} />
             <Route path="/docs/avatar" element={<AvatarPage />} />
             <Route path="/docs/button" element={<ButtonPage />} />
+            <Route path="/docs/checkbox" element={<CheckboxPage />} />
           </Routes>
         </div>
       </div>

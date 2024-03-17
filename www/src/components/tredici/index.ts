@@ -10,3 +10,4 @@ export * from "./aspect-ratio";
 export * from "./avatar";
 export * from "./select";
 export * from "./radio-group";
+export * from "./checkbox";
