@@ -5,27 +5,16 @@ import {
   AlertDialogPage,
   AspectRatioPage,
   AvatarPage,
+  ButtonPage,
   Introduction
 } from "@pages";
 import { useEffect, useState } from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
 function App() {
-  const [bg, setBg] = useState<"pattern" | "pattern-dark">("pattern");
-  const { theme } = useTheme();
-
-  useEffect(() => {
-    setBg(theme === "dark" ? "pattern-dark" : "pattern");
-  }, [theme]);
-
   return (
     <Router>
-      <div
-        className="w-screen h-screen"
-        style={{
-          backgroundImage: `url("/${bg}.svg")`
-        }}
-      >
+      <div className="w-screen h-screen">
         <Navbar />
         <SideTabs />
         <div
@@ -36,7 +25,7 @@ function App() {
             "overflow-y-auto",
             "w-full h-full",
             "ml-[300px]",
-            "px-32 py-20"
+            "px-32 py-32"
           )}
         >
           <Routes>
@@ -44,6 +33,7 @@ function App() {
             <Route path="/docs/alert-dialog" element={<AlertDialogPage />} />
             <Route path="/docs/aspect-ratio" element={<AspectRatioPage />} />
             <Route path="/docs/avatar" element={<AvatarPage />} />
+            <Route path="/docs/button" element={<ButtonPage />} />
           </Routes>
         </div>
       </div>

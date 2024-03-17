@@ -12,6 +12,11 @@ body {
   font-family: "DM Sans", sans-serif;
   color: var(--slate-12);
   background-color: var(--slate-1);
+  background-image: url("/pattern.svg");
+}
+
+html.dark > body {
+  background-image: url("/pattern-dark.svg");
 }
 
 ::-webkit-scrollbar {

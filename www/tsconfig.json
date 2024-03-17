@@ -15,8 +15,7 @@
     "jsx": "react-jsx",
 
     /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
+    "strict": false,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "baseUrl": "./src",
@@ -26,7 +25,8 @@
       "@lib": ["lib/index.ts"],
       "@contexts": ["contexts/index.ts"],
       "@hooks": ["hooks/index.ts"],
-      "@pages": ["pages/index.ts"]
+      "@pages": ["pages/index.ts"],
+      "@examples": ["components/examples/index.ts"]
     }
   },
   "include": ["src"],

@@ -43,10 +43,17 @@ type TabsColorScheme =
   | "b/w"
   | "gray";
 
-const ColorSchemeContext = createContext<TabsColorScheme | null>(null);
+type TabsVariant = "solid" | "flushed";
 
-const useColorScheme = () => {
-  const ctx = useContext(ColorSchemeContext);
+type TabsContextValue = {
+  variant: "solid" | "flushed";
+  colorScheme: TabsColorScheme;
+};
+
+const TabsContext = createContext<TabsContextValue | null>(null);
+
+const useTabs = () => {
+  const ctx = useContext(TabsContext);
 
   if (!ctx) {
     throw new Error(
@@ -66,38 +73,45 @@ type TabsComponent = ForwardRefExoticComponent<
 };
 
 type TabsProps = RxTabs.TabsProps & {
+  variant?: TabsVariant;
   colorScheme?: TabsColorScheme;
 };
 
 const Tabs = forwardRef<
   HTMLDivElement,
   TabsProps & RefAttributes<HTMLDivElement>
->(({ className, colorScheme = "plum", ...props }, ref) => {
+>(({ className, variant = "solid", colorScheme = "plum", ...props }, ref) => {
   return (
-    <ColorSchemeContext.Provider value={colorScheme}>
+    <TabsContext.Provider value={{ colorScheme, variant }}>
       <RxTabs.Root
         className={cn("data-[orientation='vertical']:flex", className)}
         {...props}
         ref={ref}
       />
-    </ColorSchemeContext.Provider>
+    </TabsContext.Provider>
   );
 }) as TabsComponent;
+
+const TabsListVariant = cva(
+  ["flex", "data-[orientation='vertical']:flex-col"],
+  {
+    variants: {
+      variant: {
+        solid: ["p-1", "border border-[--gray-7]", "rounded-md"],
+        flushed: ["border-b border-b-[--gray-7]"]
+      }
+    }
+  }
+);
 
 type TabsListProps = RxTabs.TabsListProps;
 
 const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
   ({ className, ...props }, ref) => {
+    const { variant } = useTabs();
     return (
       <RxTabs.List
-        className={cn(
-          "flex",
-          "p-1",
-          "border border-[--gray-7]",
-          "rounded-md",
-          "data-[orientation='vertical']:flex-col",
-          className
-        )}
+        className={TabsListVariant({ className, variant })}
         {...props}
         ref={ref}
       />
@@ -107,41 +121,132 @@ const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
 
 const tabsTriggerVariants = cva(["data-[state='active']:shadow"], {
   variants: {
+    variant: {
+      solid: ["data-[state='active']:shadow-md", "rounded"],
+      flushed: [
+        "data-[state='active']:bg-transparent",
+        "data-[state='active']:border-b-[3px]",
+        "data-[state='active']:text-[--slate-12]"
+      ]
+    },
     colorScheme: {
-      plum: [
+      plum: [],
+      teal: [],
+      grass: [],
+      red: [],
+      amber: [],
+      blue: [],
+      "b/w": [],
+      gray: []
+    }
+  },
+  compoundVariants: [
+    {
+      variant: "solid",
+      colorScheme: "plum",
+      className: [
         "data-[state='active']:bg-[--plum-9]",
         "data-[state='active']:text-[--slate-1]"
-      ],
-      teal: [
+      ]
+    },
+    {
+      variant: "solid",
+      colorScheme: "teal",
+      className: [
         "data-[state='active']:bg-[--teal-9]",
         "data-[state='active']:text-[--slate-1]"
-      ],
-      grass: [
+      ]
+    },
+
+    {
+      variant: "solid",
+      colorScheme: "grass",
+      className: [
         "data-[state='active']:bg-[--grass-9]",
         "data-[state='active']:text-[--slate-1]"
-      ],
-      red: [
+      ]
+    },
+    {
+      variant: "solid",
+      colorScheme: "red",
+      className: [
         "data-[state='active']:bg-[--red-9]",
         "data-[state='active']:text-[--slate-1]"
-      ],
-      amber: [
+      ]
+    },
+    {
+      variant: "solid",
+      colorScheme: "amber",
+      className: [
         "data-[state='active']:bg-[--amber-9]",
         "data-[state='active']:text-[--slate-1]"
-      ],
-      blue: [
+      ]
+    },
+    {
+      variant: "solid",
+      colorScheme: "blue",
+      className: [
         "data-[state='active']:bg-[--blue-9]",
         "data-[state='active']:text-[--slate-1]"
-      ],
-      "b/w": [
+      ]
+    },
+    {
+      variant: "solid",
+      colorScheme: "b/w",
+      className: [
         "data-[state='active']:bg-[--slate-12]",
         "data-[state='active']:text-[--slate-1]"
-      ],
-      gray: [
+      ]
+    },
+    {
+      variant: "solid",
+      colorScheme: "gray",
+      className: [
         "data-[state='active']:bg-[--gray-6]",
         "data-[state='active']:text-[--slate-12]"
       ]
+    },
+    {
+      variant: "flushed",
+      colorScheme: "plum",
+      className: "data-[state='active']:border-b-[--plum-9]"
+    },
+    {
+      variant: "flushed",
+      colorScheme: "teal",
+      className: "data-[state='active']:border-b-[--teal-9]"
+    },
+    {
+      variant: "flushed",
+      colorScheme: "grass",
+      className: "data-[state='active']:border-b-[--grass-9]"
+    },
+    {
+      variant: "flushed",
+      colorScheme: "red",
+      className: "data-[state='active']:border-b-[--red-9]"
+    },
+    {
+      variant: "flushed",
+      colorScheme: "amber",
+      className: "data-[state='active']:border-b-[--amber-9]"
+    },
+    {
+      variant: "flushed",
+      colorScheme: "blue",
+      className: "data-[state='active']:border-b-[--blue-9]"
+    },
+    {
+      variant: "flushed",
+      colorScheme: "b/w",
+      className: "data-[state='active']:border-b-[--slate-12]"
+    },
+    {
+      variant: "flushed",
+      colorScheme: "gray",
+      className: "data-[state='active']:border-b-[--gray-6]"
     }
-  }
+  ]
 });
 
 type TabsTriggerProps = RxTabs.TabsTriggerProps & {
@@ -149,18 +254,15 @@ type TabsTriggerProps = RxTabs.TabsTriggerProps & {
 };
 
 const TabsTrigger = forwardRef<HTMLButtonElement, TabsTriggerProps>(
-  ({ className, colorScheme, ...props }, ref) => {
+  ({ className, colorScheme: defaultColorScheme, ...props }, ref) => {
+    const { colorScheme, variant } = useTabs();
+
     return (
       <RxTabs.Trigger
         className={tabsTriggerVariants({
-          className: cn(
-            "px-4",
-            "rounded",
-            "font-semibold",
-            "tabs-trigger",
-            className
-          ),
-          colorScheme: colorScheme ?? useColorScheme()
+          className: cn("px-4", "font-semibold", className),
+          colorScheme: defaultColorScheme ?? colorScheme,
+          variant
         })}
         {...props}
         ref={ref}
@@ -194,4 +296,11 @@ Tabs.Content = TabsContent;
 Tabs.displayName = RxTabs.Root.displayName;
 
 export { Tabs };
-export type { TabsProps, TabsListProps, TabsTriggerProps, TabsContentProps };
+export type {
+  TabsColorScheme,
+  TabsVariant,
+  TabsProps,
+  TabsListProps,
+  TabsTriggerProps,
+  TabsContentProps
+};

@@ -1,17 +1,30 @@
-import { Heading, Preview } from "@components";
+import {
+  CodeBlock,
+  CodeTabs,
+  Heading,
+  ModuleInstallTabs,
+  PreviewRect
+} from "@components";
+import { AlertDialogDemo } from "@examples";
 import { useScrollToHash } from "@hooks";
 import { ChevronLeftIcon, ChevronRightIcon } from "@radix-ui/react-icons";
-import { AlertDialog, Button } from "@tredici";
+import { Button, Tabs } from "@tredici";
+
+import code from "components/examples/alert-dialog?raw";
 import { Link } from "react-router-dom";
+
+const usage = `<AlertDialog>
+  <AlertDialog.Trigger />
+  <AlertDialog.Content>
+    <AlertDialog.Title />
+    <AlertDialog.Description />
+    <AlertDialog.Cancel />
+    <AlertDialog.Action />
+  </AlertDialog.Content>
+</AlertDialog>`;
 
 const AlertDialogPage = () => {
   useScrollToHash();
-
-  const audio = new Audio("/bokudan.mp3");
-
-  const play = () => {
-    audio.play();
-  };
 
   return (
     <div className="flex">
@@ -19,49 +32,73 @@ const AlertDialogPage = () => {
         <Heading as="h1" id="alert-dialog">
           Alert Dialog
         </Heading>
+
         <p className="mt-4 text-lg backdrop-blur-sm rounded">
           The alert dialog is a modal that is used to display a message to the
           user.
           <br />
           It requires the user to interact with it before they can continue.
         </p>
-        <Preview
+
+        <Tabs defaultValue="preview" className="mt-12" variant="flushed">
+          <Tabs.List>
+            <Tabs.Trigger value="preview" className="px-12">
+              Preview
+            </Tabs.Trigger>
+            <Tabs.Trigger value="code" className="px-12">
+              Code
+            </Tabs.Trigger>
+          </Tabs.List>
+          <Tabs.Content value="preview">
+            <PreviewRect>
+              <AlertDialogDemo />
+            </PreviewRect>
+          </Tabs.Content>
+          <Tabs.Content value="code">
+            <CodeBlock code={code} language="typescript" />
+          </Tabs.Content>
+        </Tabs>
+
+        <Heading as="h2" id="alert-dialog-props" className="mt-8">
+          Installation
+        </Heading>
+        <p className="mt-2 text-lg backdrop-blur-sm rounded">
+          First, install the required packages.
+        </p>
+        <ModuleInstallTabs
+          className="mt-4"
+          packages={["@radix-ui/react-alert-dialog", "@radix-ui/colors"]}
+        />
+
+        <p className="mt-8 text-lg backdrop-blur-sm rounded">
+          Then you can import the component files and use them in your app.
+        </p>
+
+        <CodeTabs
           componentUrl="https://raw.githubusercontent.com/saverioscagnoli/tredici/master/packages/tredici/src/components/alert-dialog/alert-dialog.tsx"
           cssUrl="https://raw.githubusercontent.com/saverioscagnoli/tredici/master/packages/tredici/src/components/alert-dialog/alert-dialog.css"
-        >
-          <AlertDialog>
-            <AlertDialog.Trigger asChild>
-              <Button>Open Dialog</Button>
-            </AlertDialog.Trigger>
-            <AlertDialog.Content>
-              <AlertDialog.Title>Yoshikage Kira</AlertDialog.Title>
-              <AlertDialog.Description>
-                Killer Queen has already touched the dialog!
-              </AlertDialog.Description>
-              <div className="flex justify-end gap-4 mt-4">
-                <AlertDialog.Cancel asChild>
-                  <Button variant="secondary" colorScheme="b/w">
-                    Cancel
-                  </Button>
-                </AlertDialog.Cancel>
-                <AlertDialog.Action asChild>
-                  <Button colorScheme="red" onClick={play}>
-                    Confirm
-                  </Button>
-                </AlertDialog.Action>
-              </div>
-            </AlertDialog.Content>
-          </AlertDialog>
-        </Preview>
+          className="mt-8 "
+        />
 
-        <div className="flex justify-between mt-8">
-          <Link to="/docs/dark-theme">
+        <Heading as="h2" id="usage" className="mt-8">
+          Usage
+        </Heading>
+
+        <CodeBlock
+          code={usage}
+          language="typescript"
+          copyButton={false}
+          className="mt-4"
+        />
+
+        <div className="mt-8 flex justify-between">
+          <Link to="/docs/getting-started">
             <Button
               variant="secondary"
               colorScheme="b/w"
               leftIcon={<ChevronLeftIcon />}
             >
-              Dark Theme
+              Getting Started
             </Button>
           </Link>
           <Link to="/docs/aspect-ratio">
