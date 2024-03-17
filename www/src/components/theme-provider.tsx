@@ -11,10 +11,13 @@ const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   const toggleTheme = () => setTheme(p => (p === "light" ? "dark" : "light"));
 
   useEffect(() => {
+    document.documentElement.classList.remove("dark");
+    document.documentElement.classList.remove("light");
+
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
     } else {
-      document.documentElement.classList.remove("dark");
+      document.documentElement.classList.add("light");
     }
   }, [theme]);
 

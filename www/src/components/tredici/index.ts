@@ -5,3 +5,8 @@ export * from "./scroll-area";
 export * from "./alert-dialog";
 export * from "./collapsible";
 export * from "./dropdown-menu";
+export * from "./tooltip";
+export * from "./aspect-ratio";
+export * from "./avatar";
+export * from "./select";
+export * from "./radio-group";

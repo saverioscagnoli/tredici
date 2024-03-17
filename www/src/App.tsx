@@ -1,7 +1,12 @@
 import { Navbar, SideTabs } from "@components";
 import { useTheme } from "@hooks";
 import { cn } from "@lib";
-import { AlertDialogPage, Introduction } from "@pages";
+import {
+  AlertDialogPage,
+  AspectRatioPage,
+  AvatarPage,
+  Introduction
+} from "@pages";
 import { useEffect, useState } from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
@@ -37,6 +42,8 @@ function App() {
           <Routes>
             <Route path="/docs" element={<Introduction />} />
             <Route path="/docs/alert-dialog" element={<AlertDialogPage />} />
+            <Route path="/docs/aspect-ratio" element={<AspectRatioPage />} />
+            <Route path="/docs/avatar" element={<AvatarPage />} />
           </Routes>
         </div>
       </div>

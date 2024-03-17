@@ -1,3 +1,4 @@
+@use "sass:meta";
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
 
 @import "@radix-ui/colors/slate.css";
@@ -32,4 +33,12 @@ body {
 .side-tabs:focus::-webkit-scrollbar-thumb,
 .side-tabs:hover::-webkit-scrollbar-thumb {
   visibility: visible;
+}
+
+html.light {
+  @include meta.load-css("highlight.js/styles/github.css");
+}
+
+html.dark {
+  @include meta.load-css("highlight.js/styles/github-dark.css");
 }
