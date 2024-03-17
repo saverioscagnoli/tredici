@@ -6,3 +6,4 @@ export * from "./button-page";
 export * from "./checkbox";
 export * from "./collapsible";
 export * from "./context-menu";
+export * from "./dialog";

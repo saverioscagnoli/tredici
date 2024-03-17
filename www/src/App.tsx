@@ -8,6 +8,7 @@ import {
   CheckboxPage,
   CollapsiblePage,
   ContextMenuPage,
+  DialogPage,
   Introduction
 } from "@pages";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
@@ -38,6 +39,7 @@ function App() {
             <Route path="/docs/checkbox" element={<CheckboxPage />} />
             <Route path="/docs/collapsible" element={<CollapsiblePage />} />
             <Route path="/docs/context-menu" element={<ContextMenuPage />} />
+            <Route path="/docs/dialog" element={<DialogPage />} />
           </Routes>
         </div>
       </div>
