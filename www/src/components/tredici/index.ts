@@ -15,3 +15,4 @@ export * from "./context-menu";
 export * from "./dialog";
 export * from "./input";
 export * from "./menubar";
+export * from "./popover";

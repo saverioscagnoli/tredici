@@ -13,7 +13,8 @@ import {
   IconButtonPage,
   InputPage,
   Introduction,
-  MenubarPage
+  MenubarPage,
+  PopoverPage
 } from "@pages";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
@@ -48,6 +49,7 @@ function App() {
             <Route path="/docs/icon-button" element={<IconButtonPage />} />
             <Route path="/docs/input" element={<InputPage />} />
             <Route path="/docs/menubar" element={<MenubarPage />} />
+            <Route path="/docs/popover" element={<PopoverPage />} />
           </Routes>
         </div>
       </div>
