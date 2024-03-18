@@ -136,4 +136,4 @@ RadioGroup.Item = RadioGroupItem;
 RadioGroup.displayName = RxRadioGroup.Root.displayName;
 
 export { RadioGroup };
-export type { RadioGroupProps, RadioGroupItemProps };
+export type { RadioGroupItemColorScheme,  RadioGroupProps, RadioGroupItemProps };

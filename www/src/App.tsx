@@ -14,7 +14,8 @@ import {
   InputPage,
   Introduction,
   MenubarPage,
-  PopoverPage
+  PopoverPage,
+  RadioGroupPage
 } from "@pages";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
@@ -50,6 +51,7 @@ function App() {
             <Route path="/docs/input" element={<InputPage />} />
             <Route path="/docs/menubar" element={<MenubarPage />} />
             <Route path="/docs/popover" element={<PopoverPage />} />
+            <Route path="/docs/radio-group" element={<RadioGroupPage />} />
           </Routes>
         </div>
       </div>

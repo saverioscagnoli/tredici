@@ -12,3 +12,4 @@ export * from "./icon-button";
 export * from "./input";
 export * from "./menubar";
 export * from "./popover";
+export * from "./radio-group";
