@@ -142,6 +142,7 @@ ScrollArea.displayName = RxScrollArea.Root.displayName;
 
 export { ScrollArea };
 export type {
+  ScrollAreaScrollbarColorScheme,
   ScrollAreaProps,
   ScrollAreaScrollbarProps,
   ScrollAreaCornerProps
