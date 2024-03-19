@@ -354,6 +354,8 @@ Select.displayName = RxSelect.Root.displayName;
 
 export { Select };
 export type {
+  SelectColorScheme,
+  SelectSize,
   SelectProps,
   SelectTriggerProps,
   SelectValueProps,

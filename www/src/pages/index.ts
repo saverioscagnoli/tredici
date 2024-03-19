@@ -14,3 +14,4 @@ export * from "./menubar";
 export * from "./popover";
 export * from "./radio-group";
 export * from "./scroll-area";
+export * from "./select";
