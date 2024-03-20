@@ -17,7 +17,7 @@ const PreviewTabs: React.FC<PreviewTabsProps> = ({
   return (
     <Tabs
       defaultValue="preview"
-      className={cn("mt-12", className)}
+      className="mt-12"
       variant="flushed"
     >
       <Tabs.List>
@@ -29,7 +29,7 @@ const PreviewTabs: React.FC<PreviewTabsProps> = ({
         </Tabs.Trigger>
       </Tabs.List>
       <Tabs.Content value="preview">
-        <PreviewRect className="relative">{demo}</PreviewRect>
+        <PreviewRect className={cn("relative", className)}>{demo}</PreviewRect>
       </Tabs.Content>
       <Tabs.Content value="code">
         <CodeBlock code={demoCode} language="typescript" />
