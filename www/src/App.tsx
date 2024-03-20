@@ -19,7 +19,8 @@ import {
   RadioGroupPage,
   ScrollAreaPage,
   SelectPage,
-  SliderPage
+  SliderPage,
+  SwitchPage
 } from "@pages";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
@@ -60,6 +61,7 @@ function App() {
             <Route path="/docs/scroll-area" element={<ScrollAreaPage />} />
             <Route path="/docs/select" element={<SelectPage />} />
             <Route path="/docs/slider" element={<SliderPage />} />
+            <Route path="/docs/switch" element={<SwitchPage />} />
           </Routes>
         </div>
       </div>

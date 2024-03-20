@@ -17,3 +17,4 @@ export * from "./scroll-area";
 export * from "./select";
 export * from "./slider";
 export * from "./progress";
+export * from "./switch";

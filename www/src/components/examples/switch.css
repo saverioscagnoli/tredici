@@ -1,0 +1,16 @@
+/* SwitchDemo.css */
+@keyframes slide {
+  0% {
+    right: 20px;
+  }
+  50% {
+    right: -8rem;
+  }
+  100% {
+    right: 20px;
+  }
+}
+
+.animate {
+  animation: slide 1.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}

@@ -13,12 +13,7 @@ import { ButtonDemo } from "@examples/button";
 import { Button } from "@tredici";
 
 import code from "@examples/button?raw";
-import { Link } from "react-router-dom";
-import {
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  GitHubLogoIcon
-} from "@radix-ui/react-icons";
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
 
 const usage = `<Button variant="..." />`;
 
