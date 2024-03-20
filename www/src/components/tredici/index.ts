@@ -19,3 +19,4 @@ export * from "./popover";
 export * from "./slider";
 export * from "./progress";
 export * from "./switch";
+export * from "./toast";

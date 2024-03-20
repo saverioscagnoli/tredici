@@ -21,7 +21,8 @@ import {
   SelectPage,
   SliderPage,
   SwitchPage,
-  TabsPage
+  TabsPage,
+  ToastPage
 } from "@pages";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
@@ -64,6 +65,7 @@ function App() {
             <Route path="/docs/slider" element={<SliderPage />} />
             <Route path="/docs/switch" element={<SwitchPage />} />
             <Route path="/docs/tabs" element={<TabsPage />} />
+            <Route path="/docs/toast" element={<ToastPage />} />
           </Routes>
         </div>
       </div>
