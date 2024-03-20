@@ -15,6 +15,7 @@ import {
   Introduction,
   MenubarPage,
   PopoverPage,
+  ProgressPage,
   RadioGroupPage,
   ScrollAreaPage,
   SelectPage,
@@ -54,6 +55,7 @@ function App() {
             <Route path="/docs/input" element={<InputPage />} />
             <Route path="/docs/menubar" element={<MenubarPage />} />
             <Route path="/docs/popover" element={<PopoverPage />} />
+            <Route path="/docs/progress" element={<ProgressPage />} />
             <Route path="/docs/radio-group" element={<RadioGroupPage />} />
             <Route path="/docs/scroll-area" element={<ScrollAreaPage />} />
             <Route path="/docs/select" element={<SelectPage />} />

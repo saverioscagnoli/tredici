@@ -68,7 +68,7 @@ const ButtonPage = () => {
           Examples
         </Heading>
 
-        <Heading as="h3" id="Solid" className="mt-8">
+        <Heading as="h3" id="solid" className="mt-8">
           Solid
         </Heading>
 
