@@ -17,7 +17,8 @@ import {
   PopoverPage,
   RadioGroupPage,
   ScrollAreaPage,
-  SelectPage
+  SelectPage,
+  SliderPage
 } from "@pages";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
@@ -56,6 +57,7 @@ function App() {
             <Route path="/docs/radio-group" element={<RadioGroupPage />} />
             <Route path="/docs/scroll-area" element={<ScrollAreaPage />} />
             <Route path="/docs/select" element={<SelectPage />} />
+            <Route path="/docs/slider" element={<SliderPage />} />
           </Routes>
         </div>
       </div>
