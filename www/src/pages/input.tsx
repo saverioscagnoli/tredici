@@ -22,7 +22,7 @@ const InputPage = () => {
         <Heading as="h1" id="button">
           Button
         </Heading>
-        <p className="mt-4 text-lg backdrop-blur-sm rounded">
+        <p className="mt-4 text-lg   rounded">
           Displays an input field for the user to enter data.
         </p>
 
@@ -31,13 +31,13 @@ const InputPage = () => {
         <Heading as="h2" id="installation" className="mt-8">
           Installation
         </Heading>
-        <p className="mt-2 text-lg backdrop-blur-sm rounded">
+        <p className="mt-2 text-lg   rounded">
           First, install the required packages.
         </p>
 
         <ModuleInstallTabs className="mt-4" packages={["@radix-ui/colors"]} />
 
-        <p className="mt-8 text-lg backdrop-blur-sm rounded">
+        <p className="mt-8 text-lg   rounded">
           Then you can import the component files and use them in your app.
         </p>
 

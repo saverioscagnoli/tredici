@@ -10,6 +10,7 @@ import {
   ContextMenuPage,
   DialogPage,
   DropdownMenuPage,
+  GettingStarted,
   IconButtonPage,
   InputPage,
   Introduction,
@@ -25,7 +26,12 @@ import {
   ToastPage,
   TooltipPage
 } from "@pages";
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import {
+  Route,
+  BrowserRouter as Router,
+  Routes,
+  Navigate
+} from "react-router-dom";
 
 function App() {
   return (
@@ -41,11 +47,17 @@ function App() {
             "overflow-y-auto",
             "w-full h-full",
             "ml-[300px]",
-            "px-32 py-32"
+            "px-32 py-32",
+            "backdrop-blur-sm"
           )}
         >
           <Routes>
             <Route path="/docs" element={<Introduction />} />
+            <Route
+              path="/docs/introduction"
+              element={<Navigate to="/docs" />}
+            />
+            <Route path="/docs/getting-started" element={<GettingStarted />} />
             <Route path="/docs/alert-dialog" element={<AlertDialogPage />} />
             <Route path="/docs/aspect-ratio" element={<AspectRatioPage />} />
             <Route path="/docs/avatar" element={<AvatarPage />} />

@@ -44,7 +44,7 @@ const MenubarPage = () => {
         <Heading as="h1" id="menubar">
           Menubar
         </Heading>
-        <p className="mt-4 text-lg backdrop-blur-sm rounded">
+        <p className="mt-4 text-lg   rounded">
           A visually persistent menu common in desktop applications that
           provides quick access to a consistent set of commands.{" "}
         </p>
@@ -54,7 +54,7 @@ const MenubarPage = () => {
         <Heading as="h2" id="installation" className="mt-8">
           Installation
         </Heading>
-        <p className="mt-2 text-lg backdrop-blur-sm rounded">
+        <p className="mt-2 text-lg   rounded">
           First, install the required packages.
         </p>
 
@@ -63,7 +63,7 @@ const MenubarPage = () => {
           packages={["@radix-ui/react-menubar", "@radix-ui/colors"]}
         />
 
-        <p className="mt-8 text-lg backdrop-blur-sm rounded">
+        <p className="mt-8 text-lg   rounded">
           Then you can import the component files and use them in your app.
         </p>
 

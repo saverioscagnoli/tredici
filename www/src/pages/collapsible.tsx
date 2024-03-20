@@ -26,7 +26,7 @@ const CollapsiblePage = () => {
         <Heading as="h1" id="collapsible">
           Collapsible
         </Heading>
-        <p className="mt-4 text-lg backdrop-blur-sm rounded">
+        <p className="mt-4 text-lg   rounded">
           Used to display and/or hide content.
         </p>
 
@@ -35,7 +35,7 @@ const CollapsiblePage = () => {
         <Heading as="h2" id="installation" className="mt-8">
           Installation
         </Heading>
-        <p className="mt-2 text-lg backdrop-blur-sm rounded">
+        <p className="mt-2 text-lg   rounded">
           First, install the required packages.
         </p>
 
@@ -44,7 +44,7 @@ const CollapsiblePage = () => {
           packages={["@radix-ui/react-collapsible"]}
         />
 
-        <p className="mt-8 text-lg backdrop-blur-sm rounded">
+        <p className="mt-8 text-lg   rounded">
           Then you can import the component files and use them in your app.
         </p>
 

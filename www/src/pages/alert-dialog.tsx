@@ -34,7 +34,7 @@ const AlertDialogPage = () => {
           Alert Dialog
         </Heading>
 
-        <p className="mt-4 text-lg backdrop-blur-sm rounded">
+        <p className="mt-4 text-lg   rounded">
           The alert dialog is a modal that is used to display a message to the
           user.
           <br />
@@ -46,7 +46,7 @@ const AlertDialogPage = () => {
         <Heading as="h2" id="alert-dialog-props" className="mt-8">
           Installation
         </Heading>
-        <p className="mt-2 text-lg backdrop-blur-sm rounded">
+        <p className="mt-2 text-lg   rounded">
           First, install the required packages.
         </p>
 
@@ -55,7 +55,7 @@ const AlertDialogPage = () => {
           packages={["@radix-ui/react-alert-dialog", "@radix-ui/colors"]}
         />
 
-        <p className="mt-8 text-lg backdrop-blur-sm rounded">
+        <p className="mt-8 text-lg   rounded">
           Then you can import the component files and use them in your app.
         </p>
 

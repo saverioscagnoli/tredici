@@ -28,7 +28,7 @@ const DialogPage = () => {
         <Heading as="h1" id="dialog">
           Dialog
         </Heading>
-        <p className="mt-4 text-lg backdrop-blur-sm rounded">
+        <p className="mt-4 text-lg   rounded">
           A window overlaid on either the primary window or another dialog
           window, rendering the content underneath inert.
         </p>
@@ -38,7 +38,7 @@ const DialogPage = () => {
         <Heading as="h2" id="installation" className="mt-8">
           Installation
         </Heading>
-        <p className="mt-2 text-lg backdrop-blur-sm rounded">
+        <p className="mt-2 text-lg   rounded">
           First, install the required packages.
         </p>
 
@@ -47,7 +47,7 @@ const DialogPage = () => {
           packages={["@radix-ui/react-dialog", "@radix-ui/colors"]}
         />
 
-        <p className="mt-8 text-lg backdrop-blur-sm rounded">
+        <p className="mt-8 text-lg   rounded">
           Then you can import the component files and use them in your app.
         </p>
 

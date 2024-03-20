@@ -18,7 +18,7 @@ const ProgressPage = () => {
     <div className="flex">
       <div className="w-1/2">
         <Heading as="h1">Progress</Heading>
-        <p className="mt-4 text-lg backdrop-blur-sm rounded">
+        <p className="mt-4 text-lg   rounded">
           Displays an indicator showing the completion progress of a task,
           typically displayed as a progress bar.
         </p>
@@ -29,7 +29,7 @@ const ProgressPage = () => {
           Installation
         </Heading>
 
-        <p className="mt-2 text-lg backdrop-blur-sm rounded">
+        <p className="mt-2 text-lg   rounded">
           First, install the required packages.
         </p>
 
@@ -38,7 +38,7 @@ const ProgressPage = () => {
           packages={["@radix-ui/react-progress", "@radix-ui/colors"]}
         />
 
-        <p className="mt-8 text-lg backdrop-blur-sm rounded">
+        <p className="mt-8 text-lg   rounded">
           Then you can import the component files and use them in your app.
         </p>
 
@@ -66,7 +66,6 @@ const ProgressPage = () => {
         <Heading as="h3" id="indefinite" className="mt-8">
           Indefinite
         </Heading>
-
 
         <PreviewTabs
           demo={<Progress indefinite />}

@@ -23,7 +23,7 @@ const ScrollAreaPage = () => {
         <Heading as="h1" id="scroll-area">
           Scroll Area
         </Heading>
-        <p className="mt-4 text-lg backdrop-blur-sm rounded">
+        <p className="mt-4 text-lg   rounded">
           Augments native scroll functionality for custom, cross-browser
           styling.
         </p>
@@ -33,7 +33,7 @@ const ScrollAreaPage = () => {
         <Heading as="h2" id="installation" className="mt-8">
           Installation
         </Heading>
-        <p className="mt-2 text-lg backdrop-blur-sm rounded">
+        <p className="mt-2 text-lg   rounded">
           First, install the required packages.
         </p>
 
@@ -42,7 +42,7 @@ const ScrollAreaPage = () => {
           packages={["@radix-ui/react-scroll-area", "@radix-ui/colors"]}
         />
 
-        <p className="mt-8 text-lg backdrop-blur-sm rounded">
+        <p className="mt-8 text-lg   rounded">
           Then you can import the component files and use them in your app.
         </p>
 
@@ -61,7 +61,7 @@ const ScrollAreaPage = () => {
           copyButton={false}
           className="mt-4"
         />
-        
+
         <FooterButtons labels={["Radio Group", "Select"]} />
       </div>
     </div>

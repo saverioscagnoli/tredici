@@ -41,7 +41,7 @@ const ContextMenuPage = () => {
         <Heading as="h1" id="context-menu">
           Context Menu
         </Heading>
-        <p className="mt-4 text-lg backdrop-blur-sm rounded">
+        <p className="mt-4 text-lg   rounded">
           Used to display a menu when the user right-clicks or long-presses an
           element.
         </p>
@@ -51,7 +51,7 @@ const ContextMenuPage = () => {
         <Heading as="h2" id="installation" className="mt-8">
           Installation
         </Heading>
-        <p className="mt-2 text-lg backdrop-blur-sm rounded">
+        <p className="mt-2 text-lg   rounded">
           First, install the required packages.
         </p>
 
@@ -60,7 +60,7 @@ const ContextMenuPage = () => {
           packages={["@radix-ui/react-context-menu", "@radix-ui/colors"]}
         />
 
-        <p className="mt-8 text-lg backdrop-blur-sm rounded">
+        <p className="mt-8 text-lg   rounded">
           Then you can import the component files and use them in your app.
         </p>
 
@@ -89,7 +89,7 @@ const ContextMenuPage = () => {
           Color scheme
         </Heading>
 
-        <p className="mt-4 text-lg backdrop-blur-sm rounded">
+        <p className="mt-4 text-lg   rounded">
           You can define a color scheme for the context menu, and you can pass
           it as a prop in different parts of it.
           <br /> For example, if you define it in the root, it will affect all

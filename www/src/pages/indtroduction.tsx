@@ -8,7 +8,7 @@ const Introduction = () => {
     <div className="flex">
       <div className="w-1/2">
         <Heading as="h1">Introduction</Heading>
-        <p className="mt-4 text-lg backdrop-blur-sm rounded">
+        <p className="mt-4 text-lg   rounded">
           Tredici is a collection of components, hooks, and utilities that I use
           across my projects. It's a way for me to consolidate all of my
           utilities into a single pack and share them with others.
@@ -24,7 +24,7 @@ const Introduction = () => {
         <Heading as="h2" className="mt-8">
           How it's made?
         </Heading>
-        <p className="mt-4 text-lg backdrop-blur-sm rounded">
+        <p className="mt-4 text-lg   rounded">
           This project was made possible by <a>Radix-ui</a>, because I used
           their amazing unstyled primitives, which are easy to use and
           accessible. It's also powered by <a>Tailwind CSS</a>.

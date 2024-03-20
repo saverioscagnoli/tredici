@@ -23,7 +23,7 @@ const TooltipPage = () => {
     <div className="flex">
       <div className="w-1/2">
         <Heading as="h1">Tooltip</Heading>
-        <p className="mt-4 text-lg backdrop-blur-sm rounded">
+        <p className="mt-4 text-lg   rounded">
           A popup that displays information related to an element when the
           element receives keyboard focus or the mouse hovers over it.
         </p>
@@ -34,7 +34,7 @@ const TooltipPage = () => {
           Installation
         </Heading>
 
-        <p className="mt-2 text-lg backdrop-blur-sm rounded">
+        <p className="mt-2 text-lg   rounded">
           First, install the required packages.
         </p>
 
@@ -43,7 +43,7 @@ const TooltipPage = () => {
           packages={["@radix-ui/react-tooltip", "@radix-ui/colors"]}
         />
 
-        <p className="mt-8 text-lg backdrop-blur-sm rounded">
+        <p className="mt-8 text-lg   rounded">
           Then you can import the component files and use them in your app.
         </p>
 

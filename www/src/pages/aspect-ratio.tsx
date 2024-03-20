@@ -27,7 +27,7 @@ const AspectRatioPage = () => {
         <Heading as="h1" id="aspect-ratio">
           Aspect Ratio
         </Heading>
-        <p className="mt-4 text-lg backdrop-blur-sm rounded">
+        <p className="mt-4 text-lg   rounded">
           Used to display content in a specific aspect ratio.
         </p>
 
@@ -36,7 +36,7 @@ const AspectRatioPage = () => {
         <Heading as="h2" id="installation" className="mt-8">
           Installation
         </Heading>
-        <p className="mt-2 text-lg backdrop-blur-sm rounded">
+        <p className="mt-2 text-lg   rounded">
           First, install the required packages.
         </p>
 
@@ -45,7 +45,7 @@ const AspectRatioPage = () => {
           packages={["@radix-ui/react-aspect-ratio"]}
         />
 
-        <p className="mt-8 text-lg backdrop-blur-sm rounded">
+        <p className="mt-8 text-lg   rounded">
           Then you can import the component files and use them in your app.
         </p>
 

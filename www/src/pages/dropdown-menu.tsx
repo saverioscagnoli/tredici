@@ -42,7 +42,7 @@ const DropdownMenuPage = () => {
         <Heading as="h1" id="dropdown-menu">
           Dropdown Menu
         </Heading>
-        <p className="mt-4 text-lg backdrop-blur-sm rounded">
+        <p className="mt-4 text-lg   rounded">
           Displays a menu to the user—such as a set of actions or
           functions—triggered by a button.
         </p>
@@ -52,7 +52,7 @@ const DropdownMenuPage = () => {
         <Heading as="h2" id="installation" className="mt-8">
           Installation
         </Heading>
-        <p className="mt-2 text-lg backdrop-blur-sm rounded">
+        <p className="mt-2 text-lg   rounded">
           First, install the required packages.
         </p>
 
@@ -61,7 +61,7 @@ const DropdownMenuPage = () => {
           packages={["@radix-ui/react-dropdown-menu", "@radix-ui/colors"]}
         />
 
-        <p className="mt-8 text-lg backdrop-blur-sm rounded">
+        <p className="mt-8 text-lg   rounded">
           Then you can import the component files and use them in your app.
         </p>
 
@@ -90,7 +90,7 @@ const DropdownMenuPage = () => {
           Color scheme
         </Heading>
 
-        <p className="mt-4 text-lg backdrop-blur-sm rounded">
+        <p className="mt-4 text-lg   rounded">
           You can define a color scheme for the dropdown menu, and you can pass
           it as a prop in different parts of it.
           <br /> For example, if you define it in the root, it will affect all

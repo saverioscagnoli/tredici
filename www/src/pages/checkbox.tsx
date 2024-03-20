@@ -22,7 +22,7 @@ const CheckboxPage = () => {
         <Heading as="h1" id="checkbox">
           Checkbox
         </Heading>
-        <p className="mt-4 text-lg backdrop-blur-sm rounded">
+        <p className="mt-4 text-lg   rounded">
           The Checkbox component is used to select or deselect an option.
         </p>
 
@@ -31,7 +31,7 @@ const CheckboxPage = () => {
         <Heading as="h2" id="alert-dialog-props" className="mt-8">
           Installation
         </Heading>
-        <p className="mt-2 text-lg backdrop-blur-sm rounded">
+        <p className="mt-2 text-lg   rounded">
           First, install the required packages.
         </p>
 
@@ -44,7 +44,7 @@ const CheckboxPage = () => {
           ]}
         />
 
-        <p className="mt-8 text-lg backdrop-blur-sm rounded">
+        <p className="mt-8 text-lg   rounded">
           Then you can import the component files and use them in your app.
         </p>
 

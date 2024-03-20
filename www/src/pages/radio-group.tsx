@@ -21,7 +21,7 @@ const RadioGroupPage = () => {
         <Heading as="h1" id="radio-group">
           Radio Group
         </Heading>
-        <p className="mt-4 text-lg backdrop-blur-sm rounded">
+        <p className="mt-4 text-lg   rounded">
           A set of checkable buttons—known as radio buttons—where no more than
           one of the buttons can be checked at a time.
         </p>
@@ -31,7 +31,7 @@ const RadioGroupPage = () => {
         <Heading as="h2" id="installation" className="mt-8">
           Installation
         </Heading>
-        <p className="mt-2 text-lg backdrop-blur-sm rounded">
+        <p className="mt-2 text-lg   rounded">
           First, install the required packages.
         </p>
 
@@ -40,7 +40,7 @@ const RadioGroupPage = () => {
           packages={["@radix-ui/react-radio-group", "@radix-ui/colors"]}
         />
 
-        <p className="mt-8 text-lg backdrop-blur-sm rounded">
+        <p className="mt-8 text-lg   rounded">
           Then you can import the component files and use them in your app.
         </p>
 

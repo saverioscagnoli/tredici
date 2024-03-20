@@ -23,7 +23,7 @@ const ToastPage = () => {
     <div className="flex">
       <div className="w-1/2">
         <Heading as="h1">Toast</Heading>
-        <p className="mt-4 text-lg backdrop-blur-sm rounded">
+        <p className="mt-4 text-lg   rounded">
           A succinct message that is displayed temporarily.
         </p>
 
@@ -33,7 +33,7 @@ const ToastPage = () => {
           Installation
         </Heading>
 
-        <p className="mt-2 text-lg backdrop-blur-sm rounded">
+        <p className="mt-2 text-lg   rounded">
           First, install the required packages.
         </p>
 
@@ -42,7 +42,7 @@ const ToastPage = () => {
           packages={["@radix-ui/react-toast"]}
         />
 
-        <p className="mt-8 text-lg backdrop-blur-sm rounded">
+        <p className="mt-8 text-lg   rounded">
           Then you can import the component files and use them in your app.
         </p>
 
