@@ -135,7 +135,7 @@ const ButtonPage = () => {
             Loading...
           </Button>
         }
-        demoCode={`<Button disabled variant="secondary" leftIcon={<Spinner />}>Loading...</Button>`}
+        demoCode={`<Button variant="secondary" leftIcon={<Spinner />}>Loading...</Button>`}
       />
 
       <FooterButtons labels={["Avatar", "Checkbox"]} />

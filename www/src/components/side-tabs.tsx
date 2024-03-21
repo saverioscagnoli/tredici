@@ -30,7 +30,8 @@ const TabClickable: React.FC<ComponentProps<"span">> = ({
         "px-4 py-1",
         "rounded-md",
         "cursor-pointer",
-        active && "bg-[--plum-9] text-[--slate-1] hover:bg-[--plum-10]",
+        active &&
+          "bg-[--plum-9] text-[--slate-1] hover:bg-[--plum-10] font-semibold",
         !active && "hover:bg-[--gray-4]",
         className
       )}
@@ -91,8 +92,9 @@ const SideTabs: React.FC<ComponentProps<"div">> = ({ className, ...props }) => {
         "overflow-auto",
         "fixed mt-16",
         "flex flex-col gap-1",
-        "px-16 py-4",
-        "bg-trasnparent",
+        "border-r border-[--gray-7]",
+        "px-14 py-4",
+        "bg-trasnparent backdrop-blur",
         "side-tabs",
         className
       )}
