@@ -1,6 +1,6 @@
 import * as RxDropdownMenu from "@radix-ui/react-dropdown-menu";
 import React, { ReactNode, createContext, forwardRef, useContext } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@lib";
 import { cva } from "class-variance-authority";
 import {
   CheckIcon,

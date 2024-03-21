@@ -1,5 +1,5 @@
 import * as RxScrollArea from "@radix-ui/react-scroll-area";
-import { cn } from "@/lib/utils";
+import { cn } from "@lib";
 import { cva } from "class-variance-authority";
 import { ForwardRefExoticComponent, RefAttributes, forwardRef } from "react";
 
@@ -142,6 +142,7 @@ ScrollArea.displayName = RxScrollArea.Root.displayName;
 
 export { ScrollArea };
 export type {
+  ScrollAreaScrollbarColorScheme,
   ScrollAreaProps,
   ScrollAreaScrollbarProps,
   ScrollAreaCornerProps

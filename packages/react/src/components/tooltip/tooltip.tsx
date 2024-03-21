@@ -1,5 +1,5 @@
 import * as RxTooltip from "@radix-ui/react-tooltip";
-import { cn } from "@/lib/utils";
+import { cn } from "@lib";
 import React, { forwardRef } from "react";
 
 import "@radix-ui/colors/slate.css";
@@ -36,11 +36,13 @@ const TooltipContent = forwardRef<HTMLDivElement, TooltipContentProps>(
         className={cn(
           "bg-[--slate-12]",
           "text-[--slate-1]",
-          "font-semibold",
-          "py-[1px]",
+          "text-sm",
+          "py-1",
           "px-2",
-          "rounded",
+          "font-semibold",
+          "rounded-md",
           "shadow",
+          "z-50",
           "tooltip-content",
           className
         )}

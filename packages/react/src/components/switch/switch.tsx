@@ -1,5 +1,5 @@
 import * as RxSwitch from "@radix-ui/react-switch";
-import { cn } from "@/lib/utils";
+import { cn } from "@lib";
 import { cva } from "class-variance-authority";
 import { RefAttributes, forwardRef } from "react";
 
@@ -122,4 +122,4 @@ const Switch = forwardRef<
 });
 
 export { Switch };
-export type { SwitchProps };
+export type { SwitchColorScheme, SwitchSize, SwitchProps };

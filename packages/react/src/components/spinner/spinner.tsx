@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@lib";
 import { cva } from "class-variance-authority";
 import { ComponentPropsWithoutRef, forwardRef } from "react";
 
@@ -82,3 +82,4 @@ const Spinner = forwardRef<SVGSVGElement, SpinnerProps>(
 );
 
 export { Spinner };
+export type { SpinnerColorScheme, SpinnerSize, SpinnerProps };

@@ -1,5 +1,5 @@
 import * as RxAlertDialog from "@radix-ui/react-alert-dialog";
-import { cn } from "@/lib/utils";
+import { cn } from "@lib";
 import { forwardRef } from "react";
 
 import "@radix-ui/colors/gray-alpha.css";
@@ -34,6 +34,7 @@ const AlertDialogContent = forwardRef<HTMLDivElement, AlertDialogContentProps>(
       <RxAlertDialog.Portal>
         <RxAlertDialog.Overlay
           className={cn(
+            "z-[9998]",
             "bg-[--gray-a11]",
             "fixed inset-0",
             "alert-dialog-overlay"
@@ -41,11 +42,13 @@ const AlertDialogContent = forwardRef<HTMLDivElement, AlertDialogContentProps>(
         />
         <RxAlertDialog.Content
           className={cn(
+            "z-[9999]",
             "w-11/12 max-w-[500px] max-h-[85vh]",
             "p-5",
             "rounded-md",
             "shadow-lg",
-            ["bg-[--slate-1]", "text-[--slate-12]"],
+            "bg-[--slate-1]",
+            "text-[--slate-12]",
             "border border-[--gray-6]",
             "fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2",
             "focus:outline-none",

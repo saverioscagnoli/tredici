@@ -1,5 +1,5 @@
 import * as RxSlider from "@radix-ui/react-slider";
-import { cn } from "@/lib/utils";
+import { cn } from "@lib";
 import { cva } from "class-variance-authority";
 import { RefAttributes, forwardRef } from "react";
 
@@ -104,4 +104,4 @@ const Slider = forwardRef<
 });
 
 export { Slider };
-export type { SliderProps };
+export type { SliderColorScheme, SliderProps };

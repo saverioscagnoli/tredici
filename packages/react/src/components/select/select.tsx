@@ -1,5 +1,5 @@
 import * as RxSelect from "@radix-ui/react-select";
-import { cn } from "@/lib/utils";
+import { cn } from "@lib";
 import {
   ArrowDownIcon,
   CheckIcon,
@@ -95,7 +95,7 @@ const Select: SelectComponent = ({
 
 const selectTriggerVariants = cva(
   [
-    "flex justify-between items-center gap-16",
+    "flex justify-between items-center",
     "px-2",
     "font-semibold",
     "text-nowrap",
@@ -185,9 +185,9 @@ const SelectValue = RxSelect.Value;
 const selectContentVariants = cva(
   [
     "w-[var(--radix-select-trigger-width)]",
+    "bg-[--slate-1]",
     "border border-[--gray-7]",
     "overflow-hidden",
-    ["bg-light", "dark:bg-dark"],
     "cursor-default",
     "select-content"
   ],
@@ -354,6 +354,8 @@ Select.displayName = RxSelect.Root.displayName;
 
 export { Select };
 export type {
+  SelectColorScheme,
+  SelectSize,
   SelectProps,
   SelectTriggerProps,
   SelectValueProps,

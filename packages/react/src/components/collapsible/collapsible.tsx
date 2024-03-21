@@ -1,6 +1,6 @@
 import * as RxCollapsible from "@radix-ui/react-collapsible";
 import { ForwardRefExoticComponent, RefAttributes, forwardRef } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@lib";
 
 import "./collapsible.css";
 

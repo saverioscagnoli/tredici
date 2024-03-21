@@ -1,5 +1,5 @@
 import * as RxProgress from "@radix-ui/react-progress";
-import { cn } from "@/lib/utils";
+import { cn } from "@lib";
 import { forwardRef } from "react";
 import { cva } from "class-variance-authority";
 
@@ -66,7 +66,7 @@ const Progress = forwardRef<HTMLDivElement, ProgressProps>(
     return (
       <RxProgress.Root
         className={cn(
-          "h-1.5",
+          "w-[12.5rem] h-1.5",
           "relative",
           "bg-[--gray-5]",
           "overflow-hidden",
@@ -94,4 +94,4 @@ const Progress = forwardRef<HTMLDivElement, ProgressProps>(
 );
 
 export { Progress };
-export type { ProgressProps, ProgressColorScheme };
+export type { ProgressColorScheme, ProgressProps };

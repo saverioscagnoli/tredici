@@ -22,7 +22,8 @@
 
     "baseUrl": "./src",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@lib": ["lib/index.ts"],
     }
   },
   "include": ["src"],

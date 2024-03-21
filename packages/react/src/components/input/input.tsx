@@ -64,7 +64,7 @@ const inputVariants = cva(
         red: ["focus:ring-[--red-9]"],
         amber: ["focus:ring-[--amber-9]"],
         blue: ["focus:ring-[--blue-9]"],
-        "b/w": ["focus:ring-[--gray-9]"]
+        "b/w": ["focus:ring-[--slate-12]"]
       },
       size: {
         sm: "h-6 px-1 py-1 text-sm rounded",
@@ -123,4 +123,4 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 );
 
 export { Input };
-export type { InputProps };
+export type { InputProps, InputColorScheme, InputSize };

@@ -1,6 +1,6 @@
 import * as RxPopover from "@radix-ui/react-popover";
 import { forwardRef } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@lib";
 import { Cross1Icon } from "@radix-ui/react-icons";
 
 import "@radix-ui/colors/gray.css";

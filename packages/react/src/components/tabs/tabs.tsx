@@ -1,5 +1,5 @@
 import * as RxTabs from "@radix-ui/react-tabs";
-import { cn } from "@/lib/utils";
+import { cn } from "@lib";
 import { cva } from "class-variance-authority";
 import {
   ForwardRefExoticComponent,

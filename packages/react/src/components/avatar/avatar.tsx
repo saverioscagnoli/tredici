@@ -1,5 +1,5 @@
 import * as RxAvatar from "@radix-ui/react-avatar";
-import { cn } from "@/lib/utils";
+import { cn } from "@lib";
 import { PersonIcon } from "@radix-ui/react-icons";
 import { cva } from "class-variance-authority";
 import {
@@ -91,7 +91,7 @@ const avatarVariants = cva(
       },
       size: {
         sm: "w-8 h-8 text-xs",
-        md: "w-10 h-10",
+        md: "w-11 h-11",
         lg: "w-12 h-12 text-lg",
         xl: "w-16 h-16 text-2xl"
       }

@@ -1,6 +1,6 @@
 import * as RxDialog from "@radix-ui/react-dialog";
 import { forwardRef } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@lib";
 import { Cross1Icon } from "@radix-ui/react-icons";
 
 import "./dialog.css";
@@ -28,16 +28,23 @@ const DialogContent = forwardRef<HTMLDivElement, DialogContentProps>(
     return (
       <RxDialog.Portal>
         <RxDialog.Overlay
-          className={cn("bg-gray-950/25", "fixed inset-0", "dialog-overlay")}
+          className={cn(
+            "z-[9998]",
+            "bg-gray-950/25",
+            "fixed inset-0",
+            "dialog-overlay"
+          )}
         />
         <RxDialog.Content
           className={cn(
+            "z-[9999]",
             "w-11/12 max-w-[500px] max-h-[85vh]",
             "p-5",
             "relative",
             "rounded-md",
             "shadow-lg",
-            ["bg-light text-black", "dark:bg-dark dark:text-white"],
+            "bg-[--slate-1]",
+            "text-[--slate-12]",
             "border border-gray-500/25",
             "fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2",
             "focus:outline-none",
@@ -93,10 +100,10 @@ const DialogClose = forwardRef<HTMLButtonElement, DialogCloseProps>(
           ref={ref}
         >
           <Cross1Icon
-            className={cn([
+            className={cn(
               ["text-gray-500", "hover:text-gray-950"],
               ["dark:text-gray-400", "dark:hover:text-gray-300"]
-            ])}
+            )}
           />
         </RxDialog.Close>
       );
