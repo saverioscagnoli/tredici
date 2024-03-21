@@ -29,14 +29,14 @@ import {
 } from "@pages";
 import {
   Route,
-  HashRouter as Router,
+  BrowserRouter as Router,
   Routes,
   Navigate
 } from "react-router-dom";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/">
       <div className="w-screen h-screen">
         <Navbar />
         <SideTabs />
