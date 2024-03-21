@@ -8,6 +8,7 @@ import {
   CheckboxPage,
   CollapsiblePage,
   ContextMenuPage,
+  DarkMode,
   DialogPage,
   DropdownMenuPage,
   GettingStarted,
@@ -41,14 +42,11 @@ function App() {
         <SideTabs />
         <div
           className={cn(
-            "flex flex-col justify-center",
-            "lg:block",
             "fixed",
             "overflow-y-auto",
             "w-full h-full",
-            "ml-[300px]",
-            "px-32 py-32",
-            "backdrop-blur-sm"
+            "lg:ml-[300px] ",
+            "lg:px-32 px-4 py-32"
           )}
         >
           <Routes>
@@ -58,6 +56,7 @@ function App() {
               element={<Navigate to="/docs" />}
             />
             <Route path="/docs/getting-started" element={<GettingStarted />} />
+            <Route path="/docs/dark-theme" element={<DarkMode />} />
             <Route path="/docs/alert-dialog" element={<AlertDialogPage />} />
             <Route path="/docs/aspect-ratio" element={<AspectRatioPage />} />
             <Route path="/docs/avatar" element={<AvatarPage />} />

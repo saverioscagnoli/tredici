@@ -21,7 +21,7 @@ const usage = `<Toast>
 const ToastPage = () => {
   return (
     <div className="flex">
-      <div className="w-1/2">
+      <div className="lg:w-1/2 w-full">
         <Heading as="h1">Toast</Heading>
         <p className="mt-4 text-lg   rounded">
           A succinct message that is displayed temporarily.

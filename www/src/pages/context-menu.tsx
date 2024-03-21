@@ -37,7 +37,7 @@ const usage = `<ContextMenu>
 const ContextMenuPage = () => {
   return (
     <div className="flex">
-      <div className="w-1/2">
+      <div className="lg:w-1/2 w-full">
         <Heading as="h1" id="context-menu">
           Context Menu
         </Heading>

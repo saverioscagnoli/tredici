@@ -15,7 +15,7 @@ const usage = `<Switch />`;
 const SwitchPage = () => {
   return (
     <div className="flex">
-      <div className="w-1/2">
+      <div className="lg:w-1/2 w-full">
         <Heading as="h1" id="switch">
           Switch
         </Heading>

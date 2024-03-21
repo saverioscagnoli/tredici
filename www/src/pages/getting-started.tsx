@@ -27,7 +27,7 @@ function cn(...args: ClassValue[]) {
 const GettingStarted = () => {
   return (
     <div className="flex">
-      <div className="w-1/2">
+      <div className="lg:w-1/2 w-full">
         <Heading as="h1">Getting started</Heading>
 
         <p className="mt-2 text-lg rounded">

@@ -16,7 +16,7 @@ const usage = `<Progress />`;
 const ProgressPage = () => {
   return (
     <div className="flex">
-      <div className="w-1/2">
+      <div className="lg:w-1/2 w-full">
         <Heading as="h1">Progress</Heading>
         <p className="mt-4 text-lg   rounded">
           Displays an indicator showing the completion progress of a task,

@@ -21,17 +21,17 @@ const TabClickable: React.FC<ComponentProps<"span">> = ({
 }) => {
   const kebab = toKebabCase(children as string);
   const path = window.location.pathname.split("/").pop();
-  const active = path === kebab;
+  const active =
+    path === kebab || (path === "docs" && kebab === "introduction");
 
   return (
     <span
       className={cn(
-        "px-4 py-2",
-        "rounded-lg",
+        "px-4 py-1",
+        "rounded-md",
         "cursor-pointer",
-        active && "bg-[--gray-4] underline",
-        "hover:bg-[--gray-4]",
-        ["hover:underline", "underline-offset-2"],
+        active && "bg-[--plum-9] text-[--slate-1] hover:bg-[--plum-10]",
+        !active && "hover:bg-[--gray-4]",
         className
       )}
       children={children}
@@ -92,8 +92,6 @@ const SideTabs: React.FC<ComponentProps<"div">> = ({ className, ...props }) => {
         "flex flex-col gap-1",
         "px-16 py-4",
         "bg-trasnparent",
-        "backdrop-blur",
-        "border-r border-r-[--gray-7]",
         "side-tabs",
         className
       )}

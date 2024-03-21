@@ -9,16 +9,13 @@ import {
 import { InputDemo } from "@examples/input";
 
 import code from "@examples/input?raw";
-import { ChevronLeftIcon, ChevronRightIcon } from "@radix-ui/react-icons";
-import { Button } from "@tredici";
-import { Link } from "react-router-dom";
 
 const usage = `<Input colorScheme={...} />`;
 
 const InputPage = () => {
   return (
     <div className="flex">
-      <div className="w-1/2">
+      <div className="lg:w-1/2 w-full">
         <Heading as="h1" id="button">
           Button
         </Heading>

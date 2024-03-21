@@ -38,7 +38,7 @@ const usage = `<DropdownMenu>
 const DropdownMenuPage = () => {
   return (
     <div className="flex">
-      <div className="w-1/2">
+      <div className="lg:w-1/2 w-full">
         <Heading as="h1" id="dropdown-menu">
           Dropdown Menu
         </Heading>

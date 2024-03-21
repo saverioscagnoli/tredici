@@ -28,7 +28,7 @@ const usage = `<Select>
 const SelectPage = () => {
   return (
     <div className="flex">
-      <div className="w-1/2">
+      <div className="lg:w-1/2 w-full">
         <Heading as="h1">Select</Heading>
         <p className="mt-4 text-lg   rounded">
           Displays a list of options for the user to pick from{" "}

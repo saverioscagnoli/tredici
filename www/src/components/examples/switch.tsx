@@ -19,7 +19,6 @@ const SwitchDemo = () => {
     }
   }, [checked]);
 
-  console.log(animate)
 
   return (
     <div>

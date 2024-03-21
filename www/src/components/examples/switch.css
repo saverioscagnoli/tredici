@@ -12,5 +12,5 @@
 }
 
 .animate {
-  animation: slide 1.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  animation: slide 1.5s cubic-bezier(0.19, 1, 0.22, 1);
 }

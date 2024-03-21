@@ -8,11 +8,8 @@ import {
 } from "@components";
 import { AlertDialogDemo } from "@examples/alert-dialog";
 import { useScrollToHash } from "@hooks";
-import { ChevronLeftIcon, ChevronRightIcon } from "@radix-ui/react-icons";
-import { Button, Tabs } from "@tredici";
 
 import code from "@examples/alert-dialog?raw";
-import { Link } from "react-router-dom";
 
 const usage = `<AlertDialog>
   <AlertDialog.Trigger />
@@ -29,7 +26,7 @@ const AlertDialogPage = () => {
 
   return (
     <div className="flex">
-      <div className="w-1/2">
+      <div className="lg:w-1/2 w-full">
         <Heading as="h1" id="alert-dialog">
           Alert Dialog
         </Heading>

@@ -21,7 +21,7 @@ const usage = `<Tooltip>
 const TooltipPage = () => {
   return (
     <div className="flex">
-      <div className="w-1/2">
+      <div className="lg:w-1/2 w-full">
         <Heading as="h1">Tooltip</Heading>
         <p className="mt-4 text-lg   rounded">
           A popup that displays information related to an element when the

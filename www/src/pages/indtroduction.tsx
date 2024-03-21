@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Introduction = () => {
   return (
     <div className="flex">
-      <div className="w-1/2">
+      <div className="lg:w-1/2 w-full">
         <Heading as="h1">Introduction</Heading>
         <p className="mt-4 text-lg   rounded">
           Tredici is a collection of components, hooks, and utilities that I use

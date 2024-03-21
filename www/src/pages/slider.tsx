@@ -15,7 +15,7 @@ const usage = `<Slider />`;
 const SliderPage = () => {
   return (
     <div className="flex">
-      <div className="w-1/2">
+      <div className="lg:w-1/2 w-full">
         <Heading as="h1">Slider</Heading>
         <p className="mt-4 text-lg   rounded">
           An input where the user selects a value from within a given range.
