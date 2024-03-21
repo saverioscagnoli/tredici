@@ -86,9 +86,9 @@ const SideTabs: React.FC<ComponentProps<"div">> = ({ className, ...props }) => {
     <div
       className={cn(
         "lg:!flex !hidden",
-        "w-[300px] h-[calc(100%-4rem)]",
+        "w-[300px] h-[calc(100vh-64px)]",
+        "overflow-auto",
         "fixed mt-16",
-        "overflow-y-auto",
         "flex flex-col gap-1",
         "px-16 py-4",
         "bg-trasnparent",

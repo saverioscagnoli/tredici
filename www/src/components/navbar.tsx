@@ -50,7 +50,7 @@ const Navbar: React.FC<ComponentProps<"div">> = ({ className, ...props }) => {
       className={cn(
         "w-full h-16",
         "flex justify-between items-center",
-        "fixed top-0 left-0",
+        "fixed top-0",
         "z-10",
         "md:px-20 px-5",
         "bg-transparent backdrop-blur",

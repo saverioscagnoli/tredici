@@ -1,4 +1,4 @@
-import { CodeBlock, FooterButtons, Heading } from "@components";
+import { CodeBlock, FooterButtons, Heading, Toc } from "@components";
 
 const ctxCode = `import { Dispatch, SetStateAction, createContext } from "react";
 
@@ -70,45 +70,43 @@ export { ThemeProvider }`;
 
 const DarkMode = () => {
   return (
-    <div className="flex">
-      <div className="lg:w-1/2 w-full">
-        <Heading as="h1">Dark theme</Heading>
-        <p className="mt-4 text-lg">
-          Tredici uses the Tailwind dark class to enable dark mode, but it does
-          not provide a way to toggle or examine the theme state.
-        </p>
+    <Toc>
+      <Heading as="h1">Dark theme</Heading>
+      <p className="mt-4 text-lg">
+        Tredici uses the Tailwind dark class to enable dark mode, but it does
+        not provide a way to toggle or examine the theme state.
+      </p>
 
-        <p className="mt-4 text-lg">
-          You can implement any solution you'd like, but here's how I do it:
-        </p>
+      <p className="mt-4 text-lg">
+        You can implement any solution you'd like, but here's how I do it:
+      </p>
 
-        <p className="mt-4 text-lg">
-          First, create a context to manage the theme state.
-        </p>
+      <p className="mt-4 text-lg">
+        First, create a context to manage the theme state.
+      </p>
 
-        <CodeBlock className="mt-4" code={ctxCode} language="typescript" />
+      <CodeBlock className="mt-4" code={ctxCode} language="typescript" />
 
-        <p className="mt-4 text-lg">
-          Then, you can create a custom hook to use the context in a re-usable
-          way.
-        </p>
+      <p className="mt-4 text-lg">
+        Then, you can create a custom hook to use the context in a re-usable
+        way.
+      </p>
 
-        <CodeBlock className="mt-4" code={hookCode} language="typescript" />
+      <CodeBlock className="mt-4" code={hookCode} language="typescript" />
 
-        <p className="mt-4 text-lg">
-          Finally, create a <code>ThemeProvider</code> component and use it to
-          wrap the entire app.
-        </p>
+      <p className="mt-4 text-lg">
+        Finally, create a <code>ThemeProvider</code> component and use it to
+        wrap the entire app.
+      </p>
 
-        <CodeBlock
-          className="mt-4"
-          code={themeProviderCode}
-          language="typescript"
-        />
+      <CodeBlock
+        className="mt-4"
+        code={themeProviderCode}
+        language="typescript"
+      />
 
-        <FooterButtons labels={["Alert Dialog", "Getting Started"]} />
-      </div>
-    </div>
+      <FooterButtons labels={["Alert Dialog", "Getting Started"]} />
+    </Toc>
   );
 };
 

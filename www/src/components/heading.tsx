@@ -29,4 +29,6 @@ const Heading: React.FC<HeadingProps> = ({
   return <h1 className={headingVariants({ className, as })} {...props} />;
 };
 
+Heading.displayName = "Heading";
+
 export { Heading };

@@ -1,7 +1,4 @@
-import {
-  CheckIcon,
-  ClipboardCopyIcon,
-} from "@radix-ui/react-icons";
+import { CheckIcon, CopyIcon } from "@radix-ui/react-icons";
 import { IconButton, IconButtonProps, Tooltip } from "@tredici";
 import React, { useEffect, useState } from "react";
 
@@ -34,7 +31,7 @@ const CopyButton: React.FC<CopyButtonProps> = ({ text, ...props }) => {
           onClick={copy}
           colorScheme={open ? "grass" : "b/w"}
           variant="secondary"
-          icon={open ? <CheckIcon /> : <ClipboardCopyIcon />}
+          icon={open ? <CheckIcon /> : <CopyIcon />}
           {...props}
         />
       </Tooltip.Trigger>

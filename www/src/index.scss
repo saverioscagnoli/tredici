@@ -30,13 +30,13 @@ html.dark > body {
   background-color: var(--gray-8);
 }
 
-.side-tabs::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
   visibility: hidden;
 }
 
-.side-tabs:active::-webkit-scrollbar-thumb,
-.side-tabs:focus::-webkit-scrollbar-thumb,
-.side-tabs:hover::-webkit-scrollbar-thumb {
+*:active::-webkit-scrollbar-thumb,
+*:focus::-webkit-scrollbar-thumb,
+*:hover::-webkit-scrollbar-thumb {
   visibility: visible;
 }
 

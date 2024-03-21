@@ -42,6 +42,7 @@ const TooltipContent = forwardRef<HTMLDivElement, TooltipContentProps>(
           "font-semibold",
           "rounded-md",
           "shadow",
+          "z-50",
           "tooltip-content",
           className
         )}

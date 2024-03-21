@@ -4,10 +4,10 @@ import {
   FooterButtons,
   Heading,
   ModuleInstallTabs,
-  PreviewTabs
+  PreviewTabs,
+  Toc
 } from "@components";
 import { AlertDialogDemo } from "@examples/alert-dialog";
-import { useScrollToHash } from "@hooks";
 
 import code from "@examples/alert-dialog?raw";
 
@@ -22,60 +22,56 @@ const usage = `<AlertDialog>
 </AlertDialog>`;
 
 const AlertDialogPage = () => {
-  useScrollToHash();
-
   return (
-    <div className="flex">
-      <div className="lg:w-1/2 w-full">
-        <Heading as="h1" id="alert-dialog">
-          Alert Dialog
-        </Heading>
+    <Toc>
+      <Heading as="h1" id="alert-dialog">
+        Alert Dialog
+      </Heading>
 
-        <p className="mt-4 text-lg   rounded">
-          The alert dialog is a modal that is used to display a message to the
-          user.
-          <br />
-          It requires the user to interact with it before they can continue.
-        </p>
+      <p className="mt-4 text-lg   rounded">
+        The alert dialog is a modal that is used to display a message to the
+        user.
+        <br />
+        It requires the user to interact with it before they can continue.
+      </p>
 
-        <PreviewTabs demo={<AlertDialogDemo />} demoCode={code} />
+      <PreviewTabs demo={<AlertDialogDemo />} demoCode={code} />
 
-        <Heading as="h2" id="alert-dialog-props" className="mt-8">
-          Installation
-        </Heading>
-        <p className="mt-2 text-lg   rounded">
-          First, install the required packages.
-        </p>
+      <Heading as="h2" id="alert-dialog-props" className="mt-8">
+        Installation
+      </Heading>
+      <p className="mt-2 text-lg   rounded">
+        First, install the required packages.
+      </p>
 
-        <ModuleInstallTabs
-          className="mt-4"
-          packages={["@radix-ui/react-alert-dialog", "@radix-ui/colors"]}
-        />
+      <ModuleInstallTabs
+        className="mt-4"
+        packages={["@radix-ui/react-alert-dialog", "@radix-ui/colors"]}
+      />
 
-        <p className="mt-8 text-lg   rounded">
-          Then you can import the component files and use them in your app.
-        </p>
+      <p className="mt-8 text-lg   rounded">
+        Then you can import the component files and use them in your app.
+      </p>
 
-        <CodeTabs
-          componentUrl="https://raw.githubusercontent.com/saverioscagnoli/tredici/master/packages/tredici/src/components/alert-dialog/alert-dialog.tsx"
-          cssUrl="https://raw.githubusercontent.com/saverioscagnoli/tredici/master/packages/tredici/src/components/alert-dialog/alert-dialog.css"
-          className="mt-8 "
-        />
+      <CodeTabs
+        componentUrl="https://raw.githubusercontent.com/saverioscagnoli/tredici/master/packages/tredici/src/components/alert-dialog/alert-dialog.tsx"
+        cssUrl="https://raw.githubusercontent.com/saverioscagnoli/tredici/master/packages/tredici/src/components/alert-dialog/alert-dialog.css"
+        className="mt-8 "
+      />
 
-        <Heading as="h2" id="usage" className="mt-8">
-          Usage
-        </Heading>
+      <Heading as="h2" id="usage" className="mt-8">
+        Usage
+      </Heading>
 
-        <CodeBlock
-          code={usage}
-          language="typescript"
-          copyButton={false}
-          className="mt-4"
-        />
+      <CodeBlock
+        code={usage}
+        language="typescript"
+        copyButton={false}
+        className="mt-4"
+      />
 
-        <FooterButtons labels={["Dark Theme", "Aspect Ratio"]} />
-      </div>
-    </div>
+      <FooterButtons labels={["Dark Theme", "Aspect Ratio"]} />
+    </Toc>
   );
 };
 

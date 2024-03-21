@@ -11,3 +11,4 @@ export * from "./code-block";
 export * from "./module-install-tabs";
 export * from "./preview-tabs";
 export * from "./footer-buttons";
+export * from "./toc";
