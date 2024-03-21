@@ -10,6 +10,7 @@ import {
 import { ContextMenuDemo } from "@examples/context-menu";
 
 import code from "@examples/context-menu?raw";
+import { componentCssUrl, componentUrl } from "@lib";
 import { ChevronLeftIcon, ChevronRightIcon } from "@radix-ui/react-icons";
 import { Button, ContextMenu } from "@tredici";
 import { Link } from "react-router-dom";
@@ -65,8 +66,8 @@ const ContextMenuPage = () => {
       </p>
 
       <CodeTabs
-        componentUrl="https://raw.githubusercontent.com/saverioscagnoli/tredici/master/packages/tredici/src/components/context-menu/context-menu.tsx"
-        cssUrl="https://raw.githubusercontent.com/saverioscagnoli/tredici/master/packages/tredici/src/components/context-menu/context-menu.css"
+        componentUrl={componentUrl`context-menu`}
+        cssUrl={componentCssUrl`context-menu`}
         className="mt-8 "
       />
 

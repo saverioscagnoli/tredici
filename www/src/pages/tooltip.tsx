@@ -8,6 +8,7 @@ import {
 } from "@components";
 import { TooltipDemo } from "@examples/tooltip";
 import code from "@examples/tooltip?raw";
+import { componentCssUrl, componentUrl } from "@lib";
 import { ChevronLeftIcon } from "@radix-ui/react-icons";
 import { Button } from "@tredici";
 import { Link } from "react-router-dom";
@@ -48,8 +49,8 @@ const TooltipPage = () => {
       </p>
 
       <CodeTabs
-        componentUrl="https://raw.githubusercontent.com/saverioscagnoli/tredici/master/packages/tredici/src/components/tooltip/tooltip.tsx"
-        cssUrl="https://raw.githubusercontent.com/saverioscagnoli/tredici/master/packages/tredici/src/components/tooltip/tooltip.css"
+        componentUrl={componentUrl`tooltip`}
+        cssUrl={componentCssUrl`tooltip`}
         className="mt-8 "
       />
 

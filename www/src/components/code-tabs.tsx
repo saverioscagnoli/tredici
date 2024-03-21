@@ -1,7 +1,8 @@
 import React, { ReactNode, useEffect, useState } from "react";
 
 import { CodeBlock } from "./code-block";
-import { Tabs } from "@tredici";
+import { Spinner, Tabs } from "@tredici";
+import { cn } from "@lib";
 
 type PreviewProps = {
   componentUrl: string;
@@ -42,7 +43,21 @@ const CodeTabs: React.FC<PreviewProps> = ({
         {cssUrl && <Tabs.Trigger value="css">{cssName}</Tabs.Trigger>}
       </Tabs.List>
       <Tabs.Content value="tsx">
-        <CodeBlock code={tsx} language="typescript" />
+        {tsx === "" ? (
+          <div
+            className={cn(
+              "w-full h-full flex items-center justify-center",
+              "rounded",
+              "p-6 relative",
+              "bg-[--gray-1]",
+              "border border-[--gray-7]"
+            )}
+          >
+            <Spinner size={50} />
+          </div>
+        ) : (
+          <CodeBlock code={tsx} language="typescript" />
+        )}
       </Tabs.Content>
       {cssUrl && (
         <Tabs.Content value="css">

@@ -10,6 +10,7 @@ import {
 import { AlertDialogDemo } from "@examples/alert-dialog";
 
 import code from "@examples/alert-dialog?raw";
+import { componentCssUrl, componentUrl } from "@lib";
 
 const usage = `<AlertDialog>
   <AlertDialog.Trigger />
@@ -54,8 +55,8 @@ const AlertDialogPage = () => {
       </p>
 
       <CodeTabs
-        componentUrl="https://raw.githubusercontent.com/saverioscagnoli/tredici/master/packages/tredici/src/components/alert-dialog/alert-dialog.tsx"
-        cssUrl="https://raw.githubusercontent.com/saverioscagnoli/tredici/master/packages/tredici/src/components/alert-dialog/alert-dialog.css"
+        componentUrl={componentUrl`alert-dialog`}
+        cssUrl={componentCssUrl`alert-dialog`}
         className="mt-8 "
       />
 

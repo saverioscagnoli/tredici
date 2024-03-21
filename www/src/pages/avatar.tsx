@@ -10,6 +10,7 @@ import {
 import { AvatarDemo } from "@examples/avatar";
 
 import code from "@examples/avatar?raw";
+import { componentUrl } from "@lib";
 
 const usage = `<Avatar>
   <Avatar.Image />
@@ -45,10 +46,7 @@ const AvatarPage = () => {
         Then you can import the component files and use them in your app.
       </p>
 
-      <CodeTabs
-        componentUrl="https://raw.githubusercontent.com/saverioscagnoli/tredici/master/packages/tredici/src/components/avatar/avatar.tsx"
-        className="mt-8 "
-      />
+      <CodeTabs componentUrl={componentUrl`avatar`} className="mt-8 " />
 
       <Heading as="h2" id="usage" className="mt-8">
         Usage

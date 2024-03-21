@@ -10,6 +10,7 @@ import {
 import { ToastDemo } from "@examples/toast";
 
 import code from "@examples/toast?raw";
+import { componentCssUrl, componentUrl } from "@lib";
 
 const usage = `<Toast>
    {...}
@@ -43,8 +44,8 @@ const ToastPage = () => {
         Then you can import the component files and use them in your app.
       </p>
       <CodeTabs
-        componentUrl="https://raw.githubusercontent.com/saverioscagnoli/tredici/master/packages/tredici/src/components/toast/toast.tsx"
-        cssUrl="https://raw.githubusercontent.com/saverioscagnoli/tredici/master/packages/tredici/src/components/toast/toast.css"
+        componentUrl={componentUrl`toast`}
+        cssUrl={componentCssUrl`toast`}
         className="mt-8 "
       />
       <Heading as="h2" id="usage" className="mt-8">

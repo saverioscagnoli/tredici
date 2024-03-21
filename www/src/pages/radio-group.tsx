@@ -10,6 +10,7 @@ import {
 import { RadioGroupDemo } from "@examples/radio-group";
 
 import code from "@examples/radio-group?raw";
+import { componentCssUrl, componentUrl } from "@lib";
 
 const usage = `<RadioGroup>
   <RadioGroup.Item value="..." />
@@ -41,8 +42,8 @@ const RadioGroupPage = () => {
         Then you can import the component files and use them in your app.
       </p>
       <CodeTabs
-        componentUrl="https://raw.githubusercontent.com/saverioscagnoli/tredici/master/packages/tredici/src/components/radio-group/radio-group.tsx"
-        cssUrl="https://raw.githubusercontent.com/saverioscagnoli/tredici/master/packages/tredici/src/components/radio-group/radio-group.css"
+        componentUrl={componentUrl`radio-group`}
+        cssUrl={componentCssUrl`radio-group`}
         className="mt-8 "
       />
       <Heading as="h2" id="usage" className="mt-8">

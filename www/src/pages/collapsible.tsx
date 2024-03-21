@@ -10,6 +10,7 @@ import {
 import { CollapsibleDemo } from "@examples/collapsible";
 
 import code from "@examples/collapsible?raw";
+import { componentCssUrl, componentUrl } from "@lib";
 
 const usage = `
 <Collapsible>
@@ -46,8 +47,8 @@ const CollapsiblePage = () => {
       </p>
 
       <CodeTabs
-        componentUrl="https://raw.githubusercontent.com/saverioscagnoli/tredici/master/packages/tredici/src/components/collapsible/collapsible.tsx"
-        cssUrl="https://raw.githubusercontent.com/saverioscagnoli/tredici/master/packages/tredici/src/components/collapsible/collapsible.css"
+        componentUrl={componentUrl`collapsible`}
+        cssUrl={componentCssUrl`collapsible`}
         className="mt-8 "
       />
 

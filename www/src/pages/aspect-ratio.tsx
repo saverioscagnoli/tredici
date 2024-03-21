@@ -10,6 +10,7 @@ import {
 import { AspectRatioDemo } from "@examples/aspect-ratio";
 
 import code from "@examples/aspect-ratio?raw";
+import { componentUrl } from "@lib";
 
 const usage = `<AspectRatio>
   <img />
@@ -43,10 +44,7 @@ const AspectRatioPage = () => {
         Then you can import the component files and use them in your app.
       </p>
 
-      <CodeTabs
-        componentUrl="https://raw.githubusercontent.com/saverioscagnoli/tredici/master/packages/tredici/src/components/aspect-ratio/aspect-ratio.tsx"
-        className="mt-8 "
-      />
+      <CodeTabs componentUrl={componentUrl`aspect-ratio`} className="mt-8 " />
 
       <Heading as="h2" id="usage" className="mt-8">
         Usage

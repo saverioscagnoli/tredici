@@ -10,6 +10,7 @@ import {
 import { TabsDemo } from "@examples/tabs";
 
 import code from "@examples/tabs?raw";
+import { componentUrl } from "@lib";
 import { Tabs } from "@tredici";
 
 const usage = `<Tabs>
@@ -56,7 +57,7 @@ const TabsPage = () => {
       </p>
 
       <CodeTabs
-        componentUrl="https://raw.githubusercontent.com/saverioscagnoli/tredici/master/packages/tredici/src/components/tabs/tabs.tsx"
+        componentUrl={componentUrl`tabs`}
         className="mt-8 "
       />
 

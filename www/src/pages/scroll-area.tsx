@@ -10,6 +10,7 @@ import {
 import { ScrollAreaDemo } from "@examples/scroll-area";
 
 import code from "@examples/scroll-area?raw";
+import { componentUrl } from "@lib";
 
 const usage = `<ScrollArea>
   {...}
@@ -45,7 +46,7 @@ const ScrollAreaPage = () => {
       </p>
 
       <CodeTabs
-        componentUrl="https://raw.githubusercontent.com/saverioscagnoli/tredici/master/packages/tredici/src/components/scroll-area/scroll-area.tsx"
+        componentUrl={componentUrl`scroll-area`}
         className="mt-8 "
       />
 

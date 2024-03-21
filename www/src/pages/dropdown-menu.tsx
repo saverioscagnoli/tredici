@@ -10,6 +10,7 @@ import {
 import { DropdownMenuDemo } from "@examples/dropdown-menu";
 
 import code from "@examples/dropdown-menu?raw";
+import { componentCssUrl, componentUrl } from "@lib";
 import { ChevronLeftIcon, ChevronRightIcon } from "@radix-ui/react-icons";
 import { Button, DropdownMenu } from "@tredici";
 import { Link } from "react-router-dom";
@@ -66,8 +67,8 @@ const DropdownMenuPage = () => {
       </p>
 
       <CodeTabs
-        componentUrl="https://raw.githubusercontent.com/saverioscagnoli/tredici/master/packages/tredici/src/components/dropdown-menu/dropdown-menu.tsx"
-        cssUrl="https://raw.githubusercontent.com/saverioscagnoli/tredici/master/packages/tredici/src/components/dropdown-menu/dropdown-menu.css"
+        componentUrl={componentUrl`dropdown-menu`}
+        cssUrl={componentCssUrl`dropdown-menu`}
         className="mt-8 "
       />
 

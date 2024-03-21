@@ -69,6 +69,7 @@ const elements: TabElement[] = [
   { type: "clickable", label: "Scroll Area" },
   { type: "clickable", label: "Select" },
   { type: "clickable", label: "Slider" },
+  { type: "clickable", label: "Spinner" },
   { type: "clickable", label: "Switch" },
   { type: "clickable", label: "Tabs" },
   { type: "clickable", label: "Toast" },

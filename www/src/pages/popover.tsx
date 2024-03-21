@@ -10,6 +10,7 @@ import {
 import { PopoverDemo } from "@examples/popover";
 
 import code from "@examples/popover?raw";
+import { componentCssUrl, componentUrl } from "@lib";
 
 const usage = `<Popover>
   <Popover.Trigger />
@@ -44,8 +45,8 @@ const PopoverPage = () => {
         Then you can import the component files and use them in your app.
       </p>
       <CodeTabs
-        componentUrl="https://raw.githubusercontent.com/saverioscagnoli/tredici/master/packages/tredici/src/components/popover/popover.tsx"
-        cssUrl="https://raw.githubusercontent.com/saverioscagnoli/tredici/master/packages/tredici/src/components/popover/popover.css"
+        componentUrl={componentUrl`popover`}
+        cssUrl={componentCssUrl`popover`}
         className="mt-8 "
       />
       <Heading as="h2" id="usage" className="mt-8">

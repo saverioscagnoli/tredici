@@ -10,6 +10,7 @@ import {
 import { SelectDemo } from "@examples/select";
 
 import code from "@examples/select?raw";
+import { componentCssUrl, componentUrl } from "@lib";
 
 const usage = `<Select>
   <Select.Trigger>
@@ -53,8 +54,8 @@ const SelectPage = () => {
       </p>
 
       <CodeTabs
-        componentUrl="https://raw.githubusercontent.com/saverioscagnoli/tredici/master/packages/tredici/src/components/select/select.tsx"
-        cssUrl="https://raw.githubusercontent.com/saverioscagnoli/tredici/master/packages/tredici/src/components/select/select.css"
+        componentUrl={componentUrl`select`}
+        cssUrl={componentCssUrl`select`}
         className="mt-8 "
       />
 

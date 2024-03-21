@@ -10,6 +10,7 @@ import {
 import { SliderDemo } from "@examples/slider";
 
 import code from "@examples/slider?raw";
+import { componentUrl } from "@lib";
 
 const usage = `<Slider />`;
 
@@ -40,7 +41,7 @@ const SliderPage = () => {
       </p>
 
       <CodeTabs
-        componentUrl="https://raw.githubusercontent.com/saverioscagnoli/tredici/master/packages/tredici/src/components/slider/slider.tsx"
+        componentUrl={componentUrl`slider`}
         className="mt-8 "
       />
 
@@ -55,7 +56,7 @@ const SliderPage = () => {
         className="mt-4"
       />
 
-      <FooterButtons labels={["Select", "Switch"]} />
+      <FooterButtons labels={["Select", "Spinner"]} />
     </Toc>
   );
 };

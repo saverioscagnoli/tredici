@@ -23,6 +23,7 @@ import {
   ScrollAreaPage,
   SelectPage,
   SliderPage,
+  SpinnerPage,
   SwitchPage,
   TabsPage,
   ToastPage,
@@ -61,6 +62,7 @@ const RouteGroup = () => (
     <Route path="/docs/scroll-area" element={<ScrollAreaPage />} />
     <Route path="/docs/select" element={<SelectPage />} />
     <Route path="/docs/slider" element={<SliderPage />} />
+    <Route path="/docs/spinner" element={<SpinnerPage />} />
     <Route path="/docs/switch" element={<SwitchPage />} />
     <Route path="/docs/tabs" element={<TabsPage />} />
     <Route path="/docs/toast" element={<ToastPage />} />

@@ -10,6 +10,7 @@ import {
 import { ProgressDemo } from "@examples/progress";
 
 import code from "@examples/progress?raw";
+import { componentCssUrl, componentUrl } from "@lib";
 import { Progress } from "@tredici";
 
 const usage = `<Progress />`;
@@ -43,8 +44,8 @@ const ProgressPage = () => {
       </p>
 
       <CodeTabs
-        componentUrl="https://raw.githubusercontent.com/saverioscagnoli/tredici/master/packages/tredici/src/components/progress/progress.tsx"
-        cssUrl="https://raw.githubusercontent.com/saverioscagnoli/tredici/master/packages/tredici/src/components/progress/progress.css"
+        componentUrl={componentUrl`progress`}
+        cssUrl={componentCssUrl`progress`}
         className="mt-8 "
       />
 

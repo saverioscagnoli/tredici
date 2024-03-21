@@ -10,6 +10,7 @@ import {
 import { MenubarDemo } from "@examples/menubar";
 
 import code from "@examples/menubar?raw";
+import { componentUrl } from "@lib";
 import { ChevronLeftIcon, ChevronRightIcon } from "@radix-ui/react-icons";
 import { Button } from "@tredici";
 import { Link } from "react-router-dom";
@@ -68,8 +69,8 @@ const MenubarPage = () => {
       </p>
 
       <CodeTabs
-        componentUrl="https://raw.githubusercontent.com/saverioscagnoli/tredici/master/packages/tredici/src/components/menubar/menubar.tsx"
-        cssUrl="https://raw.githubusercontent.com/saverioscagnoli/tredici/master/packages/tredici/src/components/menubar/menubar.css"
+        componentUrl={componentUrl`menubar`}
+        cssUrl={componentUrl`menubar`}
         className="mt-8 "
       />
 

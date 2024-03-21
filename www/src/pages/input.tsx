@@ -10,6 +10,7 @@ import {
 import { InputDemo } from "@examples/input";
 
 import code from "@examples/input?raw";
+import { componentUrl } from "@lib";
 
 const usage = `<Input colorScheme={...} />`;
 
@@ -39,7 +40,7 @@ const InputPage = () => {
       </p>
 
       <CodeTabs
-        componentUrl="https://raw.githubusercontent.com/saverioscagnoli/tredici/master/packages/tredici/src/components/input/input.tsx"
+        componentUrl={componentUrl`input`}
         className="mt-8 "
       />
 

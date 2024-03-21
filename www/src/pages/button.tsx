@@ -11,10 +11,11 @@ import {
   Toc
 } from "@components";
 import { ButtonDemo } from "@examples/button";
-import { Button } from "@tredici";
+import { Button, Spinner } from "@tredici";
 
 import code from "@examples/button?raw";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
+import { componentUrl } from "@lib";
 
 const usage = `<Button variant="..." />`;
 
@@ -43,10 +44,7 @@ const ButtonPage = () => {
         Then you can import the component files and use them in your app.
       </p>
 
-      <CodeTabs
-        componentUrl="https://raw.githubusercontent.com/saverioscagnoli/tredici/master/packages/tredici/src/components/button/button.tsx"
-        className="mt-8 "
-      />
+      <CodeTabs componentUrl={componentUrl`button`} className="mt-8 " />
 
       <Heading as="h2" id="usage" className="mt-8">
         Usage
@@ -119,12 +117,25 @@ const ButtonPage = () => {
 
       <PreviewTabs
         demo={
-          <Button variant="solid" leftIcon={<GitHubLogoIcon />}>
+          <Button colorScheme="b/w" leftIcon={<GitHubLogoIcon />}>
             Github
           </Button>
         }
         demoCode='<Button variant="solid" leftIcon={<GitHubLogoIcon />}>Solid</Button>'
         className="mt-4"
+      />
+
+      <Heading as="h3" id="with-spinner" className="mt-8">
+        With spinner
+      </Heading>
+
+      <PreviewTabs
+        demo={
+          <Button variant="secondary" leftIcon={<Spinner />}>
+            Loading...
+          </Button>
+        }
+        demoCode={`<Button disabled variant="secondary" leftIcon={<Spinner />}>Loading...</Button>`}
       />
 
       <FooterButtons labels={["Avatar", "Checkbox"]} />

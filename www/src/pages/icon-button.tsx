@@ -12,6 +12,7 @@ import { ExitIcon, GitHubLogoIcon, SunIcon } from "@radix-ui/react-icons";
 import { IconButton } from "@tredici";
 
 import code from "@examples/icon-button?raw";
+import { componentUrl } from "@lib";
 
 const usage = `<IconButton icon={...} />`;
 
@@ -37,7 +38,7 @@ const IconButtonPage = () => {
         Then you can import the component files and use them in your app.
       </p>
       <CodeTabs
-        componentUrl="https://raw.githubusercontent.com/saverioscagnoli/tredici/master/packages/tredici/src/components/icon-button/icon-button.tsx"
+        componentUrl={componentUrl`icon-button`}
         className="mt-8 "
       />
       <Heading as="h2" id="usage" className="mt-8">

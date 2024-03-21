@@ -10,6 +10,7 @@ import {
 import { CheckboxDemo } from "@examples/checkbox";
 
 import code from "@examples/checkbox?raw";
+import { componentUrl } from "@lib";
 
 const usage = `<Checkbox />`;
 
@@ -46,7 +47,7 @@ const CheckboxPage = () => {
       </p>
 
       <CodeTabs
-        componentUrl="https://raw.githubusercontent.com/saverioscagnoli/tredici/master/packages/tredici/src/components/checkbox/checkbox.tsx"
+        componentUrl={componentUrl`checkbox`}
         className="mt-8 "
       />
 

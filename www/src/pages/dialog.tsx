@@ -10,6 +10,7 @@ import {
 import { DialogDemo } from "@examples/dialog";
 
 import code from "@examples/dialog?raw";
+import { componentCssUrl, componentUrl } from "@lib";
 import { ChevronLeftIcon, ChevronRightIcon } from "@radix-ui/react-icons";
 import { Button } from "@tredici";
 import { Link } from "react-router-dom";
@@ -52,8 +53,8 @@ const DialogPage = () => {
       </p>
 
       <CodeTabs
-        componentUrl="https://raw.githubusercontent.com/saverioscagnoli/tredici/master/packages/tredici/src/components/dialog/dialog.tsx"
-        cssUrl="https://raw.githubusercontent.com/saverioscagnoli/tredici/master/packages/tredici/src/components/dialog/dialog.css"
+        componentUrl={componentUrl`dialog`}
+        cssUrl={componentCssUrl`dialog`}
         className="mt-8 "
       />
 
