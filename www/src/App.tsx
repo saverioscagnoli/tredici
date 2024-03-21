@@ -12,6 +12,7 @@ import {
   DialogPage,
   DropdownMenuPage,
   GettingStarted,
+  HomePage,
   IconButtonPage,
   InputPage,
   Introduction,
@@ -29,13 +30,15 @@ import {
 } from "@pages";
 import {
   Route,
-  BrowserRouter as Router,
   Routes,
-  Navigate
+  Navigate,
+  useNavigation,
+  useLocation
 } from "react-router-dom";
 
 const RouteGroup = () => (
   <Routes>
+    <Route path="/" element={<HomePage />} />
     <Route path="/docs" element={<Introduction />} />
     <Route path="/docs/introduction" element={<Navigate to="/docs" />} />
     <Route path="/docs/getting-started" element={<GettingStarted />} />
@@ -66,14 +69,16 @@ const RouteGroup = () => (
 );
 
 function App() {
+  const location = useLocation();
+
   return (
-    <Router>
+    <>
       <Navbar />
       <div className="flex">
-        <SideTabs />
+        {location.pathname.includes("/docs") && <SideTabs />}
         <RouteGroup />
       </div>
-    </Router>
+    </>
   );
 }
 

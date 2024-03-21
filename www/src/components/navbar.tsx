@@ -59,13 +59,27 @@ const Navbar: React.FC<ComponentProps<"div">> = ({ className, ...props }) => {
       )}
       {...props}
     >
-      <Heading as="h2">Tredici</Heading>
-      <Link
-        to="/docs"
-        className="hidden sm:block font-bold hover:underline underline-offset-2 cursor-pointer"
-      >
-        Documentation
-      </Link>
+      <div className="flex items-center gap-12">
+        <a href="/">
+          <Heading as="h2" className="cursor-pointer">
+            Tredici
+          </Heading>
+        </a>
+
+        <Link
+          to="/docs"
+          className="hidden sm:block font-bold hover:underline underline-offset-2 cursor-pointer"
+        >
+          Documentation
+        </Link>
+        <Link
+          to="/docs/alert-dialog"
+          className="hidden sm:block font-bold hover:underline underline-offset-2 cursor-pointer"
+        >
+          Components
+        </Link>
+      </div>
+
       <div className="flex items-center gap-4">
         <HamburgerMenu>
           <IconButton

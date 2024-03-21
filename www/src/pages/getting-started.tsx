@@ -32,8 +32,15 @@ const GettingStarted = () => {
 
       <p className="mt-2 text-lg rounded">
         First, you need to install Tailwind CSS. You can follow the{" "}
-        <a>official documentation</a> to do that. Then, in your{" "}
-        <code>tailwind.config.js</code> you have to paste in this code:
+        <a
+          href="https://tailwindcss.com/docs/installation"
+          target="_blank"
+          className="underline underline-offset-2 cursor-pointer decoration-2 font-bold"
+        >
+          official documentation
+        </a>{" "}
+        to do that. Then, in your <code>tailwind.config.js</code> you have to
+        paste in this code:
       </p>
 
       <CodeBlock
@@ -47,12 +54,41 @@ const GettingStarted = () => {
       </Heading>
 
       <p className="mt-2 text-lg rounded">
-        Then I REALLY recommend you to install <a>@radix-ui/colors</a>,{" "}
-        <a>tailwind-merge</a> and <a>clsx</a>. These are necessary in the
-        majority of the components.
+        Then I REALLY recommend you to install{" "}
+        <a
+          href="https://www.radix-ui.com/colors"
+          target="_blank"
+          className="underline underline-offset-2 cursor-pointer decoration-2 font-bold"
+        >
+          @radix-ui/colors
+        </a>
+        ,{" "}
+        <a
+          href="https://www.npmjs.com/package/tailwind-merge"
+          target="_blank"
+          className="underline underline-offset-2 cursor-pointer decoration-2 font-bold"
+        >
+          tailwind-merge
+        </a>{" "}
+        and{" "}
+        <a
+          href="https://www.npmjs.com/package/clsx"
+          target="_blank"
+          className="underline underline-offset-2 cursor-pointer decoration-2 font-bold"
+        >
+          clsx
+        </a>
+        . These are necessary in the majority of the components.
         <br />
-        For example, you need <a>@radix-ui/colors</a> in every component with a
-        color sceme.
+        For example, you need{" "}
+        <a
+          href="https://www.radix-ui.com/colors"
+          target="_blank"
+          className="underline underline-offset-2 cursor-pointer decoration-2 font-bold"
+        >
+          @radix-ui/colors
+        </a>{" "}
+        in every component with a color sceme.
       </p>
 
       <ModuleInstallTabs

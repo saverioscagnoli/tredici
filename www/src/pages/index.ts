@@ -23,3 +23,4 @@ export * from "./toast";
 export * from "./tooltip";
 export * from "./getting-started";
 export * from "./dark-mode";
+export * from "./home";

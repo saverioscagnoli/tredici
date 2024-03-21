@@ -13,9 +13,16 @@ const Introduction = () => {
         into a single pack and share them with others.
         <br />
         <br />
-        This takes a similar approach as the amazing <a>shadcn/ui</a>, so it's
-        not intetded to be a component libray nor an npm package, but just a
-        collection of copy-pastable components.
+        This takes a similar approach as the amazing{" "}
+        <a
+          href="https://ui.shadcn.com"
+          target="_blank"
+          className="underline underline-offset-2 cursor-pointer decoration-2 font-bold"
+        >
+          shadcn/ui
+        </a>
+        , so it's not intetded to be a component libray nor an npm package, but
+        just a collection of copy-pastable components.
         <br />
         They can be used as you please, and you can modify them to fit your
         needs.
@@ -24,9 +31,24 @@ const Introduction = () => {
         How it's made?
       </Heading>
       <p className="mt-4 text-lg   rounded">
-        This project was made possible by <a>Radix-ui</a>, because I used their
-        amazing unstyled primitives, which are easy to use and accessible. It's
-        also powered by <a>Tailwind CSS</a>.
+        This project was made possible by{" "}
+        <a
+          href="https://www.radix-ui.com"
+          target="_blank"
+          className="underline underline-offset-2 cursor-pointer decoration-2 font-bold"
+        >
+          Radix-ui
+        </a>
+        , because I used their amazing unstyled primitives, which are easy to
+        use and accessible. It's also powered by{" "}
+        <a
+          href="https://tailwindcss.com/docs/installation"
+          target="_blank"
+          className="underline underline-offset-2 cursor-pointer decoration-2 font-bold"
+        >
+          Tailwind CSS
+        </a>
+        .
       </p>
 
       <div className="flex justify-end mt-8">
