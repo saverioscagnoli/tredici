@@ -45,7 +45,7 @@ const Toc: React.FC<TocProps> = ({ children }) => {
 
   return (
     <div className="w-screen h-screen lg:pl-[300px] pt-16 flex">
-      <div className="xl:w-3/4 w-full overflow-y-auto py-12 xl:px-36  lg:px-20 px-12">
+      <div className="xl:w-3/4 w-full overflow-y-auto py-12 xl:px-32  lg:px-20 px-12">
         {children}
       </div>
       <div className="xl:w-1/4 w-full py-12 px-7 hidden xl:block">

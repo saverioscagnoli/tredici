@@ -28,6 +28,7 @@ html.dark > body {
   background-clip: padding-box;
   border-radius: 9999px;
   background-color: var(--gray-8);
+  background-clip: content-box;
 }
 
 ::-webkit-scrollbar-thumb {
