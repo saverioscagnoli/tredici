@@ -1,5 +1,5 @@
 {
-  "name": "tredici-components",
+  "name": "@tredici/react",
   "private": true,
   "version": "0.0.1",
   "type": "module",
