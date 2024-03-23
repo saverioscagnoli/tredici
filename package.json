@@ -1,5 +1,5 @@
 {
-  "name": "tredici-root",
+  "name": "tredici",
   "private": true,
   "repository": {
     "type": "git",
@@ -15,7 +15,8 @@
     "www"
   ],
   "scripts": {
-    "storybook": "yarn workspace @tredici/react storybook",
+    "storybook-react": "yarn workspace @tredici/react storybook",
+    "storybook-solid": "yarn workspace @tredici/solid storybook",
     "www": "yarn workspace www dev"
   },
   "license": "MIT"
