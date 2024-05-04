@@ -1,0 +1,4 @@
+.checkbox-input:focus + .checkbox-control {
+  outline: 2px solid var(--gray-12);
+  outline-offset: 2px;
+}
