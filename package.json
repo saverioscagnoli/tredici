@@ -11,12 +11,9 @@
   },
   "packageManager": "yarn@1.22.21",
   "workspaces": [
-    "packages/*",
-    "www"
+    "packages/*"
   ],
   "scripts": {
-    "storybook-react": "yarn workspace @tredici/react storybook",
-    "storybook-solid": "yarn workspace @tredici/solid storybook",
     "www": "yarn workspace www dev"
   },
   "license": "MIT"
