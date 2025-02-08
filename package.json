@@ -14,7 +14,7 @@
     "packages/*"
   ],
   "scripts": {
-    "www": "yarn workspace www dev"
+    "react": "yarn workspace react storybook"
   },
   "license": "MIT"
 }

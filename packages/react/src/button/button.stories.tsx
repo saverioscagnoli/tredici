@@ -10,7 +10,7 @@ const meta: Meta<typeof Button> = {
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-export const Primary: Story = {
+export const Default: Story = {
   argTypes: {
     colorScheme: {
       options: [
@@ -27,7 +27,7 @@ export const Primary: Story = {
       control: { type: "select" }
     },
     variant: {
-      options: ["primary", "secondary"],
+      options: ["primary", "secondary", "outline", "ghost"],
       control: { type: "radio" }
     },
     size: {
@@ -42,6 +42,52 @@ export const Primary: Story = {
     return (
       <Frame>
         <Button {...props}>Click Me!</Button>
+      </Frame>
+    );
+  }
+};
+
+import { BsGithub, BsCart } from "react-icons/bs";
+
+export const WithIcon: Story = {
+  argTypes: {
+    colorScheme: {
+      options: [
+        "purple",
+        "red",
+        "green",
+        "blue",
+        "teal",
+        "cyan",
+        "yellow",
+        "orange",
+        "gray"
+      ],
+      control: { type: "select" }
+    },
+    variant: {
+      options: ["primary", "secondary", "outline", "ghost"],
+      control: { type: "radio" }
+    },
+    size: {
+      options: ["sm", "md", "lg"],
+      control: { type: "radio" }
+    },
+    disabled: {
+      control: { type: "boolean" }
+    }
+  },
+  render: props => {
+    return (
+      <Frame>
+        <div className="flex space-x-4">
+          <Button {...props} leftIcon={<BsGithub />}>
+            GitHub
+          </Button>
+          <Button {...props} rightIcon={<BsCart />}>
+            My Cart
+          </Button>
+        </div>
       </Frame>
     );
   }
