@@ -1,42 +1,10 @@
 import React from "react";
-import { cva, type VariantProps } from "class-variance-authority";
-
-import "@radix-ui/colors/slate.css";
-import "@radix-ui/colors/slate-dark.css";
-
-import "@radix-ui/colors/plum.css";
-import "@radix-ui/colors/plum-dark.css";
-
-import "@radix-ui/colors/red.css";
-import "@radix-ui/colors/red-dark.css";
-
-import "@radix-ui/colors/green.css";
-import "@radix-ui/colors/green-dark.css";
-
-import "@radix-ui/colors/blue.css";
-import "@radix-ui/colors/blue-dark.css";
-
-import "@radix-ui/colors/teal.css";
-import "@radix-ui/colors/teal-dark.css";
-
-import "@radix-ui/colors/cyan.css";
-import "@radix-ui/colors/cyan-dark.css";
-
-// Yellow
-import "@radix-ui/colors/amber.css";
-import "@radix-ui/colors/amber-dark.css";
-
-import "@radix-ui/colors/orange.css";
-import "@radix-ui/colors/orange-dark.css";
-
-import "@radix-ui/colors/gray.css";
-import "@radix-ui/colors/gray-dark.css";
+import { cva, VariantProps } from "class-variance-authority";
 import { cn } from "~/utils";
 
-const button = cva(
+const iconButton = cva(
   [
     "inline-flex justify-center items-center",
-    "font-semibold",
     "transition-colors duration-150 active:duration-75",
 
     // Make text unselectable
@@ -67,9 +35,9 @@ const button = cva(
       },
 
       size: {
-        sm: "h-6 px-2 text-sm rounded",
-        md: "h-8 px-3 text-md rounded-md",
-        lg: "h-11 px-4 text-lg rounded-lg"
+        sm: "w-6 h-6 rounded text-sm",
+        md: "w-8 h-8 rounded-md",
+        lg: "w-11 h-11 rounded-lg"
       }
     },
 
@@ -585,42 +553,41 @@ const button = cva(
   }
 );
 
-type ButtonProps = React.ComponentProps<"button"> &
-  VariantProps<typeof button> & {
-    leftIcon?: React.ReactNode;
-    rightIcon?: React.ReactNode;
+type IconButtonProps = React.ComponentProps<"button"> &
+  VariantProps<typeof iconButton> & {
+    icon: React.ReactNode;
+    round?: boolean;
   };
 
-export type { ButtonProps };
+export type { IconButtonProps };
 
-const Button: React.FC<ButtonProps> = ({
+const IconButton: React.FC<IconButtonProps> = ({
   ref,
   children,
   className,
   colorScheme,
   variant,
   size,
-  leftIcon,
-  rightIcon,
+  icon,
+  round,
   ...props
 }) => {
   return (
     <button
-      className={button({ className, colorScheme, variant, size })}
+      className={iconButton({
+        className: cn(round && "!rounded-full", className),
+        colorScheme,
+        variant,
+        size
+      })}
       {...props}
       ref={ref}
     >
-      {leftIcon && (
-        <span className={cn(size === "sm" ? "mr-1" : "mr-2")}>{leftIcon}</span>
-      )}
-      {children}
-      {rightIcon && (
-        <span className={cn(size === "sm" ? "ml-1" : "mr-2")}>{rightIcon}</span>
-      )}
+      {icon}
     </button>
   );
 };
 
-Button.displayName = "Button";
+IconButton.displayName = "IconButton";
 
-export { Button };
+export { IconButton };

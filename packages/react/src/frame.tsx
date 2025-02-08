@@ -1,10 +1,11 @@
 // Wrapper for using tailwindcss in storybook
 
 import React, { useEffect, useState } from "react";
+import { cn } from "./utils";
+import { IconButton } from "./icon-button/icon-button";
+import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 
 import "~/index.css";
-import { cn } from "./utils";
-import { Button } from "./button/button";
 
 const Frame: React.FC<React.ComponentProps<"div">> = ({
   children,
@@ -33,12 +34,12 @@ const Frame: React.FC<React.ComponentProps<"div">> = ({
       )}
       {...props}
     >
-      <Button
+      <IconButton
         className="absolute top-2 left-2"
+        icon={theme === "dark" ? <SunIcon /> : <MoonIcon />}
         onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      >
-        {theme}
-      </Button>
+      />
+
       {children}
     </div>
   );
