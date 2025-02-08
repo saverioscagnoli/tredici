@@ -10,12 +10,12 @@ import "@radix-ui/colors/gray-dark.css";
 import "@radix-ui/colors/gray-alpha.css";
 import "@radix-ui/colors/gray-dark-alpha.css";
 
+import "./alert-dialog.css";
+
 // ALERT DIALOG TRIGGER
 type AlertDialogTriggerProps = RxAlertDialog.AlertDialogTriggerProps;
 
-const AlertDialogTrigger: React.FC<AlertDialogTriggerProps> = props => {
-  return <RxAlertDialog.AlertDialogTrigger {...props} />;
-};
+const AlertDialogTrigger = RxAlertDialog.Trigger;
 
 export type { AlertDialogTriggerProps };
 
@@ -38,22 +38,24 @@ const AlertDialogContent: React.FC<AlertDialogContentProps> = ({
     <RxAlertDialog.Portal>
       <RxAlertDialog.Overlay
         className={cn(
-          "fixed inset-0",
+          "fixed inset-0 z-[9998]",
           "bg-[var(--gray-a9)] dark:bg-[var(--gray-a5)]",
+          "alert-dialog-overlay",
           overlayClassName
         )}
         style={overlayStyle}
       />
       <RxAlertDialog.Content
         className={cn(
-          "w-[90vw] max-w-[500px] max-h-[90vh] p-6",
-          "fixed top-[50%] left-[50%]",
-          "translate-[-50%]",
+          "w-11/12 max-w-[500px] max-h-[90vh] p-6",
+          "fixed top-1/2 left-1/2 z-[9999]",
+          "transform -translate-x-1/2 -translate-y-1/2",
           "bg-[var(--slate-1)]",
           "rounded-md shadow-md",
           "outline dark:outline-2 outline-[var(--gray-6)]",
           // Focus styles
           "focus:outline-none",
+          "alert-dialog-content",
           className
         )}
         {...props}
