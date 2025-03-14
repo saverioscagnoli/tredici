@@ -1,23 +1,13 @@
 {
   "name": "tredici",
-  "private": true,
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/saverioscagnoli/tredici.git"
-  },
   "author": {
     "name": "Saverio Scagnoli",
     "email": "svscagn@gmail.com"
   },
-  "packageManager": "yarn@1.22.21",
-  "workspaces": [
-    "packages/*",
-    "www"
-  ],
-  "scripts": {
-    "storybook-react": "yarn workspace @tredici/react storybook",
-    "storybook-solid": "yarn workspace @tredici/solid storybook",
-    "www": "yarn workspace www dev"
-  },
-  "license": "MIT"
+  "repository": "https://github.com/saverioscagnoli/tredici",
+  "license": "MIT",
+  "private": true,
+  "workspaces":[
+    "react"
+  ]
 }
