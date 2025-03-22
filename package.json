@@ -9,5 +9,8 @@
   "private": true,
   "workspaces":[
     "react"
-  ]
+  ],
+  "scripts": {
+    "react": "yarn workspace react storybook"
+  }
 }

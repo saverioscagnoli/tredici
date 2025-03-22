@@ -14,55 +14,20 @@ export const Default: Story = {
   argTypes: {
     colorScheme: {
       options: [
-        "purple",
+        "plum",
         "red",
         "green",
         "blue",
         "teal",
         "cyan",
-        "yellow",
+        "amber",
         "orange",
         "gray"
       ],
       control: { type: "select" }
     },
     variant: {
-      options: ["primary", "secondary", "outline", "ghost"],
-      control: { type: "radio" }
-    },
-    size: {
-      options: ["sm", "md", "lg"],
-      control: { type: "radio" }
-    },
-    disabled: {
-      control: { type: "boolean" }
-    }
-  },
-  render: props => {
-    return <Button {...props}>Click Me!</Button>;
-  }
-};
-
-import { BsGithub, BsCart } from "react-icons/bs";
-
-export const WithIcon: Story = {
-  argTypes: {
-    colorScheme: {
-      options: [
-        "purple",
-        "red",
-        "green",
-        "blue",
-        "teal",
-        "cyan",
-        "yellow",
-        "orange",
-        "gray"
-      ],
-      control: { type: "select" }
-    },
-    variant: {
-      options: ["primary", "secondary", "outline", "ghost"],
+      options: ["solid", "secondary", "outline", "ghost"],
       control: { type: "radio" }
     },
     size: {
@@ -75,14 +40,56 @@ export const WithIcon: Story = {
   },
   render: props => {
     return (
-      <div className="flex space-x-4">
-        <Button {...props} leftIcon={<BsGithub />}>
-          GitHub
-        </Button>
-        <Button {...props} rightIcon={<BsCart />}>
-          My Cart
-        </Button>
-      </div>
+      <Frame>
+        <Button {...props}>Click Me!</Button>
+      </Frame>
+    );
+  }
+};
+
+import { BsGithub, BsCart } from "react-icons/bs";
+import { Frame } from "~/frame";
+
+export const WithIcon: Story = {
+  argTypes: {
+    colorScheme: {
+      options: [
+        "plum",
+        "red",
+        "green",
+        "blue",
+        "teal",
+        "cyan",
+        "amber",
+        "orange",
+        "gray"
+      ],
+      control: { type: "select" }
+    },
+    variant: {
+      options: ["solid", "secondary", "outline", "ghost"],
+      control: { type: "radio" }
+    },
+    size: {
+      options: ["sm", "md", "lg"],
+      control: { type: "radio" }
+    },
+    disabled: {
+      control: { type: "boolean" }
+    }
+  },
+  render: props => {
+    return (
+      <Frame>
+        <div className="flex space-x-4">
+          <Button {...props} leftIcon={<BsGithub />}>
+            GitHub
+          </Button>
+          <Button {...props} rightIcon={<BsCart />}>
+            My Cart
+          </Button>
+        </div>
+      </Frame>
     );
   }
 };

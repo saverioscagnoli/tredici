@@ -14,8 +14,10 @@
   "dependencies": {
     "@radix-ui/colors": "^3.0.0",
     "@tailwindcss/vite": "^4.0.14",
+    "@util-hooks/use-hotkey": "^2.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "radix-ui": "^1.1.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.5.0",

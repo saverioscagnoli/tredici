@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { IconButton } from "./icon-button";
+import { Frame } from "~/frame";
 import { BsGithub } from "react-icons/bs";
+import { Button } from "~/components/button/button";
 
 import "~/index.css";
 
@@ -15,20 +17,20 @@ export const Default: Story = {
   argTypes: {
     colorScheme: {
       options: [
-        "purple",
+        "plum",
         "red",
         "green",
         "blue",
         "teal",
         "cyan",
-        "yellow",
+        "amber",
         "orange",
         "gray"
       ],
       control: { type: "select" }
     },
     variant: {
-      options: ["primary", "secondary", "outline", "ghost"],
+      options: ["solid", "secondary", "outline", "ghost"],
       control: { type: "radio" }
     },
     size: {
@@ -40,6 +42,14 @@ export const Default: Story = {
     }
   },
   render: props => {
-    return <IconButton {...props} icon={<BsGithub />} />;
+    return (
+      <Frame>
+        <div className="flex gap-2 items-center">
+          <IconButton {...props} icon={<BsGithub />} />
+          <Button size={props.size}>Azzd</Button>
+          <Button size={props.size}>ALKJLKJLkj</Button>
+        </div>
+      </Frame>
+    );
   }
 };
