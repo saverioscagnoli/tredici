@@ -50,7 +50,7 @@ import "@radix-ui/colors/orange-dark.css";
 import "@radix-ui/colors/gray-alpha.css";
 import "@radix-ui/colors/gray-dark-alpha.css";
 
-const avatar = cva(
+const avatarVariants = cva(
   [
     "inline-flex justify-center items-center font-medium",
     "align-middle",
@@ -92,7 +92,7 @@ const avatar = cva(
 );
 
 type AvatarProps = RxAvatar.AvatarProps &
-  VariantProps<typeof avatar> & {
+  VariantProps<typeof avatarVariants> & {
     ref?: React.RefObject<HTMLSpanElement>;
     src?: string;
     fallback?: React.ReactNode | string;
@@ -142,7 +142,7 @@ const Avatar: React.FC<AvatarProps> = ({
 
   return (
     <RxAvatar.Root
-      className={avatar({ className, colorScheme, size })}
+      className={avatarVariants({ className, colorScheme, size })}
       {...props}
       ref={ref}
     >

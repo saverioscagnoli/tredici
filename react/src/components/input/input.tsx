@@ -31,7 +31,7 @@ import "@radix-ui/colors/orange-dark.css";
 import "@radix-ui/colors/gray.css";
 import "@radix-ui/colors/gray-dark.css";
 
-const input = cva(
+const inputVariants = cva(
   [
     "w-full",
     "border border-[var(--gray-6)]",
@@ -72,7 +72,7 @@ const input = cva(
 );
 
 type InputProps = Omit<React.ComponentProps<"input">, "size"> &
-  VariantProps<typeof input> & {
+  VariantProps<typeof inputVariants> & {
     htmlSize?: React.ComponentProps<"input">["size"];
   };
 
@@ -86,7 +86,7 @@ const Input: React.FC<InputProps> = ({
 }) => {
   return (
     <input
-      className={input({ className, colorScheme, size })}
+      className={inputVariants({ className, colorScheme, size })}
       size={htmlSize}
       {...props}
       ref={ref}
