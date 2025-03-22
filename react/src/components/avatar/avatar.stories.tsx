@@ -3,9 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Avatar } from "./avatar";
 import { Frame } from "~/frame";
 
-// @ts-ignore
 import avatarSrc from "/avatar.jpg";
-import { BsEmojiAngry } from "react-icons/bs";
 
 const meta: Meta<typeof Avatar> = {
   component: Avatar
