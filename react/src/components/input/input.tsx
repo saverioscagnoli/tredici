@@ -39,24 +39,22 @@ const inputVariants = cva(
     "rounded-md",
     "shadow-sm",
     // Disable the default blue outline on focus
-    "focus:outline-none",
-    "focus:ring-2",
-    "transition-colors duration-100",
+    "focus:outline-2 focus:outline-offset-2",
     // Disabled props
     "disabled:opacity-50 disabled:cursor-not-allowed"
   ],
   {
     variants: {
       colorScheme: {
-        plum: "focus:ring-[var(--plum-9)] ",
-        red: "focus:ring-[var(--red-9)]",
-        green: "focus:ring-[var(--green-9)]",
-        blue: "focus:ring-[var(--blue-9)]",
-        teal: "focus:ring-[var(--teal-9)]",
-        cyan: "focus:ring-[var(--cyan-9)]",
-        amber: "focus:ring-[var(--yellow-9)]",
-        orange: "focus:ring-[var(--orange-9)]",
-        gray: "focus:ring-[var(--slate-12)]"
+        plum: "focus:outline-[var(--plum-9)] ",
+        red: "focus:outline-[var(--red-9)]",
+        green: "focus:outline-[var(--green-9)]",
+        blue: "focus:outline-[var(--blue-9)]",
+        teal: "focus:outline-[var(--teal-9)]",
+        cyan: "focus:outline-[var(--cyan-9)]",
+        amber: "focus:outline-[var(--yellow-9)]",
+        orange: "focus:outline-[var(--orange-9)]",
+        gray: "focus:outline-[var(--slate-12)]"
       },
       size: {
         sm: "h-8 px-3 py-1.5 text-sm",

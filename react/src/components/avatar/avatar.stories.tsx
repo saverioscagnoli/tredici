@@ -35,6 +35,26 @@ export const Default: Story = {
       control: { type: "select" }
     },
 
+    variant: {
+      options: ["solid", "secondary"],
+      control: { type: "select" }
+    },
+
+    ring: {
+      options: [
+        "plum",
+        "red",
+        "green",
+        "blue",
+        "teal",
+        "cyan",
+        "amber",
+        "orange",
+        "gray"
+      ],
+      control: { type: "select" }
+    },
+
     size: {
       options: ["sm", "md", "lg", "xl"],
       control: { type: "radio" }
@@ -49,7 +69,7 @@ export const Default: Story = {
           <Avatar src={avatarSrc} {...props}></Avatar>
           <Avatar fallback={fallback.toUpperCase()} {...props}></Avatar>
           <Avatar {...props}></Avatar>
-          <Avatar src={""} fallback={<p>😀 </p>} {...props}></Avatar>
+          <Avatar src={""} fallback={<p>😀</p>} {...props}></Avatar>
         </div>
       </Frame>
     );

@@ -32,7 +32,7 @@ import "@radix-ui/colors/gray-dark.css";
 
 const buttonVariants = cva(
   [
-    "inline-flex items-center justify-center gap-2 select-none",
+    "inline-flex items-center justify-center gap-2 select-none font-semibold",
     "font-medium",
     "whitespace-nowrap",
     "transition-colors"
