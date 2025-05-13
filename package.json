@@ -7,7 +7,7 @@
   "repository": "https://github.com/saverioscagnoli/tredici",
   "license": "MIT",
   "private": true,
-  "workspaces":[
+  "workspaces": [
     "react"
   ],
   "scripts": {
