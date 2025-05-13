@@ -1,13 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from "./button";
 
-import "~/index.css";
 import {
   GitHubLogoIcon,
   HomeIcon,
   MagnifyingGlassIcon
 } from "@radix-ui/react-icons";
 import { cn } from "~/lib/utils";
+
+import "~/index.css";
 
 const meta: Meta<typeof Button> = {
   title: "Components/Button",
