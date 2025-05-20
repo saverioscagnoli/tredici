@@ -7,17 +7,17 @@ import React, {
   type RefObject
 } from "react";
 import { cn } from "~/lib/utils";
+import {
+  CheckIcon,
+  ChevronRightIcon,
+  DotFilledIcon
+} from "@radix-ui/react-icons";
 
 import "@radix-ui/colors/slate.css";
 import "@radix-ui/colors/slate-dark.css";
 
 import "@radix-ui/colors/plum.css";
 import "@radix-ui/colors/plum-dark.css";
-import {
-  CheckIcon,
-  ChevronRightIcon,
-  DotFilledIcon
-} from "@radix-ui/react-icons";
 
 import "./dropdown-menu.css";
 
@@ -119,6 +119,7 @@ const DropdownMenuContent: React.FC<DropdownMenuContentProps> = ({
           "rounded shadow-md",
           "bg-[var(--slate-1)]",
           "text-[var(--slate-12)]",
+          "select-none",
           "dropdown-menu-content",
           className
         )}
@@ -337,6 +338,7 @@ const DropdownMenuSubContent: React.FC<DropdownMenuSubContentProps> = ({
           "rounded shadow-md",
           "bg-[var(--slate-1)]",
           "text-[var(--slate-12)]",
+          "select-none",
           "dropdown-menu-subcontent",
           className
         )}

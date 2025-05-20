@@ -117,6 +117,7 @@ const ContextMenuContent: React.FC<ContextMenuContentProps> = ({
           "rounded shadow-md",
           "bg-[var(--slate-1)]",
           "text-[var(--slate-12)]",
+          "select-none",
           "context-menu-content",
           className
         )}
@@ -333,6 +334,7 @@ const ContextMenuSubContent: React.FC<ContextMenuSubContentProps> = ({
           "rounded shadow-md",
           "bg-[var(--slate-1)]",
           "text-[var(--slate-12)]",
+          "select-none",
           "context-menu-subcontent",
           className
         )}

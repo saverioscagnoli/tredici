@@ -1,4 +1,4 @@
-@keyframes slide-fade {
+@keyframes slideFade {
   from {
     opacity: 0;
     transform: translateY(4px);
@@ -32,7 +32,7 @@
 }
 
 .context-menu-content {
-  animation: slide-fade 75ms ease;
+  animation: slideFade 75ms ease;
 }
 
 .context-menu-subcontent[data-side="right"] {

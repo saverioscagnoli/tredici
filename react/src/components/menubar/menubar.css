@@ -31,14 +31,14 @@
   }
 }
 
-.dropdown-menu-content {
+.menubar-content {
   animation: slideFade 75ms ease;
 }
 
-.dropdown-menu-subcontent[data-side="right"] {
+.menubar-subcontent[data-side="right"] {
   animation: slideInRight 75ms ease;
 }
 
-.dropdown-menu-subcontent[data-side="left"] {
+.menubar-subcontent[data-side="left"] {
   animation: slideInLeft 75ms ease;
 }
