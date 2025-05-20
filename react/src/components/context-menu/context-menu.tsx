@@ -6,6 +6,11 @@ import React, {
   type ReactNode,
   type RefObject
 } from "react";
+import {
+  CheckIcon,
+  ChevronRightIcon,
+  DotFilledIcon
+} from "@radix-ui/react-icons";
 import { cn } from "~/lib/utils";
 
 import "@radix-ui/colors/slate.css";
@@ -13,11 +18,8 @@ import "@radix-ui/colors/slate-dark.css";
 
 import "@radix-ui/colors/plum.css";
 import "@radix-ui/colors/plum-dark.css";
-import {
-  CheckIcon,
-  ChevronRightIcon,
-  DotFilledIcon
-} from "@radix-ui/react-icons";
+
+import "./context-menu.css";
 
 type ContextMenuColorScheme =
   | "plum"
@@ -115,6 +117,7 @@ const ContextMenuContent: React.FC<ContextMenuContentProps> = ({
           "rounded shadow-md",
           "bg-[var(--slate-1)]",
           "text-[var(--slate-12)]",
+          "context-menu-content",
           className
         )}
         {...props}
@@ -330,6 +333,7 @@ const ContextMenuSubContent: React.FC<ContextMenuSubContentProps> = ({
           "rounded shadow-md",
           "bg-[var(--slate-1)]",
           "text-[var(--slate-12)]",
+          "context-menu-subcontent",
           className
         )}
         {...props}

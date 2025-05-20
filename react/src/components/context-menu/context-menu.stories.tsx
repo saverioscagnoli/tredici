@@ -45,7 +45,7 @@ export const Demo: Story = {
   render: props => {
     const [check, setCheck] = useState<boolean>(false);
     const handleCheck = () => setCheck(c => !c);
-    const [theme, setTheme] = useState<string>("light");
+    const [theme, setTheme] = useState<string>("light");1
 
     return (
       <ContextMenu {...props}>
