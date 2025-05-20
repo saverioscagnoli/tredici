@@ -8,6 +8,7 @@
 
 body {
   background-color: var(--slate-1);
+  color: var(--slate-12);
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-weight: 500;
