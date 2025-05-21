@@ -3,6 +3,11 @@ import { Checkbox } from "./checkbox";
 
 import "~/index.css";
 import { cn } from "~/lib/utils";
+import {
+  GitHubLogoIcon,
+  PilcrowIcon,
+  TwitterLogoIcon
+} from "@radix-ui/react-icons";
 
 const meta: Meta<typeof Checkbox> = {
   title: "Components/Checkbox",
@@ -161,6 +166,24 @@ export const Variants: Story = {
           <Checkbox colorScheme="gray" variant="soft" defaultChecked />
           <Checkbox colorScheme="gray" variant="outline" defaultChecked />
         </div>
+      </div>
+    );
+  }
+};
+
+export const Disabled: Story = {
+  render: () => {
+    return <Checkbox disabled defaultChecked />;
+  }
+};
+
+export const CustomIcon: Story = {
+  render: () => {
+    return (
+      <div className={cn("flex items-center gap-4")}>
+        <Checkbox size="sm" defaultChecked icon={<TwitterLogoIcon />} />
+        <Checkbox size="md" defaultChecked icon={<GitHubLogoIcon />} />
+        <Checkbox size="lg" defaultChecked icon={<PilcrowIcon />} />
       </div>
     );
   }
