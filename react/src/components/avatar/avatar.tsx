@@ -2,6 +2,7 @@ import * as RxAvatar from "@radix-ui/react-avatar";
 import { cva, type VariantProps } from "class-variance-authority";
 import type { ReactNode, RefObject } from "react";
 import type React from "react";
+import { PersonIcon } from "@radix-ui/react-icons";
 
 import "@radix-ui/colors/slate.css";
 import "@radix-ui/colors/slate-dark.css";
@@ -32,7 +33,6 @@ import "@radix-ui/colors/orange-dark.css";
 
 import "@radix-ui/colors/gray.css";
 import "@radix-ui/colors/gray-dark.css";
-import { PersonIcon } from "@radix-ui/react-icons";
 
 const avatarVariants = cva(
   [
