@@ -37,7 +37,7 @@ export const Basic: Story = {
       control: "boolean"
     }
   },
-  render: props => <Input {...props} />
+  render: props => <Input placeholder="Username" {...props} />
 };
 
 export const Sizes: Story = {

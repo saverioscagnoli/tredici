@@ -37,7 +37,7 @@ const buttonVariants = cva(
   [
     "inline-flex items-center justify-center gap-2",
     "select-none",
-    "transition-colors",
+    "transition-all",
     "focus-visible:outline-none",
     "focus-visible:ring-2",
     "focus-visible:ring-[var(--slate-12)]",
@@ -51,8 +51,8 @@ const buttonVariants = cva(
       size: {
         sm: "h-7 px-2.5 py-1.5 rounded text-sm",
         md: "h-9 px-4 py-2 rounded-md text-sm",
-        lg: "h-12 px-5 py-3 rounded-lg",
-        icon: "w-9 h-9 rounded-md"
+        lg: "h-12 px-5 py-3 rounded-md",
+        icon: "w-9 h-9 rounded"
       },
       colorScheme: {
         plum: "",
@@ -72,7 +72,7 @@ const buttonVariants = cva(
         ghost: ""
       },
       bump: {
-        true: "active:translate-y-[1px]"
+        true: "active:translate-y-[1px] duration-100"
       }
     },
     compoundVariants: [

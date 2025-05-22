@@ -35,7 +35,7 @@ const inputVariants = cva(
   [
     "bg-transparent border border-[var(--gray-7)] outline-none",
     "caret-[var(--slate-12)] text-[var(--slate-12)]",
-    "font-normal rounded shadow transition-colors duration-100",
+    "font-normal shadow transition-colors duration-100",
     "focus:ring-2 focus:ring-offset-2 focus:ring-offset-[var(--slate-1)]",
     "disabled:cursor-not-allowed disabled:opacity-50"
   ],
@@ -53,9 +53,9 @@ const inputVariants = cva(
         gray: "focus:ring-[var(--slate-12)]"
       },
       size: {
-        sm: "h-7 px-2 text-sm",
-        md: "h-9 px-3 text-sm",
-        lg: "h-12 px-3  text-lg"
+        sm: "h-7 px-2 text-sm rounded",
+        md: "h-9 px-3 text-sm rounded",
+        lg: "h-12 px-3  text-lg rounded-md"
       },
       invalid: {
         true: "border-[var(--red-9)]"
