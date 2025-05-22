@@ -52,7 +52,7 @@ const buttonVariants = cva(
         sm: "h-7 px-2.5 py-1.5 rounded text-sm",
         md: "h-9 px-4 py-2 rounded-md text-sm",
         lg: "h-12 px-5 py-3 rounded-md",
-        icon: "w-9 h-9 rounded"
+        icon: "w-9 h-9 rounded-md"
       },
       colorScheme: {
         plum: "",

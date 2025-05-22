@@ -9,6 +9,7 @@ import {
 import { cn } from "~/lib/utils";
 
 import "~/index.css";
+import { Spinner } from "../spinner/spinner";
 
 const meta: Meta<typeof Button> = {
   title: "Components/Button",
@@ -360,6 +361,27 @@ export const WithIcon: Story = {
 
       <Button rightIcon={<HomeIcon />} {...props}>
         Home
+      </Button>
+    </div>
+  )
+};
+
+export const Loading: Story = {
+  render: () => (
+    <div className={cn("flex flex-col gap-8 items-start")}>
+      <Button leftIcon={<Spinner colorScheme="white" />} disabled>
+        Loading...
+      </Button>
+      <Button
+        variant="soft"
+        colorScheme="teal"
+        leftIcon={<Spinner colorScheme="teal" />}
+        disabled
+      >
+        Loading...
+      </Button>
+      <Button size="icon" variant="outline" disabled>
+        <Spinner noTrack />
       </Button>
     </div>
   )
