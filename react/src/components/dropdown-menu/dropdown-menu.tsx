@@ -144,7 +144,7 @@ const DropdownMenuLabel: React.FC<DropdownMenuLabelProps> = ({
   );
 };
 
-const DropdownMenuItemVariants = cva(
+const dropdownMenuItemVariants = cva(
   [
     "flex items-center",
     "pl-1 pr-4 py-[1px]",
@@ -190,7 +190,7 @@ const DropdownMenuItem: React.FC<DropdownMenuItemProps> = ({
 }) => {
   return (
     <RxDropdownMenu.Item
-      className={DropdownMenuItemVariants({
+      className={dropdownMenuItemVariants({
         className,
         colorScheme: colorScheme ?? useColorScheme()
       })}
@@ -221,7 +221,7 @@ const DropdownMenuCheckboxItem: React.FC<DropdownMenuCheckboxItemProps> = ({
 }) => {
   return (
     <RxDropdownMenu.CheckboxItem
-      className={DropdownMenuItemVariants({
+      className={dropdownMenuItemVariants({
         className,
         colorScheme: colorScheme ?? useColorScheme()
       })}
@@ -265,7 +265,7 @@ const DropdownMenuRadioItem: React.FC<DropdownMenuRadioItemProps> = ({
 }) => {
   return (
     <RxDropdownMenu.RadioItem
-      className={DropdownMenuItemVariants({
+      className={dropdownMenuItemVariants({
         className,
         colorScheme: colorScheme ?? useColorScheme()
       })}
@@ -304,7 +304,7 @@ const DropdownMenuSubTrigger: React.FC<DropdownMenuSubTriggerProps> = ({
 }) => {
   return (
     <RxDropdownMenu.SubTrigger
-      className={DropdownMenuItemVariants({
+      className={dropdownMenuItemVariants({
         className: cn("relative", className),
         colorScheme: colorScheme ?? useColorScheme()
       })}
