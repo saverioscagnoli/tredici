@@ -51,12 +51,14 @@ const progressIndicatorVariants = cva(["w-full h-full", "rounded-full"], {
 type ProgressProps = RxProgress.ProgressProps &
   VariantProps<typeof progressIndicatorVariants> & {
     indefinite?: boolean;
+    indicatorClassName?: string;
   };
 
 export type { ProgressProps };
 
 const Progress: React.FC<ProgressProps> = ({
   colorScheme = "plum",
+  indicatorClassName,
   value,
   max = 100,
   indefinite = false,
@@ -85,7 +87,7 @@ const Progress: React.FC<ProgressProps> = ({
           className: cn(
             indefinite && "indefinite",
             "progress-indicator",
-            className
+            indicatorClassName
           ),
           colorScheme
         })}
