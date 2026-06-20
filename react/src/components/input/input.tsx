@@ -3,54 +3,45 @@ import React, { type ComponentProps } from "react";
 
 import "@radix-ui/colors/slate.css";
 import "@radix-ui/colors/slate-dark.css";
-
 import "@radix-ui/colors/plum.css";
 import "@radix-ui/colors/plum-dark.css";
-
 import "@radix-ui/colors/red.css";
 import "@radix-ui/colors/red-dark.css";
-
 import "@radix-ui/colors/green.css";
 import "@radix-ui/colors/green-dark.css";
-
 import "@radix-ui/colors/blue.css";
 import "@radix-ui/colors/blue-dark.css";
-
 import "@radix-ui/colors/teal.css";
 import "@radix-ui/colors/teal-dark.css";
-
 import "@radix-ui/colors/cyan.css";
 import "@radix-ui/colors/cyan-dark.css";
-
 import "@radix-ui/colors/yellow.css";
 import "@radix-ui/colors/yellow-dark.css";
-
 import "@radix-ui/colors/orange.css";
 import "@radix-ui/colors/orange-dark.css";
-
 import "@radix-ui/colors/gray.css";
 import "@radix-ui/colors/gray-dark.css";
 
 const inputVariants = cva(
   [
-    "bg-transparent border border-[var(--gray-7)] outline-none",
-    "caret-[var(--slate-12)] text-[var(--slate-12)]",
+    "bg-transparent border border-(--gray-7) outline-none",
+    "caret-(--slate-12) text-(--slate-12)",
     "font-normal shadow transition-colors duration-100",
-    "focus:ring-2 focus:ring-offset-2 focus:ring-offset-[var(--slate-1)]",
+    "focus:ring-2 focus:ring-offset-2 focus:ring-offset-(--slate-1)",
     "disabled:cursor-not-allowed disabled:opacity-50"
   ],
   {
     variants: {
       colorScheme: {
-        plum: "focus:ring-[var(--plum-9)]",
-        red: "focus:ring-[var(--red-9)]",
-        blue: "focus:ring-[var(--blue-9)]",
-        teal: "focus:ring-[var(--teal-9)]",
-        cyan: "focus:ring-[var(--cyan-9)]",
-        green: "focus:ring-[var(--green-9)]",
-        amber: "focus:ring-[var(--amber-9)]",
-        orange: "focus:ring-[var(--orange-9)]",
-        gray: "focus:ring-[var(--slate-12)]"
+        plum: "focus:ring-(--plum-9)",
+        red: "focus:ring-(--red-9)",
+        blue: "focus:ring-(--blue-9)",
+        teal: "focus:ring-(--teal-9)",
+        cyan: "focus:ring-(--cyan-9)",
+        green: "focus:ring-(--green-9)",
+        amber: "focus:ring-(--amber-9)",
+        orange: "focus:ring-(--orange-9)",
+        gray: "focus:ring-(--slate-12)"
       },
       size: {
         sm: "h-7 px-2 text-sm rounded",
@@ -58,7 +49,7 @@ const inputVariants = cva(
         lg: "h-12 px-3  text-lg rounded-md"
       },
       invalid: {
-        true: "border-[var(--red-9)]"
+        true: "border-(--red-9)"
       }
     },
     defaultVariants: {

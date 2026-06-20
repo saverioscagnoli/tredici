@@ -15,9 +15,24 @@ import { cn } from "~/lib/utils";
 
 import "@radix-ui/colors/slate.css";
 import "@radix-ui/colors/slate-dark.css";
-
 import "@radix-ui/colors/plum.css";
 import "@radix-ui/colors/plum-dark.css";
+import "@radix-ui/colors/red.css";
+import "@radix-ui/colors/red-dark.css";
+import "@radix-ui/colors/blue.css";
+import "@radix-ui/colors/blue-dark.css";
+import "@radix-ui/colors/teal.css";
+import "@radix-ui/colors/teal-dark.css";
+import "@radix-ui/colors/cyan.css";
+import "@radix-ui/colors/cyan-dark.css";
+import "@radix-ui/colors/green.css";
+import "@radix-ui/colors/green-dark.css";
+import "@radix-ui/colors/amber.css";
+import "@radix-ui/colors/amber-dark.css";
+import "@radix-ui/colors/orange.css";
+import "@radix-ui/colors/orange-dark.css";
+import "@radix-ui/colors/gray.css";
+import "@radix-ui/colors/gray-dark.css";
 
 import "./context-menu.css";
 
@@ -113,10 +128,10 @@ const ContextMenuContent: React.FC<ContextMenuContentProps> = ({
         className={cn(
           "min-w-fit h-fit",
           "p-1",
-          "border border-[var(--gray-7)]",
+          "border border-(--gray-7)",
           "rounded shadow-md",
-          "bg-[var(--slate-1)]",
-          "text-[var(--slate-12)]",
+          "bg-(--slate-1)",
+          "text-(--slate-12)",
           "select-none",
           "context-menu-content",
           className
@@ -156,16 +171,16 @@ const contextMenuItemVariants = cva(
   {
     variants: {
       colorScheme: {
-        plum: "focus:bg-[var(--plum-9)] focus:text-[var(--slate-1)]",
-        red: "focus:bg-[var(--red-9)] focus:text-[var(--slate-1)]",
-        blue: "focus:bg-[var(--blue-9)] focus:text-[var(--slate-1)]",
-        teal: "focus:bg-[var(--teal-9)] focus:text-[var(--slate-1)]",
-        cyan: "focus:bg-[var(--cyan-9)] focus:text-[var(--slate-1)]",
-        green: "focus:bg-[var(--green-9)] focus:text-[var(--slate-1)]",
+        plum: "focus:bg-(--plum-9) focus:text-(--slate-1)",
+        red: "focus:bg-(--red-9) focus:text-(--slate-1)",
+        blue: "focus:bg-(--blue-9) focus:text-(--slate-1)",
+        teal: "focus:bg-(--teal-9) focus:text-(--slate-1)",
+        cyan: "focus:bg-(--cyan-9) focus:text-(--slate-1)",
+        green: "focus:bg-(--green-9) focus:text-(--slate-1)",
         amber:
-          "focus:bg-[var(--amber-9)] focus:text-[var(--slate-12)] focus:dark:text-[var(--slate-1)]",
-        orange: "focus:bg-[var(--orange-9)] focus:text-[var(--slate-1)]",
-        gray: "focus:bg-[var(--gray-4)] focus:text-[var(--slate-12)]"
+          "focus:bg-(--amber-9) focus:text-(--slate-12) focus:dark:text-(--slate-1)",
+        orange: "focus:bg-(--orange-9) focus:text-(--slate-1)",
+        gray: "focus:bg-(--gray-4) focus:text-(--slate-12)"
       }
     }
   }
@@ -330,10 +345,10 @@ const ContextMenuSubContent: React.FC<ContextMenuSubContentProps> = ({
         className={cn(
           "min-w-fit h-fit",
           "p-1",
-          "border border-[var(--gray-7)]",
+          "border border-(--gray-7)",
           "rounded shadow-md",
-          "bg-[var(--slate-1)]",
-          "text-[var(--slate-12)]",
+          "bg-(--slate-1)",
+          "text-(--slate-12)",
           "select-none",
           "context-menu-subcontent",
           className
@@ -356,7 +371,7 @@ const ContextMenuSeparator: React.FC<ContextMenuSeparatorProps> = ({
 }) => {
   return (
     <RxContextMenu.Separator
-      className={cn("h-[1px] my-1", "bg-[var(--gray-7)]", className)}
+      className={cn("h-px my-1", "bg-(--gray-7)", className)}
       {...props}
     />
   );

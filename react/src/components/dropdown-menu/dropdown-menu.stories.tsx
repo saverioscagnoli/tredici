@@ -53,7 +53,12 @@ export const Demo: Story = {
     return (
       <DropdownMenu {...props}>
         <DropdownMenu.Trigger asChild>
-          <Button className="ml-10" leftIcon={<GearIcon />} colorScheme="gray" variant="soft">
+          <Button
+            className="ml-10"
+            leftIcon={<GearIcon />}
+            colorScheme="gray"
+            variant="soft"
+          >
             Settings
           </Button>
         </DropdownMenu.Trigger>
@@ -131,7 +136,7 @@ export const Demo: Story = {
           <DropdownMenu.Item
             colorScheme="red"
             leftIcon={<TrashIcon />}
-            className="text-[var(--red-11)]"
+            className="text-(--red-11)"
           >
             Delete
           </DropdownMenu.Item>

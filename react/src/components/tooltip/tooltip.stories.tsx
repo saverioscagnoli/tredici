@@ -43,25 +43,25 @@ export const Directions: Story = {
   render: () => (
     <div className={cn("flex flex-col items-center gap-12 pt-12")}>
       <Tooltip>
-        <Tooltip.Trigger className="w-fit border border-[var(--gray-4)] px-2 rounded ">
+        <Tooltip.Trigger className="w-fit border border-(--gray-4) px-2 rounded ">
           Top
         </Tooltip.Trigger>
         <Tooltip.Content side="top">Top Tooltip</Tooltip.Content>
       </Tooltip>
       <Tooltip>
-        <Tooltip.Trigger className="w-fit border border-[var(--gray-4)] px-2 rounded ">
+        <Tooltip.Trigger className="w-fit border border-(--gray-4) px-2 rounded ">
           Left
         </Tooltip.Trigger>
         <Tooltip.Content side="left">Left Tooltip</Tooltip.Content>
       </Tooltip>
       <Tooltip>
-        <Tooltip.Trigger className="w-fit border border-[var(--gray-4)] px-2 rounded ">
+        <Tooltip.Trigger className="w-fit border border-(--gray-4) px-2 rounded ">
           Right
         </Tooltip.Trigger>
         <Tooltip.Content side="right">Right Tooltip</Tooltip.Content>
       </Tooltip>
       <Tooltip>
-        <Tooltip.Trigger className="w-fit border border-[var(--gray-4)] px-2 rounded ">
+        <Tooltip.Trigger className="w-fit border border-(--gray-4) px-2 rounded ">
           Bottom
         </Tooltip.Trigger>
         <Tooltip.Content side="bottom">Bottom Tooltip</Tooltip.Content>
@@ -74,7 +74,7 @@ export const DirectionsWithArrow: Story = {
   render: () => (
     <div className={cn("flex flex-col items-center gap-12 pt-12")}>
       <Tooltip>
-        <Tooltip.Trigger className="w-fit border border-[var(--gray-4)] px-2 rounded ">
+        <Tooltip.Trigger className="w-fit border border-(--gray-4) px-2 rounded ">
           Top
         </Tooltip.Trigger>
         <Tooltip.Content side="top">
@@ -83,7 +83,7 @@ export const DirectionsWithArrow: Story = {
         </Tooltip.Content>
       </Tooltip>
       <Tooltip>
-        <Tooltip.Trigger className="w-fit border border-[var(--gray-4)] px-2 rounded ">
+        <Tooltip.Trigger className="w-fit border border-(--gray-4) px-2 rounded ">
           Left
         </Tooltip.Trigger>
         <Tooltip.Content side="left">
@@ -92,7 +92,7 @@ export const DirectionsWithArrow: Story = {
         </Tooltip.Content>
       </Tooltip>
       <Tooltip>
-        <Tooltip.Trigger className="w-fit border border-[var(--gray-4)] px-2 rounded ">
+        <Tooltip.Trigger className="w-fit border border-(--gray-4) px-2 rounded ">
           Right
         </Tooltip.Trigger>
         <Tooltip.Content side="right">
@@ -101,7 +101,7 @@ export const DirectionsWithArrow: Story = {
         </Tooltip.Content>
       </Tooltip>
       <Tooltip>
-        <Tooltip.Trigger className="w-fit border border-[var(--gray-4)] px-2 rounded ">
+        <Tooltip.Trigger className="w-fit border border-(--gray-4) px-2 rounded ">
           Bottom
         </Tooltip.Trigger>
         <Tooltip.Content side="bottom">

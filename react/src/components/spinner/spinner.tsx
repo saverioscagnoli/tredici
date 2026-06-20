@@ -23,19 +23,19 @@ import "@radix-ui/colors/orange-dark.css";
 const spinnerVariants = cva("animate-spin", {
   variants: {
     colorScheme: {
-      plum: "[&_.spinner-arc]:stroke-[var(--plum-9)]",
-      red: "[&_.spinner-arc]:stroke-[var(--red-9)]",
-      blue: "[&_.spinner-arc]:stroke-[var(--blue-9)]",
-      teal: "[&_.spinner-arc]:stroke-[var(--teal-9)]",
-      cyan: "[&_.spinner-arc]:stroke-[var(--cyan-9)]",
-      green: "[&_.spinner-arc]:stroke-[var(--green-9)]",
-      amber: "[&_.spinner-arc]:stroke-[var(--amber-9)]",
-      orange: "[&_.spinner-arc]:stroke-[var(--orange-9)]",
-      gray: "[&_.spinner-arc]:stroke-[var(--slate-12)]",
+      plum: "[&_.spinner-arc]:stroke-(--plum-9)",
+      red: "[&_.spinner-arc]:stroke-(--red-9)",
+      blue: "[&_.spinner-arc]:stroke-(--blue-9)",
+      teal: "[&_.spinner-arc]:stroke-(--teal-9)",
+      cyan: "[&_.spinner-arc]:stroke-(--cyan-9)",
+      green: "[&_.spinner-arc]:stroke-(--green-9)",
+      amber: "[&_.spinner-arc]:stroke-(--amber-9)",
+      orange: "[&_.spinner-arc]:stroke-(--orange-9)",
+      gray: "[&_.spinner-arc]:stroke-(--slate-12)",
       white:
-        "[&_.spinner-arc]:stroke-[var(--slate-1)] [&_.spinner-arc]:dark:stroke-[var(--slate-12)]",
+        "[&_.spinner-arc]:stroke-(--slate-1) [&_.spinner-arc]:dark:stroke-(--slate-12)",
       black:
-        "[&_.spinner-arc]:stroke-[var(--slate-12)] [&_.spinner-arc]:dark:stroke-[var(--slate-1)]"
+        "[&_.spinner-arc]:stroke-(--slate-12) [&_.spinner-arc]:dark:stroke-(--slate-1)"
     },
     size: {
       sm: "w-3 h-3",

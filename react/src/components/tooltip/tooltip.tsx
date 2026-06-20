@@ -70,7 +70,7 @@ const TooltipContent: React.FC<TooltipContentProps> = ({
   return (
     <RxTooltip.Content
       className={cn(
-        "bg-[var(--slate-12)] text-[var(--slate-1)]",
+        "bg-(--slate-12) text-(--slate-1)",
         "text-sm",
         "px-2",
         "py-1",
@@ -99,7 +99,7 @@ const TooltipArrow: React.FC<TooltipArrowProps> = ({
     <RxTooltip.Arrow
       width={width}
       height={height}
-      className={cn("fill-[var(--slate-12)]", className)}
+      className={cn("fill-(--slate-12)", className)}
       {...props}
     />
   );

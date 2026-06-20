@@ -30,15 +30,15 @@ import "@radix-ui/colors/slate-dark.css";
 const sliderRangeVariants = cva(["h-full", "absolute", "rounded-full"], {
   variants: {
     colorScheme: {
-      plum: "bg-[var(--plum-9)]",
-      red: "bg-[var(--red-9)]",
-      blue: "bg-[var(--blue-9)]",
-      teal: "bg-[var(--teal-9)]",
-      cyan: "bg-[var(--cyan-9)]",
-      green: "bg-[var(--green-9)]",
-      amber: "bg-[var(--amber-9)]",
-      orange: "bg-[var(--orange-9)]",
-      gray: "bg-[var(--slate-12)]"
+      plum: "bg-(--plum-9)",
+      red: "bg-(--red-9)",
+      blue: "bg-(--blue-9)",
+      teal: "bg-(--teal-9)",
+      cyan: "bg-(--cyan-9)",
+      green: "bg-(--green-9)",
+      amber: "bg-(--amber-9)",
+      orange: "bg-(--orange-9)",
+      gray: "bg-(--slate-12)"
     }
   },
   defaultVariants: {
@@ -64,7 +64,7 @@ const Slider: React.FC<SliderProps> = ({
   return (
     <RxSlider.Root
       className={cn(
-        "w-[12.5rem] h-1.5",
+        "w-50 h-1.5",
         "relative flex items-center",
         "select-none touch-none",
         className
@@ -76,7 +76,7 @@ const Slider: React.FC<SliderProps> = ({
           "h-full",
           "relative flex-1",
           "rounded-full",
-          "bg-[var(--gray-5)]",
+          "bg-(--gray-5)",
           trackClassName
         )}
       >
@@ -91,11 +91,11 @@ const Slider: React.FC<SliderProps> = ({
           "block",
           "shadow",
           "outline-none",
-          "bg-[var(--slate-1)]",
-          "dark:bg-[var(--slate-12)]",
-          "border border-[var(--slate-12)]",
+          "bg-(--slate-1)",
+          "dark:bg-(--slate-12)",
+          "border border-(--slate-12)",
           {
-            "dark:border-[var(--slate-1)]": colorScheme === "gray",
+            "dark:border-(--slate-1)": colorScheme === "gray"
           },
 
           thumbClassName

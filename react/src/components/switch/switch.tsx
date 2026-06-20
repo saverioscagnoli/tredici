@@ -41,7 +41,7 @@ const switchVariants = cva(
     "relative",
     "rounded-full shadow",
     "transition-all",
-    "data-[state=unchecked]:bg-[var(--gray-5)]"
+    "data-[state=unchecked]:bg-(--gray-5)"
   ],
   {
     variants: {
@@ -51,15 +51,15 @@ const switchVariants = cva(
         lg: "w-15 h-8.5 p-0.5"
       },
       colorScheme: {
-        plum: "data-[state=checked]:bg-[var(--plum-9)]",
-        red: "data-[state=checked]:bg-[var(--red-9)]",
-        blue: "data-[state=checked]:bg-[var(--blue-9)]",
-        teal: "data-[state=checked]:bg-[var(--teal-9)]",
-        cyan: "data-[state=checked]:bg-[var(--cyan-9)]",
-        green: "data-[state=checked]:bg-[var(--green-9)]",
-        amber: "data-[state=checked]:bg-[var(--amber-9)]",
-        orange: "data-[state=checked]:bg-[var(--orange-9)]",
-        gray: "data-[state=checked]:bg-[var(--slate-12)]"
+        plum: "data-[state=checked]:bg-(--plum-9)",
+        red: "data-[state=checked]:bg-(--red-9)",
+        blue: "data-[state=checked]:bg-(--blue-9)",
+        teal: "data-[state=checked]:bg-(--teal-9)",
+        cyan: "data-[state=checked]:bg-(--cyan-9)",
+        green: "data-[state=checked]:bg-(--green-9)",
+        amber: "data-[state=checked]:bg-(--amber-9)",
+        orange: "data-[state=checked]:bg-(--orange-9)",
+        gray: "data-[state=checked]:bg-(--slate-12)"
       }
     },
     defaultVariants: {
@@ -70,7 +70,7 @@ const switchVariants = cva(
 );
 
 const thumbVariants = cva(
-  ["bg-[var(--slate-1)] dark:bg-[var(--slate-12)]", "block rounded-full"],
+  ["bg-(--slate-1) dark:bg-(--slate-12)", "block rounded-full"],
   {
     variants: {
       size: {
@@ -106,9 +106,9 @@ const Switch: React.FC<SwitchProps> = ({
       <RxSwitch.Thumb
         className={thumbVariants({
           className: cn({
-            "data-[state=checked]:bg-[var(--slate-12)] dark:data-[state=checked]:bg-[var(--slate-1)]":
+            "data-[state=checked]:bg-(--slate-12) dark:data-[state=checked]:bg-(--slate-1)":
               colorScheme === "amber",
-            "data-[state=checked]:bg-[var(--slate-1)]":
+            "data-[state=checked]:bg-(--slate-1)":
               colorScheme === "orange" || colorScheme === "gray"
           }),
           size

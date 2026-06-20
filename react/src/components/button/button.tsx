@@ -5,31 +5,22 @@ import type { VariantProps } from "class-variance-authority";
 
 import "@radix-ui/colors/slate.css";
 import "@radix-ui/colors/slate-dark.css";
-
 import "@radix-ui/colors/plum.css";
 import "@radix-ui/colors/plum-dark.css";
-
 import "@radix-ui/colors/red.css";
 import "@radix-ui/colors/red-dark.css";
-
 import "@radix-ui/colors/blue.css";
 import "@radix-ui/colors/blue-dark.css";
-
 import "@radix-ui/colors/teal.css";
 import "@radix-ui/colors/teal-dark.css";
-
 import "@radix-ui/colors/cyan.css";
 import "@radix-ui/colors/cyan-dark.css";
-
 import "@radix-ui/colors/green.css";
 import "@radix-ui/colors/green-dark.css";
-
 import "@radix-ui/colors/amber.css";
 import "@radix-ui/colors/amber-dark.css";
-
 import "@radix-ui/colors/orange.css";
 import "@radix-ui/colors/orange-dark.css";
-
 import "@radix-ui/colors/gray.css";
 import "@radix-ui/colors/gray-dark.css";
 
@@ -40,8 +31,9 @@ const buttonVariants = cva(
     "transition-all",
     "focus-visible:outline-none",
     "focus-visible:ring-2",
-    "focus-visible:ring-[var(--slate-12)]",
-    "focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[var(--slate-1)]",
+    "focus-visible:ring-(--slate-12)",
+    "focus-visible:ring-offset-2",
+    "dark:focus-visible:[--tw-ring-offset-color:var(--slate-1)]",
     "disabled:opacity-50",
     "disabled:pointer-events-none",
     "disabled:cursor-not-allowed"
@@ -72,7 +64,7 @@ const buttonVariants = cva(
         ghost: ""
       },
       bump: {
-        true: "active:translate-y-[1px] duration-100"
+        true: "active:translate-y-px duration-100"
       }
     },
     compoundVariants: [
@@ -81,34 +73,28 @@ const buttonVariants = cva(
         colorScheme: "plum",
         variant: "solid",
         class: [
-          "bg-[var(--plum-9)] hover:bg-[var(--plum-10)]",
-          "text-[var(--slate-1)] dark:text-[var(--slate-12)]"
+          "bg-(--plum-9) hover:bg-(--plum-10)",
+          "text-(--slate-1) dark:text-(--slate-12)"
         ]
       },
       {
         colorScheme: "plum",
         variant: "soft",
-        class: [
-          "bg-[var(--plum-5)] hover:bg-[var(--plum-6)]",
-          "text-[var(--plum-11)]"
-        ]
+        class: ["bg-(--plum-5) hover:bg-(--plum-6)", "text-(--plum-11)"]
       },
       {
         colorScheme: "plum",
         variant: "outline",
         class: [
-          "outline outline-[var(--plum-7)]",
-          "bg-transparent hover:bg-[var(--plum-6)]",
-          "text-[var(--plum-11)]"
+          "outline outline-1 outline-(--plum-7)",
+          "bg-transparent hover:bg-(--plum-6)",
+          "text-(--plum-11)"
         ]
       },
       {
         colorScheme: "plum",
         variant: "ghost",
-        class: [
-          "bg-transparent hover:bg-[var(--plum-6)]",
-          "text-[var(--plum-11)]"
-        ]
+        class: ["bg-transparent hover:bg-(--plum-6)", "text-(--plum-11)"]
       },
 
       // Red
@@ -116,34 +102,28 @@ const buttonVariants = cva(
         colorScheme: "red",
         variant: "solid",
         class: [
-          "bg-[var(--red-9)] hover:bg-[var(--red-10)]",
-          "text-[var(--slate-1)] dark:text-[var(--slate-12)]"
+          "bg-(--red-9) hover:bg-(--red-10)",
+          "text-(--slate-1) dark:text-(--slate-12)"
         ]
       },
       {
         colorScheme: "red",
         variant: "soft",
-        class: [
-          "bg-[var(--red-5)] hover:bg-[var(--red-6)]",
-          "text-[var(--red-11)]"
-        ]
+        class: ["bg-(--red-5) hover:bg-(--red-6)", "text-(--red-11)"]
       },
       {
         colorScheme: "red",
         variant: "outline",
         class: [
-          "outline outline-[var(--red-7)]",
-          "bg-transparent hover:bg-[var(--red-6)]",
-          "text-[var(--red-11)]"
+          "outline outline-1 outline-(--red-7)",
+          "bg-transparent hover:bg-(--red-6)",
+          "text-(--red-11)"
         ]
       },
       {
         colorScheme: "red",
         variant: "ghost",
-        class: [
-          "bg-transparent hover:bg-[var(--red-6)]",
-          "text-[var(--red-11)]"
-        ]
+        class: ["bg-transparent hover:bg-(--red-6)", "text-(--red-11)"]
       },
 
       // Blue
@@ -151,34 +131,28 @@ const buttonVariants = cva(
         colorScheme: "blue",
         variant: "solid",
         class: [
-          "bg-[var(--blue-9)] hover:bg-[var(--blue-10)]",
-          "text-[var(--slate-1)] dark:text-[var(--slate-12)]"
+          "bg-(--blue-9) hover:bg-(--blue-10)",
+          "text-(--slate-1) dark:text-(--slate-12)"
         ]
       },
       {
         colorScheme: "blue",
         variant: "soft",
-        class: [
-          "bg-[var(--blue-5)] hover:bg-[var(--blue-6)]",
-          "text-[var(--blue-11)]"
-        ]
+        class: ["bg-(--blue-5) hover:bg-(--blue-6)", "text-(--blue-11)"]
       },
       {
         colorScheme: "blue",
         variant: "outline",
         class: [
-          "outline outline-[var(--blue-7)]",
-          "bg-transparent hover:bg-[var(--blue-6)]",
-          "text-[var(--blue-11)]"
+          "outline outline-1 outline-(--blue-7)",
+          "bg-transparent hover:bg-(--blue-6)",
+          "text-(--blue-11)"
         ]
       },
       {
         colorScheme: "blue",
         variant: "ghost",
-        class: [
-          "bg-transparent hover:bg-[var(--blue-6)]",
-          "text-[var(--blue-11)]"
-        ]
+        class: ["bg-transparent hover:bg-(--blue-6)", "text-(--blue-11)"]
       },
 
       // Teal
@@ -186,34 +160,28 @@ const buttonVariants = cva(
         colorScheme: "teal",
         variant: "solid",
         class: [
-          "bg-[var(--teal-9)] hover:bg-[var(--teal-10)]",
-          "text-[var(--slate-1)] dark:text-[var(--slate-12)]"
+          "bg-(--teal-9) hover:bg-(--teal-10)",
+          "text-(--slate-1) dark:text-(--slate-12)"
         ]
       },
       {
         colorScheme: "teal",
         variant: "soft",
-        class: [
-          "bg-[var(--teal-5)] hover:bg-[var(--teal-6)]",
-          "text-[var(--teal-11)]"
-        ]
+        class: ["bg-(--teal-5) hover:bg-(--teal-6)", "text-(--teal-11)"]
       },
       {
         colorScheme: "teal",
         variant: "outline",
         class: [
-          "outline outline-[var(--teal-7)]",
-          "bg-transparent hover:bg-[var(--teal-6)]",
-          "text-[var(--teal-11)]"
+          "outline outline-1 outline-(--teal-7)",
+          "bg-transparent hover:bg-(--teal-6)",
+          "text-(--teal-11)"
         ]
       },
       {
         colorScheme: "teal",
         variant: "ghost",
-        class: [
-          "bg-transparent hover:bg-[var(--teal-6)]",
-          "text-[var(--teal-11)]"
-        ]
+        class: ["bg-transparent hover:bg-(--teal-6)", "text-(--teal-11)"]
       },
 
       // Cyan
@@ -221,34 +189,28 @@ const buttonVariants = cva(
         colorScheme: "cyan",
         variant: "solid",
         class: [
-          "bg-[var(--cyan-9)] hover:bg-[var(--cyan-10)]",
-          "text-[var(--slate-1)] dark:text-[var(--slate-12)]"
+          "bg-(--cyan-9) hover:bg-(--cyan-10)",
+          "text-(--slate-1) dark:text-(--slate-12)"
         ]
       },
       {
         colorScheme: "cyan",
         variant: "soft",
-        class: [
-          "bg-[var(--cyan-5)] hover:bg-[var(--cyan-6)]",
-          "text-[var(--cyan-11)]"
-        ]
+        class: ["bg-(--cyan-5) hover:bg-(--cyan-6)", "text-(--cyan-11)"]
       },
       {
         colorScheme: "cyan",
         variant: "outline",
         class: [
-          "outline outline-[var(--cyan-7)]",
-          "bg-transparent hover:bg-[var(--cyan-6)]",
-          "text-[var(--cyan-11)]"
+          "outline outline-1 outline-(--cyan-7)",
+          "bg-transparent hover:bg-(--cyan-6)",
+          "text-(--cyan-11)"
         ]
       },
       {
         colorScheme: "cyan",
         variant: "ghost",
-        class: [
-          "bg-transparent hover:bg-[var(--cyan-6)]",
-          "text-[var(--cyan-11)]"
-        ]
+        class: ["bg-transparent hover:bg-(--cyan-6)", "text-(--cyan-11)"]
       },
 
       // Green
@@ -256,137 +218,109 @@ const buttonVariants = cva(
         colorScheme: "green",
         variant: "solid",
         class: [
-          "bg-[var(--green-9)] hover:bg-[var(--green-10)]",
-          "text-[var(--slate-1)] dark:text-[var(--slate-12)]"
+          "bg-(--green-9) hover:bg-(--green-10)",
+          "text-(--slate-1) dark:text-(--slate-12)"
         ]
       },
       {
         colorScheme: "green",
         variant: "soft",
-        class: [
-          "bg-[var(--green-5)] hover:bg-[var(--green-6)]",
-          "text-[var(--green-11)]"
-        ]
+        class: ["bg-(--green-5) hover:bg-(--green-6)", "text-(--green-11)"]
       },
       {
         colorScheme: "green",
         variant: "outline",
         class: [
-          "outline outline-[var(--green-7)]",
-          "bg-transparent hover:bg-[var(--green-6)]",
-          "text-[var(--green-11)]"
+          "outline outline-1 outline-(--green-7)",
+          "bg-transparent hover:bg-(--green-6)",
+          "text-(--green-11)"
         ]
       },
       {
         colorScheme: "green",
         variant: "ghost",
-        class: [
-          "bg-transparent hover:bg-[var(--green-6)]",
-          "text-[var(--green-11)]"
-        ]
+        class: ["bg-transparent hover:bg-(--green-6)", "text-(--green-11)"]
       },
+
+      // Amber
       {
         colorScheme: "amber",
         variant: "solid",
         class: [
-          "bg-[var(--amber-9)] hover:bg-[var(--amber-10)]",
-          "text-[var(--slate-12)] dark:text-[var(--slate-1)]"
+          "bg-(--amber-9) hover:bg-(--amber-10)",
+          "text-(--slate-12) dark:text-(--slate-1)"
         ]
       },
       {
         colorScheme: "amber",
         variant: "soft",
-        class: [
-          "bg-[var(--amber-5)] hover:bg-[var(--amber-6)]",
-          "text-[var(--amber-11)]"
-        ]
+        class: ["bg-(--amber-5) hover:bg-(--amber-6)", "text-(--amber-11)"]
       },
       {
         colorScheme: "amber",
         variant: "outline",
         class: [
-          "outline outline-[var(--amber-7)]",
-          "bg-transparent hover:bg-[var(--amber-6)]",
-          "text-[var(--amber-11)]"
+          "outline outline-1 outline-(--amber-7)",
+          "bg-transparent hover:bg-(--amber-6)",
+          "text-(--amber-11)"
         ]
       },
       {
         colorScheme: "amber",
         variant: "ghost",
-        class: [
-          "bg-transparent hover:bg-[var(--amber-6)]",
-          "text-[var(--amber-11)]"
-        ]
+        class: ["bg-transparent hover:bg-(--amber-6)", "text-(--amber-11)"]
       },
 
       // Orange
       {
         colorScheme: "orange",
         variant: "solid",
-        class: [
-          "bg-[var(--orange-9)] hover:bg-[var(--orange-10)]",
-          "text-[var(--slate-1)]"
-        ]
+        class: ["bg-(--orange-9) hover:bg-(--orange-10)", "text-(--slate-1)"]
       },
       {
         colorScheme: "orange",
         variant: "soft",
-        class: [
-          "bg-[var(--orange-5)] hover:bg-[var(--orange-6)]",
-          "text-[var(--orange-11)]"
-        ]
+        class: ["bg-(--orange-5) hover:bg-(--orange-6)", "text-(--orange-11)"]
       },
       {
         colorScheme: "orange",
         variant: "outline",
         class: [
-          "outline outline-[var(--orange-7)]",
-          "bg-transparent hover:bg-[var(--orange-6)]",
-          "text-[var(--orange-11)]"
+          "outline outline-1 outline-(--orange-7)",
+          "bg-transparent hover:bg-(--orange-6)",
+          "text-(--orange-11)"
         ]
       },
       {
         colorScheme: "orange",
         variant: "ghost",
-        class: [
-          "bg-transparent hover:bg-[var(--orange-6)]",
-          "text-[var(--orange-11)]"
-        ]
+        class: ["bg-transparent hover:bg-(--orange-6)", "text-(--orange-11)"]
       },
 
       // Gray
       {
         colorScheme: "gray",
         variant: "solid",
-        class: [
-          "bg-[var(--gray-12)] hover:bg-[var(--gray-11)]",
-          "text-[var(--slate-1)]"
-        ]
+        class: ["bg-(--gray-12) hover:bg-(--gray-11)", "text-(--slate-1)"]
       },
       {
         colorScheme: "gray",
         variant: "soft",
-        class: [
-          "bg-[var(--gray-5)] hover:bg-[var(--gray-6)]",
-          "text-[var(--slate-12)]"
-        ]
+        class: ["bg-(--gray-5) hover:bg-(--gray-6)", "text-(--slate-12)"]
       },
       {
         colorScheme: "gray",
         variant: "outline",
         class: [
-          "outline outline-[var(--gray-7)]",
-          "bg-transparent hover:bg-[var(--gray-6)]",
-          "text-[var(--gray-12)]"
+          "outline outline-1 outline-(--gray-7)",
+          "bg-transparent hover:bg-(--gray-6)",
+          "text-(--gray-12)"
         ]
       },
       {
         colorScheme: "gray",
         variant: "ghost",
-        class: [
-          "bg-transparent hover:bg-[var(--gray-6)]",
-          "text-[var(--gray-12)]"
-        ]
+        class: ["bg-transparent hover:bg-(--gray-6)", "text-(--gray-12)"]
       }
     ],
     defaultVariants: {

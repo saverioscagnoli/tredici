@@ -53,8 +53,8 @@ const AlertDialogContent: React.FC<AlertDialogContentProps> = ({
     <RxAlertDialog.Portal>
       <RxAlertDialog.Overlay
         className={cn(
-          "fixed inset-0 z-[9998]",
-          "bg-[var(--gray-a9)] dark:bg-[var(--gray-a3)]",
+          "fixed inset-0 z-9998",
+          "bg-(--gray-a9) dark:bg-(--gray-a3)",
           "alert-dialog-overlay",
           overlayClassName
         )}
@@ -62,12 +62,12 @@ const AlertDialogContent: React.FC<AlertDialogContentProps> = ({
       />
       <RxAlertDialog.Content
         className={cn(
-          "w-11/12 max-w-[500px] max-h-[90vh] p-6",
-          "fixed top-1/2 left-1/2 z-[9999]",
+          "w-11/12 max-w-125 max-h-[90vh] p-6",
+          "fixed top-1/2 left-1/2 z-9999",
           "transform -translate-x-1/2 -translate-y-1/2",
-          "bg-[var(--slate-1)]",
+          "bg-(--slate-1)",
           "rounded-md shadow-md",
-          "outline dark:outline outline-[var(--gray-7)]",
+          "outline dark:outline outline-(--gray-7)",
           "alert-dialog-content",
           className
         )}
@@ -91,7 +91,7 @@ const AlertDialogTitle: React.FC<AlertDialogTitleProps> = ({
 }) => {
   return (
     <RxAlertDialog.Title
-      className={cn("text-xl font-semibold text-[var(--slate-12)]", className)}
+      className={cn("text-xl font-semibold text-(--slate-12)", className)}
       ref={ref}
       {...props}
     />
@@ -111,7 +111,7 @@ const AlertDialogDescription: React.FC<AlertDialogDescriptionProps> = ({
 }) => {
   return (
     <RxAlertDialog.Description
-      className={cn("mt-2", "text-[var(--slate-12)] font-normal", className)}
+      className={cn("mt-2", "text-(--slate-12) font-normal", className)}
       ref={ref}
       {...props}
     />
@@ -142,8 +142,8 @@ const AlertDialogCancel: React.FC<AlertDialogCloseProps> = ({
           "w-7 h-7 absolute top-4 right-4",
           "inline-flex items-center justify-center",
           "rounded-md",
-          "bg-transparent text-[var(--slate-12)]",
-          "hover:bg-[var(--gray-5)] active:translate-y-[1px]",
+          "bg-transparent text-(--slate-12)",
+          "hover:bg-(--gray-5) active:translate-y-px",
           "transition-all duration-100",
           className
         )}

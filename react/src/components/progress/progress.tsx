@@ -32,15 +32,15 @@ import "./progress.css";
 const progressIndicatorVariants = cva(["w-full h-full", "rounded-full"], {
   variants: {
     colorScheme: {
-      plum: "bg-[var(--plum-9)]",
-      red: "bg-[var(--red-9)]",
-      blue: "bg-[var(--blue-9)]",
-      teal: "bg-[var(--teal-9)]",
-      cyan: "bg-[var(--cyan-9)]",
-      green: "bg-[var(--green-9)]",
-      amber: "bg-[var(--amber-9)]",
-      orange: "bg-[var(--orange-9)]",
-      gray: "bg-[var(--slate-12)]"
+      plum: "bg-(--plum-9)",
+      red: "bg-(--red-9)",
+      blue: "bg-(--blue-9)",
+      teal: "bg-(--teal-9)",
+      cyan: "bg-(--cyan-9)",
+      green: "bg-(--green-9)",
+      amber: "bg-(--amber-9)",
+      orange: "bg-(--orange-9)",
+      gray: "bg-(--slate-12)"
     }
   },
   defaultVariants: {
@@ -72,7 +72,7 @@ const Progress: React.FC<ProgressProps> = ({
       className={cn(
         "w-[12.5rem] h-1.5",
         "relative",
-        "bg-[var(--gray-5)]",
+        "bg-(--gray-5)",
         "overflow-hidden",
         "rounded-full",
         "progress",

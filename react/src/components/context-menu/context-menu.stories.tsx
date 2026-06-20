@@ -45,7 +45,8 @@ export const Demo: Story = {
   render: props => {
     const [check, setCheck] = useState<boolean>(false);
     const handleCheck = () => setCheck(c => !c);
-    const [theme, setTheme] = useState<string>("light");1
+    const [theme, setTheme] = useState<string>("light");
+    1;
 
     return (
       <ContextMenu {...props}>
@@ -118,7 +119,7 @@ export const Demo: Story = {
           <ContextMenu.Item
             colorScheme="red"
             leftIcon={<TrashIcon />}
-            className="text-[var(--red-11)]"
+            className="text-(--red-11)"
           >
             Delete
           </ContextMenu.Item>
